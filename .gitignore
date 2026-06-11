@@ -1,0 +1,28 @@
+# 运行时/session文件
+agents/
+cron/
+sessions/
+hermes-sessions/
+hermes-sessions-archive/
+feishu/
+openclaw-weixin/
+update-check.json
+logs/
+media/
+
+# 缓存
+.wechat-cache/
+__pycache__/
+*.pyc
+
+# 系统文件
+nul
+.DS_Store
+Thumbs.db
+
+# 大文件
+*.exe
+*.dll
+
+# 媒体文件（太大）
+workspace/media/
