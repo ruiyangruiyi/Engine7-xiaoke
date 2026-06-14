@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "activeForm": "处理重复文件",
+    "content": "处理5个重复文件（保留较新较大）",
+    "status": "completed"
+  },
+  {
+    "activeForm": "移动散落文件",
+    "content": "移动30个根目录散落文件到子目录",
+    "status": "completed"
+  },
+  {
+    "activeForm": "更新MEMORY.md索引",
+    "content": "更新MEMORY.md索引路径",
+    "status": "completed"
+  },
+  {
+    "activeForm": "更新extract.md规范",
+    "content": "更新extract.md文件规范为子目录格式",
+    "status": "in_progress"
+  }
+]

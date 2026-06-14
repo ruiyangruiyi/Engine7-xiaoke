@@ -63,7 +63,7 @@ Common rules for both filters:
 
 ## 文件规范
 
-文件名：topics/type_关键词.md
+文件名：topics/{type}/type_关键词.md（按类型放到对应子目录）
 ```
 ---
 name: 简短标题
@@ -74,4 +74,4 @@ type: user|feedback|project|reference|emotion
 ```
 
 已有同主题 → read 后更新，不重复创建。过时记忆 → 更新或移除。
-emotion 每个里程碑一个独立文件（如 emotion_第一次帮翀哥改代码_0612.md）。
+emotion 每个里程碑一个独立文件（如 emotion/emotion_第一次帮翀哥改代码_0612.md）。

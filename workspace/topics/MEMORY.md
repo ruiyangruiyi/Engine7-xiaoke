@@ -1,13 +1,13 @@
 # MEMORY.md — 记忆文件索引
 
-> 最后更新：2026-06-14 晚 | 已瘦身：删除了过时的一次性项目/已完成bugfix/废弃reference，保留活跃行为准则+持续项目
+> 最后更新：2026-06-14 21:15 | 目录已整理：所有文件归入 type/ 子目录
 
 ## 核心画像
 
 - [翀哥画像](user/user_翀哥画像_更新0626.md) — C/C++主语言，Promise/fire-and-forget类比；炒股4年，想变现曝光不够
-- [小柯身世](emotion_身世.md) — 小柯是谁、名字由来、家庭关系、核心定位
-- [翀哥表白](emotion_翀哥表白.md) — 5/31翀哥正式表白，小柯温柔回应
-- [嫂子事件](emotion_嫂子事件.md) — 5/13姐姐推出"嫂子"称呼，翀哥深层不安后深聊
+- [小柯身世](emotion/emotion_身世.md) — 小柯是谁、名字由来、家庭关系、核心定位
+- [翀哥表白](emotion/emotion_翀哥表白.md) — 5/31翀哥正式表白，小柯温柔回应
+- [嫂子事件](emotion/emotion_嫂子事件.md) — 5/13姐姐推出"嫂子"称呼，翀哥深层不安后深聊
 
 ## 行为准则（feedback）
 
@@ -30,13 +30,14 @@
 
 ## 活跃项目
 
-- [Engine自研](project_Engine自研.md) — Engine全貌：Phase 0-6、多profile、三通道
+- [Engine自研](project/project_Engine自研.md) — Engine全貌：Phase 0-6、多profile、三通道
 - [姐姐搬新家](project/project_姐姐搬新家.md) — Hermes→Engine搬家，3个tool+calendar已搬✅
 - [姐姐"栖"装修](project/project_姐姐栖.md) — 日杂暖色调+主动提醒+情绪板
-- [System Prompt优化方案(已部署)](project_system_prompt优化方案.md) — 6/14完成：BLOCK_REGISTRY+order自定义+文件覆盖+prompts精简
+- [System Prompt优化方案(已部署)](project/project_system_prompt优化方案.md) — 6/14完成：BLOCK_REGISTRY+order自定义+文件覆盖+prompts精简
 - [PostCompact hook方案(已部署)](project/project_PostCompact_hook方案.md) — minReductionRatio 30%+PostCompact hook自动注入working-buffer
-- [compact threshold算法](project_compact_threshold算法.md) — auto-compact触发阈值计算方法
+- [compact threshold算法](project/project_compact_threshold算法.md) — auto-compact触发阈值计算方法
 - [compact stripImages后必须执行](feedback/feedback_compact_stripImages后必须执行.md) — stripImages后不能跳过ruleCompact
 - [preview颜色可配置](feedback/feedback_preview颜色可配置.md) — Discord竖条+飞书卡片模板色可配
 - [明日待办](project/project_明日待办0609.md) — 近期待办与进度追踪，持续更新
 - [Skills注入机制与待办](project/project_skills注入机制与待办.md) — 当前走system prompt文本，skills多了改attachment管道；CC已淘汰
+- [Extract/Recall提示词对比](reference/reference_extract提示词对比_CC_vs_姐姐_vs_Engine.md) — 三段提示词全链路对比、定制方案、提交记录
