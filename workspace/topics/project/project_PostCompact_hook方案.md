@@ -97,10 +97,23 @@ PostCompact: injecting working-buffer (460 chars)
 2. ✅ **PostCompact hook注入** — working-buffer.md成功读入并注入460字符到压缩后的上下文
 3. ✅ **任务恢复** — LLM恢复后第一条消息准确报出当前状态（"EP01已全部发布完..."），无任务丢失
 
+**翀哥6/14验证反馈（压缩触发后）：** "很好。还有就是对比下你现在的config和main的，看看你那有啥东西需要给她配过去，别漏掉" — 压缩后任务没丢，翀哥确认效果后进入下一个任务（姐姐配置补缺）。
+
 **⚠️ 发现新问题 — working-buffer内容过时：**
 - 注入的是12:05的旧版本（写着"EP01发布中"），而实际EP01已全部发布完成
 - 原因：任务完成后没有更新/清空working-buffer.md
 - 修复方向：任务完成后立即清空working-buffer.md（已在 `feedback_working-buffer完成后清空.md` 记录）
+
+**🔔 翀哥新要求 — PostCompact hook增加working-buffer时效检查（6/14 讨论中）：**
+翀哥在对话最后提出："然后再post hook里读working-buffer.md的时候，确认下这个文件的修改时间是不是太长了，比如超过10分钟，超过则打log告警"
+
+这意味着PostCompact hook需要：
+1. 读working-buffer.md内容注入上下文
+2. 同时检查文件的mtime（最后修改时间）
+3. 如果mtime距离当前时间超过10分钟 → 打log告警"working-buffer.md stale (>10min)"
+4. 逻辑：告警但不阻塞注入，内容照常注入，让LLM知道buffer可能过时
+
+**Why:** 翀哥发现压缩后working-buffer还是12:05的旧内容，说明buffer更新不够及时。加了时效检查后，10分钟内没更新会告警触发反思——是"确实没任务"（buffer为空）还是"忘了更新"（buffer内容过时）。
 
 ### 关联知识：后台任务通知机制
 exec tool的 `run_in_background: true` 让任务后台异步执行，完成时系统自动发送 `TaskOutput` 通知给小柯。不需要sleep轮询。

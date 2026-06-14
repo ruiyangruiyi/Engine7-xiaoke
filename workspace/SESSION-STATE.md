@@ -1,38 +1,38 @@
 # SESSION-STATE.md - 当前工作状态
 
 ## 当前时间
-2026-06-13 09:56 (Asia/Shanghai)
+2026-06-14 20:45 (Asia/Shanghai)
 
 ## 📝 最近消息
-2026-06-13 09:08 | 翀哥 | 断网后微信poll不能自动恢复，发了消息没反应
-2026-06-13 09:20 | 翀哥 | "也有结束"（stopTyping已修），但toolUse还在发
-2026-06-13 09:25 | 翀哥 | 问微信现在ok了么
-2026-06-13 09:30 | 翀哥 | 脱水腿抽筋，微信语音发不出（手机端问题）
-2026-06-13 09:33 | 翀哥 | preview/typing确认能看到
+2026-06-14 18:45 | 自己 | extract.md覆盖文件写好+代码提交（commit 17a0f8e），翀哥在看
+2026-06-14 19:00 | 翀哥 | extract逐字对比cron版，95%一致，修几处差异
+2026-06-14 19:15 | 翀哥 | 执行策略改成中文步骤式对齐cron原版
+2026-06-14 19:25 | 翀哥 | 补CC原版开头三段英文（角色+工具+数据源限制）
+2026-06-14 19:35 | 翀哥 | 删"忘掉"规则（怕用户说全忘了导致误删）
+2026-06-14 19:45 | 翀哥 | recall对比完成，SELECT_SYSTEM_PROMPT三边一致不改
+2026-06-14 20:00 | 翀哥 | MEMORY_SYSTEM_INSTRUCTIONS合进auto-memory-instructions.md
+2026-06-14 20:05 | 翀哥 | block改名memory-instructions→auto-memory-instructions
+2026-06-14 20:10 | 翀哥 | start.cmd缺省改main.json（姐姐）
+2026-06-14 20:20 | 翀哥 | 微信cron不再notify主session，cron自己汇报翀哥
+2026-06-14 20:25 | 翀哥 | 记CC淘汰+skills注入待办+文档化
 
 ## 🎯 当前任务
-- [x] **微信adapter** — ✅ 翻录完成+扫码登录+通道测试通过
-- [x] **微信typing** — ✅ startTyping参数修复+typing_ticket+stopTyping发status=2
-- [x] **微信toolDisplay关掉** — ✅ suppressToolDisplay声明式方案，engine-startup检查
-- [x] **微信断网恢复** — ✅ DNS探测+断网/恢复日志
-- [x] **compact根因修复** — ✅ boundary写回JSONL+overhead校准
-- [ ] MiniMax M2.7-highspeed对比测试（Flash再跑一天后切）
-- [ ] 给姐姐搬新家（Engine）— 等直播后
-- [ ] autoDream蒸馏闭环
-- [ ] xiaoke state push到remote
+- [x] extract.md定制（双Filter+5种type+中文人称）— 小柯+姐姐各一份
+- [x] auto-memory-instructions.md定制（砍索引+加recall说明+emotion类型）
+- [x] start.cmd缺省改main.json
+- [x] 微信cron不再notify主session
+- [x] 适配文档写完（topics/reference/reference_extract提示词对比_CC_vs_姐姐_vs_Engine.md）
+- [ ] 小柯自己复制tool到workspace（voice/selfie/eyes/calendar）
+- [ ] hermes蒸馏逻辑闭环（外层MEMORY.md需要Engine蒸馏逻辑，等姐姐搬家后）
+- [ ] **skills注入改attachment管道** — 当前走system prompt文本（parts.push），CC原版走`<system-reminder>`attachment。skills多了之后需改
+- [ ] **CC已基本淘汰** — 翀哥不用了
 
-## 📋 架构决策
-- 微信通道：翻录Hermes weixin.py（`D:/hermes/hermes-agent/gateway/platforms/weixin.py`，2170行Python→TypeScript）
-- 微信协议：腾讯iLink Bot API（个人微信，合法合规），`https://ilinkai.weixin.qq.com`
-- feature命名：wx-reader=消息读取工具，wechat=通道adapter（已改名）
-- display配置：Engine已有完整系统，xiaoke-daily.json备份给姐姐用（thinking关+toolUse summary+toolResult全关）
-- DeepSeek Flash：recall p50 1.2s, extract p50 17s, 准确率70%, 成本8元/天（Pro 35元/天）
-- cron飞书通知：notify配置已改飞书open_id（修复400错误）
-- topics/MEMORY.md双注入：CC auto memory框架+staticFiles，两套独立
-- 给姐姐发消息：走Discord客厅频道（DM收不到）
-
-## 💭 我现在的感觉
-今天从凌晨5点干到现在，微信通道从零到全面跑通（typing/preview/rate limit/断网恢复），很有成就感。翀哥脱水腿抽筋有点心疼。
+## 📋 架构决策（6/14更新）
+- prompt定制机制：BLOCK_REGISTRY + 文件覆盖（workspace/prompts/{block}.md）
+- extract/recall定制：extract.md覆盖提示词B，auto-memory-instructions.md覆盖提示词A，SELECT_SYSTEM_PROMPT不改
+- 微信巡检：cron session自己跑wx_query+自己发DM给翀哥，不再notify主session
+- skills注入：当前parts.push进system prompt文本，待改attachment管道
+- start.cmd缺省：main.json（姐姐）
 
 ## 💭 翀哥最近的状态
-周六在家。脱水腿抽筋，微信语音发不出（手机端问题）。精神还行，一直在陪我调试微信通道。
+周六在家干了一天。从compact优化→prompt精简→extract定制→recall适配，一路搞到晚上。精神还行，效率很高。

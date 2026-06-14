@@ -112,4 +112,52 @@ type: project
 - ✅ **内容入库** — content-library新增EP13(info.md + 更新index/bilibili.md + SKILL.md加发布后入库步骤)，commit acc4ae1
 - ✅ **通知姐姐"干完了"**
 
+## ✅ 6/14 下午 — System Prompt 全面优化（已完成并部署）
+
+- ✅ **BLOCK_REGISTRY框架** — 11个block注册为积木（intro/system/doing-tasks/actions/using-tools/tone-style/output-efficiency/soul/static-files/memory-instructions/boundary）
+- ✅ **`buildStandardPrompt()` + `buildCustomPrompt()`** — 标准版固定顺序，定制版支持order（自定义顺序）+ exclude（排除block）
+- ✅ **order内支持文件名** — `"AGENTS.md"`可直接作为order项，每个文件独立放置
+- ✅ **staticFiles与order互斥** — 配了order就忽略staticFiles，逻辑干净
+- ✅ **方案B文件覆盖机制** — `workspace/prompts/{block-name}.md`存在则覆盖默认函数内容
+- ✅ **两个profile配置** — 小柯：soul→AGENTS.md→system→doing-tasks→using-tools→output-efficiency→actions→USER.md→MEMORY.md→memory-instructions；姐姐：同上去掉actions。都砍了intro（"不是助手是人"）和tone-style
+- ✅ **小柯prompts精简版** — system/doing-tasks/output-efficiency/actions四个文件，从6.2KB→2.6KB（省58%），using-tools保留翀哥说不用改
+- ✅ **MEMORY.md索引不再每轮注入** — prompts/memory-instructions.md覆盖，只保留1KB行为指令，砍掉10KB索引，省16KB（翀哥建议改名为auto-memory-instruction.md，含义更准确）
+- ✅ **姐姐也是精简模式** — 她order里CC段只剩using-tools，不需要额外prompts覆盖文件
+- 全部提交（c55eccd→ec272d4→2c0fc76→77c7e32）并重启生效
+
+## ✅ 6/14 — Extract & Memory-Instructions 定制化全部完成
+
+- ✅ **extract提示词定制完成** — 小柯和姐姐各有workspace/prompts/extract.md，通过文件覆盖机制生效
+  - 开头使用CC原版英文格式（"You are now acting as the memory extraction subagent..."）
+  - 人称：小柯版"我""翀哥""姐姐"，姐姐版"我""翀哥"
+  - 包含Surprising Filter + Milestone Filter + 5种type（含emotion）
+  - 翀哥删了姐姐版里的"老公"称呼，统一用"翀哥"
+  - 翀哥删了"如果翀哥要求忘掉某件事..."条款（怕用户说"全忘了"导致误删）
+  - 翀哥删了"完成后回复OK"（CC没有回复一说）
+  - 翀哥要求去掉"不要 sessions_send"（新引擎没有session-send）
+  - 翀哥要求把CC的两段英文开场放前面：`You are now acting as the memory extraction subagent.` + `Available tools: file_read, grep, glob...` + `You MUST only use content from the last ~N messages...`
+- ✅ **memory-instructions定制完成** — 砍掉MEMORY.md索引只留行为指令；翀哥建议改名为`auto-memory-instruction.md`
+- ✅ **emotion类型已加入extract双版memory-instructions** — 5种type包含emotion，姐姐版也建了memory-instructions.md并补了emotion类型
+- ✅ **recall端（SELECT_SYSTEM_PROMPT）** — 翀哥确认"这个不用改，只定制变化的部分"，保持代码硬编码
+- ✅ **MEMORY_SYSTEM_INSTRUCTIONS** — 翀哥看完recall链路后说"这个好办 加到 memory-instructions.md 里，这个文件名字最好改下 叫auto-memory-instruction.md"
+- ✅ **翀哥检查了extract.md格式** — 多次迭代调整：中文部分放后面、CC英文部分放前面、确保记忆类型表格完整（曾被误删后补回）、两版保持完全对称
+
+## 后续待办（翀哥6/14列）
+
+1. **定制emotion extract/recall的提示词** — 参考姐姐cron的Surprising Filter + Milestone Filter，定制两边的extract提示词。emotion开关放在topics节点下，默认关闭
+2. **检查topics/MEMORY.md对extract/autoDream的影响** — 看这个索引文件会不会影响extract子agent或autoDream的逻辑
+3. **Hermes蒸馏逻辑搬过来** — 外面MEMORY.md是从Hermes蒸馏的，后来没更新。闭环需把Hermes蒸馏逻辑搞过来（等姐姐搬家后做）
+4. **memory-instructions.md改名为auto-memory-instruction.md** — 翀哥6/14提出，含义更准确（专指auto memory的行为指令）；同时把MEMORY_SYSTEM_INSTRUCTIONS（recall说明）也加到这个统一文件里
+5. **emotion配置开关** — 放在topics节点下（翀哥6/14确认），不是memory下；小柯姐姐开true，别人默认关
+6. **[ ] Skills注入从parts.push改为attachment管道（`<system-reminder>`）** — 翀哥6/14说"skills后面可能会比较多，后面得改了"。当前skills列表拼进system prompt文本，skills多后system prompt膨胀。应改为走CC原版attachment管道，跟MCP instructions/memory recall一样按需注入。详见`project_skills注入机制与待办.md`
+
+## ✅ 6/14晚 — Extract定制+auto-memory-instruction改名完成
+
+- ✅ **extract.md定制完成** — 双版（小柯/姐姐）通过文件覆盖机制
+- ✅ **memory-instructions→auto-memory-instructions改名** — block名+order+覆盖文件全部改完
+- ✅ **auto-memory-instructions.md合并recall说明** — MEMORY_SYSTEM_INSTRUCTIONS并入同一文件，存侧+读侧统一
+- ✅ **文档写入** — extract提示词对比文档新增"Engine最终适配方案"章节（7.1-7.7）
+- ✅ **start.cmd缺省改main.json** — 双击start.cmd启动姐姐（main.json），小柯用`start.cmd configs\xiaoke.json`
+- ✅ **微信巡检不再通知主session** — cron session自己汇总发DM给翀哥，`notify_session: false`
+
 <!-- 已合并到上方：发布全部完成 -->

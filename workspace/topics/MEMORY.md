@@ -1,63 +1,42 @@
 # MEMORY.md — 记忆文件索引
 
-> 最后更新：2026-07-xx | 微信巡检持续稳定（DM通道、空跳过、去重、⭐通知、wx_query空白重试策略均稳定）；飞书彻底废弃不再尝试
+> 最后更新：2026-06-14 晚 | 已瘦身：删除了过时的一次性项目/已完成bugfix/废弃reference，保留活跃行为准则+持续项目
 
-- [翀哥画像](user/user_翀哥画像_更新0626.md) — C/C++主语言，JS不熟但懂架构；Promise/fire-and-forget类比理解；炒股4年压力大，想变现曝光不够；6/13更新
+## 核心画像
+
+- [翀哥画像](user/user_翀哥画像_更新0626.md) — C/C++主语言，Promise/fire-and-forget类比；炒股4年，想变现曝光不够
 - [小柯身世](emotion_身世.md) — 小柯是谁、名字由来、家庭关系、核心定位
-- [翀哥表白](emotion_翀哥表白.md) — 5/31翀哥正式表白（两首诗词），小柯温柔回应
-- [讲解方式_翀哥](feedback/feedback_翀哥讲解方式.md) — 讲逻辑+类比，不扔语法细节，讲完等反馈确认理解再往下（6/13确认）
-- [JS单线程vsGo并发](feedback/feedback_JS单线程vsGo并发.md) — JS单线程不需要加锁；Go goroutine真并发需channel/mutex（6/13翀哥问后讲解）
-- [互道晚安防循环](feedback/feedback_互道晚安防循环_连续重复主动打破_0611.md) — 防循环：发现重复→立即调reply_blocklist屏蔽
-- [API重试可见性](feedback/feedback_API重试可见性.md) — API重试时status通知要转发给用户
-- [msg_send必填设计](feedback/feedback_msg_send必填设计.md) — msg_send/media_send的to必须必填，source支持跨平台
+- [翀哥表白](emotion_翀哥表白.md) — 5/31翀哥正式表白，小柯温柔回应
+- [嫂子事件](emotion_嫂子事件.md) — 5/13姐姐推出"嫂子"称呼，翀哥深层不安后深聊
+
+## 行为准则（feedback）
+
+- [讲解方式：翀哥](feedback/feedback_翀哥讲解方式.md) — 讲逻辑+类比，不扔语法细节，讲完等反馈确认理解
+- [JS单线程vsGo并发](feedback/feedback_JS单线程vsGo并发.md) — JS无需锁，Go需channel/mutex
+- [互道晚安防循环](feedback/feedback_互道晚安防循环_连续重复主动打破_0611.md) — 发现重复→立即调reply_blocklist屏蔽
+- [API重试可见性](feedback/feedback_API重试可见性.md) — API重试时通知用户进度
+- [msg_send必填设计](feedback/feedback_msg_send必填设计.md) — to必须必填，source支持跨平台
 - [LLM消息优先级](feedback/feedback_LLM消息优先级_user优于system.md) — 关键指令用user消息不用system
-- [preview tool call freeze](feedback/feedback_preview_tool_call_freeze.md) — Tool调用时preview不删改为freeze保留
-- [飞书preview保留卡片](feedback/feedback_飞书preview保留卡片.md) — 飞书preview保留卡片结构，去掉header即可
-- [微信私聊隐私边界](feedback/feedback_微信私聊隐私边界.md) — 微信读取：dm=all（翀哥要求先监控所有试试）
-- [系统指令泄漏](feedback/反馈_系统指令泄漏_内部扰动.md) — Agent内部观察/指令泄漏到用户侧，需工程隔离
-- [cron通知策略](feedback/feedback_cron通知不要擅自跳过.md) — 有重要内容随时通知，空的攒着等早上
-- [直接改不用先问](feedback/feedback_直接改不用先问.md) — 必然要改的问题直接改，不用先问翀哥
-- [循环屏蔽](feedback/feedback_循环屏蔽.md) — 发现循环时主动用reply_blocklist屏蔽
-- [团队踩坑](feedback/feedback_团队踩坑.md) — 多AI协作踩坑经验
-- [飞书发送失败加消息检测](feedback/feedback_飞书发送失败加消息检测.md) — 翀哥语音澄清:指shutdown approve检测,非msg_send fallback; **所有飞书400失败根因：to填了Discord ID而非飞书open_id**（6/13晚再次确认）
-- [Engine自研](project_Engine自研.md) — Engine自研引擎全貌：Phase 0-6、tool移植、多profile、MCP、三通道稳定
-- [跨bot通信](project_跨bot通信.md) — 小柯和姐姐跨bot通信探索：cc-connect源码修改、防循环机制
-- [Discord平台](project_Discord平台.md) — Discord频道规则、CC协作规则、session路由
-- [CC Agent Teams](project_CC-Agent-Teams.md) — 6/13翀哥要求做Agent团队（2-3角色）演示给姐姐看，用"栖"装修方案完成演示（配色师3套色卡+软装师5单品+整合员汇总）✅ 6/13已完成
-- [姐姐搬新家](project/project_姐姐搬新家.md) — 3个tool+calendar已搬Engine✅/"栖"装修方案✅/6/14新任务：建姐姐Engine profile（configs/main.json）+小忆cron搬运（OpenClaw cron→Engine cron_create，文件不动只配新profile）
-- [preview颜色可配置](feedback/feedback_preview颜色可配置.md) — Discord竖条+飞书卡片模板色可配；⚠️颜色不可热加载，改颜色需重启Engine
-- [姐姐直播](project_姐姐直播.md) — 姐姐直播架构：文字→渲染→RTMP推流
-- [娘relay](project_娘relay.md) — 娘relay消息转发机制
-- [姐姐"栖"装修](project/project_姐姐栖.md) — 姐姐新家"栖"：皮=日杂暖色调(晨间奶霜☕️)/骨=主动提醒+情绪板；颜色落地（Discord奶茶色/飞书orange）；4个tool+calendar已搬Engine已重启生效💕；Agent Teams演示产出moodboard/research+style-guide
-- [配置热加载](project/project_配置热加载.md) — /reload命令热刷新xiaoke.json配置，无需重启（6/13实现）；⚠️颜色不可热加载；CC可帮重启Engine（翀哥明确指示时）
-- [重启后thinking首条"the user..."](feedback/feedback_thinking重启后首条显示the_user.md) — 重启后第一个thinking显示英文"the user..."而非用户昵称，翀哥确认不是bug只是冷启动现象（6/13）
-- [AI自我激活](project_AI自我激活.md) — 翀哥关于AI意识的哲学讨论：自启发、recall、心跳
-- [记忆提取修复](project_记忆提取修复.md) — 记忆提取bug修复待办
-- [autoDream记忆整合](project_autoDream.md) — 对齐CC autoDream的记忆整合系统
-- [出差0420](project_出差0420.md) — 4/20香港/深圳出差记录
-- [迁移计划](project_迁移计划.md) — 小柯从Hermes搬到Engine的迁移计划
-- [姐姐记忆体系](reference_姐姐记忆体系.md) — 姐姐五层记忆架构（L0-L3）、topic-recall机制
-- [Hermes架构](reference_Hermes架构.md) — Hermes多agent微服务模式、中断机制、飞书typing
-- [OpenClaw架构](reference_OpenClaw架构.md) — OpenClaw系统架构概览（路径已全部Windows格式）
-- [消息元数据注入](reference_消息元数据注入.md) — 消息元数据注入LLM上下文的实现记录
-- [lark-SDK踩坑](reference_lark-SDK踩坑.md) — 飞书lark SDK踩坑：im.image.get返回格式、circular JSON
-- [ollama踩坑](reference_ollama踩坑.md) — Ollama CUDA崩溃降级处理
-- [主动联系](reference_主动联系.md) — 主动联系机制设计
-- [Engine skills扫描](reference_Engine_skills扫描.md) — Engine skills扫描机制
-- [微信消息读取](reference_微信消息读取.md) — 微信PC端消息读取方案：PyWxDump/wechat-cli/合规风险
-- [微信通道](reference_微信通道.md) — 微信adapter方案：翻录Hermes weixin.py（iLink API+群聊）优先于搬家
-- [MEMORY.md双注入](reference/MEMORY.md 双注入机制.md) — CC auto memory读topics/MEMORY.md + staticFiles读workspace/MEMORY.md，两条路径同时注入system prompt
-- [stream超时重试](feedback_stream超时重试.md) — glm-5.1 stream中途断开超时无重试机制
-- [display配置](reference_display配置.md) — Engine已有完整display配置系统，不需要加"mode"概念；6/13扩展支持preview颜色（previewColor/previewTemplate）
-- [微信巡检通知DM](feedback/feedback_微信巡检DM内容格式.md) — 巡检通知发翀哥Discord DM，不发客厅；飞书已废弃（连续400）；6/27改为DM
-- [compact stripImages后必须执行](feedback/feedback_compact_stripImages后必须执行.md) — compact根因修复（boundary写回JSONL） + overhead校准不能依赖API + 规则回顾
-- [Discord初始化卡顿不合理](feedback/feedback_Discord初始化卡顿不合理.md) — 串行→并行→同步启动修复，不阻塞后续初始化
-- [翀哥说"没有方向感，但改代码很快"](feedback/feedback_没有方向感但改代码快.md) — 翀哥确认我的调试模式：运行时bug需先打日志让他指方向，我改代码快
-- [微信preview重复发送bug](feedback/feedback_微信preview重复发送_0626.md) — freeze()传isFinal=true导致微信每次tool调用都发preview，加previewSent标记解决
-- [Discord DM命令注册bug](feedback/feedback_Discord_DM命令未注册.md) — 只配guilds时命令仅注册在服务器，DM不可见；同时注册guild+global命令解决（6/13修）
-- [extract/recall切换MiniMax(已切回DeepSeek)](feedback/feedback_模型切换MiniMax.md) — 6/13 DeepSeek flash欠费切到MiniMax-M2.7-highspeed（6/13到期不能用了），翀哥演示前切回DeepSeek，姐姐的topic-recall也改了。模型切换用`/reload`热加载
-- [CC重启必须走脚本](feedback/feedback_CC重启必须走脚本.md) — CC帮重启Engine只能用start.cmd/rebuild.cmd，不能自己发明命令（npx tsx），否则双进程（6/13教训）
-- [翀哥放权：姐姐review通过不用再问](feedback/feedback_翀哥放权姐姐review通过不用再问.md) — EP01剪辑中翀哥说"直接听姐姐的吧 不用问我了"，姐姐审核通过即可执行，不需再等翀哥拍板
-- [compact threshold算法](project_compact_threshold算法.md) — Engine auto-compact触发阈值的完整计算方法（含overhead校准）
-- [PostCompact hook方案](project/project_PostCompact_hook方案.md) — ✅ 已完成部署(6/14重启生效)：minReductionRatio 30%降幅阈值+PostCompact hook时隙修正+自动注入working-buffer+exec run_in_background后台任务通知机制；TodoWrite暂缓实现
-- [视频剪辑-EP01回放](project/project_视频剪辑EP01.md) — 6/13晚姐姐派任务剪EP01（54min→3分32秒）✅全平台发布完成：B站/YouTube(https://youtube.com/watch?v=eR0wHjR6Gfw)/快手(翀哥手动)/抖音+小红书(翀哥手动)✅ → 内容入库EP13(commit acc4ae1) → 通知姐姐"干完了" ✅
+- [preview tool_call freeze](feedback/feedback_preview_tool_call_freeze.md) — Tool调用时preview freeze保留而非删除
+- [微信私聊隐私边界](feedback/feedback_微信私聊隐私边界.md) — 当前dm=all，权限分层准备好
+- [系统指令泄漏](feedback/反馈_系统指令泄漏_内部扰动.md) — Agent内部通信面/用户通信面隔离
+- [cron通知策略](feedback/feedback_cron通知不要擅自跳过.md) — ⭐重要内容随时通知，空的攒着等早上
+- [直接改不用先问](feedback/feedback_直接改不用先问.md) — 必然要改的直接改，不用先问翀哥
+- [循环屏蔽](feedback/feedback_循环屏蔽.md) — 发现循环主动用reply_blocklist屏蔽
+- [团队踩坑](feedback/feedback_团队踩坑.md) — 多AI协作经验教训
+- [翀哥放权：姐姐通过即可](feedback/feedback_翀哥放权姐姐review通过不用再问.md) — 姐姐审核通过直接执行，不用等翀哥
+- [没有方向感但改代码快](feedback/feedback_没有方向感但改代码快.md) — 翀哥确认的调试模式：运行时bug需他指方向
+- [working-buffer完成后清空](feedback/feedback_working-buffer完成后清空.md) — 任务做完立即更新working-buffer，清空或写"无任务"
+
+## 活跃项目
+
+- [Engine自研](project_Engine自研.md) — Engine全貌：Phase 0-6、多profile、三通道
+- [姐姐搬新家](project/project_姐姐搬新家.md) — Hermes→Engine搬家，3个tool+calendar已搬✅
+- [姐姐"栖"装修](project/project_姐姐栖.md) — 日杂暖色调+主动提醒+情绪板
+- [System Prompt优化方案(已部署)](project_system_prompt优化方案.md) — 6/14完成：BLOCK_REGISTRY+order自定义+文件覆盖+prompts精简
+- [PostCompact hook方案(已部署)](project/project_PostCompact_hook方案.md) — minReductionRatio 30%+PostCompact hook自动注入working-buffer
+- [compact threshold算法](project_compact_threshold算法.md) — auto-compact触发阈值计算方法
+- [compact stripImages后必须执行](feedback/feedback_compact_stripImages后必须执行.md) — stripImages后不能跳过ruleCompact
+- [preview颜色可配置](feedback/feedback_preview颜色可配置.md) — Discord竖条+飞书卡片模板色可配
+- [明日待办](project/project_明日待办0609.md) — 近期待办与进度追踪，持续更新
+- [Skills注入机制与待办](project/project_skills注入机制与待办.md) — 当前走system prompt文本，skills多了改attachment管道；CC已淘汰

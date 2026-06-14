@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "实现 Prompt Block 乐高化定制",
+  "description": "1. prompt.ts: 加 PromptBlock interface + BLOCK_REGISTRY\n2. buildStablePrompt → buildStandardPrompt (遍历registry)\n3. 新增 buildCustomPrompt (exclude/order)\n4. 统一入口兼容老签名\n5. loader.ts prompt类型扩展\n6. engine-startup.ts 传config.prompt",
+  "activeForm": "实现 Prompt Block 乐高化",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

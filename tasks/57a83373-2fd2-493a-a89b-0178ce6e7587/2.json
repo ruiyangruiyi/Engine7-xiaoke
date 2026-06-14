@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "emotion recall定制",
+  "description": "1. memoryTypes.ts: 加emotion为第5种type（含description/when_to_save/how_to_use/examples）\n2. findRelevantMemories.ts: recall侧已有emotion规则（L24），确认是否需要调整\n3. extractPrompts.ts: 确认emotion类型自动出现在extract提示词中（通过TYPES_SECTION_INDIVIDUAL）\n4. MEMORY_FRONTMATTER_EXAMPLE: type列表自动包含emotion",
+  "activeForm": "定制emotion类型记忆",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}
