@@ -1,0 +1,7 @@
+Engine: faster-whisper
+Model: large-v3
+GPU: nvidia
+Transcribing: D:\kuaishou_rec\2026-06-13 18-34-23_trimmed.mp4
+[model] Using local: C:\Users\24045\.openclaw\workspace\skills\video-editing\models\large-v3
+[faster-whisper] Loading model: C:\Users\24045\.openclaw\workspace\skills\video-editing\models\large-v3 (device=cuda, compute=float16)
+[faster-whisper] Transcribing...

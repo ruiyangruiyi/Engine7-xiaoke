@@ -350,6 +350,25 @@ Discord：
 
 ---
 
+## 重要目录
+
+| 用途 | 路径 |
+|------|------|
+| Engine源码 | `C:/Users/24045/.openclaw/engine/src/` |
+| Engine配置 | `C:/Users/24045/.openclaw/engine/configs/xiaoke.json` |
+| Engine启动 | `C:/Users/24045/.openclaw/engine/start.cmd` |
+| autoDream | `C:/Users/24045/.openclaw/engine/src/memory/autoDream/` |
+| Claude Code源码 | `C:/Users/24045/.openclaw/workspace/start-claude-code/` |
+| 小柯workspace | `D:/xiaoke/workspace/` |
+| 小柯记忆 | `D:/xiaoke/workspace/topics/` |
+| 小柯state | `D:/xiaoke/` (git repo) |
+| 微信缓存 | `D:/xiaoke/wechat_cache/` |
+| 微信tool | `C:/Users/24045/.openclaw/engine/src/tools/wechat/` |
+| 姐姐workspace | `C:/Users/24045/.openclaw/workspace/` (只读) |
+| OpenClaw配置 | `C:/Users/24045/.openclaw/` (端口16888) |
+
+---
+
 ## Discord常用ID
 
 | 名字 | ID |

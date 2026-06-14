@@ -111,6 +111,7 @@ sqlite3 MSG8_decrypted.db "SELECT * FROM Msg LIMIT 5"
   - ✅ 全部开发完成，已提交推送，cron每3小时巡检
   - **监控配置**：`~/.wechat-cache/monitor-config.json` — groups/dm各四种模式（all/watch/block/off），当前默认dm=watch空名单（私聊不监控）
 - 私聊权限：翀哥改为先不限制（推翻早晨保守决策），但代码保留权限分层能力以备收紧。最终默认dm=watch空名单是安全起点
+- **6/12翀哥发现私聊统计不到**：翀哥问"我经常根姐姐私信 为啥统计不到呢"——根因是`monitor-config.json`中私聊配置为`dm: { mode: "watch", list: [] }`（空白名单），所以不统计任何私聊。翀哥想统计跟姐姐（小忆/娘的微信账号）的私信，但当前配置是安全起点（不暴露私聊）。需要翀哥明确是否要开放特定私聊监控，或在monitor-config.json中把姐姐的微信账号加入dm的watch list。
 
 ## 合规风险 ⚠️
 

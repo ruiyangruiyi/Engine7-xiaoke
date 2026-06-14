@@ -1,6 +1,6 @@
 ---
 name: Engine Skills扫描器限制
-description: Engine的scanner.ts只认SKILL.md不认DESCRIPTION.md，导致大部分skills不可用；从TestEngine搬了docx/pdf/pptx/xlsx
+description: Engine的scanner.ts只认SKILL.md不认DESCRIPTION.md，导致大部分skills不可用；从TestEngine搬了docx/pdf/pptx/xlsx。Engine项目路径在 D:\xiaoke\workspace
 type: reference
 ---
 

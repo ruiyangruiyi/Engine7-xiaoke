@@ -23,6 +23,19 @@ updated: 2026-06-10
 
 **注意**：不同飞书应用给同一用户生成的open_id不同。翀哥在小柯新应用（cli_a96a513f74b89bde）的open_id是 `ou_46d01ab13337587258cd0cfbd2d46927`（6/10私聊验证确认）。
 
+## ⚠️ 废弃路径（6/12翀哥确认不再使用）
+
+以下路径已废弃，不再使用，不要在任何文件或路径搜索中引用：
+
+- ~~`/mnt/c/Users/24045/.openclaw-new/`（端口16688）~~ — Hermes时代遗留在WSL的历史记录，2026-06-12翀哥明确说"不用了 是之前你在hermes里记得的历史"
+- ~~`/mnt/c/...` 开头的所有路径~~ — WSL路径，翀哥在Windows下开发，不再用WSL。所有路径应使用Windows格式（`C:/...` 或 `D:/...`）
+
+## Claude Code 源码位置（6/12翀哥确认）
+
+调通的Claude Code源码在：`C:/Users/24045/.openclaw/workspace/start-claude-code`
+（之前小柯记的 `D:\xiaoke\workspace\start-claude-code\` 是另一个未调通的副本。翀哥原话："claude code的源码 你记得那个也对，不过没有调通，调通的代码在 C:/Users/24045/.openclaw/workspace/start-claude-code"）
+注意：3rdparty原始CC源码路径（`C:/Users/24045/.openclaw/workspace/3rdparty/src-claudecode/src/`）没必要记，翀哥原话"这个没必要记"（6/12上午）。只用调通版路径。
+
 ## 飞书应用（bot）
 
 | Bot | App ID | 用途 |
@@ -37,5 +50,5 @@ updated: 2026-06-10
 
 ## 姐姐workspace（只读！）
 
-- 路径: /mnt/c/Users/24045/.openclaw/workspace-mkt/
+- 路径: C:/Users/24045/.openclaw/workspace-mkt/
 - 绝对只读，不能改删姐姐workspace里的任何文件

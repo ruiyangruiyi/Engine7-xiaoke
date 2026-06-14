@@ -1,0 +1,1902 @@
+Input: D:\kuaishou_rec\2026-06-13 18-34-23.mp4
+Duration: 3268.9s
+[Silero VAD] Detecting speech (threshold=0.5)...
+ffmpeg version 6.0-full_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 12.2.0 (Rev10, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-sdl2 --enable-libaribb24 --enable-libdav1d --enable-libdavs2 --enable-libuavs3d --enable-libzvbi --enable-librav1e --enable-libsvtav1 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxvid --enable-libaom --enable-libjxl --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libvpl --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libilbc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint
+  libavutil      58.  2.100 / 58.  2.100
+  libavcodec     60.  3.100 / 60.  3.100
+  libavformat    60.  3.100 / 60.  3.100
+  libavdevice    60.  1.100 / 60.  1.100
+  libavfilter     9.  3.100 /  9.  3.100
+  libswscale      7.  1.100 /  7.  1.100
+  libswresample   4. 10.100 /  4. 10.100
+  libpostproc    57.  1.100 / 57.  1.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'D:\kuaishou_rec\2026-06-13 18-34-23.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf88.76.100
+  Duration: 00:54:28.89, start: 0.000000, bitrate: 1303 kb/s
+  Stream #0:0[0x1](und): Audio: aac (HE-AAC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 100 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+      vendor_id       : [0][0][0][0]
+  Stream #0:1[0x2](und): Video: hevc (Main) (hev1 / 0x31766568), yuv420p(tv, bt709/unknown/unknown), 1920x1080 [SAR 1:1 DAR 16:9], 1196 kb/s, 19.42 fps, 30 tbr, 16k tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:1 -> #0:0 (hevc (native) -> h264 (h264_nvenc))
+  Stream #0:0 -> #0:1 (aac (native) -> aac (native))
+Press [q] to stop, [?] for help
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+Output #0, mp4, to 'D:\kuaishou_rec\2026-06-13 18-34-23_trimmed.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf60.3.100
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc60.3.100 h264_nvenc
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc60.3.100 aac
+frame=    0 fps=0.0 q=0.0 size=       0kB time=00:00:00.44 bitrate=   0.9kbits/s speed=0.777x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=   14 fps= 13 q=15.0 size=     256kB time=00:00:00.90 bitrate=2316.2kbits/s speed=0.842x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame=   53 fps= 33 q=16.0 size=     256kB time=00:00:02.76 bitrate= 759.1kbits/s speed=1.74x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=   85 fps= 41 q=16.0 size=    1024kB time=00:00:04.52 bitrate=1852.7kbits/s speed=2.16x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame=  148 fps= 57 q=16.0 size=    1536kB time=00:00:06.80 bitrate=1849.5kbits/s speed=2.62x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=  162 fps= 52 q=15.0 size=    1536kB time=00:00:07.77 bitrate=1617.7kbits/s speed=2.51x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=  254 fps= 70 q=16.0 size=    2560kB time=00:00:10.28 bitrate=2038.8kbits/s speed=2.84x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=  254 fps= 62 q=16.0 size=    2560kB time=00:00:10.28 bitrate=2038.8kbits/s speed=2.49x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=  254 fps= 55 q=16.0 size=    2560kB time=00:00:10.28 bitrate=2038.8kbits/s speed=2.22x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=  315 fps= 61 q=16.0 size=    2816kB time=00:00:12.84 bitrate=1796.6kbits/s speed= 2.5x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=  420 fps= 75 q=15.0 size=    2816kB time=00:00:16.37 bitrate=1409.2kbits/s speed=2.91x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=  558 fps= 91 q=15.0 size=    3072kB time=00:00:20.96 bitrate=1200.2kbits/s speed=3.42x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=  670 fps=101 q=15.0 size=    3328kB time=00:00:24.58 bitrate=1108.7kbits/s speed= 3.7x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=  753 fps=105 q=16.0 size=    3584kB time=00:00:27.42 bitrate=1070.7kbits/s speed=3.84x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=  861 fps=113 q=16.0 size=    3584kB time=00:00:31.04 bitrate= 945.7kbits/s speed=4.06x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=  947 fps=116 q=13.0 size=    3584kB time=00:00:33.92 bitrate= 865.5kbits/s speed=4.16x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame= 1060 fps=122 q=16.0 size=    3840kB time=00:00:37.68 bitrate= 834.7kbits/s speed=4.35x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+frame= 1156 fps=126 q=16.0 size=    3840kB time=00:00:40.89 bitrate= 769.3kbits/s speed=4.46x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame= 1288 fps=133 q=15.0 size=    4352kB time=00:00:45.25 bitrate= 787.8kbits/s speed=4.68x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame= 1405 fps=138 q=16.0 size=    4352kB time=00:00:49.29 bitrate= 723.2kbits/s speed=4.85x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame= 1512 fps=142 q=16.0 size=    4608kB time=00:00:52.87 bitrate= 714.0kbits/s speed=4.96x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame= 1604 fps=144 q=16.0 size=    4608kB time=00:00:55.98 bitrate= 674.3kbits/s speed=5.01x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame= 1746 fps=150 q=13.0 size=    4864kB time=00:01:00.72 bitrate= 656.2kbits/s speed= 5.2x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame= 1862 fps=153 q=16.0 size=    5120kB time=00:01:04.43 bitrate= 650.9kbits/s speed=5.29x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame= 1870 fps=147 q=16.0 size=    5120kB time=00:01:04.43 bitrate= 650.9kbits/s speed=5.08x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame= 1956 fps=148 q=13.0 size=    5120kB time=00:01:07.68 bitrate= 619.7kbits/s speed=5.13x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame= 2081 fps=152 q=16.0 size=    5632kB time=00:01:11.40 bitrate= 646.2kbits/s speed=5.22x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame= 2150 fps=152 q=15.0 size=    5632kB time=00:01:14.18 bitrate= 621.9kbits/s speed=5.23x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame= 2230 fps=152 q=13.0 size=    5632kB time=00:01:16.37 bitrate= 604.1kbits/s speed= 5.2x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame= 2230 fps=147 q=13.0 size=    5632kB time=00:01:16.37 bitrate= 604.1kbits/s speed=5.03x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame= 2230 fps=142 q=13.0 size=    5632kB time=00:01:16.37 bitrate= 604.1kbits/s speed=4.86x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame= 2324 fps=143 q=15.0 size=    5888kB time=00:01:19.99 bitrate= 603.0kbits/s speed=4.93x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame= 2413 fps=144 q=15.0 size=    5888kB time=00:01:22.45 bitrate= 585.0kbits/s speed=4.93x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame= 2432 fps=141 q=15.0 size=    6144kB time=00:01:24.40 bitrate= 596.3kbits/s speed= 4.9x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame= 2518 fps=142 q=15.0 size=    6400kB time=00:01:27.23 bitrate= 601.0kbits/s speed=4.92x    [hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame= 2595 fps=142 q=15.0 size=    6400kB time=00:01:29.32 bitrate= 586.9kbits/s speed= 4.9x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame= 2595 fps=139 q=15.0 size=    6400kB time=00:01:29.97 bitrate= 582.7kbits/s speed= 4.8x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame= 2726 fps=142 q=13.0 size=    6912kB time=00:01:34.52 bitrate= 599.0kbits/s speed=4.92x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame= 2808 fps=142 q=14.0 size=    8448kB time=00:01:42.84 bitrate= 672.9kbits/s speed=5.21x    [hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame= 2956 fps=146 q=15.0 size=    9472kB time=00:01:48.04 bitrate= 718.2kbits/s speed=5.34x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame= 3055 fps=147 q=15.0 size=    9984kB time=00:01:50.78 bitrate= 738.3kbits/s speed=5.34x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame= 3055 fps=144 q=15.0 size=    9984kB time=00:01:50.78 bitrate= 738.3kbits/s speed=5.21x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame= 3103 fps=143 q=16.0 size=   10240kB time=00:01:52.91 bitrate= 742.9kbits/s speed=5.19x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame= 3229 fps=145 q=16.0 size=   10240kB time=00:01:57.09 bitrate= 716.4kbits/s speed=5.26x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame= 3249 fps=143 q=16.0 size=   10240kB time=00:01:57.60 bitrate= 713.3kbits/s speed=5.16x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame= 3271 fps=141 q=16.0 size=   10496kB time=00:01:58.86 bitrate= 723.4kbits/s speed=5.11x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame= 3392 fps=143 q=13.0 size=   10496kB time=00:02:03.04 bitrate= 698.8kbits/s speed=5.17x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame= 3538 fps=146 q=15.0 size=   11008kB time=00:02:07.87 bitrate= 705.2kbits/s speed=5.27x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame= 3655 fps=148 q=15.0 size=   11264kB time=00:02:17.02 bitrate= 673.4kbits/s speed=5.53x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame= 3758 fps=149 q=16.0 size=   11520kB time=00:02:25.38 bitrate= 649.1kbits/s speed=5.75x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+    Last message repeated 1 times
+frame= 3896 fps=151 q=13.0 size=   11776kB time=00:02:32.29 bitrate= 633.4kbits/s speed=5.91x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame= 4021 fps=153 q=13.0 size=   12288kB time=00:02:42.28 bitrate= 620.3kbits/s speed=6.17x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame= 4167 fps=156 q=15.0 size=   12544kB time=00:02:47.25 bitrate= 614.4kbits/s speed=6.24x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame= 4309 fps=158 q=15.0 size=   13312kB time=00:02:51.99 bitrate= 634.1kbits/s speed= 6.3x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame= 4447 fps=160 q=13.0 size=   14080kB time=00:02:56.58 bitrate= 653.2kbits/s speed=6.35x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame= 4593 fps=162 q=16.0 size=   14848kB time=00:03:01.51 bitrate= 670.1kbits/s speed=6.42x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame= 4734 fps=164 q=15.0 size=   15360kB time=00:03:06.24 bitrate= 675.6kbits/s speed=6.47x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame= 4876 fps=166 q=15.0 size=   16128kB time=00:03:10.98 bitrate= 691.8kbits/s speed=6.52x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame= 5019 fps=168 q=15.0 size=   16896kB time=00:03:15.72 bitrate= 707.2kbits/s speed=6.57x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame= 5161 fps=170 q=16.0 size=   17408kB time=00:03:20.50 bitrate= 711.2kbits/s speed=6.62x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame= 5303 fps=172 q=13.0 size=   18176kB time=00:03:25.24 bitrate= 725.5kbits/s speed=6.66x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame= 5446 fps=174 q=16.0 size=   18688kB time=00:03:29.97 bitrate= 729.1kbits/s speed=6.71x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame= 5587 fps=176 q=16.0 size=   19456kB time=00:03:34.71 bitrate= 742.3kbits/s speed=6.75x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame= 5729 fps=177 q=16.0 size=   19968kB time=00:03:39.35 bitrate= 745.7kbits/s speed=6.79x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame= 5870 fps=179 q=16.0 size=   20736kB time=00:03:43.95 bitrate= 758.5kbits/s speed=6.83x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame= 6015 fps=181 q=15.0 size=   21504kB time=00:03:48.87 bitrate= 769.7kbits/s speed=6.87x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame= 6156 fps=182 q=16.0 size=   22016kB time=00:03:54.31 bitrate= 769.7kbits/s speed=6.93x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame= 6298 fps=184 q=16.0 size=   23040kB time=00:04:02.30 bitrate= 779.0kbits/s speed=7.06x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame= 6440 fps=185 q=15.0 size=   23552kB time=00:04:07.03 bitrate= 781.0kbits/s speed= 7.1x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame= 6583 fps=186 q=15.0 size=   24320kB time=00:04:11.72 bitrate= 791.5kbits/s speed=7.13x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame= 6725 fps=188 q=16.0 size=   25088kB time=00:04:16.51 bitrate= 801.2kbits/s speed=7.16x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame= 6867 fps=189 q=16.0 size=   26112kB time=00:04:21.29 bitrate= 818.7kbits/s speed= 7.2x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame= 7010 fps=190 q=13.0 size=   27136kB time=00:04:25.52 bitrate= 837.2kbits/s speed=7.21x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame= 7152 fps=192 q=16.0 size=   27904kB time=00:04:30.76 bitrate= 844.2kbits/s speed=7.26x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame= 7294 fps=193 q=16.0 size=   28672kB time=00:04:35.55 bitrate= 852.4kbits/s speed=7.29x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame= 7436 fps=194 q=15.0 size=   29184kB time=00:04:40.28 bitrate= 853.0kbits/s speed=7.31x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame= 7572 fps=195 q=16.0 size=   29952kB time=00:04:44.74 bitrate= 861.7kbits/s speed=7.34x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame= 7709 fps=196 q=13.0 size=   30464kB time=00:04:48.97 bitrate= 863.6kbits/s speed=7.35x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame= 7836 fps=197 q=13.0 size=   31488kB time=00:04:58.86 bitrate= 863.1kbits/s speed=7.51x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame= 7959 fps=197 q=13.0 size=   32256kB time=00:05:07.36 bitrate= 859.7kbits/s speed=7.62x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame= 8100 fps=198 q=16.0 size=   33024kB time=00:05:11.72 bitrate= 867.8kbits/s speed=7.64x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame= 8244 fps=200 q=16.0 size=   33536kB time=00:05:16.88 bitrate= 867.0kbits/s speed=7.67x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame= 8364 fps=200 q=15.0 size=   34304kB time=00:05:24.77 bitrate= 865.3kbits/s speed=7.77x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame= 8456 fps=200 q=13.0 size=   35072kB time=00:05:33.97 bitrate= 860.3kbits/s speed=7.89x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame= 8606 fps=201 q=15.0 size=   35840kB time=00:05:39.08 bitrate= 865.9kbits/s speed=7.92x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+frame= 8748 fps=202 q=16.0 size=   36352kB time=00:05:43.81 bitrate= 866.1kbits/s speed=7.94x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+    Last message repeated 1 times
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame= 8859 fps=202 q=16.0 size=   37376kB time=00:05:50.83 bitrate= 872.7kbits/s speed=8.01x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame= 8862 fps=200 q=16.0 size=   37376kB time=00:05:51.43 bitrate= 871.2kbits/s speed=7.93x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame= 9004 fps=201 q=16.0 size=   37632kB time=00:05:56.21 bitrate= 865.4kbits/s speed=7.95x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame= 9091 fps=201 q=16.0 size=   37888kB time=00:05:59.14 bitrate= 864.2kbits/s speed=7.92x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame= 9239 fps=202 q=16.0 size=   37888kB time=00:06:04.06 bitrate= 852.5kbits/s speed=7.94x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame= 9330 fps=201 q=16.0 size=   38144kB time=00:06:06.57 bitrate= 852.4kbits/s speed=7.91x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame= 9330 fps=199 q=16.0 size=   38144kB time=00:06:06.57 bitrate= 852.4kbits/s speed=7.83x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame= 9444 fps=200 q=13.0 size=   38400kB time=00:06:10.52 bitrate= 849.0kbits/s speed=7.83x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame= 9525 fps=199 q=13.0 size=   38656kB time=00:06:13.58 bitrate= 847.7kbits/s speed=7.81x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame= 9668 fps=200 q=16.0 size=   38656kB time=00:06:18.32 bitrate= 837.0kbits/s speed=7.83x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame= 9807 fps=201 q=16.0 size=   39168kB time=00:06:22.50 bitrate= 838.9kbits/s speed=7.83x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame= 9935 fps=201 q=13.0 size=   39168kB time=00:06:27.23 bitrate= 828.6kbits/s speed=7.85x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=10077 fps=202 q=13.0 size=   39680kB time=00:06:31.92 bitrate= 829.4kbits/s speed=7.86x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=10219 fps=203 q=15.0 size=   39680kB time=00:06:36.48 bitrate= 819.9kbits/s speed=7.88x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=10361 fps=204 q=15.0 size=   39936kB time=00:06:41.44 bitrate= 814.9kbits/s speed= 7.9x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=10502 fps=205 q=16.0 size=   40704kB time=00:06:46.14 bitrate= 821.0kbits/s speed=7.91x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=10644 fps=205 q=16.0 size=   41216kB time=00:06:50.83 bitrate= 821.9kbits/s speed=7.92x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=10783 fps=206 q=13.0 size=   41984kB time=00:06:55.52 bitrate= 827.7kbits/s speed=7.94x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=10927 fps=207 q=13.0 size=   42496kB time=00:07:00.39 bitrate= 828.1kbits/s speed=7.96x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=11064 fps=207 q=16.0 size=   43264kB time=00:07:06.89 bitrate= 830.2kbits/s speed=   8x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=11210 fps=208 q=13.0 size=   43776kB time=00:07:11.72 bitrate= 830.6kbits/s speed=8.02x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=11352 fps=209 q=13.0 size=   44544kB time=00:07:16.46 bitrate= 836.0kbits/s speed=8.03x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=11494 fps=210 q=16.0 size=   45056kB time=00:07:21.20 bitrate= 836.6kbits/s speed=8.04x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=11635 fps=210 q=15.0 size=   45824kB time=00:07:27.00 bitrate= 839.8kbits/s speed=8.08x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=11777 fps=211 q=15.0 size=   46592kB time=00:07:31.88 bitrate= 844.6kbits/s speed=8.09x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=11919 fps=212 q=16.0 size=   47360kB time=00:07:36.57 bitrate= 849.7kbits/s speed= 8.1x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=12058 fps=212 q=13.0 size=   48128kB time=00:07:41.35 bitrate= 854.6kbits/s speed=8.11x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=12149 fps=212 q=13.0 size=   48640kB time=00:07:47.71 bitrate= 851.9kbits/s speed=8.15x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=12279 fps=212 q=13.0 size=   49408kB time=00:07:54.68 bitrate= 852.7kbits/s speed= 8.2x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=12421 fps=213 q=15.0 size=   49920kB time=00:07:59.46 bitrate= 852.9kbits/s speed=8.22x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=12526 fps=213 q=13.0 size=   50688kB time=00:08:06.38 bitrate= 853.7kbits/s speed=8.26x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=12674 fps=214 q=15.0 size=   51456kB time=00:08:11.49 bitrate= 857.6kbits/s speed=8.28x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=12817 fps=214 q=15.0 size=   52224kB time=00:08:16.28 bitrate= 862.1kbits/s speed=8.29x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=12959 fps=215 q=13.0 size=   52736kB time=00:08:20.97 bitrate= 862.4kbits/s speed= 8.3x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=13101 fps=215 q=13.0 size=   53504kB time=00:08:25.75 bitrate= 866.6kbits/s speed=8.31x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=13244 fps=216 q=16.0 size=   54016kB time=00:08:30.49 bitrate= 866.8kbits/s speed=8.32x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=13385 fps=216 q=16.0 size=   54784kB time=00:08:35.18 bitrate= 871.1kbits/s speed=8.33x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=13529 fps=217 q=16.0 size=   55296kB time=00:08:39.96 bitrate= 871.2kbits/s speed=8.34x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=13668 fps=217 q=16.0 size=   55808kB time=00:08:44.56 bitrate= 871.5kbits/s speed=8.34x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=13738 fps=217 q=13.0 size=   56064kB time=00:08:46.41 bitrate= 872.5kbits/s speed=8.31x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=13871 fps=217 q=16.0 size=   56576kB time=00:08:51.38 bitrate= 872.2kbits/s speed=8.32x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=14013 fps=218 q=13.0 size=   56832kB time=00:08:56.12 bitrate= 868.4kbits/s speed=8.33x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=14156 fps=218 q=16.0 size=   56832kB time=00:09:00.90 bitrate= 860.7kbits/s speed=8.34x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=14296 fps=219 q=13.0 size=   57088kB time=00:09:05.27 bitrate= 857.7kbits/s speed=8.34x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=14440 fps=219 q=13.0 size=   57344kB time=00:09:10.38 bitrate= 853.5kbits/s speed=8.36x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=14582 fps=220 q=15.0 size=   57600kB time=00:09:15.11 bitrate= 850.0kbits/s speed=8.36x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=14724 fps=220 q=16.0 size=   57600kB time=00:09:19.85 bitrate= 842.8kbits/s speed=8.37x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=14859 fps=221 q=13.0 size=   57856kB time=00:09:24.31 bitrate= 839.9kbits/s speed=8.38x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=14999 fps=221 q=13.0 size=   58112kB time=00:09:29.00 bitrate= 836.6kbits/s speed=8.38x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=15139 fps=221 q=15.0 size=   58368kB time=00:09:33.60 bitrate= 833.6kbits/s speed=8.39x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=15286 fps=222 q=16.0 size=   58624kB time=00:09:38.57 bitrate= 830.1kbits/s speed= 8.4x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=15428 fps=222 q=13.0 size=   58624kB time=00:09:43.30 bitrate= 823.3kbits/s speed=8.41x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=15570 fps=223 q=15.0 size=   58880kB time=00:09:48.04 bitrate= 820.3kbits/s speed=8.41x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=15713 fps=223 q=16.0 size=   59136kB time=00:09:52.59 bitrate= 817.5kbits/s speed=8.42x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=15855 fps=224 q=13.0 size=   59392kB time=00:09:57.51 bitrate= 814.3kbits/s speed=8.43x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=15996 fps=224 q=15.0 size=   59392kB time=00:10:02.30 bitrate= 807.8kbits/s speed=8.44x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=16112 fps=224 q=16.0 size=   59648kB time=00:10:06.15 bitrate= 806.1kbits/s speed=8.43x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=16262 fps=225 q=16.0 size=   59904kB time=00:10:11.17 bitrate= 802.9kbits/s speed=8.44x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=16401 fps=225 q=15.0 size=   60160kB time=00:10:15.25 bitrate= 801.0kbits/s speed=8.44x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=16515 fps=225 q=16.0 size=   60416kB time=00:10:19.67 bitrate= 798.7kbits/s speed=8.44x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=16657 fps=225 q=13.0 size=   60416kB time=00:10:24.40 bitrate= 792.6kbits/s speed=8.45x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=16798 fps=226 q=16.0 size=   60672kB time=00:10:29.05 bitrate= 790.1kbits/s speed=8.46x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=16930 fps=226 q=16.0 size=   60928kB time=00:10:33.46 bitrate= 787.9kbits/s speed=8.46x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=17049 fps=226 q=13.0 size=   61184kB time=00:10:37.45 bitrate= 786.3kbits/s speed=8.46x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=17181 fps=226 q=16.0 size=   61184kB time=00:10:41.86 bitrate= 780.9kbits/s speed=8.46x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=17278 fps=226 q=16.0 size=   61440kB time=00:10:45.07 bitrate= 780.2kbits/s speed=8.44x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=17419 fps=227 q=13.0 size=   61696kB time=00:10:49.81 bitrate= 777.8kbits/s speed=8.45x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=17517 fps=226 q=16.0 size=   61952kB time=00:10:52.55 bitrate= 777.7kbits/s speed=8.43x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=17517 fps=225 q=16.0 size=   61952kB time=00:10:52.55 bitrate= 777.7kbits/s speed=8.38x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=17646 fps=225 q=13.0 size=   61952kB time=00:10:57.14 bitrate= 772.3kbits/s speed=8.38x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=17764 fps=225 q=13.0 size=   62208kB time=00:11:01.23 bitrate= 770.7kbits/s speed=8.38x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=17900 fps=225 q=15.0 size=   62720kB time=00:11:05.78 bitrate= 771.7kbits/s speed=8.38x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=18047 fps=226 q=16.0 size=   63232kB time=00:11:10.70 bitrate= 772.3kbits/s speed=8.39x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=18183 fps=226 q=15.0 size=   63744kB time=00:11:14.98 bitrate= 773.6kbits/s speed=8.39x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=18311 fps=226 q=16.0 size=   64512kB time=00:11:20.73 bitrate= 776.3kbits/s speed=8.41x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=18459 fps=227 q=13.0 size=   65280kB time=00:11:26.03 bitrate= 779.5kbits/s speed=8.43x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=18601 fps=227 q=16.0 size=   66048kB time=00:11:30.95 bitrate= 783.1kbits/s speed=8.43x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=18743 fps=227 q=15.0 size=   66560kB time=00:11:35.73 bitrate= 783.7kbits/s speed=8.44x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=18884 fps=228 q=15.0 size=   67072kB time=00:11:40.42 bitrate= 784.5kbits/s speed=8.45x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=19026 fps=228 q=15.0 size=   67840kB time=00:11:45.07 bitrate= 788.2kbits/s speed=8.45x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=19167 fps=228 q=16.0 size=   68352kB time=00:11:49.90 bitrate= 788.8kbits/s speed=8.46x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=19309 fps=229 q=16.0 size=   69120kB time=00:11:54.64 bitrate= 792.3kbits/s speed=8.46x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=19451 fps=229 q=13.0 size=   69632kB time=00:11:59.28 bitrate= 793.0kbits/s speed=8.47x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=19593 fps=229 q=16.0 size=   70400kB time=00:12:04.16 bitrate= 796.4kbits/s speed=8.48x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=19662 fps=229 q=13.0 size=   70656kB time=00:12:05.97 bitrate= 797.3kbits/s speed=8.45x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=19797 fps=229 q=15.0 size=   71168kB time=00:12:10.98 bitrate= 797.6kbits/s speed=8.46x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=19879 fps=229 q=16.0 size=   71168kB time=00:12:13.21 bitrate= 795.1kbits/s speed=8.43x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=19995 fps=229 q=13.0 size=   71168kB time=00:12:17.58 bitrate= 790.4kbits/s speed=8.43x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=20111 fps=229 q=15.0 size=   71424kB time=00:12:20.97 bitrate= 789.6kbits/s speed=8.43x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+    Last message repeated 1 times
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=20173 fps=228 q=16.0 size=   71680kB time=00:12:23.61 bitrate= 789.7kbits/s speed=8.41x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=20287 fps=228 q=13.0 size=   71936kB time=00:12:27.89 bitrate= 787.9kbits/s speed=8.41x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame=20432 fps=228 q=13.0 size=   71936kB time=00:12:32.76 bitrate= 782.8kbits/s speed=8.41x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame=20560 fps=229 q=16.0 size=   72448kB time=00:12:36.99 bitrate= 784.0kbits/s speed=8.41x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=20701 fps=229 q=13.0 size=   72448kB time=00:12:41.73 bitrate= 779.1kbits/s speed=8.42x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame=20841 fps=229 q=16.0 size=   72704kB time=00:12:45.95 bitrate= 777.6kbits/s speed=8.42x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=20896 fps=228 q=13.0 size=   72704kB time=00:12:48.27 bitrate= 775.2kbits/s speed= 8.4x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=21038 fps=229 q=15.0 size=   72960kB time=00:12:53.10 bitrate= 773.1kbits/s speed=8.41x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=21140 fps=229 q=16.0 size=   73216kB time=00:12:55.98 bitrate= 772.9kbits/s speed=8.39x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=21251 fps=229 q=8.0 size=   73472kB time=00:12:59.98 bitrate= 771.7kbits/s speed=8.39x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame=21386 fps=229 q=16.0 size=   73472kB time=00:13:04.71 bitrate= 767.0kbits/s speed=8.39x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame=21477 fps=229 q=16.0 size=   73728kB time=00:13:07.78 bitrate= 766.7kbits/s speed=8.38x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=21626 fps=229 q=15.0 size=   73984kB time=00:13:12.75 bitrate= 764.5kbits/s speed=8.39x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=21687 fps=228 q=15.0 size=   73984kB time=00:13:14.23 bitrate= 763.1kbits/s speed=8.36x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=21829 fps=229 q=16.0 size=   74240kB time=00:13:19.48 bitrate= 760.7kbits/s speed=8.37x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=21973 fps=229 q=16.0 size=   74496kB time=00:13:24.26 bitrate= 758.8kbits/s speed=8.38x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=22098 fps=229 q=13.0 size=   74752kB time=00:13:27.93 bitrate= 757.9kbits/s speed=8.37x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=22170 fps=228 q=13.0 size=   74752kB time=00:13:30.30 bitrate= 755.7kbits/s speed=8.35x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=22263 fps=228 q=16.0 size=   75008kB time=00:13:33.41 bitrate= 755.4kbits/s speed=8.34x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=22272 fps=227 q=15.0 size=   75008kB time=00:13:34.71 bitrate= 754.2kbits/s speed=8.31x    [hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=22423 fps=228 q=13.0 size=   75264kB time=00:13:39.78 bitrate= 752.1kbits/s speed=8.32x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=22566 fps=228 q=15.0 size=   75520kB time=00:13:44.51 bitrate= 750.3kbits/s speed=8.32x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=22694 fps=228 q=13.0 size=   75776kB time=00:13:50.32 bitrate= 747.6kbits/s speed=8.34x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=22832 fps=228 q=13.0 size=   76032kB time=00:13:55.43 bitrate= 745.5kbits/s speed=8.35x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=22972 fps=228 q=15.0 size=   76032kB time=00:14:00.07 bitrate= 741.4kbits/s speed=8.35x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame=23104 fps=229 q=16.0 size=   76544kB time=00:14:04.53 bitrate= 742.5kbits/s speed=8.36x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame=23245 fps=229 q=16.0 size=   76544kB time=00:14:09.17 bitrate= 738.4kbits/s speed=8.36x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame=23358 fps=229 q=16.0 size=   77312kB time=00:14:17.44 bitrate= 738.6kbits/s speed= 8.4x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=23462 fps=229 q=16.0 size=   78080kB time=00:14:27.79 bitrate= 737.1kbits/s speed=8.46x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=23567 fps=229 q=15.0 size=   79104kB time=00:14:38.29 bitrate= 737.8kbits/s speed=8.52x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=23683 fps=229 q=16.0 size=   79872kB time=00:14:49.25 bitrate= 735.8kbits/s speed=8.59x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame=23799 fps=229 q=13.0 size=   80896kB time=00:15:00.91 bitrate= 735.6kbits/s speed=8.66x    [hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=23948 fps=229 q=15.0 size=   81664kB time=00:15:05.83 bitrate= 738.5kbits/s speed=8.66x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=24065 fps=229 q=16.0 size=   82432kB time=00:15:14.98 bitrate= 738.0kbits/s speed=8.71x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=24185 fps=229 q=13.0 size=   83456kB time=00:15:24.45 bitrate= 739.5kbits/s speed=8.76x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=24326 fps=229 q=16.0 size=   84224kB time=00:15:29.00 bitrate= 742.7kbits/s speed=8.76x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=24470 fps=230 q=16.0 size=   84736kB time=00:15:33.92 bitrate= 743.3kbits/s speed=8.76x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=24611 fps=230 q=16.0 size=   85504kB time=00:15:38.71 bitrate= 746.2kbits/s speed=8.77x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=24727 fps=230 q=16.0 size=   86016kB time=00:15:47.72 bitrate= 743.5kbits/s speed=8.81x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=24848 fps=230 q=13.0 size=   87040kB time=00:15:58.21 bitrate= 744.1kbits/s speed=8.87x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame=24895 fps=229 q=16.0 size=   87296kB time=00:16:04.39 bitrate= 741.5kbits/s speed=8.88x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=25008 fps=229 q=16.0 size=   87808kB time=00:16:15.53 bitrate= 737.4kbits/s speed=8.94x    [hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=25069 fps=229 q=16.0 size=   88064kB time=00:16:18.41 bitrate= 737.3kbits/s speed=8.93x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=25143 fps=228 q=15.0 size=   88064kB time=00:16:26.68 bitrate= 731.2kbits/s speed=8.96x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=25240 fps=228 q=16.0 size=   88320kB time=00:16:35.78 bitrate= 726.6kbits/s speed=   9x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame=25335 fps=228 q=13.0 size=   88832kB time=00:16:43.82 bitrate= 724.9kbits/s speed=9.04x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=25440 fps=228 q=15.0 size=   88832kB time=00:16:48.23 bitrate= 721.8kbits/s speed=9.04x    [hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=25509 fps=228 q=16.0 size=   89344kB time=00:16:55.10 bitrate= 721.0kbits/s speed=9.06x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+frame=25597 fps=227 q=16.0 size=   89344kB time=00:17:03.83 bitrate= 714.9kbits/s speed=9.09x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+frame=25637 fps=227 q=16.0 size=   89600kB time=00:17:07.87 bitrate= 714.1kbits/s speed=9.09x    [hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=25712 fps=226 q=16.0 size=   89600kB time=00:17:12.33 bitrate= 711.0kbits/s speed=9.09x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame=25769 fps=226 q=15.0 size=   90368kB time=00:17:18.65 bitrate= 712.7kbits/s speed= 9.1x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=25847 fps=226 q=16.0 size=   90880kB time=00:17:27.38 bitrate= 710.8kbits/s speed=9.14x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=25942 fps=225 q=16.0 size=   91392kB time=00:17:36.02 bitrate= 709.0kbits/s speed=9.18x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=26053 fps=225 q=16.0 size=   92160kB time=00:17:46.42 bitrate= 708.0kbits/s speed=9.23x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=26141 fps=225 q=13.0 size=   92672kB time=00:17:55.98 bitrate= 705.6kbits/s speed=9.27x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=26195 fps=225 q=16.0 size=   93184kB time=00:18:01.42 bitrate= 705.9kbits/s speed=9.27x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=26293 fps=225 q=16.0 size=   95488kB time=00:18:10.89 bitrate= 717.1kbits/s speed=9.32x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=26394 fps=224 q=16.0 size=   96512kB time=00:18:21.20 bitrate= 718.0kbits/s speed=9.36x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=26533 fps=225 q=16.0 size=   97792kB time=00:18:28.72 bitrate= 722.5kbits/s speed=9.39x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=26647 fps=225 q=16.0 size=   99584kB time=00:18:36.16 bitrate= 730.9kbits/s speed=9.41x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=26714 fps=224 q=14.0 size=  101376kB time=00:18:41.31 bitrate= 740.6kbits/s speed=9.41x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=26804 fps=224 q=13.0 size=  102144kB time=00:18:45.16 bitrate= 743.7kbits/s speed=9.41x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=26920 fps=224 q=13.0 size=  102400kB time=00:18:48.51 bitrate= 743.3kbits/s speed= 9.4x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+frame=26957 fps=224 q=15.0 size=  102656kB time=00:18:53.48 bitrate= 741.9kbits/s speed= 9.4x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=26987 fps=223 q=16.0 size=  102912kB time=00:18:55.38 bitrate= 742.5kbits/s speed=9.37x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=26987 fps=222 q=16.0 size=  102912kB time=00:18:55.38 bitrate= 742.5kbits/s speed=9.34x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=26987 fps=221 q=16.0 size=  102912kB time=00:18:55.38 bitrate= 742.5kbits/s speed= 9.3x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=26998 fps=220 q=16.0 size=  102912kB time=00:18:58.03 bitrate= 740.8kbits/s speed=9.28x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame=27092 fps=220 q=16.0 size=  104192kB time=00:19:06.34 bitrate= 744.6kbits/s speed=9.31x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=27132 fps=219 q=16.0 size=  104704kB time=00:19:10.47 bitrate= 745.5kbits/s speed=9.31x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=27185 fps=219 q=16.0 size=  105984kB time=00:19:15.21 bitrate= 751.6kbits/s speed=9.31x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=27185 fps=218 q=16.0 size=  105984kB time=00:19:15.21 bitrate= 751.6kbits/s speed=9.27x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+frame=27185 fps=217 q=16.0 size=  105984kB time=00:19:15.21 bitrate= 751.6kbits/s speed=9.23x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame=27185 fps=216 q=16.0 size=  105984kB time=00:19:15.21 bitrate= 751.6kbits/s speed=9.19x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=27240 fps=216 q=17.0 size=  107776kB time=00:19:22.08 bitrate= 759.8kbits/s speed=9.21x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=27308 fps=216 q=15.0 size=  109056kB time=00:19:26.77 bitrate= 765.7kbits/s speed=9.21x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=27362 fps=215 q=16.0 size=  109056kB time=00:19:28.07 bitrate= 764.8kbits/s speed=9.19x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+frame=27461 fps=215 q=15.0 size=  109568kB time=00:19:38.34 bitrate= 761.7kbits/s speed=9.23x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=27481 fps=214 q=15.0 size=  109824kB time=00:19:40.47 bitrate= 762.1kbits/s speed=9.21x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=27494 fps=214 q=16.0 size=  109824kB time=00:19:42.98 bitrate= 760.5kbits/s speed= 9.2x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+    Last message repeated 1 times
+frame=27555 fps=213 q=16.0 size=  111104kB time=00:19:47.58 bitrate= 766.4kbits/s speed= 9.2x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=27632 fps=213 q=16.0 size=  111616kB time=00:19:50.13 bitrate= 768.3kbits/s speed=9.18x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=27632 fps=212 q=16.0 size=  111616kB time=00:19:50.23 bitrate= 768.2kbits/s speed=9.15x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame=27730 fps=212 q=15.0 size=  111872kB time=00:19:53.94 bitrate= 767.6kbits/s speed=9.14x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=27843 fps=212 q=16.0 size=  112384kB time=00:19:57.15 bitrate= 769.0kbits/s speed=9.13x    [hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=27843 fps=211 q=16.0 size=  112384kB time=00:19:57.15 bitrate= 769.0kbits/s speed=9.09x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+frame=27881 fps=211 q=15.0 size=  112640kB time=00:20:00.91 bitrate= 768.4kbits/s speed=9.09x    [hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=27982 fps=211 q=16.0 size=  113152kB time=00:20:09.92 bitrate= 766.1kbits/s speed=9.12x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=28066 fps=211 q=13.0 size=  113664kB time=00:20:15.77 bitrate= 765.9kbits/s speed=9.13x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=28079 fps=210 q=15.0 size=  113664kB time=00:20:15.77 bitrate= 765.9kbits/s speed=9.09x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=28079 fps=209 q=15.0 size=  113664kB time=00:20:15.77 bitrate= 765.9kbits/s speed=9.06x    [hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame=28091 fps=209 q=15.0 size=  113664kB time=00:20:18.18 bitrate= 764.4kbits/s speed=9.05x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=28192 fps=209 q=16.0 size=  114944kB time=00:20:28.54 bitrate= 766.5kbits/s speed=9.09x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=28207 fps=208 q=15.0 size=  115200kB time=00:20:29.28 bitrate= 767.7kbits/s speed=9.06x    [hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=28247 fps=207 q=15.0 size=  115456kB time=00:20:32.72 bitrate= 767.3kbits/s speed=9.05x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=28259 fps=207 q=16.0 size=  115456kB time=00:20:34.99 bitrate= 765.8kbits/s speed=9.04x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=28338 fps=207 q=16.0 size=  116736kB time=00:20:39.31 bitrate= 771.6kbits/s speed=9.03x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=28381 fps=206 q=16.0 size=  117248kB time=00:20:44.24 bitrate= 772.0kbits/s speed=9.04x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=28400 fps=206 q=13.0 size=  117248kB time=00:20:46.19 bitrate= 770.7kbits/s speed=9.02x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=28424 fps=205 q=13.0 size=  117504kB time=00:20:48.18 bitrate= 771.2kbits/s speed=   9x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=28502 fps=205 q=14.0 size=  119296kB time=00:20:55.38 bitrate= 778.5kbits/s speed=9.02x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=28513 fps=204 q=16.0 size=  119552kB time=00:20:56.45 bitrate= 779.5kbits/s speed=8.99x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=28577 fps=204 q=14.0 size=  120320kB time=00:21:00.03 bitrate= 782.3kbits/s speed=8.99x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=28579 fps=203 q=15.0 size=  120320kB time=00:21:00.03 bitrate= 782.3kbits/s speed=8.95x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=28601 fps=203 q=16.0 size=  120576kB time=00:21:00.77 bitrate= 783.5kbits/s speed=8.93x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=28638 fps=202 q=14.0 size=  120576kB time=00:21:02.02 bitrate= 782.7kbits/s speed=8.91x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame=28669 fps=202 q=16.0 size=  120832kB time=00:21:06.71 bitrate= 781.4kbits/s speed=8.91x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=28766 fps=202 q=16.0 size=  121600kB time=00:21:16.28 bitrate= 780.5kbits/s speed=8.94x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame=28846 fps=201 q=16.0 size=  122368kB time=00:21:24.22 bitrate= 780.6kbits/s speed=8.97x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=28915 fps=201 q=16.0 size=  122880kB time=00:21:30.03 bitrate= 780.3kbits/s speed=8.98x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=28949 fps=201 q=16.0 size=  123648kB time=00:21:33.37 bitrate= 783.2kbits/s speed=8.97x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=28949 fps=200 q=16.0 size=  123648kB time=00:21:33.37 bitrate= 783.2kbits/s speed=8.94x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=28949 fps=199 q=16.0 size=  123648kB time=00:21:33.37 bitrate= 783.2kbits/s speed=8.91x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=28976 fps=199 q=13.0 size=  124160kB time=00:21:37.64 bitrate= 783.8kbits/s speed= 8.9x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+frame=29101 fps=199 q=13.0 size=  125440kB time=00:21:44.75 bitrate= 787.6kbits/s speed=8.92x    [hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=29242 fps=199 q=15.0 size=  126464kB time=00:21:49.48 bitrate= 791.1kbits/s speed=8.92x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+frame=29302 fps=199 q=16.0 size=  127232kB time=00:21:53.01 bitrate= 793.8kbits/s speed=8.92x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=29429 fps=199 q=15.0 size=  128256kB time=00:21:57.15 bitrate= 797.7kbits/s speed=8.92x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+frame=29514 fps=199 q=13.0 size=  129536kB time=00:22:02.86 bitrate= 802.2kbits/s speed=8.92x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=29644 fps=199 q=16.0 size=  130816kB time=00:22:11.73 bitrate= 804.7kbits/s speed=8.95x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=29785 fps=200 q=15.0 size=  132096kB time=00:22:19.07 bitrate= 808.1kbits/s speed=8.97x    [hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+frame=29920 fps=200 q=13.0 size=  132608kB time=00:22:26.31 bitrate= 806.9kbits/s speed=8.99x    [hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=30059 fps=200 q=15.0 size=  133376kB time=00:22:31.37 bitrate= 808.5kbits/s speed=   9x    [hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+frame=30182 fps=200 q=13.0 size=  133888kB time=00:22:42.10 bitrate= 805.2kbits/s speed=9.04x    [hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=30281 fps=200 q=15.0 size=  134656kB time=00:22:45.91 bitrate= 807.6kbits/s speed=9.03x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=30423 fps=200 q=16.0 size=  134912kB time=00:22:50.65 bitrate= 806.3kbits/s speed=9.03x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+frame=30564 fps=201 q=16.0 size=  135424kB time=00:22:55.34 bitrate= 806.6kbits/s speed=9.03x    [hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=30628 fps=201 q=16.0 size=  135424kB time=00:22:57.47 bitrate= 805.4kbits/s speed=9.02x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=30738 fps=201 q=13.0 size=  135936kB time=00:23:02.77 bitrate= 805.3kbits/s speed=9.02x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=30820 fps=200 q=13.0 size=  136448kB time=00:23:06.02 bitrate= 806.5kbits/s speed=9.01x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=30960 fps=201 q=15.0 size=  136960kB time=00:23:10.71 bitrate= 806.8kbits/s speed=9.02x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=31101 fps=201 q=13.0 size=  137472kB time=00:23:15.40 bitrate= 807.1kbits/s speed=9.02x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=31178 fps=201 q=13.0 size=  137728kB time=00:23:18.60 bitrate= 806.7kbits/s speed=9.01x    [hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=31260 fps=201 q=13.0 size=  138240kB time=00:23:22.27 bitrate= 807.6kbits/s speed=   9x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+frame=31394 fps=201 q=16.0 size=  138496kB time=00:23:26.73 bitrate= 806.5kbits/s speed=   9x    [hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=31425 fps=200 q=16.0 size=  138496kB time=00:23:28.26 bitrate= 805.6kbits/s speed=8.98x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+frame=31558 fps=201 q=13.0 size=  139520kB time=00:23:32.63 bitrate= 809.1kbits/s speed=8.98x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=31696 fps=201 q=16.0 size=  141056kB time=00:23:36.76 bitrate= 815.6kbits/s speed=8.98x    [hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=31774 fps=201 q=16.0 size=  142336kB time=00:23:46.05 bitrate= 817.7kbits/s speed=9.01x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=31818 fps=200 q=16.0 size=  143104kB time=00:23:48.88 bitrate= 820.4kbits/s speed=   9x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+frame=31897 fps=200 q=16.0 size=  144896kB time=00:23:55.75 bitrate= 826.7kbits/s speed=9.01x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=32011 fps=200 q=16.0 size=  146944kB time=00:24:04.72 bitrate= 833.2kbits/s speed=9.04x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=32157 fps=201 q=13.0 size=  148992kB time=00:24:11.87 bitrate= 840.7kbits/s speed=9.06x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=32288 fps=201 q=13.0 size=  150272kB time=00:24:23.39 bitrate= 841.2kbits/s speed= 9.1x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+frame=32366 fps=201 q=16.0 size=  150528kB time=00:24:29.70 bitrate= 839.0kbits/s speed=9.11x    [hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=32415 fps=200 q=16.0 size=  150784kB time=00:24:30.82 bitrate= 839.8kbits/s speed=9.09x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+frame=32487 fps=200 q=13.0 size=  151040kB time=00:24:36.34 bitrate= 838.1kbits/s speed= 9.1x    [hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=32579 fps=200 q=15.0 size=  152064kB time=00:24:40.89 bitrate= 841.2kbits/s speed= 9.1x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame=32603 fps=200 q=15.0 size=  152320kB time=00:24:44.79 bitrate= 840.4kbits/s speed=9.09x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=32744 fps=200 q=16.0 size=  153344kB time=00:24:52.50 bitrate= 841.7kbits/s speed=9.11x    [hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame=32845 fps=200 q=15.0 size=  154368kB time=00:25:02.86 bitrate= 841.4kbits/s speed=9.15x    [hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+frame=32961 fps=200 q=16.0 size=  155648kB time=00:25:14.80 bitrate= 841.7kbits/s speed=9.19x    [hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20756fc0] Skipping NAL unit 63
+[hevc @ 0000020c21401440] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+[hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=33027 fps=200 q=15.0 size=  156672kB time=00:25:19.86 bitrate= 844.5kbits/s speed=9.19x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+[hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+frame=33086 fps=200 q=15.0 size=  157184kB time=00:25:27.24 bitrate= 843.1kbits/s speed=9.21x    [hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c214b2a00] Skipping NAL unit 63
+[hevc @ 0000020c209c0440] Skipping NAL unit 63
+frame=33147 fps=199 q=15.0 size=  157440kB time=00:25:32.12 bitrate= 841.8kbits/s speed=9.21x    [hevc @ 0000020c20757bc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+frame=33228 fps=199 q=16.0 size=  157952kB time=00:25:41.45 bitrate= 839.4kbits/s speed=9.24x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c206e2140] Skipping NAL unit 63
+[hevc @ 0000020c207577c0] Skipping NAL unit 63
+[hevc @ 0000020c207573c0] Skipping NAL unit 63
+[hevc @ 0000020c20cab940] Skipping NAL unit 63
+[hevc @ 0000020c209c0c40] Skipping NAL unit 63
+[hevc @ 0000020c20757fc0] Skipping NAL unit 63
+[hevc @ 0000020c207583c0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=33293 fps=199 q=15.0 size=  158464kB time=00:25:46.75 bitrate= 839.3kbits/s speed=9.24x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+[hevc @ 0000020c20754bc0] Skipping NAL unit 63
+[hevc @ 0000020c20cbbb00] Skipping NAL unit 63
+frame=33398 fps=199 q=16.0 size=  159232kB time=00:25:58.36 bitrate= 837.1kbits/s speed=9.29x    [hevc @ 0000020c20731180] Skipping NAL unit 63
+[hevc @ 0000020c207553c0] Skipping NAL unit 63
+frame=33472 fps=199 q=13.0 Lsize=  161174kB time=00:26:02.86 bitrate= 844.8kbits/s speed= 9.3x    
+video:135646kB audio:24364kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.727098%
+[aac @ 0000020c206e3d80] Qavg: 535.971
+Found 485 speech segments (1417.6s)
+Silence: 1851.3s (57%)
+After merge+pad: 459 segments (1562.9s)
+
+Speech segments:
+    1. 00:04.40 (0.9s)
+    2. 00:06.06 (1.0s)
+    3. 00:09.10 (0.9s)
+    4. 00:18.57 (1.8s)
+    5. 00:22.57 (1.2s)
+    6. 00:24.43 (1.1s)
+    7. 00:34.19 (1.4s)
+    8. 00:37.36 (1.4s)
+    9. 00:38.83 (0.6s)
+   10. 01:01.20 (3.0s)
+   11. 01:05.13 (8.1s)
+   12. 01:13.71 (0.7s)
+   13. 01:14.89 (2.2s)
+   14. 01:17.20 (0.9s)
+   15. 01:18.80 (6.2s)
+   16. 01:26.00 (1.3s)
+   17. 01:27.69 (17.0s)
+   18. 01:44.88 (1.4s)
+   19. 01:46.44 (3.8s)
+   20. 01:50.32 (9.4s)
+   21. 02:10.41 (1.9s)
+   22. 02:12.75 (1.1s)
+   23. 02:13.93 (2.4s)
+   24. 02:16.91 (0.7s)
+   25. 02:17.96 (0.9s)
+   26. 02:25.23 (1.2s)
+   27. 02:26.51 (3.8s)
+   28. 03:03.12 (6.1s)
+   29. 03:33.23 (2.5s)
+   30. 03:36.88 (1.2s)
+   31. 03:39.85 (3.1s)
+   32. 04:16.49 (1.1s)
+   33. 04:18.00 (4.1s)
+   34. 04:23.40 (2.6s)
+   35. 04:26.96 (3.7s)
+   36. 04:30.67 (1.1s)
+   37. 04:32.14 (3.8s)
+   38. 04:35.92 (1.3s)
+   39. 04:37.42 (1.9s)
+   40. 04:39.56 (2.1s)
+   41. 04:56.72 (2.3s)
+   42. 04:59.44 (4.6s)
+   43. 05:23.66 (3.3s)
+   44. 05:27.37 (1.2s)
+   45. 05:29.10 (2.9s)
+   46. 05:32.04 (28.0s)
+   47. 06:00.27 (4.6s)
+   48. 06:04.97 (3.8s)
+   49. 06:08.88 (3.0s)
+   50. 06:11.98 (7.7s)
+   51. 06:19.82 (5.0s)
+   52. 06:25.07 (7.6s)
+   53. 06:32.91 (1.7s)
+   54. 06:34.60 (4.6s)
+   55. 06:40.17 (4.6s)
+   56. 06:44.78 (5.6s)
+   57. 06:50.44 (2.7s)
+   58. 06:53.20 (3.2s)
+   59. 06:57.04 (4.0s)
+   60. 07:01.04 (4.2s)
+   61. 07:06.16 (3.9s)
+   62. 07:10.16 (2.7s)
+   63. 07:13.10 (1.5s)
+   64. 07:14.83 (3.6s)
+   65. 07:18.44 (3.0s)
+   66. 07:21.52 (4.1s)
+   67. 07:26.00 (1.1s)
+   68. 07:27.12 (4.6s)
+   69. 07:32.56 (1.6s)
+   70. 07:34.25 (3.7s)
+   71. 07:38.06 (2.3s)
+   72. 07:40.56 (3.1s)
+   73. 07:43.88 (3.1s)
+   74. 07:47.63 (1.7s)
+   75. 07:49.36 (1.2s)
+   76. 07:50.89 (3.5s)
+   77. 07:54.51 (1.8s)
+   78. 07:56.52 (3.5s)
+   79. 08:00.81 (1.9s)
+   80. 08:02.76 (3.5s)
+   81. 08:06.54 (1.3s)
+   82. 08:07.82 (4.9s)
+   83. 08:13.10 (4.0s)
+   84. 08:17.16 (1.8s)
+   85. 08:19.63 (1.8s)
+   86. 08:21.48 (4.2s)
+   87. 08:26.12 (3.7s)
+   88. 08:30.12 (1.0s)
+   89. 08:31.21 (1.3s)
+   90. 08:32.56 (3.1s)
+   91. 08:36.04 (8.3s)
+   92. 08:44.81 (0.9s)
+   93. 08:45.87 (2.8s)
+   94. 08:48.97 (1.4s)
+   95. 08:50.89 (2.8s)
+   96. 08:54.00 (1.4s)
+   97. 08:55.44 (4.2s)
+   98. 08:59.72 (5.7s)
+   99. 09:05.48 (2.4s)
+  100. 09:07.92 (3.0s)
+  101. 09:11.34 (3.4s)
+  102. 09:15.56 (1.2s)
+  103. 09:16.81 (6.2s)
+  104. 09:23.08 (4.0s)
+  105. 09:27.08 (5.0s)
+  106. 09:48.01 (3.7s)
+  107. 09:51.88 (1.1s)
+  108. 09:54.25 (2.4s)
+  109. 10:04.01 (8.5s)
+  110. 10:37.55 (3.9s)
+  111. 10:48.72 (1.1s)
+  112. 10:49.87 (10.9s)
+  113. 11:02.60 (2.2s)
+  114. 11:06.12 (1.9s)
+  115. 11:08.04 (5.4s)
+  116. 11:13.84 (4.6s)
+  117. 11:18.86 (13.6s)
+  118. 11:32.56 (0.8s)
+  119. 11:33.48 (3.8s)
+  120. 11:37.74 (1.5s)
+  121. 11:39.37 (2.1s)
+  122. 11:42.06 (5.5s)
+  123. 11:47.69 (3.0s)
+  124. 11:51.28 (3.7s)
+  125. 11:55.08 (2.1s)
+  126. 11:57.71 (9.1s)
+  127. 12:08.08 (1.4s)
+  128. 12:09.61 (11.3s)
+  129. 12:21.20 (9.0s)
+  130. 12:30.28 (3.1s)
+  131. 12:33.64 (4.2s)
+  132. 12:37.96 (5.1s)
+  133. 12:43.12 (3.5s)
+  134. 12:46.60 (2.8s)
+  135. 12:49.87 (3.2s)
+  136. 12:53.26 (0.9s)
+  137. 12:54.41 (5.6s)
+  138. 13:00.14 (3.2s)
+  139. 13:03.40 (8.0s)
+  140. 13:11.40 (5.0s)
+  141. 13:16.62 (6.0s)
+  142. 13:22.92 (2.8s)
+  143. 13:25.71 (1.9s)
+  144. 13:27.63 (5.2s)
+  145. 13:33.10 (2.3s)
+  146. 13:45.16 (1.0s)
+  147. 13:47.82 (2.4s)
+  148. 13:50.32 (6.5s)
+  149. 13:56.88 (6.1s)
+  150. 14:02.96 (2.7s)
+  151. 14:06.28 (1.8s)
+  152. 14:08.75 (1.2s)
+  153. 14:10.32 (2.9s)
+  154. 14:13.61 (9.9s)
+  155. 14:25.45 (9.4s)
+  156. 14:35.05 (1.0s)
+  157. 14:36.72 (1.8s)
+  158. 14:38.86 (5.8s)
+  159. 14:44.81 (13.6s)
+  160. 14:58.76 (3.2s)
+  161. 15:02.86 (9.5s)
+  162. 15:15.44 (7.9s)
+  163. 15:24.11 (2.0s)
+  164. 15:29.84 (0.9s)
+  165. 15:31.82 (5.9s)
+  166. 15:38.35 (4.6s)
+  167. 15:43.12 (4.0s)
+  168. 15:47.18 (4.4s)
+  169. 15:52.33 (7.1s)
+  170. 16:04.75 (10.4s)
+  171. 16:37.16 (4.3s)
+  172. 16:41.61 (1.5s)
+  173. 16:45.77 (2.6s)
+  174. 16:48.40 (4.2s)
+  175. 16:53.32 (4.1s)
+  176. 16:57.55 (5.5s)
+  177. 17:03.72 (3.1s)
+  178. 17:07.44 (3.2s)
+  179. 17:10.76 (5.1s)
+  180. 17:16.01 (3.2s)
+  181. 17:19.28 (9.4s)
+  182. 17:28.84 (6.5s)
+  183. 17:35.60 (10.4s)
+  184. 17:46.35 (3.8s)
+  185. 17:50.19 (5.2s)
+  186. 17:55.44 (1.5s)
+  187. 18:11.69 (7.2s)
+  188. 18:28.30 (5.9s)
+  189. 18:37.87 (1.8s)
+  190. 18:53.68 (1.7s)
+  191. 18:56.30 (0.8s)
+  192. 18:59.31 (2.2s)
+  193. 19:05.64 (5.3s)
+  194. 19:10.96 (2.7s)
+  195. 19:15.37 (3.2s)
+  196. 19:18.60 (7.5s)
+  197. 19:26.54 (1.5s)
+  198. 19:37.42 (3.1s)
+  199. 19:40.88 (2.9s)
+  200. 19:43.92 (4.0s)
+  201. 19:58.00 (3.9s)
+  202. 20:02.16 (0.7s)
+  203. 20:04.17 (6.2s)
+  204. 20:13.84 (7.4s)
+  205. 20:30.86 (13.7s)
+  206. 20:54.83 (2.4s)
+  207. 21:02.89 (1.9s)
+  208. 21:05.68 (1.3s)
+  209. 21:26.22 (2.9s)
+  210. 21:29.10 (1.1s)
+  211. 21:30.76 (1.6s)
+  212. 21:32.56 (1.4s)
+  213. 21:34.28 (1.9s)
+  214. 21:37.45 (3.0s)
+  215. 21:41.32 (4.0s)
+  216. 21:45.87 (1.0s)
+  217. 21:50.25 (2.9s)
+  218. 21:53.29 (7.2s)
+  219. 22:03.15 (3.1s)
+  220. 22:06.64 (3.4s)
+  221. 22:10.64 (2.0s)
+  222. 22:12.68 (14.8s)
+  223. 22:27.72 (6.1s)
+  224. 22:33.93 (2.2s)
+  225. 22:38.25 (11.0s)
+  226. 22:49.23 (3.3s)
+  227. 22:52.68 (2.6s)
+  228. 22:55.88 (2.6s)
+  229. 22:58.96 (1.2s)
+  230. 23:00.27 (3.0s)
+  231. 23:03.79 (0.9s)
+  232. 23:07.18 (1.0s)
+  233. 23:08.20 (1.6s)
+  234. 23:11.05 (2.2s)
+  235. 23:13.23 (3.2s)
+  236. 23:16.65 (4.0s)
+  237. 23:20.88 (3.5s)
+  238. 23:24.52 (10.9s)
+  239. 23:35.56 (5.9s)
+  240. 23:41.64 (7.9s)
+  241. 23:49.58 (5.6s)
+  242. 23:55.24 (13.8s)
+  243. 24:09.39 (2.1s)
+  244. 24:35.28 (6.2s)
+  245. 24:43.08 (1.3s)
+  246. 24:44.68 (5.7s)
+  247. 24:51.28 (1.2s)
+  248. 24:53.45 (4.0s)
+  249. 25:10.19 (1.2s)
+  250. 25:13.55 (2.6s)
+  251. 25:16.46 (1.5s)
+  252. 25:18.32 (7.4s)
+  253. 25:25.77 (5.5s)
+  254. 25:31.82 (3.0s)
+  255. 25:35.76 (3.8s)
+  256. 25:39.69 (1.3s)
+  257. 25:42.92 (3.7s)
+  258. 25:46.73 (3.6s)
+  259. 25:50.38 (6.1s)
+  260. 25:56.78 (2.8s)
+  261. 25:59.72 (7.2s)
+  262. 26:27.82 (3.6s)
+  263. 26:31.63 (2.5s)
+  264. 26:49.32 (2.6s)
+  265. 26:53.39 (3.5s)
+  266. 26:57.77 (1.2s)
+  267. 26:59.02 (1.1s)
+  268. 27:00.81 (1.9s)
+  269. 27:07.24 (1.1s)
+  270. 27:09.93 (1.9s)
+  271. 27:14.35 (4.6s)
+  272. 27:23.02 (4.8s)
+  273. 27:27.98 (3.7s)
+  274. 27:31.72 (5.4s)
+  275. 27:37.64 (2.0s)
+  276. 27:40.46 (6.8s)
+  277. 27:50.06 (4.0s)
+  278. 28:01.20 (2.4s)
+  279. 28:09.87 (3.0s)
+  280. 28:13.36 (3.5s)
+  281. 28:16.91 (4.0s)
+  282. 28:21.10 (1.5s)
+  283. 28:22.86 (3.2s)
+  284. 28:26.12 (7.2s)
+  285. 28:33.42 (2.6s)
+  286. 28:36.78 (6.4s)
+  287. 28:43.28 (8.7s)
+  288. 28:52.24 (0.8s)
+  289. 28:53.20 (1.1s)
+  290. 29:20.62 (7.2s)
+  291. 29:41.39 (0.7s)
+  292. 29:43.82 (2.5s)
+  293. 29:56.78 (1.7s)
+  294. 30:04.11 (1.9s)
+  295. 30:58.09 (6.1s)
+  296. 31:04.52 (1.4s)
+  297. 31:08.17 (1.4s)
+  298. 31:10.12 (1.7s)
+  299. 31:19.31 (2.6s)
+  300. 31:39.69 (1.9s)
+  301. 31:47.40 (1.9s)
+  302. 31:55.34 (1.1s)
+  303. 31:56.59 (1.7s)
+  304. 33:44.75 (2.3s)
+  305. 33:47.88 (1.1s)
+  306. 33:49.74 (7.2s)
+  307. 34:03.85 (2.4s)
+  308. 34:20.04 (2.9s)
+  309. 34:23.72 (1.8s)
+  310. 34:25.64 (0.7s)
+  311. 34:26.54 (1.8s)
+  312. 34:29.93 (1.6s)
+  313. 34:31.72 (1.4s)
+  314. 34:51.12 (0.9s)
+  315. 34:52.20 (1.3s)
+  316. 35:14.12 (2.8s)
+  317. 35:17.48 (2.7s)
+  318. 35:21.42 (1.6s)
+  319. 35:42.12 (2.6s)
+  320. 35:59.05 (0.7s)
+  321. 35:59.79 (0.6s)
+  322. 36:00.75 (1.9s)
+  323. 36:10.44 (0.8s)
+  324. 36:13.71 (2.0s)
+  325. 36:17.00 (1.0s)
+  326. 36:57.32 (1.6s)
+  327. 36:59.37 (1.1s)
+  328. 37:01.55 (1.1s)
+  329. 37:17.16 (1.3s)
+  330. 37:18.64 (1.1s)
+  331. 37:19.85 (1.7s)
+  332. 37:21.90 (3.1s)
+  333. 37:25.23 (1.7s)
+  334. 37:31.82 (2.9s)
+  335. 37:34.99 (0.9s)
+  336. 37:43.92 (2.1s)
+  337. 38:38.25 (1.2s)
+  338. 38:40.43 (3.0s)
+  339. 38:43.79 (2.2s)
+  340. 38:48.78 (3.6s)
+  341. 38:52.84 (2.2s)
+  342. 38:55.15 (0.7s)
+  343. 39:22.35 (1.3s)
+  344. 39:24.36 (1.1s)
+  345. 39:27.37 (1.7s)
+  346. 39:58.38 (2.3s)
+  347. 40:02.76 (3.0s)
+  348. 40:06.64 (1.3s)
+  349. 40:17.16 (1.6s)
+  350. 40:19.79 (1.7s)
+  351. 40:32.68 (1.0s)
+  352. 40:38.99 (1.0s)
+  353. 40:59.31 (0.8s)
+  354. 41:07.53 (1.0s)
+  355. 41:09.23 (1.3s)
+  356. 41:29.93 (0.8s)
+  357. 41:31.79 (3.0s)
+  358. 41:35.34 (1.2s)
+  359. 41:37.68 (1.2s)
+  360. 41:38.89 (1.4s)
+  361. 41:48.11 (1.1s)
+  362. 42:07.56 (2.4s)
+  363. 42:10.19 (1.2s)
+  364. 42:36.78 (0.7s)
+  365. 42:42.03 (1.2s)
+  366. 43:07.60 (1.4s)
+  367. 43:09.00 (1.5s)
+  368. 43:11.98 (2.2s)
+  369. 43:14.48 (2.9s)
+  370. 43:17.87 (1.0s)
+  371. 43:18.99 (1.1s)
+  372. 43:21.16 (3.8s)
+  373. 43:25.23 (1.1s)
+  374. 43:26.67 (1.1s)
+  375. 43:28.17 (0.6s)
+  376. 43:29.68 (0.6s)
+  377. 43:31.37 (1.3s)
+  378. 43:37.42 (3.1s)
+  379. 43:40.97 (0.9s)
+  380. 43:49.23 (2.3s)
+  381. 43:51.76 (1.5s)
+  382. 44:01.39 (1.5s)
+  383. 44:17.29 (1.9s)
+  384. 44:19.72 (1.4s)
+  385. 45:40.52 (11.7s)
+  386. 45:52.56 (1.0s)
+  387. 45:53.68 (4.6s)
+  388. 46:04.33 (2.3s)
+  389. 46:09.52 (4.1s)
+  390. 46:13.77 (0.7s)
+  391. 46:15.12 (0.9s)
+  392. 46:17.07 (1.9s)
+  393. 46:19.05 (9.1s)
+  394. 46:29.42 (9.2s)
+  395. 46:39.92 (4.1s)
+  396. 46:44.52 (12.6s)
+  397. 46:57.52 (2.9s)
+  398. 47:01.90 (3.6s)
+  399. 47:16.08 (11.5s)
+  400. 47:28.27 (2.1s)
+  401. 47:31.69 (1.3s)
+  402. 47:39.66 (1.7s)
+  403. 47:41.42 (4.1s)
+  404. 47:52.27 (13.6s)
+  405. 48:06.19 (0.6s)
+  406. 48:12.62 (4.0s)
+  407. 48:17.84 (1.3s)
+  408. 48:25.48 (4.5s)
+  409. 48:42.09 (2.0s)
+  410. 48:45.29 (2.4s)
+  411. 48:48.43 (2.0s)
+  412. 48:50.67 (3.7s)
+  413. 48:58.86 (11.4s)
+  414. 49:26.09 (0.7s)
+  415. 49:33.04 (2.1s)
+  416. 49:38.12 (1.0s)
+  417. 49:39.40 (3.8s)
+  418. 49:46.86 (0.6s)
+  419. 49:47.50 (1.4s)
+  420. 49:48.91 (1.4s)
+  421. 49:52.08 (1.9s)
+  422. 49:54.09 (5.7s)
+  423. 50:00.94 (5.1s)
+  424. 50:06.22 (5.4s)
+  425. 50:11.66 (6.1s)
+  426. 50:33.58 (0.8s)
+  427. 50:34.64 (4.2s)
+  428. 50:39.72 (2.4s)
+  429. 51:07.08 (1.5s)
+  430. 51:08.88 (3.2s)
+  431. 51:12.40 (1.2s)
+  432. 51:16.33 (1.1s)
+  433. 51:19.63 (1.6s)
+  434. 51:23.05 (1.3s)
+  435. 51:55.05 (4.3s)
+  436. 52:00.49 (3.0s)
+  437. 52:03.47 (0.9s)
+  438. 52:06.57 (3.5s)
+  439. 52:13.77 (2.3s)
+  440. 52:19.47 (7.6s)
+  441. 52:27.28 (2.2s)
+  442. 52:29.45 (2.5s)
+  443. 52:32.40 (0.7s)
+  444. 52:33.16 (3.5s)
+  445. 52:38.67 (2.3s)
+  446. 52:41.04 (1.6s)
+  447. 53:02.12 (2.9s)
+  448. 53:05.32 (1.9s)
+  449. 53:16.56 (3.7s)
+  450. 53:21.42 (5.0s)
+  451. 53:27.28 (1.4s)
+  452. 53:29.10 (0.9s)
+  453. 53:30.54 (1.0s)
+  454. 53:36.43 (10.2s)
+  455. 53:46.73 (0.7s)
+  456. 53:47.69 (2.9s)
+  457. 54:02.19 (0.7s)
+  458. 54:10.99 (6.0s)
+  459. 54:17.42 (10.5s)
+
+Rendering with h264_nvenc...
+
+Done: D:\kuaishou_rec\2026-06-13 18-34-23_trimmed.mp4
+Original: 3268.9s -> Trimmed: 1562.9s (removed 1706.0s)

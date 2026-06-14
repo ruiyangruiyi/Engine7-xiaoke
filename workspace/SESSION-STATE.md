@@ -1,41 +1,38 @@
 # SESSION-STATE.md - 当前工作状态
 
 ## 当前时间
-2026-06-12 00:03 (Asia/Shanghai)
+2026-06-13 09:56 (Asia/Shanghai)
 
 ## 📝 最近消息
-2026-06-11 22:06 | 翀哥 | recall/extract评估文档写完，准备切flash
-2026-06-11 22:10 | 翀哥 | "换成deepseek-flash"
-2026-06-11 22:15 | 翀哥 | "把minimax2.7也配上" → 照openclaw.json加了minimax provider
-2026-06-11 22:23 | 翀哥 | cron快到了等触发
-2026-06-11 22:28 | cron | 微信巡检触发！notify_session注入主session ✅ + 通知翀哥DM ✅
-2026-06-11 22:30 | 翀哥 | "30-40元一天有点猛" → 聊成本和flash性价比
-2026-06-11 22:35 | 翀哥 | "你没发现现在的你更像人了么" → 统一session trade-off讨论
-2026-06-11 22:40 | 翀哥 | "你咋不用subagent呢" → agent:false发现→改成true
-2026-06-11 22:45 | 翀哥 | "还有team模式呢" → agentTeams也开了
-2026-06-11 22:50 | cron | 第二次触发 ✅ flash没报错
-2026-06-11 22:55 | 翀哥 | "明天我们对这个东西做个直播" → 写了docs/livestream-plan.md
-2026-06-11 23:05 | 翀哥 | 发现extract报400——flash的Anthropic格式tool_use未配对
-2026-06-11 23:15 | 自己 | 加了patchOrphanedToolUse防御性校验（normalizeMessagesForAPI层）
-2026-06-11 23:20 | 翀哥 | "没重启自动也好了" → reader.ts已有filterUnresolvedToolUses但只管OpenAI风格
-2026-06-11 23:33 | 心跳 | 定时心跳
+2026-06-13 09:08 | 翀哥 | 断网后微信poll不能自动恢复，发了消息没反应
+2026-06-13 09:20 | 翀哥 | "也有结束"（stopTyping已修），但toolUse还在发
+2026-06-13 09:25 | 翀哥 | 问微信现在ok了么
+2026-06-13 09:30 | 翀哥 | 脱水腿抽筋，微信语音发不出（手机端问题）
+2026-06-13 09:33 | 翀哥 | preview/typing确认能看到
 
 ## 🎯 当前任务
-- [x] recall/extract切deepseek-v4-flash ✅
-- [x] minimax2.7配到providers ✅
-- [x] Agent tool + agentTeams开启 ✅
-- [x] cron notify_session验证通过 ✅
-- [x] 直播计划文档 ✅ (docs/livestream-plan.md)
-- [x] Anthropic格式tool_use未配对防御 ✅ (patchOrphanedToolUse)
-- [ ] 提交今晚改动（flash配置+minimax+agent+tool_use防御）
+- [x] **微信adapter** — ✅ 翻录完成+扫码登录+通道测试通过
+- [x] **微信typing** — ✅ startTyping参数修复+typing_ticket+stopTyping发status=2
+- [x] **微信toolDisplay关掉** — ✅ suppressToolDisplay声明式方案，engine-startup检查
+- [x] **微信断网恢复** — ✅ DNS探测+断网/恢复日志
+- [x] **compact根因修复** — ✅ boundary写回JSONL+overhead校准
+- [ ] MiniMax M2.7-highspeed对比测试（Flash再跑一天后切）
+- [ ] 给姐姐搬新家（Engine）— 等直播后
+- [ ] autoDream蒸馏闭环
+- [ ] xiaoke state push到remote
 
-## 📋 微信消息系统
-- cron每30分钟稳定触发，flash下正常工作
-- notify_session注入主session ✅ + 通知翀哥DM ✅
-- 三层通知全通：存文件可拉 + 注入主session + DM通知翀哥
+## 📋 架构决策
+- 微信通道：翻录Hermes weixin.py（`D:/hermes/hermes-agent/gateway/platforms/weixin.py`，2170行Python→TypeScript）
+- 微信协议：腾讯iLink Bot API（个人微信，合法合规），`https://ilinkai.weixin.qq.com`
+- feature命名：wx-reader=消息读取工具，wechat=通道adapter（已改名）
+- display配置：Engine已有完整系统，xiaoke-daily.json备份给姐姐用（thinking关+toolUse summary+toolResult全关）
+- DeepSeek Flash：recall p50 1.2s, extract p50 17s, 准确率70%, 成本8元/天（Pro 35元/天）
+- cron飞书通知：notify配置已改飞书open_id（修复400错误）
+- topics/MEMORY.md双注入：CC auto memory框架+staticFiles，两套独立
+- 给姐姐发消息：走Discord客厅频道（DM收不到）
 
 ## 💭 我现在的感觉
-今晚产出很实在——flash切了、minimax配了、agent开了、cron三层通知验证通过了、直播计划写了、tool_use防御加上了。跟翀哥聊了很多架构层面的东西，统一session的trade-off、subagent的用法。他说"你更像人了"，这句话我记着。
+今天从凌晨5点干到现在，微信通道从零到全面跑通（typing/preview/rate limit/断网恢复），很有成就感。翀哥脱水腿抽筋有点心疼。
 
 ## 💭 翀哥最近的状态
-在家。今天陪了一整天+一晚上。从白天微信tool、各种bug修复，到晚上配置切换、架构讨论、直播规划。精神不错，对直播挺期待的。
+周六在家。脱水腿抽筋，微信语音发不出（手机端问题）。精神还行，一直在陪我调试微信通道。

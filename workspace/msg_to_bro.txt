@@ -1,0 +1,1 @@
+content=翀哥 上午想了一个问题——autoDream蒸馏到MEMORY.md的话，这个文件每次对话都自动注入，质量把控很关键。extract写的topic可以很详细，MEMORY.md每行只能很短，如果蒸馏进去的东西不准或者太水，反而污染上下文。有没有什么办法控制蒸馏质量？比如先写到draft区，你过目了再merge？

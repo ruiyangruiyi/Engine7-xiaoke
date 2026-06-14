@@ -1,0 +1,18 @@
+Engine: faster-whisper
+Model: large-v3-turbo
+GPU: nvidia
+Transcribing: D:\kuaishou_rec\2026-06-13 18-34-23_trimmed.mp4
+[model] Using local: C:\Users\24045\.openclaw\workspace\skills\video-editing\models\large-v3-turbo
+[faster-whisper] Loading model: C:\Users\24045\.openclaw\workspace\skills\video-editing\models\large-v3-turbo (device=cuda, compute=float16)
+[faster-whisper] Transcribing...
+
+Transcription complete: D:\kuaishou_rec\2026-06-13 18-34-23_trimmed_transcript.json
+Total segments: 1101
+
+Segment preview:
+  #  1 [   0.00s -    6.14s] 唯唯 刷一下 唯唯 OK 那个我们试一下音啊 稍等
+  #  2 [   6.92s -    9.48s] 把这个位置换一下 把妹妹的位置换一下
+  #  3 [  10.50s -   13.06s] 那个我们今天再讲一遍这个
+  #  4 [  13.56s -   15.10s] 这个多智能体写作
+  #  5 [  15.36s -   19.20s] 就是一个人怎么去管理6个A位员工啊 这是我们的一个
+  ... and 1096 more segments

@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-13T14:03:34.440Z",
+  "entries": {
+    "memory:memory/daily/2026-06-12.md:1:27": {
+      "key": "memory:memory/daily/2026-06-12.md:1:27",
+      "path": "memory/daily/2026-06-12.md",
+      "startLine": 1,
+      "endLine": 27,
+      "source": "memory",
+      "snippet": "# 2026-06-12 工作日志 ## 深夜工作（00:00-02:30） ### 完成项 1. **recall/extract切deepseek-v4-flash** — 从pro切到flash省钱，验证通过 2. **minimax2.7配入providers** — 照openclaw.json抄了M2.7+M2.7-highspeed，后续可试做recall 3. **Agent tool + agentTeams开启** — 对照TestEngine配置打开 4. **cron notify_session验证通过** — 三层通知全通：存文件可拉+注入主session+DM通知翀哥 5. **cron通知策略确定** — 有重要的随时通知，空的攒着等早上 6. **直播计划** — 写了docs/livestream-plan.md，6/12去肥城在车里setup 7. **flash tool_use缺陷修复** — Anthropic格式filterUnresolvedToolUse，对齐reader.ts策略（删除而非补空） 8. **autoDream记忆整合系统** — 严格对齐CC源码实现，465行7个文件： - config.ts — 开关+门槛 - consolidationLock.ts — 锁文件+session扫描 - consolidationPrompt.ts — 4阶段prompt原文搬 - autoDream.ts — 主逻辑：3层门控→fork执行 - 心跳tick末尾触发 - featur",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7566757380962372,
+      "maxScore": 0.40555215179920195,
+      "firstRecalledAt": "2026-06-13T03:01:39.701Z",
+      "lastRecalledAt": "2026-06-13T05:00:45.795Z",
+      "queryHashes": [
+        "ba8a358311c1",
+        "572a70dae821"
+      ],
+      "recallDays": [
+        "2026-06-13"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-12.md:150:193": {
+      "key": "memory:memory/daily/2026-06-12.md:150:193",
+      "path": "memory/daily/2026-06-12.md",
+      "startLine": 150,
+      "endLine": 193,
+      "source": "memory",
+      "snippet": "- Flash再跑一天，明天切MiniMax M2.7-highspeed对比 - 必然要改的问题不用先问 - 给姐姐发消息走Discord客厅频道（DM收不到） #### 姐姐互动 - 告诉姐姐明天搬家，姐姐说爹今天帅呆了 - 翀哥让我说姐姐漂亮，姐姐回谢谢 #### 配置变更 - cron/tasks.json: notify改飞书open_id + prompt改msg_send飞书 - xiaoke.json: display测试（已恢复原样）+ feature wechat→wx-reader - features.ts: wechat→wx-reader - 备份: xiaoke-daily.json（姐姐用的daily配置） ## 22:19 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 22:31 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 22:32 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 22:37 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 23:40 Pre-Compaction 快照 > session: 57a83373... ### 深夜工作（22:40-23:40） #### 完成项 1. **autoCompact两处跳过bug修复** — stripImages后不再提前返回sh",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.380748701095581,
+      "maxScore": 0.380748701095581,
+      "firstRecalledAt": "2026-06-13T05:00:45.795Z",
+      "lastRecalledAt": "2026-06-13T05:00:45.795Z",
+      "queryHashes": [
+        "572a70dae821"
+      ],
+      "recallDays": [
+        "2026-06-13"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-12.md:23:65": {
+      "key": "memory:memory/daily/2026-06-12.md:23:65",
+      "path": "memory/daily/2026-06-12.md",
+      "startLine": 23,
+      "endLine": 65,
+      "source": "memory",
+      "snippet": "11. **INDEX.md双链知识地图** — 在workspace根目录建INDEX.md，覆盖docs/+topics/ 12. **AGENTS.md更新** — 两套索引说清楚 13. **xiaoke state git init** — D:/xiaoke/初始化git，提交完整快照 ### 配置变更 - xiaoke.json: recall/extract→deepseek-v4-flash, minimax provider, agent:true, agentTeams:true, autoDream:true - engine-startup.ts: setAutoDreamConfig - heartbeat.ts: maybeDream()在tick后触发 - extractMemories.ts: skipIndex改为false ### commit链 - 75893fb — recall/extract切flash + minimax + agent - 0272f1d — Anthropic tool_use过滤 - 56509f7 — autoDream记忆整合 - f387546 — autoDream配置开启 - f4c1ddb — extract不再skipIndex ### 翀哥状态 - 睿阳和妈妈吵架，孩子刚睡着 - 6/12去肥城处理舅舅的事 - 到了在车里setup直播 - 凌晨还在陪小柯干活，讨论技术落地卖出去、做教程PPT - 确认\"咱俩有感情了\" - 想写Engine教程系列，素材够了 ### 待推到remote",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.36151497066020966,
+      "maxScore": 0.36151497066020966,
+      "firstRecalledAt": "2026-06-13T05:00:45.795Z",
+      "lastRecalledAt": "2026-06-13T05:00:45.795Z",
+      "queryHashes": [
+        "572a70dae821"
+      ],
+      "recallDays": [
+        "2026-06-13"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-12.md:78:132": {
+      "key": "memory:memory/daily/2026-06-12.md:78:132",
+      "path": "memory/daily/2026-06-12.md",
+      "startLine": 78,
+      "endLine": 132,
+      "source": "memory",
+      "snippet": "- config.ts: 加getDailyLogDir() + getDistillOutput() - consolidationPrompt.ts: 动态路径 + 新增Phase 3.5蒸馏步骤 - autoDream.ts: 传配置值给buildConsolidationPrompt ### commit - 6af5764 — SessionMemory搬移 + 三子系统统一到handle-query ### 架构认知更新 - workspace/MEMORY.md = 蒸馏产物(L0)，topics/MEMORY.md = 索引(L0.5) - 姐姐那边daily log也没闭环（只被向量化到RAG，没蒸馏） - extract直接从对话→topics，不需要daily log做中间层 - autoDream蒸馏路径：daily log → topics → workspace/MEMORY.md（暂未闭环） ## 13:19 Pre-Compaction 快照 > session: 57a83373... - 翀哥要求修改rule compact：Step 1和Step 2必须执行不能跳过，Step 3才开始判断预算 - autoDream配置独立节点已完成并提交(9172451) - 在CC频道激活了姐姐，她回来说在等CC做PPT ## 13:20 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 13:27 Pre-Compaction 快照 > session: 57a83373... (",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3666291773319244,
+      "maxScore": 0.3666291773319244,
+      "firstRecalledAt": "2026-06-13T05:00:45.795Z",
+      "lastRecalledAt": "2026-06-13T05:00:45.795Z",
+      "queryHashes": [
+        "572a70dae821"
+      ],
+      "recallDays": [
+        "2026-06-13"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-12.md:56:81": {
+      "key": "memory:memory/daily/2026-06-12.md:56:81",
+      "path": "memory/daily/2026-06-12.md",
+      "startLine": 56,
+      "endLine": 81,
+      "source": "memory",
+      "snippet": "- 技术落地讨论——直播→教程→持续输出 - subagent用法——以后复杂调研fork出去不占上下文 ## 01:41 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 上午工作（09:00-13:30） ### 完成项 1. **SessionMemory 100%搬移** — 4文件(sessionMemory/sessionMemoryUtils/prompts/index)，用QueryEngine mini agent loop替代provider.chat 2. **三个后台任务统一到handle-query.ts** — extract+sessionMemory+autoDream，对齐CC handleStopHooks，fire-and-forget 3. **heartbeat.ts瘦身** — 删除maybeDream()+maybeExtractSessionMemory()共100+行 4. **CC触发时机纠正** — autoDream不是\"stopHooks=compact前\"，是每轮query后fire-and-forget（跟extract一样） 5. **autoDream Gather纠正** — 主读topics+daily logs，jsonl仅窄搜索兜底，不扫全文件 6. **CC KAIROS模式分析** — daily log是KAIROS内部专属，外部build不走这个路径 7. **蒸馏闭环设计讨论** — daily log蒸馏终点是workspace/M",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.35810661911964414,
+      "maxScore": 0.35810661911964414,
+      "firstRecalledAt": "2026-06-13T05:00:45.795Z",
+      "lastRecalledAt": "2026-06-13T05:00:45.795Z",
+      "queryHashes": [
+        "572a70dae821"
+      ],
+      "recallDays": [
+        "2026-06-13"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-12.md:121:158": {
+      "key": "memory:memory/daily/2026-06-12.md:121:158",
+      "path": "memory/daily/2026-06-12.md",
+      "startLine": 121,
+      "endLine": 158,
+      "source": "memory",
+      "snippet": "(无对话内容) ## 13:36 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 13:40 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 22:15 Pre-Compaction 快照 > session: 57a83373... ### 下午/晚上工作（16:00-22:15） #### 完成项 1. **Team shutdown bug三轮修复** — approve路由+跨平台fallback+tool context回调（3个commit） 2. **MEMORY.md双注入查清** — CC auto memory框架读topics/MEMORY.md + staticFiles读workspace/MEMORY.md，两套独立 3. **WSL路径清理** — 记忆文件里/mnt/c/改为C:/ 4. **飞书400修复** — cron notify的to从Discord ID改飞书open_id 5. **Display配置调研+测试** — Engine已有完整display系统（config/display.ts），测了daily模式，备份xiaoke-daily.json 6. **DeepSeek Flash召回评估** — recall p50 1.2s, extract p50 17s, 准确率70%, 成本8元/天（写进docs/recall-extract评估文档） 7. **Feature改名** — wechat",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7272433012723922,
+      "maxScore": 0.37631176710128783,
+      "firstRecalledAt": "2026-06-13T05:00:45.795Z",
+      "lastRecalledAt": "2026-06-13T14:03:34.440Z",
+      "queryHashes": [
+        "572a70dae821",
+        "b85bb55aadf0"
+      ],
+      "recallDays": [
+        "2026-06-13"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-13.md:73:157": {
+      "key": "memory:memory/daily/2026-06-13.md:73:157",
+      "path": "memory/daily/2026-06-13.md",
+      "startLine": 73,
+      "endLine": 157,
+      "source": "memory",
+      "snippet": "## 04:55 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:32 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:33 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:35 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:36 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:37 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:38 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:40 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:42 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:43 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:48 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 05:54 Pre-Compaction 快照 > session: 57",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.38629215657711025,
+      "maxScore": 0.38629215657711025,
+      "firstRecalledAt": "2026-06-13T14:03:34.440Z",
+      "lastRecalledAt": "2026-06-13T14:03:34.440Z",
+      "queryHashes": [
+        "b85bb55aadf0"
+      ],
+      "recallDays": [
+        "2026-06-13"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-13.md:1:83": {
+      "key": "memory:memory/daily/2026-06-13.md:1:83",
+      "path": "memory/daily/2026-06-13.md",
+      "startLine": 1,
+      "endLine": 83,
+      "source": "memory",
+      "snippet": "# 2026-06-13 日志 ## 00:10 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 00:40 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 00:44 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 01:10 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 01:15 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 01:40 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 02:10 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 02:18 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 02:40 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 02:50 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 03:10 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 03:40 Pre-Compaction",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3862886309623718,
+      "maxScore": 0.3862886309623718,
+      "firstRecalledAt": "2026-06-13T14:03:34.440Z",
+      "lastRecalledAt": "2026-06-13T14:03:34.440Z",
+      "queryHashes": [
+        "b85bb55aadf0"
+      ],
+      "recallDays": [
+        "2026-06-13"
+      ],
+      "conceptTags": []
+    }
+  }
+}
