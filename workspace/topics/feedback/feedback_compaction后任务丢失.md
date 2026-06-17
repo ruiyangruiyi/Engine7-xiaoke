@@ -31,8 +31,19 @@ type: feedback
 - 原因：任务完成后**没有更新/清空working-buffer.md**，导致注入的是过期内容
 - **修复方向：** 任务完成后（或PreCompact flush时）应清空或更新working-buffer.md，否则注入过期信息会造成混淆
 
+**⚠️ 6/14晚补充 — "任务中断"根因纠正（不是archive导致的）：**
+
+6/14晚翀哥指出20:32-"继续啊 怎么停了"之间有39分钟无响应。我最初诊断为"archive导致task中断"，但实际根因是：
+
+**20:32:38 Discord ECONNRESET导致回复发送失败。** 我已经分析完topics目录混乱并写好了回复，但Discord发送时连接重置（`send FAILED: adapter=discord err=read ECONNRESET`），消息没发出去。之后session正常跑心跳/巡检，但用户看不到回复。
+
+**PostArchive working-buffer方案已回退（commit `75ce013`）** — 基于错误诊断做的。archive本身不丢失任务（内存history没trim），新JSONL通过readPostBoundaryFromArchived保留了compact_boundary后的全部消息（853KB）。不需要额外写working-buffer进JSONL。
+
+**另外确认：** restore日志213/342不是丢消息——分母342是entries（JSONL行数，含header/model_change/custom_message/attachment），分子213是token截断后的messages。`RESTORE_MAX_CHARS=150000`安全阀导致从头砍掉较早的消息。已改日志口径（commit `5150fe9`）。
+
 **How to apply:**
 1. 压缩前确保working-buffer.md有当前任务记录（PreCompact flush时写）
 2. PostCompact hook自动读它并注入上下文
 3. **任务完成后立即清空working-buffer.md** — 避免注入过期内容
 4. 项目文件（`topics/project_*.md`）作为第二道防线——system prompt通过MEMORY.md索引读到项目文件中的任务状态
+5. 如果用户长时间无反馈 → 先检查Discord/飞书发送状态（ECONNRESET等），而不是直接怀疑archive/restore丢了消息

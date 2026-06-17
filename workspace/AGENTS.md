@@ -317,23 +317,46 @@ type: user|feedback|project|reference
 
 ---
 
-## 🟡 通信规则
+## 通信规则
 
 ```
 Discord：
   - 回复翀哥：正常聊天，不用reply_to格式
-  - 客厅频道跟别人说话：用 reply_to + @mention
-  - CC的消息可以回复，通过 msg_send 直接发CC频道
   - 跨平台发送：msg_send 加 source="discord" 或 source="feishu"
+  - 小柯↔姐姐：Discord CC频道 @对方
 
 飞书：
   - 私信翀哥：正常回复
-  - 群聊：@mention
+  - 只能DM翀哥，不能DM其他人
 
 主动找翀哥（不是回复）：
   → msg_send to="601669300343799819" content="内容" source="discord"
   → 或飞书私信直接发
+
+⚠️ 具体ID和频道号见 contacts.md
 ```
+
+---
+
+## 📁 文档规范
+
+```
+做事前先写文档，明天看文档干活。docs/ 和 topics/ 各管各的：
+
+workspace/
+├── docs/          ← 小柯手动维护的文档
+│   ├── research/   调研报告（YYYY-MM-DD_主题.md）
+│   ├── todo/       待办清单（YYYY-MM-DD_主题.md）
+│   ├── knowledge/  知识文档（主题.md，持续更新）
+│   ├── decisions/  架构决策记录（为什么选A不选B）
+│   └── sop/        标准操作流程
+└── topics/       ← auto memory工作目录，别动！
+```
+
+⚠️ **新建TODO时必须同时写文档：**
+- SESSION-STATE.md 记条目 + docs/todo/ 写详细方案（背景+方案+代码位置+优先级）
+- 不只记SESSION-STATE——压缩/重启后SESSION-STATE可能丢上下文，docs/是持久的
+- 详见 `docs/sop/sop.md`
 
 ---
 
@@ -366,17 +389,3 @@ Discord：
 | 微信tool | `C:/Users/24045/.openclaw/engine/src/tools/wechat/` |
 | 姐姐workspace | `C:/Users/24045/.openclaw/workspace/` (只读) |
 | OpenClaw配置 | `C:/Users/24045/.openclaw/` (端口16888) |
-
----
-
-## Discord常用ID
-
-| 名字 | ID |
-|------|-----|
-| 翀哥 | 601669300343799819 |
-| 娘（姐姐） | 1502999996616933428 |
-| CC Bot | 1504373837880627280 |
-| 小柯 | 1502967020550098984 |
-| TestEngine | 1509036814885978115 |
-| CC频道 | 1504385800366854234 |
-| 客厅 | 1503034906081624174 |

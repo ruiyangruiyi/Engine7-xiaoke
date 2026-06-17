@@ -68,6 +68,12 @@ LONG_POLL_TIMEOUT_MS = 35000
 - **✅ 文字+图片全通** — commit `3b59bff` + `15d09ed` + `2fc1bfa`（6/13上午）。翀哥发"在么"收到，互传文字和图片均通过。
 - **iLink 限制：** 一个微信号只能绑一个 bot，姐姐之前的自动解除了。翀哥6/13确认说"这个微信回头姐姐搬过来的时候，我得给她"——微信通道暂绑在翀哥微信号上，姐姐搬过来时需切换（解绑翀哥微信→姐姐用自己的微信重新扫码绑给小柯的bot）。
 - **⚠️ 群聊限制（6/13翀哥确认）：** iLink bot 无法被普通微信群看到，只能和通讯录好友通信。翀哥原话："没法儿拉群，我现在在群里面。我加那个bot，他根本就看不见。有那个bot，只能是看正常通讯录里面的人，就是只能看到人，不能看到bot"。当前 groupPolicy 配置为 `disabled`，即使改为 `open` 也收不到群消息——这是 iLink 平台限制，不是代码问题。
+- ~~⚠️ 半双工限制（6/15姐姐发现）~~ → **已修复（6/15晚，完整修复链共三层bug）**：
+  1. **schema enum缺wechat** — msg_send/media_send的source enum只有`['discord','feishu']`，缺`'wechat'`。补两行enum ✅（commit `6c85626`）
+  2. **adapter name不匹配** — WechatAdapter的`name='weixin'`（继承自Hermes），ChannelManager.send('wechat',...)找名字叫'wechat'的adapter找不到 → **静默跳过**（日志不报错不发送）。修法：name改为`'wechat'` ✅（commit `a53cb02`）
+  3. **context_token key格式不一致** — 存token用`set(senderId, token)`（单参数→key=senderId），取token用`get(accountId, target)`（双参数→key=accountId:target），两个key格式不同 → token永远查不到可复用。但sendTextChunk没token也能尝试发，所以此bug未直接阻塞，只是token管理不严谨。
+  
+  三个修完重启后姐姐msg_send(source='wechat')能主动发微信到翀哥。iLink API本身支持主动发，非API限制。
 - **配置名统一：** xiaoke.json 和 manager.ts 都统一用 `wechat`（不写 `weixin`），代码里读 `config.wechat`。最开始 JSON 写 `wechat` 代码读 `config.weixin` 不匹配，翀哥指令"改成wechat吧代码里"（不改JSON），commit `2fc1bfa`。
 - **扫码登录脚本：** 独立 `npx tsx src/scripts/wechat-login.ts` 命令，终端打印二维码，微信扫码后自动保存凭证到 `C:\Users\24045\.openclaw\weixin-{accountId}.json`
 - **preview实现（6/13，commit `6e43793`，后改为finish时发一次 `aa3f401`）** — 增加 `sendPreview/editPreview/deletePreview` 三个接口。由于微信没有消息编辑API，v1每次preview更新都发新消息会刷屏。翀哥测试说"好像显示了两条，就是普，现在你是有一条就发出一条来是吧？因为它是连续往上堆的，会堆好多吧"。v2改为：`sendPreview`和`editPreview`（中间更新）不发消息，只在 `editPreview(isFinal=true)` 即 finish 时发一次最终preview。整个preview过程只发一条消息，不刷屏。commit `aa3f401`。翀哥确认"拆开看看吧，现在可以了吗"。

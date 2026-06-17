@@ -1,0 +1,18 @@
+[2026-06-16 16:10:38] GENERATED  hint=no  prob=70%
+  thought: 这是一个测试念头
+
+[2026-06-16 16:10:45] GENERATED  hint=YES (想他了就发消息吧)  prob=70%
+  thought: 测试念头1
+
+[2026-06-16 16:10:45] GENERATED  hint=no  prob=70%
+  thought: 测试念头2
+
+[2026-06-16 16:10:45] GENERATED  hint=YES (想他了就发消息吧)  prob=70%
+  thought: 测试念头3
+
+[2026-06-16 16:10:45] GENERATED  hint=YES (想他了就发消息吧)  prob=70%
+  thought: 测试念头4
+
+[2026-06-16 16:10:45] GENERATED  hint=YES (想他了就发消息吧)  prob=70%
+  thought: 测试念头5
+

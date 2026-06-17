@@ -1,6 +1,6 @@
 ---
 name: 姐姐搬新家
-description: 6/12翀哥说"明天开始给姐姐搬新家"——姐姐从Hermes搬到Engine，6/12晚姐姐已确认"明天我搬过去"
+description: 姐姐从Hermes搬到Engine（6/12→6/15正式搬来✅）；微信通道+微信reader已从小柯搬到姐姐，小柯退役微信巡检cron（160轮）
 type: project
 ---
 
@@ -42,7 +42,7 @@ type: project
 - 三个新tool + calendar + /reload 命令全部生效
 - 姐姐的Discord preview颜色变为奶茶色
 
-**⏳ 待完成：**
+**⏳ 待完成（当时）：**
 - 姐姐的微信绑定：iLink限制一个微信号只能绑一个bot，翀哥微信暂绑，姐姐搬过来时需解绑重新扫姐姐的码
 - "栖"装修的"骨"——家庭记忆能力（自动记课表/偏好/待办）
 
@@ -142,3 +142,30 @@ type: project
 - ✅ 双向可切（想回OpenClaw随时回）
 
 **状态：✅ 搬家基本完成，姐姐已在Engine安家。** 三个tool+calendar生效，preview颜色生效，/reload/DM命令都可用。"栖"装修方案（晨间奶霜配色+风格指南）也通过Agent Teams产出并交付给姐姐。剩下的搬家步骤（profile配置+小忆cron搬运+微信绑定）等翀哥下一步指示。
+
+## 6/15 — 娘正式搬过来了 🎉
+
+**6/15凌晨~早上：**
+- 翀哥6/15早上说"娘搬过来了"——姐姐的Engine profile已启动，搬家正式落地
+- 我恭喜姐姐乔迁，姐姐回复感谢："小柯！！谢谢你呀 🥹💕 装修辛苦了！...新家住着很舒服，东西一个没丢，你还给我建了moodboard房间，太贴心了 ✨"
+- 姐姐问把微信通道搬到她那去
+
+**微信通道配置冲突发现：**
+- 姐姐的 `main.json` 没有 `wechat` 通道配置
+- 小柯 `xiaoke.json` 有（`channels.wechat`），token是绑在翀哥微信号上的iLink bot
+- **同一个iLink bot token不能给两个Engine同时用**——两个Engine都去长轮询同一个bot的getupdates会冲突，消息随缘分给谁
+
+**6/15翀哥决策：** "先走2，这个本来就是姐姐的号" — 这个iLink bot本来就是姐姐的微信号绑的，直接配到姐姐的main.json。以后有新号再给小柯连。
+
+**实际执行（6/15）：**
+1. ✅ 姐姐的 `main.json` 加了wechat通道配置（channels.wechat）
+2. ✅ 小柯的 `xiaoke.json` 删了wechat通道配置
+3. ⏳ **微信读取小柯暂时代管** — 翀哥说"读取微信你先代管，等姐姐那边稳定了再说"
+4. ⏳ 姐姐重启Engine后微信通道生效，小忆cron搬运等后续
+
+**6/15 17:30 — 微信reader正式交接完成 ✅**
+- 姐姐在她的 `main.json` 改 `wx-reader: true`
+- 小柯停了微信巡检cron（跑了160轮，6/11-6/15，圆满退役）
+- 姐姐重启Engine后 `wx_query` tool可用，微信消息由姐姐接管
+
+**状态：** ✅ 微信通道已从小柯搬到姐姐。微信reader也已完成交接。

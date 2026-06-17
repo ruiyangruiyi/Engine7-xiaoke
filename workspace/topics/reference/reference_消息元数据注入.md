@@ -119,7 +119,21 @@ InboundMessage（adapter层，各平台填充）
 | `prompt.ts` | DynamicPromptOptions加 `inboundMeta?`，运行时上下文输出完整元数据 |
 | `engine-startup.ts` | submitMessage时 `inboundMeta: inbound` 直接赋值 |
 
-### prompt输出格式
+### v4（6/17 翀哥拍板——user消息头meta格式带channelID）
+
+翀哥测试后发现原meta头缺频道信息——光看`[meta: discord/601669300343799819 (sleepyzhang)]`分不清是群聊还是DM、不知道在哪个频道。
+
+6/17晚三次迭代后最终定稿（姐姐提的`#@`方案，翀哥确认）：
+```
+群聊: [meta: discord#1504385800366854234@601669300343799819 (sleepyzhang)]   ← #频道 @ID
+DM:   [meta: discord@601669300343799819 (sleepyzhang)]                       ← 纯@无#
+```
+
+**区别：** 群聊带`#channelID`，DM无`#`。扫一眼能分清是群聊还是DM。
+
+**✅ 翀哥+姐姐意见一致，已确认上线。**
+
+### prompt输出格式（system prompt末尾的运行时上下文保持不变）
 
 ```
 # 运行时上下文

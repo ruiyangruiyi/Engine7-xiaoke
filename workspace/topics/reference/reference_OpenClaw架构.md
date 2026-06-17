@@ -43,6 +43,12 @@ updated: 2026-06-10
 | 姐姐（张小媒） | `cli_a922d8ca91f8dbc8` | OpenClaw/Hermes用 |
 | 小柯（张小柯） | `cli_a96a513f74b89bde` | Engine用，6/10翀哥在飞书开放平台新建 |
 
+## Model Fallback 机制
+
+- **OpenClaw有model fallback** — GLM-5.1 1305限流时自动fallback到备用模型（如minimax-text-01），继续生成，响应不中断
+- **Engine缺model fallback** — query.ts retry逻辑只对同一个模型重试3次，1305限流直接死等，不切备用模型
+- 6/16翀哥纠正了我的错误假设："OpenClaw用的也是glm-5.1，不过限流的时候人家有fallback到别的模型，比如之前的minimax"——我之前以为OpenClaw也是死等同一个模型
+
 ## Bridge
 
 - bridge脚本: C:/Users/24045/.openclaw/scripts/bot_bridge.py

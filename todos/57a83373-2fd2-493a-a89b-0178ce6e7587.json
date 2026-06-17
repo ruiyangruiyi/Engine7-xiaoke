@@ -1,22 +1,32 @@
 [
   {
-    "activeForm": "处理重复文件",
-    "content": "处理5个重复文件（保留较新较大）",
-    "status": "completed"
+    "content": "创建 FallbackProvider (src/models/fallback-provider.ts)",
+    "status": "completed",
+    "activeForm": "创建 FallbackProvider"
   },
   {
-    "activeForm": "移动散落文件",
-    "content": "移动30个根目录散落文件到子目录",
-    "status": "completed"
+    "content": "修改 config/loader.ts 解析 fallbacks 配置",
+    "status": "in_progress",
+    "activeForm": "修改 config loader"
   },
   {
-    "activeForm": "更新MEMORY.md索引",
-    "content": "更新MEMORY.md索引路径",
-    "status": "completed"
+    "content": "修改 provider-factory.ts 接入 FallbackProvider",
+    "status": "pending",
+    "activeForm": "修改 provider-factory"
   },
   {
-    "activeForm": "更新extract.md规范",
-    "content": "更新extract.md文件规范为子目录格式",
-    "status": "in_progress"
+    "content": "修改 engine-startup.ts 使用 FallbackProvider",
+    "status": "pending",
+    "activeForm": "修改 engine-startup"
+  },
+  {
+    "content": "更新 xiaoke.json 配置 fallbacks",
+    "status": "pending",
+    "activeForm": "更新配置文件"
+  },
+  {
+    "content": "编译验证",
+    "status": "pending",
+    "activeForm": "编译验证"
   }
 ]

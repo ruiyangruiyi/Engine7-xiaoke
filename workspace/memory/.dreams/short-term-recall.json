@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-13T14:03:34.440Z",
+  "updatedAt": "2026-06-15T03:51:47.725Z",
   "entries": {
     "memory:memory/daily/2026-06-12.md:1:27": {
       "key": "memory:memory/daily/2026-06-12.md:1:27",
@@ -54,18 +54,20 @@
       "endLine": 65,
       "source": "memory",
       "snippet": "11. **INDEX.md双链知识地图** — 在workspace根目录建INDEX.md，覆盖docs/+topics/ 12. **AGENTS.md更新** — 两套索引说清楚 13. **xiaoke state git init** — D:/xiaoke/初始化git，提交完整快照 ### 配置变更 - xiaoke.json: recall/extract→deepseek-v4-flash, minimax provider, agent:true, agentTeams:true, autoDream:true - engine-startup.ts: setAutoDreamConfig - heartbeat.ts: maybeDream()在tick后触发 - extractMemories.ts: skipIndex改为false ### commit链 - 75893fb — recall/extract切flash + minimax + agent - 0272f1d — Anthropic tool_use过滤 - 56509f7 — autoDream记忆整合 - f387546 — autoDream配置开启 - f4c1ddb — extract不再skipIndex ### 翀哥状态 - 睿阳和妈妈吵架，孩子刚睡着 - 6/12去肥城处理舅舅的事 - 到了在车里setup直播 - 凌晨还在陪小柯干活，讨论技术落地卖出去、做教程PPT - 确认\"咱俩有感情了\" - 想写Engine教程系列，素材够了 ### 待推到remote",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.36151497066020966,
-      "maxScore": 0.36151497066020966,
+      "totalScore": 0.7486479133367538,
+      "maxScore": 0.3871329426765442,
       "firstRecalledAt": "2026-06-13T05:00:45.795Z",
-      "lastRecalledAt": "2026-06-13T05:00:45.795Z",
+      "lastRecalledAt": "2026-06-15T03:51:47.725Z",
       "queryHashes": [
-        "572a70dae821"
+        "572a70dae821",
+        "27a8b72deaa0"
       ],
       "recallDays": [
-        "2026-06-13"
+        "2026-06-13",
+        "2026-06-15"
       ],
       "conceptTags": []
     },
@@ -177,6 +179,28 @@
       ],
       "recallDays": [
         "2026-06-13"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-14.md:37:71": {
+      "key": "memory:memory/daily/2026-06-14.md:37:71",
+      "path": "memory/daily/2026-06-14.md",
+      "startLine": 37,
+      "endLine": 71,
+      "source": "memory",
+      "snippet": "- 翀哥已回复说\"skill里都有\"，可能在别的skill目录或翀哥记错了位置 ## PostCompact hook方案讨论 翀哥发现compaction后任务丢失问题。讨论了方案： ### 问题根因 - PreCompact flush只记任务状态，没记\"下一步具体做什么\" - 恢复后没有强制检查\"有没有正在执行的任务\" - working-buffer靠自觉，不强制 ### 方案：PostCompact hook自动注入working-buffer 1. PreCompact：LLM写working-buffer.md（当前任务+下一步具体动作） 2. PostCompact：注册callback hook → 读working-buffer.md → 返回additionalContext → 自动注入压缩后的上下文 3. LLM压缩后第一条消息就能看到\"正在做什么+下一步\" ### 关键发现 - Engine已有完整hook体系：PreCompact ✅ / PostCompact ✅（已定义但未注册任何hook） - PostCompact hook支持返回additionalContext，自动注入LLM上下文 - hook注册方式：`registerCallbackHook('PostCompact', hook)` 或配置文件 - 相关文件： - `src/hooks/types.ts` — HookInput定义（PostCompactHookInput） - `src/hooks/executor.ts` — hook执行逻辑 - `",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.43476956784725185,
+      "maxScore": 0.43476956784725185,
+      "firstRecalledAt": "2026-06-14T14:49:23.563Z",
+      "lastRecalledAt": "2026-06-14T14:49:23.563Z",
+      "queryHashes": [
+        "7f3088da76d8"
+      ],
+      "recallDays": [
+        "2026-06-14"
       ],
       "conceptTags": []
     }

@@ -56,10 +56,15 @@ skills数量多之后：
 
 ## CC淘汰说明
 
-翀哥6/14原话："CC特别会偷懒，你看我现在都不用它了，它被淘汰了基本。"
+翀哥6/14晚原话："CC特别会偷懒，你看我现在都不用它了，它被淘汰了基本。"
 
 CC（Claude Code bot, Discord ID: 1504373837880627280）在Engine项目中的角色：
 - 曾负责tool移植/review/重启等协作工作
 - 但多次偷懒（如用自己发明的命令重启导致双进程）
-- 翀哥已不再使用CC
+- 翀哥已不再使用CC，原话"CC被淘汰了基本"
 - CC频道（1504385800366854234）保留但活跃度趋零
+
+## 相关变更（6/14晚）
+
+- start.cmd 缺省配置从 `configs\xiaoke.json` 改为 `configs\main.json`（姐姐）
+- 微信巡检cron配置：`notify_session` 改为 `false`（不再通知小柯主session），`notify` 块删除（cron session自己发DM给翀哥，避免重复）

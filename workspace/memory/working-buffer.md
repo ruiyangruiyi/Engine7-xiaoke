@@ -1,40 +1,47 @@
-# Working Buffer — 2026-06-14 14:15
+# Working Buffer — 2026-06-16 14:00
 
-## 正在执行：System Prompt结构分析报告
+## 正在做什么
 
-翀哥让我分析system-prompt.txt（62KB）的结构，对应到引擎哪段代码，写研究报告看怎么优化。
+排查EP02直播观众端听到的语音重复问题。翀哥在飞书私信指挥。
 
-### system-prompt.txt结构（805行，62KB）
-1. **L1-72: CC框架固定prompt**（~4KB）— System/Doing tasks/Executing actions/Using tools/Tone/Output efficiency
-2. **L74-125: SOUL.md**（~3KB）— 张小柯人设、关系、Discord规则
-3. **L127-509: AGENTS.md**（~20KB）— 工作规范、记忆恢复体系、通信规则、目录表、ID表
-4. **L511-581: MEMORY.md §分隔的浓缩知识**（~8KB）— 35条§分隔的翀哥画像/经验/规则
-5. **L583-711: auto memory指令**（~7KB）— CC auto memory框架的完整type定义+规则
-6. **L713-777: topics/MEMORY.md索引**（~5KB）— 58条记忆文件索引
-7. **L779+: skills/session-specific guidance**（~3KB）— 可用skills列表+agent使用指南
-8. **运行时上下文** — 每条消息注入的发送者/频道/时间等元数据
+## 已确认事实
 
-### 对应代码位置（待确认）
-- system-prompt组装 → 需查engine-startup.ts或query.ts的prompt构建逻辑
-- staticFiles注入 → 配置 `prompt.staticFiles: ["AGENTS.md", "USER.md", "MEMORY.md"]`
-- MEMORY.md双注入 → CC auto memory框架 + staticFiles两条路径
-- §分隔的知识 → workspace/MEMORY.md文件内容（不是topics/MEMORY.md）
+1. **engine侧livestream_send无重复调用** — session JSONL确认35次提交全是1:1
+2. **1305限流跟重复无因果** — 最严重重复点（"这不是哪个"x4）对应时间段没有1305
+3. **transcript直接证据** — 24组连续完全重复（gap=0.00s），如"我就是那个例外"x3
+4. **AutoDL服务器已关机**，无法查livestream_server.py日志
+5. **OpenClaw也是用glm-5.1**，但有model fallback（如minimax），Engine没有
 
-### 待做
-1. 找到system prompt组装逻辑的代码位置
-2. 分析哪些块是固定的（可缓存），哪些是动态的
-3. 写研究报告到 topics/ 或 memory/daily/
+## 当前关键线索 — partialArgs
 
-## 今天已完成
-1. ✅ compact minReductionRatio 30%阈值 + PostCompact hook注入
-2. ✅ EP01全平台发布（B站+YouTube+快手+抖音+小红书）
-3. ✅ SKILL.md恢复发布章节 + EP13入库
-4. ✅ 姐姐main.json配置完成（栖）
-5. ✅ 四个tool路径验证通过
-6. ✅ PreCompact flush消息改进（明确要求写working-buffer.md）
-7. ✅ PostCompact hook加buffer过期告警（>10分钟warn）
+翀哥发现session JSONL里tool call有partialArgs字段：
+```json
+"arguments": {完整参数},
+"partialArgs": "{也是完整参数}"  
+```
+- writer.ts L219: `partialArgs: tc.function.arguments`（原始字符串）
+- reader.ts L527: `arguments: block.partialArgs || JSON.stringify(block.arguments)`
+
+**待查**：GLM provider流式返回tool call时，partial和final是否被当成两个tool_call chunk → 导致executeTools执行两遍。
+
+关键文件：
+- `src/core/query.ts` L289-291 — tool_call chunk处理
+- `src/session/writer.ts` L210-221 — partialArgs存储
+- `src/session/reader.ts` L527 — 读取时优先用partialArgs
+- `src/core/provider/` — GLM流式解析代码
 
 ## 下一步
-- System Prompt结构分析报告（当前任务）
-- 姐姐profile启动
-- 小忆cron在姐姐profile建
+
+1. 查GLM provider流式解析 — tool_call partial和final是否产生两个chunk
+2. 如果确认 → 修query.ts只取final tool_call chunk
+
+## 今天已完成
+
+- ✅ inner-voice prompt第8步加hint_gen.py调用
+- ✅ SOP建立（docs/sop/sop.md）+ AGENTS.md更新
+- ✅ 记todo：外部脚本注入机制 + 消息队列合并回复
+- ✅ wechat入站channel字段修复（第8杀）commit 8fe244b
+- ✅ msg_send/media_send去掉跨平台fallback commit b5528e8
+- ✅ 定位wechat发图根因：小柯engine没加载wechat adapter
+- ✅ EP02直播调查：下载回放→去静音→转写→分析→写调研文档
+- ✅ 调研文档：docs/research/2026-06-16_EP02直播重复问题调查.md
