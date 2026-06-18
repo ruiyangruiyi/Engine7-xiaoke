@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-15T03:51:47.725Z",
+  "updatedAt": "2026-06-18T01:02:14.938Z",
   "entries": {
     "memory:memory/daily/2026-06-12.md:1:27": {
       "key": "memory:memory/daily/2026-06-12.md:1:27",
@@ -201,6 +201,29 @@
       ],
       "recallDays": [
         "2026-06-14"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-16.md:1:35": {
+      "key": "memory:memory/daily/2026-06-16.md:1:35",
+      "path": "memory/daily/2026-06-16.md",
+      "startLine": 1,
+      "endLine": 35,
+      "source": "memory",
+      "snippet": "# 2026-06-16 小柯日记 ## 今天发生的事 ### 07:36 翀哥早起发现三个问题 - 小忆hint没出来 - xiaoyi.log没写 - 姐姐想不起来用msg_send（因为没hint提示） ### 根因排查 - inner-voice prompt第8步平移时漏了hint_gen.py调用 - OpenClaw版：memory_whisper.py内部做hint注入（读thought.txt→追加hint→gateway RPC注入主session→写xiaoyi.log） - Engine版：memory_whisper.py拆成hint_gen.py（保留hint逻辑去RPC），注入改notify_session。但prompt第8步忘了加调hint_gen.py这一步 - 本质是平移时把\"注入\"拆成了两步（生成念头→notify_session注入），但hint追加这步掉了 ### 修复 - my-inner-voice.md第8步改成：念头写thought.txt→调hint_gen.py→回复输出（念头+💡hint） - prompt文件每次tick实时读，不用重启 ### 发现更深层问题 - Engine缺外部脚本注入机制（OpenClaw有gateway RPC sessions.send） - 当前只有notify_session和dispatcher.submitMessage两条路径，外部Python脚本没法直接注入主session ### SOP建立 - 翀哥指出：记todo不能只记SESSION-STATE，要同时写do",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.9004049748182297,
+      "maxScore": 0.48664679825305934,
+      "firstRecalledAt": "2026-06-18T01:02:06.529Z",
+      "lastRecalledAt": "2026-06-18T01:02:14.938Z",
+      "queryHashes": [
+        "1045d39cb909",
+        "df76bc03e0a4"
+      ],
+      "recallDays": [
+        "2026-06-18"
       ],
       "conceptTags": []
     }

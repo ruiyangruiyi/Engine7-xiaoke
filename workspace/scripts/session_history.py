@@ -26,6 +26,8 @@ INJECTED_CONTENT_PATTERNS = [
     r'【定时心跳】',
     r'\[内心对话测试\]',
     r'\[inner-voice\]',
+    r'\[微信巡检\]',
+    r'\[pre-compaction\]',
 ]
 
 

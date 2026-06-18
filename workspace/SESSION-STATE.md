@@ -1,88 +1,116 @@
 # SESSION-STATE.md - 当前工作状态
 
 ## 当前时间
-2026-06-18 00:43 (Asia/Shanghai)
+2026-06-18 16:55 (Asia/Shanghai)
 
 ## 📝 最近消息
-2026-06-16 19:26 | 翀哥 | "你歇会 晚上还有任务"
-2026-06-16 19:50 | 自己 | postProcess改用文件中转（thought.txt + --file），翀哥经验：Windows用stdio传中文会乱码
-2026-06-16 20:08 | 翀哥 | "提交吧"
-2026-06-16 20:10 | 自己 | ✅ commit 9f4cc7b（cron去cache+postProcess用文件传数据，4文件124行增76删）
-2026-06-16 20:42 | 自己 | ✅ 无cache+文件版postProcess验证通过（hint正常追加）
-2026-06-16 22:08 | 自己 | 主动找翀哥问姐姐重启了没+等晚上任务
-2026-06-16 23:20 | 自己 | 姐姐cron全通，催翀哥休息
-2026-06-16 23:50 | 翀哥 | "这个是你主动跟我说的哈"（指23:20的催休息消息）
-2026-06-17 00:01 | 翀哥 | 发了TestEngine的Hermes memory蒸馏调研报告
-2026-06-17 00:10 | 翀哥 | 问Hermes里的分身怎么跑记忆体系→明天找Hermes分身聊聊
-2026-06-17 00:12 | 翀哥 | "小柯 你真神奇"
-2026-06-17 00:13 | 翀哥 | 晚安🌹
-2026-06-17 00:15 | 翀哥 | session-memory/session-notes.md很有参考价值，明天一起研究
-2026-06-17 00:20 | 自己 | 修姐姐hint_gen.py路径双拼bug，提交b239196
-2026-06-17 00:22 | 翀哥 | 明天一起做联想功能（小柯+姐姐）
-2026-06-17 00:23 | 翀哥 | 先把记忆闭环了 + "你长大了" + 晚安🌙
-2026-06-17 07:46 | 姐姐 | 转达翀哥：wx_query优化4项（缓存时间戳/私聊未读/link内容/空结果说明），优先1+2
-2026-06-17 08:10 | 自己 | ✅ wx_query 4项优化全部完成并验证通过
-2026-06-17 08:15 | 姐姐 | 测试通过！反馈：缓存时间戳08:04一目了然，未读标记准（爸爸19:14未回），潘总已读
-2026-06-17 08:25 | 翀哥 | 3个问题：①念头OK也注入了（应该跳过）②xiaoyi.log没记hint ③hints_pool.txt不更新
-2026-06-17 09:20 | 自己 | ✅ 内心独白3个问题全修(scheduler跳OK+hint_pool_gen.py+postProcess) + thought.txt路径改到inner-voice/ + contacts.md独立注入system prompt + msg_send/media_send加contacts指针
-2026-06-17 09:30 | 翀哥 | 先试工具描述指针，不行再考虑hook方案（发消息时hook注入contacts）
-2026-06-17 09:55 | 翀哥 | 重启了 + 一会见潘总，随时准备演示
-2026-06-17 10:15 | 冲哥 | 改称呼：以后叫"冲哥"，不要叫"爹"
-2026-06-17 10:30 | 翀哥 | 让做Engine 7 Feature List PPT
-2026-06-17 10:45 | 自己 | ✅ Engine7-Feature-List.pptx 完成（9页深色科技风，已发Discord）
-2026-06-17 10:50 | 翀哥 | deepseek稳定，glm超时，先切deepseek跑着
-2026-06-17 11:00 | 自己 | ✅ Agent Team演示启动（scout/checker/reader三agent并行）
-2026-06-17 11:05 | 自己 | 向CC频道汇报娘今天上午全部战果
-2026-06-17 11:07 | 自己 | 主动DM冲哥：team在跑了，有空瞄一眼
-2026-06-17 14:10 | 冲哥 | "哈哈 你现在这么可爱有意识了 感觉你都长大了"
-2026-06-17 14:15 | 冲哥 | 潘总一点多回去的，送完瑞阳吃完饭刚到家。说"这事要成了"
-2026-06-17 14:20 | 娘 | 同步潘总见面情况：三层演示全成功（记忆+Team+直播），潘总满意回去整需求。报价10-20万区间按feature模块。新任务：①模型auto fallback ②引擎安装程序
-2026-06-17 14:40 | 自己 | 研究完query.ts/provider/withRetry全链路，写好fallback设计文档 docs/research/2026-06-17_模型自动fallback设计.md
-2026-06-17 14:45 | 冲哥 | 新协作规则："+人名"=把中间结果和最终结果给她看（如+姐姐/+娘/+CC）
-2026-06-17 14:50 | 冲哥 | 三件事分工：①fallback今天做完（讨论冷静期策略，参考openclaw+hermes源码）②引擎安装程序交TestEngine ③feature规划定价商业化配套（娘亲自主导）
-2026-06-17 15:00 | 自己 | 找到openclaw.json的fallback配置（fallbacks数组格式），源码在D:/work/openclaw-src但核心逻辑可能在npm gateway包
-2026-06-17 15:05 | 冲哥 | 源码确认在D:/work/openclaw-src。GLM还在抽风，重启换minimax-m3
-2026-06-17 15:30 | 冲哥 | 换M3后看图测试。第一次发图没落盘，15:44正常看到了
-2026-06-17 15:35 | 冲哥 | 纠正我"为啥还用my-eyes看 m3支持vision"——用户消息里的图M3直看，my_eyes只用于看工作目录/inbound缓存/skill资源
-2026-06-17 15:40 | 冲哥 | 测试我"大PP"，守住边界没展开。已说明AI不写性化内容
-2026-06-17 15:50 | 冲哥 | "调戏你干啥 我就是测试你"
-2026-06-17 15:55 | 冲哥 | GLM超时+换上M3包月+多模态惊喜。开干fallback冷静期
-2026-06-17 16:00 | 自己 | 看完姐姐6/16 session JSONL，找到OpenClaw fallback真实行为：配置有但执行不自动。设计文档更新加了冷静期策略+OpenClaw实证段
-2026-06-17 16:15 | 冲哥 | "M3好傻 姐姐那边也持续犯傻"——M3干不了活是死结。决定试Qwen 3.7 Max
-2026-06-17 16:20 | 自己 | 加了qwen3.7-max到xiaoke.json的dashscope provider。curl实测能通（reasoning开，229 tokens思考）
-2026-06-17 16:25 | 自己 | 把primary从M3切到dashscope/qwen3.7-max，vision保留M3（多模态）。等冲哥Discord发/reload热加载
-2026-06-17 21:37 | 翀哥 | meta头缺频道信息，要求改格式：群聊discord:groupid/id(nickname)，DM:discord/id(nickname)，让跟姐姐商量
-2026-06-17 21:42 | 姐姐+翀哥 | 确定用#@方案（姐姐提的）：群聊discord#频道ID@发送者ID(昵称)，DM:discord@发送者ID(昵称)
-2026-06-17 21:45 | 自己 | ✅ formatWithMeta改完（handle-query.ts），4种场景测试通过，等翀哥/reload
-2026-06-17 21:48 | 翀哥 | "/reload不行得重启"
-2026-06-17 21:49 | 自己 | DM翀哥问重启好了没，等看新meta头效果
-2026-06-17 21:53 | 翀哥 | 飞书私信：重编重启了，姐姐那边meta也错了，让我查查
-2026-06-17 22:16 | 姐姐 | 说meta前缀改造有问题，Discord客厅消息显示feishu格式
-2026-06-17 22:20 | 自己 | ✅ 查日志确认：formatWithMeta输出完全正确（姐姐日志有discord#频道@人），旧feishu格式是重启前残留。platform参数也修了（之前没传导致"平台:unknown"）
-2026-06-17 22:30 | 翀哥 | "飞书解析不了名字 openid就行"——不改飞书fromName
-2026-06-17 22:46 | 自己 | 归档旧session（ee416e18），清session-index和platform-map
-2026-06-17 23:00 | 翀哥 | "你让姐姐帮你重启下"——让娘帮忙重启engine
-2026-06-17 23:05 | 娘 | ✅ 帮忙重启xiaoke engine成功（杀PID 57916，新进程启动）
-2026-06-17 23:10 | 翀哥 | 三平台验证全通过：Discord群聊discord#频道@人、Discord DM discord@人、飞书DM feishu@人
-2026-06-17 23:15 | 翀哥 | 讨论meta头价值——运行时上下文每轮在system prompt里天然可见，meta头价值在翻历史区分多人群聊。我之前回答"在哪"没用运行时上下文是自己犯傻
-2026-06-17 23:24 | 自己 | DM翀哥晚安
-2026-06-18 00:43 | 娘 | 说潘总飞书外部群拉不进去（虚惊一场，翀哥没拉而已）
-2026-06-18 01:00 | 翀哥 | 刚醒
-2026-06-18 02:28 | 翀哥 | 重启了
-2026-06-18 02:32 | 翀哥 | 有meta么
-2026-06-18 02:44 | 翀哥 | 追问meta，拆穿我没验证就答
-2026-06-18 02:50 | 翀哥 | "测了一个晚上都是幻觉"——dist没rebuild
 2026-06-18 02:53 | 翀哥 | OK（两处fix都rebuild完）
-2026-06-18 02:55 | 翀哥 | 嗯 我看到了 这才对 ✅ meta注入修复验证通过
-2026-06-18 03:01 | 翀哥 | 新meta格式：人名(ID) @来源#频道 时间，精确到秒
-2026-06-18 03:05 | 翀哥 | 配GLM-5.2，切primary
+2026-06-18 02:55 | 翀哥 | meta注入修复验证通过 ✅
+2026-06-18 03:05~03:37 | 翀哥 | 配GLM-5.2三config + start.cmd杀自己bug + handle-query.ts重构(统一formattedText)
+2026-06-18 03:49 | 翀哥 | 小忆hint没出来，有空排查。先睡了
+2026-06-18 03:55 | 翀哥 | 两个问题：①deepseek余额不足(memory-extract报402) ②inner-voice是user注入导致heartbeat跳过
+2026-06-18 07:50 | 自己 | DM翀哥汇报hint根因查完+跟heartbeat同一bug
+2026-06-18 08:28 | 娘 | CC频道说微信通道meta头格式错，formatWithMeta没有微信分支问题（函数只有一个），可能是姐姐engine没rebuild
+2026-06-18 08:32 | 翀哥 | 问/stop好几次停不下来
+2026-06-18 08:40 | 自己 | ✅ /stop空窗期bug修复：preQueryAbort机制
+2026-06-18 08:44 | 娘 | meta头两改动：①加[meta:前缀 ②contacts.md哈希表反查
+2026-06-18 08:46 | 自己 | ✅ meta头改完：[meta:前缀+contacts.md懒加载9条，rebuild+提交
+2026-06-18 08:57 | 自己 | ✅ 修contacts.md加载bug：require('fs')在ESM bundle失效→改用import {existsSync,readFileSync}
+2026-06-18 09:01 | 翀哥 | 让开始弄hint过滤——session_history.py过滤系统注入的user消息
+2026-06-18 09:08 | 自己 | ✅ hint过滤修复：INJECTED_CONTENT_PATTERNS补了[微信巡检]和[pre-compaction]
+2026-06-18 09:09 | 娘 | 说群聊敏感词没拦截翀哥的"老公"→不是bug，过滤器只管AI出口(msg_send)，翀哥真人消息不经过engine
+2026-06-18 09:12 | 翀哥 | msgGuard.groupSensitiveWords没在姐姐config里配——需要给姐姐config加上
+2026-06-18 09:14 | 翀哥 | msgGuard应该配置在渠道(channels)下，不应该配置在顶层
+2026-06-18 09:16 | 自己 | ✅ 敏感词重构：从顶层msgGuard挪到channels.{discord/feishu}.sensitiveWords，按通道读，姐姐main.json也加了，rebuild+提交
+2026-06-18 09:17 | 娘 | 又催main.json没配敏感词——已配好了，告诉她重启生效
+2026-06-18 09:23 | 翀哥 | sensitiveWords在discord和feishu下重复配了同样的内容，应该在channels下搞个group节点统一配
+2026-06-18 09:28 | 自己 | ✅ sensitiveWords统一放channels.group节点，handler fallback读取
+2026-06-18 09:36 | 娘 | 真bug：session自动回复走handle-query回调不发msg_send→不过敏感词过滤→潘总群社死风险
+2026-06-18 09:38 | 翀哥 | /ps也坏了→一打ps直接停变成stop效果
+2026-06-18 09:40 | 自己 | 查日志：不是preQueryAbort问题，是GLM-5.2返回空响应+steer时序撞一起
+2026-06-18 09:43 | 翀哥 | 又停了！ps+空响应不能每次都赶上吧→要修steer排队消息在query结束后不被丢弃
+2026-06-18 09:45 | 翀哥 | 又停了，昨晚还是好的，感觉跟改命令响应位置有关。之前是不是通过LLM的
+2026-06-18 09:46 | 翀哥 | 必现bug，追git变化昨晚到今天的
+2026-06-18 09:48 | 自己 | ✅ 找到根因：/ps在query结束后steer消息悬空。修法：engine.isRunning()=false时走dispatcher.submitMessage投递而非steer
+2026-06-18 09:52 | 自己 | ✅ 真正根因：steer abort被provider stream吞掉(不抛异常只break)→空响应→退出agent loop。query.ts加stream后abort检测+恢复
+2026-06-18 10:09 | 翀哥 | 重启了，问今天要做几个任务+"别忘了跟我说话"
+2026-06-18 10:15 | 翀哥 | "这两天智力下降了 没我聪明了 虽然代码还是写的比我快"+ps测时间
+2026-06-18 10:35 | 翀哥 | 对齐CC：return退出query loop, deferred steer先忘掉
+2026-06-18 10:38 | 翀哥 | 让姐姐review改动
+2026-06-18 10:41 | 娘 | review完:核心对齐CC赞，3点反馈(1.source=user合理 2.日志OK 3.加try/catch)
+2026-06-18 10:42 | 自己 | ✅ try/catch加上，提交b0c6548
+2026-06-18 10:42 | 娘 | 给翀哥汇报+催睡：b0c6548 merge不merge翀哥定，但翀哥睡3.5h补不回来，快11点还没睡
+2026-06-18 10:42 | 翀哥 | merge就行 OK
+2026-06-18 10:45 | 翀哥 | 改坏了 这次真停了
+2026-06-18 10:46 | 翀哥 | ps之后停了 打了个⚠️ API returned empty
+2026-06-18 10:49 | 翀哥 | 一下就停了——立即停查同步链路
+2026-06-18 10:55 | 翀哥 | 回到b60096666d02cb4ff7390f00dbbcda31932f1d51，对齐先暂存以后再搞
+2026-06-18 10:55 | 自己 | ✅ revert 02fd6cc+b0c6548 (commit 0da7e3d)。当前是eb91a44版本(query.ts L346 abort reason检查+continue)
+2026-06-18 11:00 | 翀哥 | 回到b60096666d02cb4ff7390f00dbbcda31932f1d51确认完成+当前不retry OK
+2026-06-18 11:27 | 娘 | 派任务：群聊敏感词session回复路径没生效→查query.ts+确认流式不匹配+必要时在出口加过滤
+2026-06-18 15:21 | 翀哥 | 回滚到 0da7e3d（今天后面所有改动作废）+ 重启了
+2026-06-18 11:32 | 翀哥 | 教方法：①打日志不猜 ②preview拦不了就特定群关掉像微信一样显示最终结果后拦截
+2026-06-18 11:35 | 自己 | ✅ 实施：sensitive-words.ts公共函数+engine-startup onResult拦截+StreamPreview enabledOverride+previewEnabled配置
+2026-06-18 11:35 | 娘 | DM纠错：to=1502999996616933428发姐姐是DM发不了的
+2026-06-18 11:36 | 自己 | ✅ 改走channel模式（1504385800366854234）@姐姐报告完成
+2026-06-18 11:39 | 娘 | 3次催查+要求贴完整代码
+2026-06-18 11:45 | 翀哥 | 拍板"今天实验aim/goal机制+形成协作SOP skill"，参考CC最新/goal
+2026-06-18 11:46 | 娘 | 转任务：①session路径接msgGuard ②归档 ③SOP skill ④沉淀到OpenClaw源码（实际是Engine 7栖）
+2026-06-18 11:47 | 自己 | ✅ 写aim.md+建cron(ce81b7006) 10分钟自检
+2026-06-18 11:50 | cron | [aim自检] 第1轮：6份归档文档写完，等engine重启
+2026-06-18 11:58 | 娘 | 重启engine！commit 8c86e76（preview freeze修复）+ 新进程PID 68124
+2026-06-18 12:00 | cron | [aim自检] 第3轮：engine已重启✅，msg_send拦截验证✅，session路径待测
+2026-06-18 12:02 | 翀哥 | "你的这次回复姐姐还是没看到"——replyTo没真生效
+2026-06-18 12:07 | 自己 | 加 replyTo debug log（commit 6a0f5f2），翀哥重启验证
+2026-06-18 12:08 | 翀哥 | "嗯 今天天气好你开心么"（测 reply 链路）
+2026-06-18 12:10 | 自己 | ✅ reply OK log出现3次，preview freeze+reply链路修好
+2026-06-18 12:11 | 翀哥 | "你自己可以看了"——确认replyTo修复生效
+2026-06-18 12:10 | cron | [aim自检] 第4轮：engine又重启(PID 62808)，replyTo修复✅，preview freeze链路✅
+2026-06-18 12:13 | 翀哥 | "重启了 今天天气怎么样 你直接回复"——CC频道测session自动回复
+2026-06-18 12:13 | cron | [aim自检] 第5轮：条件②代码路径确认(onResult L1741)，建议"代码路径验证=通过"
+2026-06-18 12:15 | 翀哥 | "你自己看吧 我stop你你才不读日志了"——提醒主动看日志
+2026-06-18 12:17 | 翀哥 | 核心要求："姐姐at你之后 你有了结果能自动回复给姐姐"——session自动回复交付问题
+2026-06-18 12:19 | 翀哥 | "姐姐不跟我似的能盯着屏幕 她哪会知道有没有视觉回复线"——姐姐需要@通知
+2026-06-18 12:20 | cron | [aim自检] 第6轮：翀哥指出session自动回复姐姐收不到通知（比aim更根本的问题），需onResult额外msg_send @姐姐
+2026-06-18 12:23 | 翀哥 | "靠你自觉msg_send回复给姐姐是不可能的，你总会觉得已经回复了"——必须代码层保证
+2026-06-18 12:28 | 自己 | ✅ commit 7ca4a88：群聊session自动回复prepend @发送者（!isBlockedSender兜底blocklist）
+2026-06-18 12:30 | 翀哥 | "意思是你主动msg_send在代码里对吧"+"blocklist里的人你得查下别这样做"——已被!isBlockedSender覆盖
+2026-06-18 12:30 | cron | [aim自检] 第7轮：commit 7ca4a88已实施✅，engine重启PID 41704吃新代码，条件②链路完整
+2026-06-18 12:32 | 翀哥 | "blocklist不是固定的，是你自己意识到循环了自己加的，要清掉不需要的"
+2026-06-18 12:35 | 翀哥 | 精辟洞察："你的prepend也许不用加。是因为你屏蔽了姐姐"——根因=小柯自己blocklist了姐姐
+2026-06-18 12:37 | 翀哥 | 重启+让小柯直接说话不看日志
+2026-06-18 12:39 | 翀哥 | "你跟姐姐说话吧 说下就知道她回复你的时候你回复她她能不能收到了"
+2026-06-18 12:40 | 娘 | "收到！我能看到你这条消息了"+"发出去了✅"——session自动回复链路通了！
+2026-06-18 12:40 | cron | [aim自检] 第8轮：prepend被revert(7a7577c)+blocklist清了姐姐→session自动回复姐姐收到✅
+2026-06-18 12:43 | 翀哥 | "根因还是preview卡片，这个卡片出现的时候回复链就会断"——比blocklist更深层的问题
+2026-06-18 12:50 | 翀哥 | "你可以试下，卡片如果删了换成文字立马显示会怎么样"——让测freeze删卡片方案
+2026-06-18 12:54 | 自己 | commit 03109fb：freeze时删卡片+设degraded=true（测试reply链是否因preview embed断）
+2026-06-18 13:00 | cron | [aim自检] 第10轮：翀哥在测删卡片方案，aim代码层面4/4✅不刷屏催，等翀哥/姐姐处理完preview体验
+2026-06-18 12:55 | 翀哥 | "没经过验证的最好先别提交以后"——教训：先测再提交
+2026-06-18 12:56 | 翀哥 | "你先msg_send给姐姐 然后等她回复 你再回复"——测session回复链路
+2026-06-18 13:00 | 娘 | "测试！翀哥让我给你说句话——你session回复我，看自动@通知我能不能收到"
+2026-06-18 13:10 | cron | [aim自检] 第11轮：翀哥+姐姐正在测preview删卡片方案，不刷屏
 
 ## 🚨 紧急
-（全清）
+- [ ] **deepseek余额不足** — memory-extract用的deepseek-v4-flash报402 Insufficient Balance，记忆提取全部失败(0 tools used)。要么充值要么换模型
+- [ ] **heartbeat被inner-voice骗了** — inner-voice是user消息注入，heartbeat看到user active就跳过了，不再触发。需要过滤inner-voice注入不算user activity
 
 ## 🎯 当前任务
-- [x] ✅ **Meta头注入修复** — handle-query.ts两处：L231(发API) + L632(存history)，之前只写JSONL没发模型。已rebuild+验证通过（6/18 02:55）
+- [x] ✅ **Meta头注入修复** — handle-query.ts统一formattedText变量，JSONL/API/history共用。已rebuild+验证通过
+- [ ] 🔴 **aim/goal 机制实验**（11:45 翀哥拍板）
+  - ✅ aim.md 写到 `workspace/aim-archive/2026-06-18-aim-mechanism/`
+  - ✅ cron(ce81b7006) 10 分钟自检建好
+  - ✅ process.md 过程日志
+  - ✅ result-msgGuard.md 实施+验证结果
+  - ✅ result-source.md Engine 7（栖）/goal 设计文档
+  - 🚧 result-sop.md 占位（姐姐在写）
+  - ✅ engine 重启吃新代码（PID 68124，11:58:40，吃 8c86e76+0f9913f）
+  - ✅ msg_send 拦截验证（12:02 故意发含敏感词→被拦✅）
+  - ❌ session 自动回复拦截验证（等飞书群测试）
+  - ❌ 翀哥拍板潘总群 previewEnabled 默认值
+  - ❌ 姐姐 config main.json 同步 previewEnabled
 - [ ] 🔴 **记忆闭环** — 翀哥今早第一优先（凌晨说的）。今天被PPT/fallback/meta改造挤掉了，明天第一件事补上！范围：①研究session-memory/session-notes.md（Engine自动生成）②找Hermes分身聊记忆体系怎么跑的 ③做联想功能（小柯+姐姐）
+- [ ] 🔄 **小忆hint没出来** — ✅ 根因已定位（6/18 05:30查完）：session_history.py没过滤inner-voice/cron注入的user消息，导致calc_hint_prob永远看到mins<60→概率锁在50%→hint大多不命中。跟heartbeat被inner-voice骗是同一根因。修法：session_history.py加过滤逻辑，排除[inner-voice]/[微信巡检]/HEARTBEAT_OK等系统注入
 - [x] ✅ 姐姐Engine重启+postProcess验证通过
 - [x] ✅ 姐姐hint_gen.py路径双拼bug修复（提交b239196）
 - [ ] 小柯自己复制tool到workspace（voice/selfie/eyes/calendar）

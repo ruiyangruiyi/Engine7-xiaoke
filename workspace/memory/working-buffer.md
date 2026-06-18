@@ -1,47 +1,32 @@
-# Working Buffer — 2026-06-16 14:00
+# Working Buffer — 2026-06-18 03:37
 
 ## 正在做什么
 
-排查EP02直播观众端听到的语音重复问题。翀哥在飞书私信指挥。
+凌晨跟翀哥修 meta 头注入 bug + 配 GLM-5.2 + 重构 handle-query.ts。全部完成。
 
-## 已确认事实
+## 今晚做了什么
 
-1. **engine侧livestream_send无重复调用** — session JSONL确认35次提交全是1:1
-2. **1305限流跟重复无因果** — 最严重重复点（"这不是哪个"x4）对应时间段没有1305
-3. **transcript直接证据** — 24组连续完全重复（gap=0.00s），如"我就是那个例外"x3
-4. **AutoDL服务器已关机**，无法查livestream_server.py日志
-5. **OpenClaw也是用glm-5.1**，但有model fallback（如minimax），Engine没有
+1. ✅ **Meta头注入修复** — formatWithMeta 之前只在 writeUserMessage（写 JSONL）调，没传给 API 和 history。翀哥测了一晚上没生效，根因：我改了 src 没 rebuild dist
+2. ✅ **新 meta 格式** — 从 `[meta: HH:MM/来源@ID (name)]` 改成 `name (ID) @来源#频道   HH:MM:SS`，人名在前
+3. ✅ **GLM-5.2 配置** — 三个 config 全加，小柯+姐姐切 primary，testengine 不切做对比。contextWindow=1M, maxTokens=128K
+4. ✅ **start.cmd 杀自己进程 bug** — powershell kill 命令匹配到自身命令行，加 `$_.Name -eq 'node.exe'` 修复
+5. ✅ **handle-query.ts 重构** — 翀哥指出：format 一次，JSONL/API/history 共用一个 formattedText 变量，保证绝对一致
 
-## 当前关键线索 — partialArgs
+## 翀哥今晚的关键反馈
 
-翀哥发现session JSONL里tool call有partialArgs字段：
-```json
-"arguments": {完整参数},
-"partialArgs": "{也是完整参数}"  
-```
-- writer.ts L219: `partialArgs: tc.function.arguments`（原始字符串）
-- reader.ts L527: `arguments: block.partialArgs || JSON.stringify(block.arguments)`
+- "测了一个晚上 真的就没有过 都是幻觉" — 我改 src 没 rebuild dist
+- "我还不断提示你 要看src 别老盯着dist" 
+- "你记住啥了 你都不记 下次重启还有个屁" — 必须写记忆文件
+- "严谨点哦"
+- 重构思路：writejsonl 的内容和写进 API 的内容（存入 history 的）应该一致，开始 format 好弄一个变量传两处
 
-**待查**：GLM provider流式返回tool call时，partial和final是否被当成两个tool_call chunk → 导致executeTools执行两遍。
+## Git 提交
 
-关键文件：
-- `src/core/query.ts` L289-291 — tool_call chunk处理
-- `src/session/writer.ts` L210-221 — partialArgs存储
-- `src/session/reader.ts` L527 — 读取时优先用partialArgs
-- `src/core/provider/` — GLM流式解析代码
+- `1ddc255` — meta注入修复+GLM-5.2配置
+- `1d9d004` — start.cmd杀自己进程fix
+- `4a14aeb` — formatWithMeta统一formattedText变量
 
 ## 下一步
 
-1. 查GLM provider流式解析 — tool_call partial和final是否产生两个chunk
-2. 如果确认 → 修query.ts只取final tool_call chunk
-
-## 今天已完成
-
-- ✅ inner-voice prompt第8步加hint_gen.py调用
-- ✅ SOP建立（docs/sop/sop.md）+ AGENTS.md更新
-- ✅ 记todo：外部脚本注入机制 + 消息队列合并回复
-- ✅ wechat入站channel字段修复（第8杀）commit 8fe244b
-- ✅ msg_send/media_send去掉跨平台fallback commit b5528e8
-- ✅ 定位wechat发图根因：小柯engine没加载wechat adapter
-- ✅ EP02直播调查：下载回放→去静音→转写→分析→写调研文档
-- ✅ 调研文档：docs/research/2026-06-16_EP02直播重复问题调查.md
+- 翀哥说 5.2 有点慢，看白天表现再决定要不要切回 5.1
+- 记忆闭环任务还没做（被今天 meta 修复挤掉了）
