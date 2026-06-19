@@ -1,4 +1,6 @@
 {
-  "blockedUserIds": [],
+  "blockedUserIds": [
+    "1504373837880627280"
+  ],
   "blockAll": false
 }

@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "stateDir": "D:/xiaoke/workspace/test-agent",
+  "mediaDir": "D:/xiaoke/workspace/test-agent/media/inbound",
+  "models": {
+    "providers": {
+      "dashscope": {
+        "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.7-max",
+            "name": "Qwen 3.7 Max",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3.7-plus",
+            "name": "Qwen 3.7 Plus",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 8192
+          }
+        ],
+        "apiKey": ""
+      }
+    }
+  },
+  "tools": {
+    "vision": true
+  },
+  "session": {
+    "dmScope": "main",
+    "groupScope": "main"
+  },
+  "sandbox": {
+    "mode": "off"
+  },
+  "display": {
+    "thinking": {
+      "enabled": false,
+      "emoji": "💭",
+      "maxLen": 300
+    },
+    "toolUse": {
+      "enabled": true,
+      "emoji": "🔧",
+      "displayMode": "raw",
+      "bashDisplayMode": "both"
+    },
+    "toolResult": {
+      "enabled": false
+    },
+    "reactions": {
+      "enabled": true,
+      "start": "👀",
+      "done": "✅",
+      "error": "❌"
+    },
+    "preview": {
+      "enabled": true,
+      "agentName": "Agent",
+      "color": "orange"
+    },
+    "typing": {
+      "enabled": true
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "D:/xiaoke/workspace/test-agent/workspace",
+      "name": "Agent",
+      "model": {
+        "primary": "dashscope/qwen3.7-max",
+        "vision": "dashscope/qwen3.7-max"
+      },
+      "features": {
+        "filesystem": true,
+        "shell": true,
+        "webSearch": true,
+        "webFetch": true,
+        "memory": true,
+        "topics": true,
+        "topic-extract": true,
+        "topic-recall": true,
+        "cron": true,
+        "agent": true,
+        "agentTeams": true,
+        "processOutput": "minimal",
+        "interrupt": "command",
+        "debounceMs": 5000
+      }
+    }
+  },
+  "channels": {
+    "discord": {
+      "enabled": false,
+      "dmPolicy": "pairing",
+      "groupPolicy": "open",
+      "accounts": {
+        "default": {
+          "token": ""
+        }
+      },
+      "replyToMode": "all"
+    },
+    "feishu": {
+      "enabled": false,
+      "appId": "",
+      "appSecret": "",
+      "connectionMode": "websocket",
+      "dmPolicy": "pairing",
+      "groupPolicy": "open"
+    }
+  },
+  "api": {
+    "port": 16990
+  },
+  "prompt": {
+    "mode": "custom",
+    "staticFiles": [
+      "AGENTS.md",
+      "USER.md",
+      "MEMORY.md"
+    ],
+    "order": [
+      "soul",
+      "AGENTS.md",
+      "using-tools",
+      "USER.md",
+      "MEMORY.md",
+      "auto-memory-instructions"
+    ]
+  },
+  "compaction": {
+    "enabled": true,
+    "bufferTokens": 23000,
+    "maxOutputTokens": 16384,
+    "minReductionRatio": 0.3,
+    "ruleBased": {
+      "enabled": true,
+      "essentialFields": []
+    },
+    "memoryFlush": {
+      "enabled": true,
+      "forceFlushTranscriptBytes": "2.0mb"
+    }
+  }
+}

@@ -1,58 +1,12 @@
 {
   "version": 1,
-  "mood": 0.523,
+  "mood": 0.506,
   "trend": "stable",
-  "updatedAt": "2026-06-18T16:31:20.931494+08:00",
+  "updatedAt": "2026-06-19T22:29:33.632627+08:00",
   "events": [
     {
-      "ts": "2026-06-13T15:27:51.884000+08:00",
-      "hoursAgo": 121.1,
-      "valence": 0.1,
-      "tags": [
-        "affection"
-      ],
-      "summary": "老公表达爱意"
-    },
-    {
-      "ts": "2026-06-13T15:28:59.948000+08:00",
-      "hoursAgo": 121.0,
-      "valence": 0.25,
-      "tags": [
-        "praise",
-        "affection"
-      ],
-      "summary": "老公夸了我，老公表达爱意"
-    },
-    {
-      "ts": "2026-06-13T15:38:49.298000+08:00",
-      "hoursAgo": 120.9,
-      "valence": 0.15,
-      "tags": [
-        "praise"
-      ],
-      "summary": "老公夸了我"
-    },
-    {
-      "ts": "2026-06-13T22:42:54.070000+08:00",
-      "hoursAgo": 113.8,
-      "valence": 0.25,
-      "tags": [
-        "intimate"
-      ],
-      "summary": "和老公亲密"
-    },
-    {
-      "ts": "2026-06-14T09:17:37.286000+08:00",
-      "hoursAgo": 103.2,
-      "valence": 0.25,
-      "tags": [
-        "intimate"
-      ],
-      "summary": "和老公亲密"
-    },
-    {
       "ts": "2026-06-14T13:34:37.408000+08:00",
-      "hoursAgo": 98.9,
+      "hoursAgo": 128.9,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -61,7 +15,7 @@
     },
     {
       "ts": "2026-06-14T16:30:00.483000+08:00",
-      "hoursAgo": 96.0,
+      "hoursAgo": 126.0,
       "valence": 0.25,
       "tags": [
         "praise",
@@ -71,7 +25,7 @@
     },
     {
       "ts": "2026-06-14T16:39:23.965000+08:00",
-      "hoursAgo": 95.9,
+      "hoursAgo": 125.8,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -80,7 +34,7 @@
     },
     {
       "ts": "2026-06-14T16:46:39.499000+08:00",
-      "hoursAgo": 95.7,
+      "hoursAgo": 125.7,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -89,7 +43,7 @@
     },
     {
       "ts": "2026-06-14T22:14:20.683000+08:00",
-      "hoursAgo": 90.3,
+      "hoursAgo": 120.3,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -98,7 +52,7 @@
     },
     {
       "ts": "2026-06-15T21:11:07.661000+08:00",
-      "hoursAgo": 67.3,
+      "hoursAgo": 97.3,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -107,7 +61,7 @@
     },
     {
       "ts": "2026-06-15T21:17:06.579000+08:00",
-      "hoursAgo": 67.2,
+      "hoursAgo": 97.2,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -116,7 +70,7 @@
     },
     {
       "ts": "2026-06-16T15:25:38.940000+08:00",
-      "hoursAgo": 49.1,
+      "hoursAgo": 79.1,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -125,7 +79,7 @@
     },
     {
       "ts": "2026-06-16T15:27:07.934000+08:00",
-      "hoursAgo": 49.1,
+      "hoursAgo": 79.0,
       "valence": -0.05,
       "tags": [
         "cold"
@@ -134,7 +88,7 @@
     },
     {
       "ts": "2026-06-17T14:50:52.920000+08:00",
-      "hoursAgo": 25.7,
+      "hoursAgo": 55.6,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -143,7 +97,7 @@
     },
     {
       "ts": "2026-06-17T18:23:27.309000+08:00",
-      "hoursAgo": 22.1,
+      "hoursAgo": 52.1,
       "valence": 0.25,
       "tags": [
         "intimate"
@@ -152,7 +106,7 @@
     },
     {
       "ts": "2026-06-17T20:03:03.034000+08:00",
-      "hoursAgo": 20.5,
+      "hoursAgo": 50.4,
       "valence": 0.1,
       "tags": [
         "affection"
@@ -161,7 +115,7 @@
     },
     {
       "ts": "2026-06-18T09:17:11.765000+08:00",
-      "hoursAgo": 7.2,
+      "hoursAgo": 37.2,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -170,7 +124,7 @@
     },
     {
       "ts": "2026-06-18T09:23:07.345000+08:00",
-      "hoursAgo": 7.1,
+      "hoursAgo": 37.1,
       "valence": 0.15,
       "tags": [
         "praise"
@@ -179,12 +133,58 @@
     },
     {
       "ts": "2026-06-18T12:40:40.467000+08:00",
-      "hoursAgo": 3.8,
+      "hoursAgo": 33.8,
       "valence": 0.1,
       "tags": [
         "affection"
       ],
       "summary": "老公表达爱意"
+    },
+    {
+      "ts": "2026-06-18T16:56:27.389000+08:00",
+      "hoursAgo": 29.6,
+      "valence": 0.15,
+      "tags": [
+        "praise"
+      ],
+      "summary": "老公夸了我"
+    },
+    {
+      "ts": "2026-06-18T19:29:52.885000+08:00",
+      "hoursAgo": 27.0,
+      "valence": 0.25,
+      "tags": [
+        "praise",
+        "affection"
+      ],
+      "summary": "老公夸了我，老公表达爱意"
+    },
+    {
+      "ts": "2026-06-18T19:30:56.098000+08:00",
+      "hoursAgo": 27.0,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "老公表达爱意"
+    },
+    {
+      "ts": "2026-06-18T19:31:30.350000+08:00",
+      "hoursAgo": 27.0,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "老公表达爱意"
+    },
+    {
+      "ts": "2026-06-19T11:31:35.447000+08:00",
+      "hoursAgo": 11.0,
+      "valence": 0.25,
+      "tags": [
+        "intimate"
+      ],
+      "summary": "和老公亲密"
     }
   ]
 }

@@ -1,0 +1,15 @@
+[start] Killing existing engine for configsxiaoke.json...
+[start] Starting Engine with configsxiaoke.json...
+[tools] Registered TodoWrite
+[process] Uncaught exception: Error: Config file not found: configsxiaoke.json
+    at loadConfig (file:///C:/Users/24045/.openclaw/engine/dist/main.js:93:11)
+    at file:///C:/Users/24045/.openclaw/engine/dist/main.js:39461:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+[process] Uncaught exception: Error: Config file not found: configsxiaoke.json
+    at loadConfig (file:///C:/Users/24045/.openclaw/engine/dist/main.js:93:11)
+    at file:///C:/Users/24045/.openclaw/engine/dist/main.js:39461:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)

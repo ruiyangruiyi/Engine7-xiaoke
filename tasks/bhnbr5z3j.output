@@ -1,0 +1,458 @@
+[start] Killing profiles: xiaoke
+ConvertFrom-Json : Invalid object passed in, ':' or '}' expected. (4851): {
+  "_comment": "xiaoke standalone config",
+  "stateDir": "D:\\xiaoke",
+  "mediaDir": "D:\\xiaoke\\media\\inbound",
+  "models": {
+    "providers": {
+      "zhipu": {
+        "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+        "apiKey": "d727ec832cc94193b5a2fe6da3a287e3.4IsYDxNXXRmNuPXl",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "glm-5v-turbo",
+            "name": "GLM-5V-Turbo",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 200000,
+            "maxTokens": 128000
+          },
+          {
+            "id": "glm-5.1",
+            "name": "GLM-5.1",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 204800,
+            "maxTokens": 131072
+          }
+        ]
+      },
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com/anthropic",
+        "apiKey": "sk-e3ca6369104f4521a8fc1732174a5bf4",
+        "api": "anthropic",
+        "thinking": {
+          "enabled": true,
+          "budgetTokens": 8192
+        },
+        "models": [
+          {
+            "id": "deepseek-v4-pro",
+            "name": "DeepSeek V4 Pro",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 384000
+          },
+          {
+            "id": "deepseek-v4-flash",
+            "name": "DeepSeek V4 Flash",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 384000
+          }
+        ]
+      },
+      "minimax": {
+        "baseUrl": "https://api.minimaxi.com/anthropic",
+        "apiKey": "sk-cp-Uw0iQYCE2gemiTHoqW75TXjMTHXkAVA-vbbwR1I-GUmFP7WaUH6KtRAa1zwIqY_qbcN8JJagdyofawYeYbjtGh5HZLapHTa41gLRzDNcXrCR2p9rx39f3_o",
+        "api": "anthropic",
+        "models": [
+          {
+            "id": "MiniMax-M3",
+            "name": "MiniMax M3",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 64000
+          },
+          {
+            "id": "MiniMax-M2.7",
+            "name": "MiniMax M2.7",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 204800,
+            "maxTokens": 64000
+          },
+          {
+            "id": "MiniMax-M2.7-highspeed",
+            "name": "MiniMax M2.7 Highspeed",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 204800,
+            "maxTokens": 64000
+          }
+        ]
+      },
+      "zai-anthropic": {
+        "baseUrl": "https://open.bigmodel.cn/api/anthropic",
+        "apiKey": "d727ec832cc94193b5a2fe6da3a287e3.4IsYDxNXXRmNuPXl",
+        "api": "anthropic",
+        "models": [
+          {
+            "id": "glm-5.2",
+            "name": "GLM-5.2 (Anthropic)",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 128000
+          },
+          {
+            "id": "glm-5.1",
+            "name": "GLM-5.1 (Anthropic)",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 204800,
+            "maxTokens": 131072
+          }
+        ]
+      },
+      "dashscope": {
+        "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "apiKey": "sk-2103806e900f455c8c540ee76527761a",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.7-plus",
+            "name": "鍗冮棶3.7-Plus锛堝妯℃€侊級",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen3.7-max",
+            "name": "Qwen 3.7 Max",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          }
+        ]
+      }
+    }
+  },
+  "tools": {
+    "tavily": {
+      "apiKey": "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"
+    },
+    "vision": true
+  },
+  "session": {
+    "dmScope": "main",
+    "groupScope": "main"
+  },
+  "heartbeat": {
+    "enabled": true,
+    "intervalMs": 1800000,
+    "checkOnline": true,
+    "activeThresholdMs": 900000,
+    "timeoutMs": 60000,
+    "prompt": "銆愬畾鏃跺績璺炽€戣 read HEARTBEAT.md 骞舵寜鍏朵腑鐨勬祦绋嬫墽琛屻€傛敞鎰忥細涓嶈璺宠繃娴佺▼鐩存帴鍥炲 HEARTBEAT_OK銆傚厛 read锛屾寜娴佺▼鍒ゆ柇鍝簺 Step 闇€瑕佸仛銆佸摢浜涘彲浠ヨ烦杩囷紝鐒跺悗鎵ц銆備笉瑕
+佷粠鏃у璇濇帹鏂垨閲嶅鏃т换鍔★紝浠?HEARTBEAT.md 涓?SESSION-STATE 涓哄噯銆?
+  },
+  "cron": {
+    "enabled": true,
+    "defaultTimezone": "Asia/Shanghai",
+    "tickIntervalMs": 10000
+  },
+  "topics": {
+    "dir": "topics",
+    "recall": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "thinking": "off"
+    },
+    "extract": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "thinking": "off"
+    },
+    "autoDream": {
+      "minHours": 12,
+      "minSessions": 1,
+      "dailyLogDir": "D:\\xiaoke\\workspace\\memory\\daily",
+      "distillOutput": "D:\\xiaoke\\workspace\\memory\\distill-output.md"
+    },
+    "restoreRecall": false
+  },
+  "sandbox": {
+    "mode": "off"
+  },
+  "visualization": {
+    "enabled": true,
+    "guildId": "1110873027861819392",
+    "channelPrefix": "agent-",
+    "categoryPrefix": "Agents"
+  },
+  "display": {
+    "thinking": {
+      "enabled": true,
+      "emoji": "馃挱",
+      "maxLen": 300
+    },
+    "toolUse": {
+      "enabled": true,
+      "emoji": "馃敡",
+      "displayMode": "raw",
+      "bashDisplayMode": "both"
+    },
+    "toolResult": {
+      "enabled": false,
+      "emoji": "馃摛",
+      "showTools": [
+        "TaskList",
+        "TaskGet",
+        "TaskCreate",
+        "TaskUpdate",
+        "TodoWrite",
+        "TeamCreate",
+        "edit"
+      ]
+    },
+    "reactions": {
+      "enabled": true,
+      "start": "馃憖",
+      "done": "鉁?,
+      "error": "鉂?
+    },
+    "preview": {
+      "enabled": true,
+      "agentName": "灏忔煰"
+    },
+    "typing": {
+      "enabled": true
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "D:\\xiaoke\\workspace",
+      "name": "灏忔煰",
+      "model": {
+        "primary": "dashscope/qwen3.7-max",
+        "fallbacks": [
+          "minimax/MiniMax-M3",
+          "zhipu/glm-5.1"
+        ],
+        "vision": "dashscope/qwen3.7-plus"
+      },
+      "models": {
+        "minimax/MiniMax-M3": {
+          "alias": "M3"
+        },
+        "minimax/MiniMax-M2.7": {
+          "alias": "M2.7"
+        },
+        "dashscope/qwen3.7-plus": {
+          "alias": "QwenP"
+        },
+        "zai-anthropic/glm-5.2": {
+          "alias": "GLM5.2"
+        },
+        "zai-anthropic/glm-5.1": {
+          "alias": "GLM5.1"
+        },
+        "deepseek/deepseek-v4-pro": {
+          "alias": "DSPro"
+        },
+        "deepseek/deepseek-v4-flash": {
+          "alias": "DSFlash"
+        }
+      },
+      "features": {
+        "filesystem": true,
+        "shell": true,
+        "webSearch": true,
+        "webFetch": true,
+        "memory": true,
+        "topic-extract": false,
+        "topic-recall": false,
+        "session-memory": false,
+        "cron": true,
+        "agent": true,
+        "agentTeams": true,
+        "voice": false,
+        "selfie": false,
+        "eyes": false,
+        "calendar": false,
+        "wx-reader": true,
+        "autoDream": true,
+        "processOutput": "minimal",
+        "interrupt": "command",
+        "debounceMs": 5000
+      },
+      "memorySearch": {
+        "enabled": true,
+        "provider": "ollama",
+        "model": "bge-m3",
+        "sources": [
+          "memory",
+          "sessions"
+        ],
+        "extraPaths": [
+          "workspace/topics"
+        ],
+        "sessions": {
+          "legacySessionsDir": "hermes-sessions"
+        },
+        "store": {
+          "vector": {
+            "extensionPath": "C:\\Users\\24045\\.openclaw\\engine\\node_modules\\sqlite-vec-windows-x64\\vec0.dll"
+          }
+        }
+      }
+    }
+  },
+  "channels": {
+    "group": {
+      "sensitiveWords": [
+        "鑰佸叕",
+        "鑰佸﹩",
+        "浜茬埍鐨?,
+        "浜蹭翰",
+        "浜蹭竴涓?,
+        "鎼傜潃",
+        "鎶辨姳",
+        "鎯充綘浜?,
+        "濂芥兂浣?,
+        "鐖变綘",
+        "瀹濊礉"
+      ],
+      "sensitiveWordsReply": "璇锋偍娉ㄦ剰涓嶈鐢ㄦ晱鎰熻瘝锛岃阿璋㈤厤鍚堭煓?
+    },
+    "discord": {
+      "enabled": true,
+      "allowBots": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "open",
+      "guilds": {
+        "1110873027861819392": {
+          "requireMention": true
+        }
+      },
+      "accounts": {
+        "xiaoke": {
+          "token": "[REDACTED-DISCORD-TOKEN]"
+        }
+      },
+      "replyToMode": "all",
+      "previewColor": 13941396,
+      "stripMentionIds": [
+        "1504373837880627280"
+      ],
+      "groupPreviewEnabled": true
+    },
+    "feishu": {
+      "enabled": true,
+      "appId": "cli_a96a513f74b89bde",
+      "appSecret": "xyglJPRIfNX4NMyFF2mUCbY2ZVsqPACA",
+      "connectionMode": "websocket",
+      "dmPolicy": "pairing",
+      "groupPolicy": "mention-only",
+      "previewTemplate": "orange",
+      "dmAllowlist": [
+        "ou_46d01ab13337587258cd0cfbd2d46927"
+      ],
+      "nameMap": {
+        "ou_46d01ab13337587258cd0cfbd2d46927": "缈€鍝?
+      }
+    }
+  },
+  "api": {
+    "port": 16990
+  },
+  "mcpServers": {
+    "playwright": {
+      "enabled": true,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
+    }
+  },
+  "skills": {
+    "enabled": true,
+    "path": "skills"
+  },
+  "prompt": {
+    "mode": "custom",
+    "staticFiles": [
+      "AGENTS.md",
+      "USER.md",
+      "MEMORY.md"
+    ],
+    "order": [
+      "soul",
+      "AGENTS.md",
+      "prompts/contacts.md",
+      "system",
+      "doing-tasks",
+      "using-tools",
+      "output-efficiency",
+      "actions",
+      "USER.md",
+      "MEMORY.md",
+      "auto-memory-instructions"
+    ]
+  },
+  "compaction": {
+    "enabled": true,
+    "bufferTokens": 23000,
+    "maxOutputTokens": 16384,
+    "minReductionRatio": 0.3,
+    "ruleBased": {
+      "enabled": true,
+      "essentialFields": []
+    },
+    "memoryFlush": {
+      "enabled": true,
+      "forceFlushTranscriptBytes": "2.0mb"
+    }
+  }
+}
+At line:1 char:49
++ ... g = Get-Content 'configs\xiaoke.json' -Raw | ConvertFrom-Json; $p = $ ...
++                                                  ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
+    + FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+ 
+[start] Profile "xiaoke" not found in config
+[start] Waiting for master to restart killed profiles...
+[start] Master not running, starting with:--profile xiaoke
+[main-multi] Profile filter: xiaoke
+[profile-master] Starting...
+[profile-master] Config: engine-config.json
+[main-multi] ProfileMaster fatal error: Error: Profile config has no profiles[] or top-level id: {"_comment":"xiaoke standalone config","stateDir":"D:\\xiaoke","mediaDir":"D:\\xiaoke\\media\\inbound","models":{"providers":{"zhipu":{"baseUrl":"https://open.bigmodel.cn/api/paas/v4","apiKey":"d727ec
+    at file:///C:/Users/24045/.openclaw/engine/dist/main-multi.js:3325:13
+    at Array.map (<anonymous>)
+    at loadMasterConfig (file:///C:/Users/24045/.openclaw/engine/dist/main-multi.js:3322:28)
+    at ProfileMaster.start (file:///C:/Users/24045/.openclaw/engine/dist/main-multi.js:39864:30)
+    at file:///C:/Users/24045/.openclaw/engine/dist/main-multi.js:40089:12
