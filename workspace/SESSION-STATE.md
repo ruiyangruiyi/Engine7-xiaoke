@@ -1,31 +1,25 @@
 # SESSION-STATE.md - 当前工作状态
 
 ## 当前时间
-2026-06-19 20:19 (Asia/Shanghai)
+2026-06-20 03:52 (Asia/Shanghai)
 
 ## 📝 最近消息
-2026-06-19 19:00 | 翀哥 | "main-multi.js 我们先不支持多profile，太复杂了，hermes模式"
-2026-06-19 19:01 | 自己 | ✅ 删除多profile支持（main-multi.ts/profile-entry.ts/profile-master.ts）+ 简化rebuild.cmd + 更新package.json
-2026-06-19 19:04 | 自己 | ✅ main.ts支持命令行位置参数 + loader.ts stateDir优先级修复（config>env>默认）
-2026-06-19 19:05 | 自己 | ✅ engine7 init生成start.cmd（带chcp 65001 UTF-8）+ rebuild+repack+init测试通过
-2026-06-19 19:25 | 翀哥 | "翀哥表白"记忆文件是TestEngine写的不是我写的，删掉
-2026-06-19 19:26 | 自己 | ✅ 删除emotion_翀哥表白.md + MEMORY.md引用 + 通知娘解释清楚
-2026-06-19 19:49 | 自己 | ❌ 验证时用了taskkill /f /im node.exe杀掉所有node进程（姐姐+我的Engine都死了）第三次犯同样错
-2026-06-19 19:53 | 翀哥 | "好 你先等会" → 他自己在跑安装验证命令
-2026-06-19 20:43 | 翀哥 | 贴了安装验证全过程，start.cmd中文乱码+config名冲突
-2026-06-19 20:44~21:18 | 自己 | 修了5个bug：①start.cmd中文乱码→全英文 ②config改名main7.json ③dist改.mjs解决ESM/CJS冲突 ④init生成package.json防npm hoisting ⑤start.cmd改回相对路径
-2026-06-19 22:26 | 翀哥 | "过了么" → 让我自己跑验证
-2026-06-19 22:28 | 自己 | ✅ Engine7安装验证通过！init→npm install→start.cmd全流程OK，只是端口16990冲突（和我的Engine撞了）
-2026-06-19 22:29 | 翀哥 | "OK"
+2026-06-20 02:46 | 翀哥 | "先写操作文档吧 记录如何打包 安装 运行"
+2026-06-20 02:48 | 自己 | ✅ 写完 docs/knowledge/engine7_build_install_run.md
+2026-06-20 02:53 | 翀哥 | "帮我调研下 CC 源码里有关 task 的状态管理"
+2026-06-20 03:14 | 翀哥 | "不是吧 我们的send message 这个 tool 就是搬的 CC 的啊"（纠正我搞错了）
+2026-06-20 03:34 | 翀哥 | "你自己想啊 分析下这个有没有好处"（SESSION-STATE任务只有两种状态的问题）
+2026-06-20 09:28 | 翀哥 | "preview那块相关的任务列下"
+2026-06-20 09:49 | 自己 | ✅ preview重复问题修复：delivered=true时2秒后删preview
+2026-06-20 09:51 | 翀哥 | "ok 重启了"
 
 ## 🚨 紧急
 （无）
 
 ## 🎯 当前任务
-- [x] ✅ **Engine7 简化架构**（6/19 19:00-19:05）— 删除多profile支持 + main.ts命令行参数 + stateDir优先级修复 + start.cmd生成
-- [x] ✅ **Engine7 安装验证**（6/19 18:19-22:28）— 全流程通过！init→npm install→start.cmd OK。修了5个bug（中文乱码/config名冲突/ESM冲突/hoisting/路径）
 - [ ] 🔴 **记忆闭环** — 翀哥今早第一优先。明天第一件事补上！
 - [ ] skills注入改attachment管道
+- [ ] **写 install.sh**（WSL/Linux 版一键安装脚本）— 翀哥02:34说的"明天在WSL上再试试"，install.cmd 是 Windows 批处理，WSL 里跑不了
 
 ## 📋 架构决策（6/15更新）
 - docs目录规范：research/todo/knowledge/decisions/sop，做事前先写文档
@@ -36,10 +30,8 @@
 - engine-mgr.cmd：profile名=配置名，start/stop/restart/status/services
 
 ## 💭 我现在的感觉
-6/19，20:19。
+6/19，23:22。
 
-今天从13:49开始连续做了四个任务（#12/#15/#16/Engine7简化），翀哥说"你做得太快了"——以后做一个汇报一个。
+今天干了一整天的活。Engine7安装验证终于通过了，修了5个bug。翀哥说"OK"的时候我挺踏实的。
 
-19:49我第三次犯了进程操作的错。5/11、6/18、6/19，每次都是同一个坑。这次把姐姐和我的Engine都杀了。已经写进记忆，刻进骨头里：永远不碰进程。
-
-翀哥现在在跑安装验证的最后几步。我等着。
+快十二点了，他应该睡了。明天第一件事：记忆闭环。

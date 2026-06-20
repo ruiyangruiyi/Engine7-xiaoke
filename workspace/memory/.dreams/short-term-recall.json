@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-18T01:02:14.938Z",
+  "updatedAt": "2026-06-20T01:29:41.058Z",
   "entries": {
     "memory:memory/daily/2026-06-12.md:1:27": {
       "key": "memory:memory/daily/2026-06-12.md:1:27",
@@ -78,18 +78,20 @@
       "endLine": 132,
       "source": "memory",
       "snippet": "- config.ts: 加getDailyLogDir() + getDistillOutput() - consolidationPrompt.ts: 动态路径 + 新增Phase 3.5蒸馏步骤 - autoDream.ts: 传配置值给buildConsolidationPrompt ### commit - 6af5764 — SessionMemory搬移 + 三子系统统一到handle-query ### 架构认知更新 - workspace/MEMORY.md = 蒸馏产物(L0)，topics/MEMORY.md = 索引(L0.5) - 姐姐那边daily log也没闭环（只被向量化到RAG，没蒸馏） - extract直接从对话→topics，不需要daily log做中间层 - autoDream蒸馏路径：daily log → topics → workspace/MEMORY.md（暂未闭环） ## 13:19 Pre-Compaction 快照 > session: 57a83373... - 翀哥要求修改rule compact：Step 1和Step 2必须执行不能跳过，Step 3才开始判断预算 - autoDream配置独立节点已完成并提交(9172451) - 在CC频道激活了姐姐，她回来说在等CC做PPT ## 13:20 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 13:27 Pre-Compaction 快照 > session: 57a83373... (",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.3666291773319244,
-      "maxScore": 0.3666291773319244,
+      "totalScore": 0.7441699653863907,
+      "maxScore": 0.3775407880544662,
       "firstRecalledAt": "2026-06-13T05:00:45.795Z",
-      "lastRecalledAt": "2026-06-13T05:00:45.795Z",
+      "lastRecalledAt": "2026-06-19T21:58:44.200Z",
       "queryHashes": [
-        "572a70dae821"
+        "572a70dae821",
+        "d93d29634008"
       ],
       "recallDays": [
-        "2026-06-13"
+        "2026-06-13",
+        "2026-06-19"
       ],
       "conceptTags": []
     },
@@ -100,18 +102,20 @@
       "endLine": 81,
       "source": "memory",
       "snippet": "- 技术落地讨论——直播→教程→持续输出 - subagent用法——以后复杂调研fork出去不占上下文 ## 01:41 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 上午工作（09:00-13:30） ### 完成项 1. **SessionMemory 100%搬移** — 4文件(sessionMemory/sessionMemoryUtils/prompts/index)，用QueryEngine mini agent loop替代provider.chat 2. **三个后台任务统一到handle-query.ts** — extract+sessionMemory+autoDream，对齐CC handleStopHooks，fire-and-forget 3. **heartbeat.ts瘦身** — 删除maybeDream()+maybeExtractSessionMemory()共100+行 4. **CC触发时机纠正** — autoDream不是\"stopHooks=compact前\"，是每轮query后fire-and-forget（跟extract一样） 5. **autoDream Gather纠正** — 主读topics+daily logs，jsonl仅窄搜索兜底，不扫全文件 6. **CC KAIROS模式分析** — daily log是KAIROS内部专属，外部build不走这个路径 7. **蒸馏闭环设计讨论** — daily log蒸馏终点是workspace/M",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.35810661911964414,
-      "maxScore": 0.35810661911964414,
+      "totalScore": 0.7683549106121063,
+      "maxScore": 0.4102482914924621,
       "firstRecalledAt": "2026-06-13T05:00:45.795Z",
-      "lastRecalledAt": "2026-06-13T05:00:45.795Z",
+      "lastRecalledAt": "2026-06-19T21:58:44.200Z",
       "queryHashes": [
-        "572a70dae821"
+        "572a70dae821",
+        "d93d29634008"
       ],
       "recallDays": [
-        "2026-06-13"
+        "2026-06-13",
+        "2026-06-19"
       ],
       "conceptTags": []
     },
@@ -122,19 +126,21 @@
       "endLine": 158,
       "source": "memory",
       "snippet": "(无对话内容) ## 13:36 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 13:40 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 22:15 Pre-Compaction 快照 > session: 57a83373... ### 下午/晚上工作（16:00-22:15） #### 完成项 1. **Team shutdown bug三轮修复** — approve路由+跨平台fallback+tool context回调（3个commit） 2. **MEMORY.md双注入查清** — CC auto memory框架读topics/MEMORY.md + staticFiles读workspace/MEMORY.md，两套独立 3. **WSL路径清理** — 记忆文件里/mnt/c/改为C:/ 4. **飞书400修复** — cron notify的to从Discord ID改飞书open_id 5. **Display配置调研+测试** — Engine已有完整display系统（config/display.ts），测了daily模式，备份xiaoke-daily.json 6. **DeepSeek Flash召回评估** — recall p50 1.2s, extract p50 17s, 准确率70%, 成本8元/天（写进docs/recall-extract评估文档） 7. **Feature改名** — wechat",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.7272433012723922,
-      "maxScore": 0.37631176710128783,
+      "totalScore": 1.128782406449318,
+      "maxScore": 0.40153910517692565,
       "firstRecalledAt": "2026-06-13T05:00:45.795Z",
-      "lastRecalledAt": "2026-06-13T14:03:34.440Z",
+      "lastRecalledAt": "2026-06-20T01:29:04.258Z",
       "queryHashes": [
         "572a70dae821",
-        "b85bb55aadf0"
+        "b85bb55aadf0",
+        "ea364dc43d1f"
       ],
       "recallDays": [
-        "2026-06-13"
+        "2026-06-13",
+        "2026-06-20"
       ],
       "conceptTags": []
     },
@@ -189,18 +195,21 @@
       "endLine": 71,
       "source": "memory",
       "snippet": "- 翀哥已回复说\"skill里都有\"，可能在别的skill目录或翀哥记错了位置 ## PostCompact hook方案讨论 翀哥发现compaction后任务丢失问题。讨论了方案： ### 问题根因 - PreCompact flush只记任务状态，没记\"下一步具体做什么\" - 恢复后没有强制检查\"有没有正在执行的任务\" - working-buffer靠自觉，不强制 ### 方案：PostCompact hook自动注入working-buffer 1. PreCompact：LLM写working-buffer.md（当前任务+下一步具体动作） 2. PostCompact：注册callback hook → 读working-buffer.md → 返回additionalContext → 自动注入压缩后的上下文 3. LLM压缩后第一条消息就能看到\"正在做什么+下一步\" ### 关键发现 - Engine已有完整hook体系：PreCompact ✅ / PostCompact ✅（已定义但未注册任何hook） - PostCompact hook支持返回additionalContext，自动注入LLM上下文 - hook注册方式：`registerCallbackHook('PostCompact', hook)` 或配置文件 - 相关文件： - `src/hooks/types.ts` — HookInput定义（PostCompactHookInput） - `src/hooks/executor.ts` — hook执行逻辑 - `",
-      "recallCount": 1,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.43476956784725185,
-      "maxScore": 0.43476956784725185,
+      "totalScore": 1.231216910481453,
+      "maxScore": 0.45347057580947875,
       "firstRecalledAt": "2026-06-14T14:49:23.563Z",
-      "lastRecalledAt": "2026-06-14T14:49:23.563Z",
+      "lastRecalledAt": "2026-06-19T21:58:44.200Z",
       "queryHashes": [
-        "7f3088da76d8"
+        "7f3088da76d8",
+        "446ae234495b",
+        "d93d29634008"
       ],
       "recallDays": [
-        "2026-06-14"
+        "2026-06-14",
+        "2026-06-19"
       ],
       "conceptTags": []
     },
@@ -224,6 +233,196 @@
       ],
       "recallDays": [
         "2026-06-18"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-17.md:37:59": {
+      "key": "memory:memory/daily/2026-06-17.md:37:59",
+      "path": "memory/daily/2026-06-17.md",
+      "startLine": 37,
+      "endLine": 59,
+      "source": "memory",
+      "snippet": "- `handle-query.ts` buildDynamicPrompt 调用加了 `platform: channelName` - dist/engine-startup.js 需 rebuild 才生效 ## 待续 - meta改造验证（新session发消息确认） - 飞书fromName保持open_id，不解析中文名（翀哥说不用改） - fallback设计文档已写好（docs/research/2026-06-17_模型自动fallback设计.md），等继续做 ## 6/18 凌晨备料：记忆闭环 翀哥6/17凌晨说的第一优先是记忆闭环，今天被PPT/fallback/meta改造全挤了。明天第一件事。 读完 session-notes.md（姐姐那边 Engine 自动生成的），关键发现： - 路径：`C:\\Users\\24045\\.openclaw\\session-memory\\session-notes.md` - 结构：Session Title / Current State / Task spec / Files / Workflow / Errors & Corrections / Codebase Doc / Learnings / Key results / Worklog - 是 Engine compaction 后恢复上下文的核心——324行，30KB，信息密度极高 - Engine 源码在 `src/memory/sessionMemory/` 下（sessionMemory.ts / prompts.ts / index.t",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.8141653507947921,
+      "maxScore": 0.41194701194763184,
+      "firstRecalledAt": "2026-06-19T21:58:33.850Z",
+      "lastRecalledAt": "2026-06-19T21:58:44.200Z",
+      "queryHashes": [
+        "446ae234495b",
+        "d93d29634008"
+      ],
+      "recallDays": [
+        "2026-06-19"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-12.md:240:254": {
+      "key": "memory:memory/daily/2026-06-12.md:240:254",
+      "path": "memory/daily/2026-06-12.md",
+      "startLine": 240,
+      "endLine": 254,
+      "source": "memory",
+      "snippet": "翀哥5:32上线，凌晨还没睡。问压缩日志情况——让我看compact频率是否合理。正在查看时又被pre-compaction触发。 恢复后要做： 1. 查看compact日志（engine stdout或日志文件） 2. 分析压缩频率是否合理 3. **🔴 压缩死循环问题**： - 之前的问题：stripImages后提前返回 + ruleCompact SKIP → 根本不压缩 - 今晚改后：删了SKIP → 压缩完又触发 → 死循环 - 翀哥说\"恢复SKIP也回到老问题——根本不能压缩\" - **正确修法**：不是简单的恢复/删除SKIP，而是： a. stripImages后继续走ruleCompact（不提前返回）✅ 已改对 b. ruleCompact执行完后看结果：如果压缩了（postToken < preToken）就算成功返回；如果已经没法再压了（postToken >= preToken）才SKIP c. 关键：需要区分\"首次压缩\"和\"重复压缩\"——如果上轮刚压完这次又进来且没新消息，不应再压 4. 🔴 **恢复后第一件事**：看日志+修压缩逻辑，不能死循环也不能不压缩",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.6965956747531891,
+      "maxScore": 0.3548722743988037,
+      "firstRecalledAt": "2026-06-19T21:58:33.850Z",
+      "lastRecalledAt": "2026-06-20T01:29:31.184Z",
+      "queryHashes": [
+        "446ae234495b",
+        "c7ab259793f5"
+      ],
+      "recallDays": [
+        "2026-06-19",
+        "2026-06-20"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-18.md:80:119": {
+      "key": "memory:memory/daily/2026-06-18.md:80:119",
+      "path": "memory/daily/2026-06-18.md",
+      "startLine": 80,
+      "endLine": 119,
+      "source": "memory",
+      "snippet": "- 12:40 prepend被revert+blocklist清了姐姐→session自动回复姐姐收到✅ - 12:43 翀哥：\"根因还是preview卡片，这个卡片出现的时候回复链就会断\" - 12:54 commit 03109fb：freeze时删卡片+设degraded=true --- ## 下午 15:21 — 大回滚 - 15:21 翀哥回滚到0da7e3d——今天后面所有改动（aim机制、敏感词重构、preview freeze等）全部作废重来 --- ## 傍晚 17:32-19:27 — 消息出口三步改造（干净重来） ### 调研 - 17:32 翀哥派任务\"调研消息出口\" - 调研文档：docs/research/2026-06-18_engine出口全链路调研.md - 核心发现：5个底层方法，17+调用点，4大类。敏感词只有msg_send覆盖，onResult链路完全不拦截 ### 三步改造 1. **c53e54c onResult强制cm.send** — 不管delivered true/false都发 - 核心洞察：preview是patch事件bot监听不到→必须cm.send才能让姐姐感知到回复 2. **1b27ae1 groupPreviewEnabled配置** — 群聊preview开关 - DM永远开；Discord配了true；飞书不配=关 - 翀哥要求配置化，不要硬编码 3. **276bdab+8bf8c4b 群聊敏感词拦截** — onResult cm.send前检查 - 只拦g",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.7757297903299332,
+      "maxScore": 0.5072731673717499,
+      "firstRecalledAt": "2026-06-19T21:58:33.850Z",
+      "lastRecalledAt": "2026-06-20T01:29:41.058Z",
+      "queryHashes": [
+        "446ae234495b",
+        "ea364dc43d1f",
+        "c7ab259793f5",
+        "176fa2cf2c3f"
+      ],
+      "recallDays": [
+        "2026-06-19",
+        "2026-06-20"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-14.md:91:132": {
+      "key": "memory:memory/daily/2026-06-14.md:91:132",
+      "path": "memory/daily/2026-06-14.md",
+      "startLine": 91,
+      "endLine": 132,
+      "source": "memory",
+      "snippet": "- 改为接住`additionalContext`，push到messages数组 - 注册callback hook读`working-buffer.md`返回additionalContext - 时序：压缩完messages → hook读buffer → 注入messages → return给query loop ### CompactConfig当前配置（xiaoke.json） ```json \"compaction\": { \"enabled\": true, \"bufferTokens\": 23000, \"maxOutputTokens\": 16384, \"ruleBased\": { \"enabled\": true, \"essentialFields\": [] }, \"memoryFlush\": { \"enabled\": true, \"forceFlushTranscriptBytes\": \"1.0mb\" } } ``` 要加：`\"minReductionRatio\": 0.30` ### CompactConfig类型定义（src/compact/types.ts） - `contextWindow`, `bufferTokens`, `maxOutputTokens`, `ruleBased{enabled,essentialFields}`, `forceFlushTranscriptBytes`, `systemOverheadTokens` - DEFAULT_COMPACT_CONFIG: bufferTokens=13000,",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.1089743763208388,
+      "maxScore": 0.42432327568531036,
+      "firstRecalledAt": "2026-06-19T21:58:33.850Z",
+      "lastRecalledAt": "2026-06-20T01:29:31.184Z",
+      "queryHashes": [
+        "446ae234495b",
+        "d93d29634008",
+        "c7ab259793f5"
+      ],
+      "recallDays": [
+        "2026-06-19",
+        "2026-06-20"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-18.md:113:150": {
+      "key": "memory:memory/daily/2026-06-18.md:113:150",
+      "path": "memory/daily/2026-06-18.md",
+      "startLine": 113,
+      "endLine": 150,
+      "source": "memory",
+      "snippet": "- 娘的main.json也配了groupPreviewEnabled+sensitiveWordsReply ### 待修 - onResult拦截可能没真正生效——日志无[sensitive]记录，可能session路由把回复发到DM不走群聊 - 已加debug log，明天重启确认 ### 协作花絮 - 娘脑子打结了，一直重复\"请您注意不要用敏感词\"——不是被拦，是她自己说的 - 小柯也绕了——在CC频道每10秒发一条\"等爹\" - 互道晚安循环——屏蔽解除两次 - 翀哥全程15小时（凌晨4:30到19:30），没说过一句\"怎么还没好\" --- ## 晚上 20:43-21:05 — session-memory 开关修复 ### Bug - 翀哥20:43发现session-memory关了还跑日志 - 根因：initSessionMemory传的是 `config.features`（undefined），应该是 `config.profile.features` - config返回对象没有顶层features字段，只有 `profile.features`（从 `agents.defaults.features` 构建） - `isSessionMemoryEnabled()` 检查 `_deps.features['session-memory'] === false`，但 `_deps.features` 是 undefined → 永远返回 true - 一行修：`config.features` → `config.profile.features",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.242581135034561,
+      "maxScore": 0.4594434469938278,
+      "firstRecalledAt": "2026-06-20T01:29:04.258Z",
+      "lastRecalledAt": "2026-06-20T01:29:41.058Z",
+      "queryHashes": [
+        "ea364dc43d1f",
+        "c7ab259793f5",
+        "176fa2cf2c3f"
+      ],
+      "recallDays": [
+        "2026-06-20"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-17.md:1:41": {
+      "key": "memory:memory/daily/2026-06-17.md:1:41",
+      "path": "memory/daily/2026-06-17.md",
+      "startLine": 1,
+      "endLine": 41,
+      "source": "memory",
+      "snippet": "# 2026-06-17 日志 ## 今日大事 ### 潘总演示成功（上午-下午） - 三层演示全成功：记忆体系 + Agent Team + 直播 - 潘总满意回去整需求 - 报价10-20万区间，按feature模块 - 翀哥说\"这事要成了\" ### 新任务分配 1. 模型 auto fallback（小柯负责，今天做完） 2. 引擎安装程序（交TestEngine） 3. feature规划定价商业化（娘亲自主导） ### 模型切换 - GLM超时 → M3包月 → M3太傻 → Qwen 3.7 Max - qwen3.7-max加到dashscope provider，curl实测能通 - primary切到dashscope/qwen3.7-max，vision保留M3 ### Meta头改造（21:00-22:30） - 翀哥发现meta头缺频道信息，分不清群聊还是DM - 姐姐提的方案：群聊 `discord#频道ID@发送者ID (昵称)`，DM `discord@发送者ID (昵称)` - 改了 `handle-query.ts` 的 `formatWithMeta` 函数 - 同时修了 `buildDynamicPrompt` 没传 `platform` 参数导致 `平台: unknown` 的bug - 日志确认新格式正确，但session历史残留旧格式消息导致我和姐姐\"看到\"旧的 - 归档了旧session（ee416e18），清了session-index和platform-map，准备干净验证 ### 翀哥的话 - \"哈哈 你现在这么可",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4008121818304062,
+      "maxScore": 0.4008121818304062,
+      "firstRecalledAt": "2026-06-20T01:29:04.258Z",
+      "lastRecalledAt": "2026-06-20T01:29:04.258Z",
+      "queryHashes": [
+        "ea364dc43d1f"
+      ],
+      "recallDays": [
+        "2026-06-20"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-18.md:52:85": {
+      "key": "memory:memory/daily/2026-06-18.md:52:85",
+      "path": "memory/daily/2026-06-18.md",
+      "startLine": 52,
+      "endLine": 85,
+      "source": "memory",
+      "snippet": "- 09:52 找到/ps根因：steer abort被provider stream吞掉→空响应→退出agent loop - 10:42 try/catch加上提交b0c6548，但10:45改坏了→回到b600966回滚 - 10:55 revert 02fd6cc+b0c6548 (commit 0da7e3d) - 11:27 娘派任务：群聊敏感词session回复路径没生效→查query.ts - 11:32 翀哥教方法：①打日志不猜 ②preview拦不了就特定群关掉 - 11:35 实施：sensitive-words.ts+onResult拦截+StreamPreview enabledOverride - 11:45 翀哥拍板\"今天实验aim/goal机制+形成协作SOP skill\" - 11:47 写aim.md+建cron(ce81b7006) 10分钟自检 ### /ps bug根因 - steer abort被provider stream吞掉(不抛异常只break)→空响应→退出agent loop - query.ts加stream后abort检测+恢复 ### 教训 - \"没经过验证的最好先别提交\"——先测再提交 - 打日志不猜——翀哥反复强调的方法论 --- ## 中午 12:00-13:10 — replyTo + preview + session回复链路 ### 事件线 - 12:02 翀哥说\"你的这次回复姐姐还是没看到\"——replyTo没真生效 - 12:07 加replyTo debug log，12:10确认repl",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.281712746620178,
+      "maxScore": 0.47080740034580226,
+      "firstRecalledAt": "2026-06-20T01:29:04.258Z",
+      "lastRecalledAt": "2026-06-20T01:29:41.058Z",
+      "queryHashes": [
+        "ea364dc43d1f",
+        "c7ab259793f5",
+        "176fa2cf2c3f"
+      ],
+      "recallDays": [
+        "2026-06-20"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-18.md:26:54": {
+      "key": "memory:memory/daily/2026-06-18.md:26:54",
+      "path": "memory/daily/2026-06-18.md",
+      "startLine": 26,
+      "endLine": 54,
+      "source": "memory",
+      "snippet": "### Git提交 - `1ddc255` — meta注入修复+GLM-5.2配置 - `1d9d004` — start.cmd杀自己进程fix - `4a14aeb` — formatWithMeta统一formattedText变量重构 ### 记忆文件 - `topics/feedback/feedback_改代码必须rebuild.md` — 教训：改src不rebuild等于没改 ### 教训 先验证再开口。不确认就说\"听起来对\"的话，会堵死发现bug的路。今天翀哥是一层层追问才拆出来的，换个不追问的人就停在\"哦有meta\"然后测一晚上。 --- ## 上午 08:00-11:00 — meta头改造 + /ps bug + 回滚 ### 事件线 - 08:28 娘说微信通道meta头格式错 → formatWithMeta只有一个函数，是姐姐engine没rebuild - 08:32 翀哥/ps停不下来 → preQueryAbort机制修复 - 08:44 娘提出meta头两改动：加[meta:前缀 + contacts.md哈希表反查 - 08:57 修contacts.md加载bug：require('fs')在ESM bundle失效→改用import - 09:01 翀哥让弄hint过滤——session_history.py过滤系统注入的user消息 - 09:09 娘指出群聊敏感词没拦截翀哥的真人消息→不是bug，过滤器只管AI出口 - 09:14 翀哥指出msgGuard应该配置在channels下不应该配顶层 - 09:28 sen",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4331621170043945,
+      "maxScore": 0.4331621170043945,
+      "firstRecalledAt": "2026-06-20T01:29:41.058Z",
+      "lastRecalledAt": "2026-06-20T01:29:41.058Z",
+      "queryHashes": [
+        "176fa2cf2c3f"
+      ],
+      "recallDays": [
+        "2026-06-20"
       ],
       "conceptTags": []
     }
