@@ -345,6 +345,7 @@ Discord：
 
 workspace/
 ├── docs/          ← 小柯手动维护的文档
+│   ├── design/    设计方案+实现记录（YYYY-MM-DD_主题.md，方案→实现→验证全生命周期）
 │   ├── research/   调研报告（YYYY-MM-DD_主题.md）
 │   ├── todo/       待办清单（YYYY-MM-DD_主题.md）
 │   ├── knowledge/  知识文档（主题.md，持续更新）
@@ -352,6 +353,19 @@ workspace/
 │   └── sop/        标准操作流程
 └── topics/       ← auto memory工作目录，别动！
 ```
+
+⚠️ **落地方案文档写哪？**
+
+| 阶段 | 写到哪 | 内容 |
+|------|--------|------|
+| 开始前 | `docs/design/YYYY-MM-DD_主题.md` | 方案设计+架构+预估 |
+| 做完后 | 同一份 `docs/design/` 文档追加 | 最终文件清单+实现记录+踩坑+验证结果 |
+| auto memory | `topics/` 自动提取 | 短摘要（小柯只加指针） |
+
+**核心原则：**
+- `docs/design/` 是一个文档从方案→实现→验证的**完整生命周期记录**
+- `topics/` 只放 auto memory 提取的摘要，不手动写完整实现文档
+- 实现**完成后**必须回 `docs/design/` 追加实现记录，不能只留在 SESSION-STATE 里
 
 ⚠️ **新建TODO时必须同时写文档：**
 - SESSION-STATE.md 记条目 + docs/todo/ 写详细方案（背景+方案+代码位置+优先级）
