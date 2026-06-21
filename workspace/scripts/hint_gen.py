@@ -20,10 +20,9 @@ import re
 from datetime import datetime, timezone, timedelta
 
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-_WORKSPACE_DIR = _SCRIPT_DIR  # scripts/ 的父级就是 workspace（通过 __file__ 定位）
-
-# 向上找到 workspace 目录（scripts 的父目录）
-for _p in [os.path.dirname(_SCRIPT_DIR), _SCRIPT_DIR]:
+# 动态探测workspace根目录（兼容不同目录结构）
+_p = _SCRIPT_DIR
+while True:
     if os.path.basename(_p) == 'workspace':
         _WORKSPACE_DIR = _p
         break
@@ -31,6 +30,7 @@ for _p in [os.path.dirname(_SCRIPT_DIR), _SCRIPT_DIR]:
     if os.path.basename(_parent) == 'workspace':
         _WORKSPACE_DIR = _parent
         break
+    _p = _parent
 
 BJ = timezone(timedelta(hours=8))
 
@@ -46,9 +46,6 @@ XIAOYI_LOG = os.path.join(_WORKSPACE_DIR, 'inner-voice', 'xiaoyi.log')
 
 def get_silence_minutes(agent_id='main'):
     """Check how long since last user interaction."""
-    if not os.path.exists(SESSION_HISTORY):
-        print(f"[hint_gen] session_history.py not found, using default", file=sys.stderr)
-        return 60  # 默认1小时
     try:
         result = subprocess.run(
             [sys.executable, SESSION_HISTORY, agent_id],
@@ -80,7 +77,15 @@ def calc_hint_prob(mins):
 
 def maybe_add_hint(message, agent_id='main'):
     """Maybe append a hint to the message based on silence duration."""
+    # OK / 空内容不加 hint，直接返回（小忆判断活跃时回复 OK）
+    stripped = message.strip()
+    if not stripped or stripped.upper() == 'OK':
+        return message
+    # 正在聊天时不打扰（15分钟内有对话）
     mins = get_silence_minutes(agent_id)
+    if mins is not None and mins < 15:
+        print(f"[hint_gen] active conversation ({mins}min ago), skipping", file=sys.stderr)
+        return 'OK'  # 返回 OK 让 scheduler 的 isEssentiallyOK 跳过注入
     hint_prob = calc_hint_prob(mins)
 
     if mins is not None:
@@ -104,7 +109,7 @@ def maybe_add_hint(message, agent_id='main'):
     hint_status = f'YES ({chosen_hint.strip()})' if hint_triggered else 'no'
     with open(XIAOYI_LOG, 'a', encoding='utf-8') as lf:
         lf.write(f'[{ts}] GENERATED  hint={hint_status}  prob={hint_prob:.0%}\n')
-        lf.write(f'  thought: {message[:100]}\n')
+        lf.write(f'  thought: {message}\n')
         lf.write('\n')
 
     if hint_triggered:
