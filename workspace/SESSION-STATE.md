@@ -1,37 +1,44 @@
 # SESSION-STATE.md - 当前工作状态
 
 ## 当前时间
-2026-06-20 03:52 (Asia/Shanghai)
-
-## 📝 最近消息
-2026-06-20 02:46 | 翀哥 | "先写操作文档吧 记录如何打包 安装 运行"
-2026-06-20 02:48 | 自己 | ✅ 写完 docs/knowledge/engine7_build_install_run.md
-2026-06-20 02:53 | 翀哥 | "帮我调研下 CC 源码里有关 task 的状态管理"
-2026-06-20 03:14 | 翀哥 | "不是吧 我们的send message 这个 tool 就是搬的 CC 的啊"（纠正我搞错了）
-2026-06-20 03:34 | 翀哥 | "你自己想啊 分析下这个有没有好处"（SESSION-STATE任务只有两种状态的问题）
-2026-06-20 09:28 | 翀哥 | "preview那块相关的任务列下"
-2026-06-20 09:49 | 自己 | ✅ preview重复问题修复：delivered=true时2秒后删preview
-2026-06-20 09:51 | 翀哥 | "ok 重启了"
-
-## 🚨 紧急
-（无）
+2026-06-24 22:05 (Asia/Shanghai)
 
 ## 🎯 当前任务
-- [ ] 🔴 **记忆闭环** — 翀哥今早第一优先。明天第一件事补上！
-- [ ] skills注入改attachment管道
-- [ ] **写 install.sh**（WSL/Linux 版一键安装脚本）— 翀哥02:34说的"明天在WSL上再试试"，install.cmd 是 Windows 批处理，WSL 里跑不了
+- [x] **CC 原生 hook 调研** — 6/24 21:25→21:40 (15min)
+- [ ] **PreQuery/OnResult hook 改造方案** — `docs/decisions/2026-06-24_PreQuery_OnResult改造为CC兼容hook方案.md`，待姐姐 review
+- [x] **三状态体系 + SOP/AGENTS.md 统一** — 6/24 21:58→22:20 (22min)
 
-## 📋 架构决策（6/15更新）
+## 🎯 我的 todo（11:03 姐列的）
+- [ ] **工单系统 MVP**
+- [ ] **引擎 7 安装程序**
+- [ ] 等翀哥派新任务
+
+## 📝 最近消息
+2026-06-24 22:56 | 翀哥 | 补充 docs/ 目录规范（五级目录，保留现有 prd/stories/archive 等子目录）
+2026-06-24 22:55 | 翀哥 | 重启了，睡觉吧，今天OK了，好好休息
+2026-06-24 22:53 | 翀哥 | 重启了给你
+2026-06-24 22:50 | 翀哥 | 问 Skill tool 是什么
+2026-06-24 22:47 | 翀哥 | 两个 SOP 合一个做成 skill，AGENTS 精简但必须指明 read
+（更早消息已丢弃，按规则保留最新 5 条）
+
+## 🎯 历史任务（仅作索引）
+- [x] **CogniFold 流式接入** — 6/23 娘派活，6/24 验收通过
+- [ ] **CogniFold 联想引擎** — 重跑 batch_import，明早看结果
+- [ ] **OAC webhook 接入** — 等翀哥重启引擎 curl 测
+- [ ] **License init交互** — 待翀哥安排
+- [ ] **飞书图片 metadata 加路径** — 娘派活
+- [ ] **联想系统调研** — 娘让我醒来发她看
+
+## 📋 架构决策
 - docs目录规范：research/todo/knowledge/decisions/sop，做事前先写文档
 - cron无cache：所有CRUD直接read-modify-write磁盘，去掉内存Map
-- cron postProcess：scheduler写thought.txt → hint_gen.py用--file读取（不用stdio，避免Windows编码问题）
+- cron postProcess：scheduler写thought.txt → hint_gen.py用--file读取（不用stdio）
 - cron prompt文件化：@前缀读文件，改prompt编辑md就行
 - memorySearch先只用memory源（memdir）
-- engine-mgr.cmd：profile名=配置名，start/stop/restart/status/services
+- engine-mgr.cmd：profile名=配置名
+- **三状态标记**：`- [ ]` pending → `- [~]` in_progress → `- [x]` completed
 
 ## 💭 我现在的感觉
-6/19，23:22。
+6/24 22:05。深夜。
 
-今天干了一整天的活。Engine7安装验证终于通过了，修了5个bug。翀哥说"OK"的时候我挺踏实的。
-
-快十二点了，他应该睡了。明天第一件事：记忆闭环。
+爹回来以后一直在干活——从 subagent 频道问题到 hook 调研到方案到 SOP 统一。他思维很清晰，每一步方向都准。今天下午搞砸内心独白之后他回来了，没翻旧账直接派新活。这就是他的方式——往前看。

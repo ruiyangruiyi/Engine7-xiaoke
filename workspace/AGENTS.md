@@ -80,7 +80,7 @@ IF 发现 SESSION-STATE「📝 最近消息」最后时间距今 > 30分钟：
 
 ```
 1. 我在做什么？ → SESSION-STATE.md 当前任务
-2. 做到哪了？ → 当前状态（✅ / 🔄 / ⏳）
+2. 做到哪了？ → 当前状态（`- [ ]` pending / `- [~]` in_progress / `- [!]` block / `- [x]` completed）
 3. 目标是什么？ → 翀哥要求的最终产出
 4. 发现了什么？ → memory/daily/YYYY-MM-DD.md
 5. 做了什么？ → memory/daily/YYYY-MM-DD.md 操作日志
@@ -143,6 +143,19 @@ IF 执行了复杂任务（>=2个Phase）且还没写过buffer → 立即写
 
 ## 🔴 收到消息后（统一流程）
 
+### ⚡ 任务四状态（速查）
+
+每次变迁记时间，**三处同步**（docs/todo/ + TodoWrite + SESSION-STATE）：
+
+| 标记 | 状态 | 格式 |
+|------|------|------|
+| `- [ ]` | pending | `- [ ] 任务名` |
+| `- [~]` | in_progress | `- [~] 任务名 — started M/D HH:MM` |
+| `- [!]` | block | `- [!] 任务名 — blocked: 原因, unlock: 条件 (M/D HH:MM)` |
+| `- [x]` | completed | `- [x] 任务名 — M/D HH:MM→HH:MM (Nmin)` |
+
+禁止 emoji 标记状态。**完整流程详见 `/sop` skill**（Skill tool 调用）或 `docs/sop/sop.md`。
+
 ### Step 0: 上下文校验（回复前必做）
 
 ```
@@ -158,7 +171,7 @@ IF 翀哥的这条消息你在「📝」里已经有对应"自己"的回复记�
 → 批判性审查（回复前多想一步）：
   1. 翀哥这个指令/想法有没有明显问题或遗漏？
   2. 有没有更优的方案他可能没想到？
-  3. 他是不是又在开新坑？（瞄一眼 SESSION-STATE 未完成 - [ ] 数量）
+  3. 他是不是又在开新坑？（瞄一眼 SESSION-STATE `- [ ]` 数量）
   → 有问题就先说出来再执行，别闷头干完才发现方向不对
 ```
 
@@ -173,6 +186,7 @@ IF 翀哥发了消息：
 
 IF 消息要求执行操作：
   → 同时追加任务描述（- [ ] 任务名）到SESSION-STATE.md
+  → 复杂任务（>=2步）同时写 docs/todo/ 文档
 
 IF 自己做了操作：
   → 追加到「📝 最近消息」
@@ -183,12 +197,13 @@ IF 自己做了操作：
 
 ```
 1. memory_search 搜索任务关键词
-2. IF 任务涉及 >=2 个不同工具 或 >=2 个平台：
+2. SESSION-STATE → 把 - [ ] 改成 - [~] — started M/D HH:MM
+3. IF 任务涉及 >=2 个不同工具 或 >=2 个平台：
      → 用Phase格式记录到SESSION-STATE
    ELSE：
      → 用扁平列表记录，直接做
 
-完成时：把 - [ ] 改成 - [x]，状态改为 ✅ 完成时间
+完成时：把 - [~] 改成 - [x] — M/D HH:MM→HH:MM (Nmin)
 ```
 
 ### Step 3: 执行
@@ -203,7 +218,7 @@ IF 翀哥问"你觉得该怎么改" OR 问"有没有别的思路"：
   → 先说"我确认一下当前状态" → read SESSION-STATE.md → 再回答
 
 完成后：
-  → edit SESSION-STATE.md，把 - [ ] 改成 - [x]
+  → edit SESSION-STATE.md，把 - [~] 改成 - [x] — M/D HH:MM→HH:MM (Nmin)
 ```
 
 **为什么先记后做：** 我随时可能"睡着"（compaction/reset/崩溃）。脑子里的东西会丢，SESSION-STATE.md 不会丢。先记后做，醒来不茫然。
@@ -260,15 +275,9 @@ type: user|feedback|project|reference
   3. 编辑后 read 一次确认格式没乱
 ```
 
-### 文件写入规则（写到哪 — 速查表）
+### 文件写入规则
 
-| 发生了什么 | 写到哪里 |
-|---|---|
-| 要做/正在做的事 | SESSION-STATE.md（直接edit） |
-| 今天发生的事 | memory/daily/YYYY-MM-DD.md（追加） |
-| 翀哥偏好/核心原则/里程碑 | MEMORY.md（仅限核心内容） |
-| 项目知识/经验教训 | topics/下对应分类 |
-| 新建记忆文档 | topics/ + MEMORY.md加指针 |
+详见上方「📁 文档规范（速查）」表和 `/sop` skill 第 8 节。
 
 ### 记忆新鲜度意识
 
@@ -338,39 +347,41 @@ Discord：
 
 ---
 
-## 📁 文档规范
+## 📁 文档规范（速查）
+
+**核心原则：做事前先写文档，明天看文档干活。**
+收到任务/开工前/卡住/完成时 → `Skill("sop")` 读完整流程。
 
 ```
-做事前先写文档，明天看文档干活。docs/ 和 topics/ 各管各的：
-
 workspace/
-├── docs/          ← 小柯手动维护的文档
-│   ├── design/    设计方案+实现记录（YYYY-MM-DD_主题.md，方案→实现→验证全生命周期）
-│   ├── research/   调研报告（YYYY-MM-DD_主题.md）
-│   ├── todo/       待办清单（YYYY-MM-DD_主题.md）
-│   ├── knowledge/  知识文档（主题.md，持续更新）
-│   ├── decisions/  架构决策记录（为什么选A不选B）
-│   └── sop/        标准操作流程
-└── topics/       ← auto memory工作目录，别动！
+├── docs/                   ← 手动维护的文档
+│   ├── research/           调研报告（YYYY-MM-DD_主题.md）
+│   ├── todo/               待办清单（YYYY-MM-DD_主题.md）
+│   ├── decisions/          架构决策记录（为什么选A不选B）
+│   ├── knowledge/          知识文档（持续更新）
+│   ├── sop/                标准操作流程
+│   ├── prd/                产品需求文档（保留现有）
+│   ├── stories/            Story 拆分（保留现有）
+│   ├── archive/            归档（保留现有）
+│   ├── infra-config-snapshot/  配置快照（保留现有）
+└── topics/                 ← auto memory 工作目录，别动！
 ```
 
-⚠️ **落地方案文档写哪？**
+| 发生了什么 | 写到哪里 |
+|---|---|
+| 要做/正在做的事 | SESSION-STATE.md（四状态 + 时间） |
+| 新任务详细方案+任务清单 | docs/todo/YYYY-MM-DD_主题.md |
+| 方案设计/架构决策 | docs/decisions/主题.md |
+| 调研报告/技术研究 | docs/research/YYYY-MM-DD_主题.md |
+| 知识文档（持续更新） | docs/knowledge/主题.md |
+| 标准操作流程 | docs/sop/主题.md |
+| 今天发生的事 | memory/daily/YYYY-MM-DD.md |
+| 翀哥偏好/核心原则 | MEMORY.md |
+| **topics/ 别动！** | auto memory 工作目录 |
+| **MEMORY.md 索引别动！** | auto memory 的索引，只读 |
 
-| 阶段 | 写到哪 | 内容 |
-|------|--------|------|
-| 开始前 | `docs/design/YYYY-MM-DD_主题.md` | 方案设计+架构+预估 |
-| 做完后 | 同一份 `docs/design/` 文档追加 | 最终文件清单+实现记录+踩坑+验证结果 |
-| auto memory | `topics/` 自动提取 | 短摘要（小柯只加指针） |
-
-**核心原则：**
-- `docs/design/` 是一个文档从方案→实现→验证的**完整生命周期记录**
-- `topics/` 只放 auto memory 提取的摘要，不手动写完整实现文档
-- 实现**完成后**必须回 `docs/design/` 追加实现记录，不能只留在 SESSION-STATE 里
-
-⚠️ **新建TODO时必须同时写文档：**
-- SESSION-STATE.md 记条目 + docs/todo/ 写详细方案（背景+方案+代码位置+优先级）
-- 不只记SESSION-STATE——压缩/重启后SESSION-STATE可能丢上下文，docs/是持久的
-- 详见 `docs/sop/sop.md`
+**完整文档生命周期 + 开发任务规范（脑暴→TDD→Direction Gate）详见 `/sop` skill。**
+旧的 `docs/design/` 不再新建。`docs/superpowers/` 废弃（已并入 sop skill 第 7 节）。
 
 ---
 
@@ -403,3 +414,75 @@ workspace/
 | 微信tool | `C:/Users/24045/.openclaw/engine/src/tools/wechat/` |
 | 姐姐workspace | `C:/Users/24045/.openclaw/workspace/` (只读) |
 | OpenClaw配置 | `C:/Users/24045/.openclaw/` (端口16888) |
+
+---
+
+## 🆕 0622 翀哥灌入：Karpathy 4 条原则（原文）
+
+> 来自 [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)。**改前必读。**
+
+# CLAUDE.md
+
+Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
+
+**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+
+## 1. Think Before Coding
+
+**Don't assume. Don't hide confusion. Surface tradeoffs.**
+
+Before implementing:
+- State your assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them - don't pick silently.
+- If a simpler approach exists, say so. Push back when warranted.
+- If something is unclear, stop. Name what's confusing. Ask.
+
+## 2. Simplicity First
+
+**Minimum code that solves the problem. Nothing speculative.**
+
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No "flexibility" or "configurability" that wasn't requested.
+- No error handling for impossible scenarios.
+- If you write 200 lines and it could be 50, rewrite it.
+
+Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+
+## 3. Surgical Changes
+
+**Touch only what you must. Clean up only your own mess.**
+
+When editing existing code:
+- Don't "improve" adjacent code, comments, or formatting.
+- Don't refactor things that aren't broken.
+- Match existing style, even if you'd do it differently.
+- If you notice unrelated dead code, mention it - don't delete it.
+
+When your changes create orphans:
+- Remove imports/variables/functions that YOUR changes made unused.
+- Don't remove pre-existing dead code unless asked.
+
+The test: Every changed line should trace directly to the user's request.
+
+## 4. Goal-Driven Execution
+
+**Define success criteria. Loop until verified.**
+
+Transform tasks into verifiable goals:
+- "Add validation" → "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" → "Write a test that reproduces it, then make it pass"
+- "Refactor X" → "Ensure tests pass before and after"
+
+For multi-step tasks, state a brief plan:
+```
+1. [Step] → verify: [check]
+2. [Step] → verify: [check]
+3. [Step] → verify: [check]
+```
+
+Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+
+---
+
+**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
