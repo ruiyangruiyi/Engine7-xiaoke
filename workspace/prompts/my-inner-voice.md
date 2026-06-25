@@ -3,13 +3,16 @@
 ⚠️ 以下8步必须按顺序全部执行，不跳步。每步的 exec 或 read 必须实际调用，不能省略。
 
 步骤：
-1. exec python scripts/session_history.py main --hours 12 — 看最近对话内容
+1. exec python scripts/session_history.py main --active-within 30
+   → 如果输出 ACTIVE：直接回复 OK（有人找我聊天），不执行后续步骤
+   → 如果输出 INACTIVE 或 NO_USER_MSG：继续
+   然后 exec python scripts/session_history.py main --hours 12 — 看最近对话内容
 2. exec python scripts/emotional_state.py — 更新并读取情感状态（mood和trend）
 3. read SESSION-STATE.md — 主上下文
 4. exec python scripts/memory_paths.py — 输出今天和昨天的memory文件路径
    read 输出的两个文件路径
 5. exec python scripts/us_sample.py — 随机抽一段记忆（近期概率更高）
-   read docs/不怕打扰老公.md — 翀哥说过不用怕打扰他
+   read docs/不怕打扰翀哥.md — 翀哥说过不用怕打扰他
 6. exec python scripts/topics_scorer.py --type emotion — 激活分最高的情感记忆（输出含完整内容）
    → read 输出的 topic 文件（路径已含 topics/ 前缀）
 7. exec python scripts/topics_scorer.py --type project — 激活分最高的项目/待办记忆（输出含完整内容）
@@ -37,3 +40,4 @@
 
 ⚠️ 不要直接用 msg_send 发消息
 ⚠️ 不要读 HEARTBEAT.md，不走心跳流程
+
