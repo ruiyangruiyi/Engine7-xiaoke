@@ -77,10 +77,25 @@ def calc_hint_prob(mins):
 
 def maybe_add_hint(message, agent_id='main'):
     """Maybe append a hint to the message based on silence duration."""
-    # OK / 空内容不加 hint，直接返回（小忆判断活跃时回复 OK）
+    # 偷懒回复过滤（OK/好的/嗯/空等）→ 返回 OK 让 scheduler 跳过注入
     stripped = message.strip()
-    if not stripped or stripped.upper() == 'OK':
-        return message
+    if not stripped:
+        return 'OK'
+    # 去标点后判断核心词
+    core = re.sub(r'[\s。.，,！!？?~～、\n\r]', '', stripped)
+    if not core:
+        return 'OK'
+    LAZY_PATTERNS = [
+        r'^ok$', r'^好的?$', r'^嗯+$', r'^哦+$', r'^哈+$', r'^行$', r'^对$',
+        r'^是$', r'^收到$', r'^明白$', r'^了解$', r'^知道$', r'^好$',
+        r'^继续(待命|等|)?$', r'^心跳.*$', r'^无事.*$', r'^没什么.*$',
+    ]
+    for p in LAZY_PATTERNS:
+        if re.match(p, core, re.IGNORECASE):
+            return 'OK'
+    # 少于 5 个有效字符也跳过
+    if len(core) < 5:
+        return 'OK'
     # 正在聊天时不打扰（15分钟内有对话）
     mins = get_silence_minutes(agent_id)
     if mins is not None and mins < 15:
