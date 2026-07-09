@@ -151,15 +151,22 @@ sftp.close(); ssh.close()
 | 08:33 | 268 服务启动，链路通 |
 | 08:43 | **父让建每日落盘机制** |
 | 19:00-23:00 | **v2 链路打通全程**：235 onboarding, streaming fix, autodl_send.py, v1 server.py 启发式 Opus decode, "binggo!!!" 🎉 |
+| 23:06 | 父明确明日工作：video 通路 + AV 同步 + 延迟优化 + 配置规范化 |
+| 23:09 | 23:00 cron 触发 → 小柯自动落盘今日 progress |
 
 ---
 
-## 明日工作
+## 明日工作（父 23:06 明确）
 
-1. **v2 + mic 上行整合**：v1 框架支持 mic 上行 → VAD → ASR → engine → TTS；v2 carpo bypass 路径 推 audio 给浏览器。两条路径并存，可以选：mic 用户说话，carpo bypass 提供 TTS 回复（？），或者反过来。需要父定业务逻辑。
-2. **avatar video 接入**：浏览器目前只看到 audio（fastrtc audio-only），要不要 flashhead video？要做 video frame 跟 audio PTS 同步。
-3. **235 health 监控**：cron 每 30s ping 235 health，自动拉起。
-4. **cleanup 1601 个 unstaged 改动**：LovePea repo SDK 项目源码 + 3rdparty/build scripts，需要父自己决定哪些 commit 哪些 revert。
+1. **video 通路**: FlashHead 视频帧显示在 RTC 浏览器上 (audio-only 不够，要加 video track)
+2. **AV 同步测试**: 嘴型对上，video PTS 跟 audio PTS 同步（之前 flashhead_processor 已实现独立计数器，待 wall timestamp 验证 25fps）
+3. **优化链路延迟**: 端到端 < 2s（v1 ASR+engine+TTS 链路 + v2 carpo bypass 的总延迟）
+4. **优化代码结构**: 配置的归配置，不写死任何地址（address/port/SSRC 全部走配置文件/环境变量，不硬编码）
+
+补充待办（待父确认优先级）：
+- v2 + mic 上行整合（业务逻辑：mic→VAD→ASR→engine→TTS vs carpo bypass 推流，二选一还是并存？）
+- 235 health 监控（cron 每 30s ping + 自动拉起）
+- cleanup LovePea 1601 个 unstaged 改动（父 SDK 项目源码 + 3rdparty/build scripts）
 
 ---
 
