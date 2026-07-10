@@ -10,7 +10,8 @@
 | v1 完整管线 (mic→VAD→ASR→engine→TTS) | ✅ 工作 (7/9 父试通"喂喂喂喂喂") | - | **🆕 父 7/10 08:43 明确保留，与 v2 并存模式切换** |
 | voice-chat 模式切换 (v1 + v2 兼容) | 🟡 决策落盘 docs/decisions/2026-07-10 | 配置文件名、热切换、auto 探测阈值 | 父确认细节后开干 |
 | 235 onboarding | ✅ carpo_avatar_server 跑稳 + /health ok | - | 监控稳定运行 |
-| voice-chat 集成 avatar video | 🟡 父 7/9 23:06 明确明天开干 | video frame 怎么跟 audio 同步（25fps wall-clock 待验证） | **今日 P0**: FlashHead video → RTC video track |
+| voice-chat 集成 avatar video | ✅ **通了** (7/10 09:50 父看到画面+嘴型) | - | 配置化 + AV 同步精度优化 |
+| voice-chat SDK pull 自动启动 | ✅ run() 启动时后台线程起 SDK pull | - | autodl_send.py 直推可用, 不依赖 carpo-trigger 按钮 |
 | AV 同步验证 | 🟡 flashhead_processor 已实现独立 PTS，wall-clock 已统一 (`b7bc8fbfb`) | wall timestamp 25fps 待验证 | 验证 + ffplay 波形对比 |
 | 端到端延迟优化 | 🟡 当前未量化 | v1 ASR+engine+TTS + v2 carpo bypass 总延迟 | 量化 + 优化目标 <2s |
 | 配置规范化 | 🟡 父 7/9 23:06 明确要做的 | address/port/SSRC 写死在 `server.py` `_init_carpo_pull()` | 提到 env/config |
