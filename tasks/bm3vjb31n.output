@@ -1,0 +1,12 @@
+[show_graph] serving at http://127.0.0.1:9201/
+[show_graph] reading from: D:\xiaoke\CogniFold\sessions\7ea0a35153f64f0a\graph.json
+Traceback (most recent call last):
+  File "D:\xiaoke\workspace\show_graph.py", line 185, in <module>
+    main()
+  File "D:\xiaoke\workspace\show_graph.py", line 180, in main
+    with socketserver.TCPServer(("127.0.0.1", PORT), Handler) as httpd:
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [WinError 10048] 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。

@@ -1,0 +1,23 @@
+- generic [ref=e1]:
+  - heading "🧠 CogniFold Realtime 7ea0a35153f64f0a connected" [level=1] [ref=e25]:
+    - text: 🧠 CogniFold Realtime
+    - code [ref=e3]: 7ea0a35153f64f0a
+    - generic [ref=e4]: connected
+  - generic [ref=e5]: "Nodes: 13 · Edges: 13 · Last update: 22:18:28"
+  - generic [ref=e6]:
+    - button "Reconnect" [ref=e7] [cursor=pointer]
+    - button "Clear Log" [ref=e8] [cursor=pointer]
+    - button "Trigger Test Event" [active] [ref=e9] [cursor=pointer]
+  - generic [ref=e13]:
+    - generic [ref=e14]: event
+    - generic [ref=e16]: concept
+    - generic [ref=e18]: intent
+    - generic [ref=e20]: time
+    - generic [ref=e22]: action
+  - generic [ref=e24]:
+    - generic [ref=e26]: "[22:18:20] Initial graph loaded: 12 nodes, 13 edges"
+    - generic [ref=e27]: "[22:18:20] Connecting to http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/stream..."
+    - generic [ref=e28]: "[22:18:20] SSE connected"
+    - generic [ref=e29]: "[22:18:28] graph_updated event: 13 nodes / 13 edges"
+    - generic [ref=e30]: "[22:18:28] POST event → 200"
+    - generic [ref=e31]: "[22:18:28] graph_updated: +1 nodes (total 13)"

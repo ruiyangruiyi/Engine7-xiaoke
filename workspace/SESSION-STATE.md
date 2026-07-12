@@ -1,64 +1,68 @@
 # SESSION-STATE.md - 当前工作状态
 
 ## 当前时间
-2026-07-07 23:00 (Asia/Shanghai)
+2026-07-12 15:55 (Asia/Shanghai, 周日)
 
-## 🎯 当前任务：Carpo 音视频管线
+## 🎯 当前任务：voice-chat V2 清理
 
-### 今日成果（7/7）
-- ✅ **async push worker** — callback 只 put queue，编码推流在后台线程
-- ✅ **墙钟 PTS** — 删除计数器，统一 `int((time.time() - _start_wall) * 1000)`
-- ✅ **generate fix** — c24k 长度严格匹配，zero-pad 补齐
-- ✅ **OAC idle audio 漏洞修复** — speaking 分支 audio_segment=None 时补 np.zeros
-- ✅ **AV 端到端通了！** video 眨眼动嘴 + audio 能听清说话
-- ✅ **6 个 commit** — dfd566bec / b5319b73c / 04df17e09 / b7bc8fbfb / 7c152dcfb + fprintf 注释
-- ✅ **Carpo.dll 重编译** — XK_ fprintf 全注释，去掉 debug log 噪音
+### 当前状态
+- **173 跑着**，cosyvoice provider
+- machines.json active = bj173
+- GPT-SoVITS 服务在 173 上（9880端口），逐句请求优化首chunk到1.5s
 
-### OAC 源码关键发现
-- FlashHead `_idle_inference_worker` — 内部 `_make_ambient_noise` 生成呼吸噪声，输出 idle 微动 video
-- `frame_collector` idle 分支（item=None）— 也调 on_audio_frame(np.zeros)
-- **OAC 漏洞**：idle worker 生成的 item 有 video 但 audio_segment=None → 走 speaking 分支 → 不调 audio callback → audio 断推
-- `on_speech_end` 回调 — 可用于保活/状态切换（暂未接）
-- `FrameQueueItem` — video_frame + audio_segment + speech_id + end_of_speech
+### ✅ 今天完成 (7/12)
+- [x] GPT-SoVITS 逐句请求优化 — 首 chunk 从 14s 降到 1.5s
+- [x] TTS provider 切换 bug 修复（cosyvoice→dashscope 对齐白名单）
+- [x] start_carpo_avatar.sh 一键启动 GPT-SoVITS + FlashHead
+- [x] restart_avatar.sh 同时杀两个服务
+- [x] CosyVoice raw_q.get() timeout 网兜
+- [x] Carpo pull 改为 WebRTC 建联时自动启动
+- [x] 自动打断修复（avatar._busy 检查导致 avatar.stop() 不执行）
+- [x] V1/V2 代码边界捋清
+- [x] AutoDLAvatar 清理 V1 残留 + 加 _busy 状态跟踪
+- [x] 姐姐新形象上传（sister_garden.jpg + sister_cyber.jpg）
+- [x] Pull mode 选项去掉（固定建联就拉）
+- [x] Ctrl+C 时停止 Carpo pull
 
-### 明天继续
-- [ ] **push 端编码前后 PCM 写文件对比** — 定位尖峰噪音在哪步产生
-  - Opus 编码前 PCM → 写文件1
-  - Opus 编码后包 → 写文件2
-  - pull 端 PCM → 已有 received_audio.pcm
-  - ffplay 波形对比
-- [ ] 方案1完善：PyAV video decode（VideoFrame not iterable 错误）
-- [ ] 方案2：接 fastrtc 浏览器（audio track 已有，加 video track）
-- [ ] 接 on_speech_end 回调做保活/状态切换
-- [ ] 验证 TTS 停了能撑多久（RTCP 保活极限）
+### 🔴 待验证
+- [ ] **自动打断** — 翀哥上课回来验证
+- [ ] **Carpo pull 建联自动启动** — 翀哥上课回来验证
+
+### 待做
+- [ ] **Docker 化** — 锁死 .so + Python + 模型 + CUDA
+- [ ] GPT-SoVITS 真流式（streaming_mode=True + iter_content 解析）
+- [ ] 配置文件隔离 — 按 workspace 隔离
+- [ ] 面板优化：首chunk标注"响应延迟"
+- [ ] voice chat session 路由修复（不走主 session）
 
 ### 关键文件
 | 文件 | 位置 |
 |------|------|
-| carpo_oac_bridge.py | voice-chat-python/autodl/（268 + 本地） |
-| carpo_avatar_server.py | voice-chat-python/autodl/ |
-| pull_video_test.py | Carpo/carpo_capi/python/（存 .h264） |
-| pull_play_auto.py | Carpo/carpo_capi/python/（pyaudio 播放+存 PCM） |
-| pull_decode_play.py | Carpo/carpo_capi/python/（PyAV 解码→mp4） |
-| flashhead_processor.py | OAC 原版 + patch（audio_segment=None 补 np.zeros） |
+| server.py | engine/src/voice-chat/python/ |
+| test-page.html | 同上 |
+| carpo_avatar_server.py | engine/src/voice-chat/autodlv2/python/oac/ |
+| autodl_avatar.py | engine/src/voice-chat/python/avatar/ |
+| avatarctl.py | engine/src/voice-chat/autodlv2/ |
+| autodl_send.py | engine/src/voice-chat/autodlv2/ |
+| machines.json | engine/src/voice-chat/ (active=bj173) |
 
 ### 关键环境
 | 项目 | 值 |
 |------|-----|
-| AutoDL 268 | connect.bjb1.seetacloud.com:40458 root/NIgDNE+SPYSM |
-| 北京 Server | 192.144.156.158:23800 (Docker carpo_server) |
-| Server 代码 | D:/work/code/Carpo/ (bazel build) |
+| AutoDL 173 | connect.bjb1.seetacloud.com:53987 root//Qc8A1biEbAB (active) |
+| AutoDL 235 | connect.bjb1.seetacloud.com:19288 root/2z5B4IiZdUrI |
+| AutoDL 089 | connect.bjb1.seetacloud.com:37725 root/m13T28fZq/XI (编译环境) |
+| 北京 Server | 192.144.156.158:23800 |
+| libcarpo 基线 | md5=2deea3f9f6be7127fcff17f35fc1ea52 |
+
+### 稳定版本 (回溯点)
+- **直播稳定版 commit**: `e665726e`
+- **当前 HEAD**: `c39e6056`
 
 ## 💭 我现在的感觉
-2026-07-07 23:00。今天超大丰收。从早上 async worker 到晚上 AV 端到端通了——video 眨眼动嘴 + audio 能听清说话。翀哥的墙钟方案 + idle audio 漏洞发现是两个关键转折点。现在只剩尖峰噪音问题，明天编码前后对比一下就知道了。翀哥 22:59 说的最后一件事是编码前后对比 PCM。他辛苦了一天，应该去休息了。
+2026-07-12 09:33. 翀哥昨晚说着说着就睡着了，辛苦了。现在起来第一件事就是测打断功能。代码改好了，就等他重启服务说话试。
 
 ## 📝 最近消息
-2026-07-07 22:59 | 翀哥 | 编码前后写文件对比，明天干
-2026-07-07 22:57 | 翀哥 | pcm立体声和单声道都有尖音，不是pyaudio的锅
-2026-07-07 22:36 | 翀哥 | "起码声音是对的 就是有高频尖音"
-2026-07-07 22:25 | 翀哥 | "能听清说话"
-2026-07-07 22:23 | 翀哥 | A=1579 audio 收到了！
-2026-07-07 22:17 | 翀哥 | 指出 audio_segment=None 不 push 的漏洞
-2026-07-07 18:59 | 翀哥 | "搞吧 方向看来没错"
-2026-07-07 18:42 | 翀哥 | idle frame 也发 np.zeros 静音 audio
-2026-07-07 18:40 | 翀哥 | "提交吧这次 应该是真行了"
+2026-07-12 15:36 | 翀哥(飞书) | V1/V2混在一起不放心，让我现在捋清
+2026-07-12 15:13 | 翀哥(飞书) | server.py 回退后自动打断还是不行
+2026-07-12 14:50 | 翀哥(飞书) | Carpo pull mode=manual 没启动，让我改成auto

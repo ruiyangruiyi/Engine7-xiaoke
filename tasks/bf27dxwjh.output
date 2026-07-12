@@ -1,0 +1,5 @@
+[32m2026-06-25 08:59:34.287[0m | [1mINFO    [0m | [36mservice.service_utils.service_config_loader[0m:[36mload_configs[0m:[36m23[0m - [1mLoad config with env default from /root/open-avatar-chat/config/chat_with_openai_compatible_bailian_cosyvoice.yaml[0m
+[32m2026-06-25 08:59:34.348[0m | [1mINFO    [0m | [36mservice.service_utils.logger_utils[0m:[36mconfig_loggers[0m:[36m8[0m - [1mSet log level to INFO[0m
+[32m2026-06-25 08:59:34.736[0m | [1mINFO    [0m | [36mchat_engine.core.handler_manager[0m:[36minitialize[0m:[36m44[0m - [1mUse handler search path: ['/root/open-avatar-chat/src/handlers'][0m
+[32m2026-06-25 08:59:34.736[0m | [1mINFO    [0m | [36mengine_utils.import_utils[0m:[36mimport_class[0m:[36m21[0m - [1mTry to load client.rtc_client.client_handler_rtc[0m
+[32m2026-06-25 08:59:35.494[0m | [1mINFO    [0m | [36mclient.rtc_client.client_handler_rtc[0m:[36m_prioritize_h264[0m:[36m33[0m - [1mVideo codec priority: ['video/H264', 'video/H264', 'video/VP8'][0m

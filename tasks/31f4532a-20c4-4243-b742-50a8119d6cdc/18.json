@@ -1,0 +1,9 @@
+{
+  "id": "18",
+  "subject": "改 server.py 接收 video frame + video emit",
+  "description": "1. _carpo_on_media media_type==1 走 PyAV H264 decode → RGB ndarray → 存 _carpo_video_frame\n2. handler 改 AsyncAudioVideoStreamHandler\n3. video_emit() 返回最后一帧（不丢 frame 让 fastrtc 喂浏览器）\n4. modality 改 audio-video",
+  "activeForm": "改 server.py video 通路",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

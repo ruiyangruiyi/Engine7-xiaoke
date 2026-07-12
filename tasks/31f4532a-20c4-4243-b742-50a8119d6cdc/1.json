@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "研究 inner-voice 注入链——从 cron 触发到 session 注入的完整路径",
+  "description": "翀哥说 memory_whisper.py 废弃了，实际用的是 hint_gen.py 或别的。需要搞清楚：1）inner-voice cron task 触发后，念头是怎么注入到姐姐主 session 的？2）当前用的注入脚本是什么？3）OK 判断和活跃判断在哪做？研究完写文档再改。",
+  "activeForm": "研究 inner-voice 注入链",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

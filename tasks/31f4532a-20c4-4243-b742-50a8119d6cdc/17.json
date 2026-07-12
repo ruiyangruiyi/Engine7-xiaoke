@@ -1,0 +1,9 @@
+{
+  "id": "17",
+  "subject": "清理 Carpo 代码中的新浪痕迹",
+  "description": "1. 删除/替换 api.ivideo.sina.com.cn URL（3处）\n2. NetworkTaskPool.cpp 里的 \"Sina\" 和 \"新浪科技\" 字样\n3. Dockerfile 里的代理地址和密码\n4. Docker 镜像重新 tag 去掉 sinavideo/dpool\n5. Copyright 头不动（不影响安全扫描）",
+  "activeForm": "清理新浪痕迹",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

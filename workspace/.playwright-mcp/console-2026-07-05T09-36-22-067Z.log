@@ -1,0 +1,12 @@
+[   85365ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8022/health:0
+[   85365ms] TypeError: Failed to fetch
+    at pollHealth (http://localhost:8022/:51:19)
+[   85623ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8022/health:0
+[   85623ms] TypeError: Failed to fetch
+    at pollHealth (http://localhost:8022/:51:19)
+[   87700ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8022/health:0
+[   87700ms] TypeError: Failed to fetch
+    at pollHealth (http://localhost:8022/:51:19)
+[   87963ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8022/health:0
+[   87963ms] TypeError: Failed to fetch
+    at pollHealth (http://localhost:8022/:51:19)

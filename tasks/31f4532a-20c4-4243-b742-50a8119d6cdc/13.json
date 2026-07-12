@@ -1,0 +1,12 @@
+{
+  "id": "13",
+  "subject": "Python /stop endpoint",
+  "description": "在 server.py 加 POST /stop endpoint：清空 _audio_queue + 取消正在跑的 TTS task（需 track task ref）+ 重置 PTS",
+  "activeForm": "实现 Python /stop endpoint",
+  "status": "completed",
+  "blocks": [
+    "14",
+    "15"
+  ],
+  "blockedBy": []
+}

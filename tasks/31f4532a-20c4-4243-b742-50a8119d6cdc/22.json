@@ -1,0 +1,9 @@
+{
+  "id": "22",
+  "subject": "链路时延注入 - 全链路 timing",
+  "description": "每步打 timestamp:\n1. 235 /generate 收到 HTTP 请求 → t_request_received\n2. 235 TTS 首个 chunk → t_tts_first_chunk\n3. 235 TTS 末 chunk → t_tts_last_chunk\n4. 235 FlashHead 首个 video frame → t_flashhead_first\n5. 235 SDK push 首个 audio + video → t_push_audio_first/video_first\n6. 235 generate() 返回 → t_request_returned\n7. server.py /carpo-trigger 收到 → t_trigger_received\n8. server.py SSH exec 开始 → t_ssh_exec_start\n9. server.py SDK pull 首个 audio/video → t_pull_audio_first/video_first\n10. server.py Opus/H264 decode 首个 → t_decode_first\n11. server.py WebRTC emit 首个 → t_emit_first\n12. browser audio.play() / video.play() 首个 → t_play_first\n13. browser 计算 end-to-end 显示在屏幕上\n\n每个 timing 推 SSE /events, 浏览器收 + 显示",
+  "activeForm": "注入端到端时延统计",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,16 @@
+WARNING:root:trust_remote_code: False
+INFO:     Started server process [48536]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8011 (Press CTRL+C to quit)
+[server] Initializing voice-chat service (port=8011)
+[asr] Loading SenseVoice (model=models/iic/SenseVoiceSmall, lang=zh)...
+funasr version: 1.3.9.
+[asr] Model loaded
+[server] All models loaded
+[server] voice-chat service starting on port 8011
+[server] WebRTC endpoint: ws://0.0.0.0:8011/
+[server] Voice reply callback: http://0.0.0.0:8011/voice-reply
+[server] Health check: http://0.0.0.0:8011/health
+[32mINFO[0m:	  Visit [36mhttps://fastrtc.org/userguide/api/[0m for WebRTC or Websocket API docs.
+INFO:     127.0.0.1:55598 - "GET /health HTTP/1.1" 200 OK

@@ -1,0 +1,6 @@
+- generic [active] [ref=f2e1]:
+  - heading "🎧 Carpo Audio Relay" [level=2] [ref=f2e2]
+  - paragraph [ref=f2e3]: Click start to connect...
+  - button "▶ Start" [ref=f2e4] [cursor=pointer]
+  - button "🔊 Push Audio" [disabled] [ref=f2e5] [cursor=pointer]
+  - paragraph

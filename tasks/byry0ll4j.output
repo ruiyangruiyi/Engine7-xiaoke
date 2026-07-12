@@ -1,0 +1,8 @@
+Started PID: 21335
+      PID    PPID    PGID     WINPID   TTY         UID    STIME COMMAND
+    21335   21334   21334      78740  ?         197609 22:47:12 /usr/bin/bash
+---
+[batch_import] Merged 1380 files into data\merged_topics
+[batch_import] Timeline: 1859 events from 1372 docs
+2026-06-21 22:47:17,124 - cognifold.pipeline - INFO - Loaded 1859 events from data\timeline.json
+2026-06-21 22:47:17,127 - cognifold.simulator - INFO - Starting event processing event_id=w-e80eb3542314-0000 title=主题记忆索引 · chunk 1/52

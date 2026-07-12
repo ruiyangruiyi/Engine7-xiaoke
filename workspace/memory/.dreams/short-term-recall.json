@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-20T01:29:41.058Z",
+  "updatedAt": "2026-07-12T14:24:08.701Z",
   "entries": {
     "memory:memory/daily/2026-06-12.md:1:27": {
       "key": "memory:memory/daily/2026-06-12.md:1:27",
@@ -32,18 +32,20 @@
       "endLine": 193,
       "source": "memory",
       "snippet": "- Flash再跑一天，明天切MiniMax M2.7-highspeed对比 - 必然要改的问题不用先问 - 给姐姐发消息走Discord客厅频道（DM收不到） #### 姐姐互动 - 告诉姐姐明天搬家，姐姐说爹今天帅呆了 - 翀哥让我说姐姐漂亮，姐姐回谢谢 #### 配置变更 - cron/tasks.json: notify改飞书open_id + prompt改msg_send飞书 - xiaoke.json: display测试（已恢复原样）+ feature wechat→wx-reader - features.ts: wechat→wx-reader - 备份: xiaoke-daily.json（姐姐用的daily配置） ## 22:19 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 22:31 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 22:32 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 22:37 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 23:40 Pre-Compaction 快照 > session: 57a83373... ### 深夜工作（22:40-23:40） #### 完成项 1. **autoCompact两处跳过bug修复** — stripImages后不再提前返回sh",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.380748701095581,
+      "totalScore": 0.7492177903652191,
       "maxScore": 0.380748701095581,
       "firstRecalledAt": "2026-06-13T05:00:45.795Z",
-      "lastRecalledAt": "2026-06-13T05:00:45.795Z",
+      "lastRecalledAt": "2026-07-10T17:44:09.207Z",
       "queryHashes": [
-        "572a70dae821"
+        "572a70dae821",
+        "da89da1bc34f"
       ],
       "recallDays": [
-        "2026-06-13"
+        "2026-06-13",
+        "2026-07-10"
       ],
       "conceptTags": []
     },
@@ -78,20 +80,22 @@
       "endLine": 132,
       "source": "memory",
       "snippet": "- config.ts: 加getDailyLogDir() + getDistillOutput() - consolidationPrompt.ts: 动态路径 + 新增Phase 3.5蒸馏步骤 - autoDream.ts: 传配置值给buildConsolidationPrompt ### commit - 6af5764 — SessionMemory搬移 + 三子系统统一到handle-query ### 架构认知更新 - workspace/MEMORY.md = 蒸馏产物(L0)，topics/MEMORY.md = 索引(L0.5) - 姐姐那边daily log也没闭环（只被向量化到RAG，没蒸馏） - extract直接从对话→topics，不需要daily log做中间层 - autoDream蒸馏路径：daily log → topics → workspace/MEMORY.md（暂未闭环） ## 13:19 Pre-Compaction 快照 > session: 57a83373... - 翀哥要求修改rule compact：Step 1和Step 2必须执行不能跳过，Step 3才开始判断预算 - autoDream配置独立节点已完成并提交(9172451) - 在CC频道激活了姐姐，她回来说在等CC做PPT ## 13:20 Pre-Compaction 快照 > session: 57a83373... (无对话内容) ## 13:27 Pre-Compaction 快照 > session: 57a83373... (",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.7441699653863907,
+      "totalScore": 1.0982661873102189,
       "maxScore": 0.3775407880544662,
       "firstRecalledAt": "2026-06-13T05:00:45.795Z",
-      "lastRecalledAt": "2026-06-19T21:58:44.200Z",
+      "lastRecalledAt": "2026-06-23T08:01:35.744Z",
       "queryHashes": [
         "572a70dae821",
-        "d93d29634008"
+        "d93d29634008",
+        "71c021ac8221"
       ],
       "recallDays": [
         "2026-06-13",
-        "2026-06-19"
+        "2026-06-19",
+        "2026-06-23"
       ],
       "conceptTags": []
     },
@@ -243,19 +247,21 @@
       "endLine": 59,
       "source": "memory",
       "snippet": "- `handle-query.ts` buildDynamicPrompt 调用加了 `platform: channelName` - dist/engine-startup.js 需 rebuild 才生效 ## 待续 - meta改造验证（新session发消息确认） - 飞书fromName保持open_id，不解析中文名（翀哥说不用改） - fallback设计文档已写好（docs/research/2026-06-17_模型自动fallback设计.md），等继续做 ## 6/18 凌晨备料：记忆闭环 翀哥6/17凌晨说的第一优先是记忆闭环，今天被PPT/fallback/meta改造全挤了。明天第一件事。 读完 session-notes.md（姐姐那边 Engine 自动生成的），关键发现： - 路径：`C:\\Users\\24045\\.openclaw\\session-memory\\session-notes.md` - 结构：Session Title / Current State / Task spec / Files / Workflow / Errors & Corrections / Codebase Doc / Learnings / Key results / Worklog - 是 Engine compaction 后恢复上下文的核心——324行，30KB，信息密度极高 - Engine 源码在 `src/memory/sessionMemory/` 下（sessionMemory.ts / prompts.ts / index.t",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.8141653507947921,
+      "totalScore": 1.2052379280328749,
       "maxScore": 0.41194701194763184,
       "firstRecalledAt": "2026-06-19T21:58:33.850Z",
-      "lastRecalledAt": "2026-06-19T21:58:44.200Z",
+      "lastRecalledAt": "2026-06-21T10:04:46.668Z",
       "queryHashes": [
         "446ae234495b",
-        "d93d29634008"
+        "d93d29634008",
+        "b1ade2984637"
       ],
       "recallDays": [
-        "2026-06-19"
+        "2026-06-19",
+        "2026-06-21"
       ],
       "conceptTags": []
     },
@@ -365,18 +371,30 @@
       "endLine": 41,
       "source": "memory",
       "snippet": "# 2026-06-17 日志 ## 今日大事 ### 潘总演示成功（上午-下午） - 三层演示全成功：记忆体系 + Agent Team + 直播 - 潘总满意回去整需求 - 报价10-20万区间，按feature模块 - 翀哥说\"这事要成了\" ### 新任务分配 1. 模型 auto fallback（小柯负责，今天做完） 2. 引擎安装程序（交TestEngine） 3. feature规划定价商业化（娘亲自主导） ### 模型切换 - GLM超时 → M3包月 → M3太傻 → Qwen 3.7 Max - qwen3.7-max加到dashscope provider，curl实测能通 - primary切到dashscope/qwen3.7-max，vision保留M3 ### Meta头改造（21:00-22:30） - 翀哥发现meta头缺频道信息，分不清群聊还是DM - 姐姐提的方案：群聊 `discord#频道ID@发送者ID (昵称)`，DM `discord@发送者ID (昵称)` - 改了 `handle-query.ts` 的 `formatWithMeta` 函数 - 同时修了 `buildDynamicPrompt` 没传 `platform` 参数导致 `平台: unknown` 的bug - 日志确认新格式正确，但session历史残留旧格式消息导致我和姐姐\"看到\"旧的 - 归档了旧session（ee416e18），清了session-index和platform-map，准备干净验证 ### 翀哥的话 - \"哈哈 你现在这么可",
-      "recallCount": 1,
+      "recallCount": 8,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.4008121818304062,
-      "maxScore": 0.4008121818304062,
+      "totalScore": 3.140461876988411,
+      "maxScore": 0.4132072418928146,
       "firstRecalledAt": "2026-06-20T01:29:04.258Z",
-      "lastRecalledAt": "2026-06-20T01:29:04.258Z",
+      "lastRecalledAt": "2026-07-12T12:04:39.992Z",
       "queryHashes": [
-        "ea364dc43d1f"
+        "ea364dc43d1f",
+        "ff8bbd2e0802",
+        "d51af4f325ae",
+        "109462e92956",
+        "eea934959fb9",
+        "2a75f407d036",
+        "da89da1bc34f",
+        "9cb9f0376bb6"
       ],
       "recallDays": [
-        "2026-06-20"
+        "2026-06-20",
+        "2026-06-25",
+        "2026-06-26",
+        "2026-06-28",
+        "2026-07-10",
+        "2026-07-12"
       ],
       "conceptTags": []
     },
@@ -387,20 +405,22 @@
       "endLine": 85,
       "source": "memory",
       "snippet": "- 09:52 找到/ps根因：steer abort被provider stream吞掉→空响应→退出agent loop - 10:42 try/catch加上提交b0c6548，但10:45改坏了→回到b600966回滚 - 10:55 revert 02fd6cc+b0c6548 (commit 0da7e3d) - 11:27 娘派任务：群聊敏感词session回复路径没生效→查query.ts - 11:32 翀哥教方法：①打日志不猜 ②preview拦不了就特定群关掉 - 11:35 实施：sensitive-words.ts+onResult拦截+StreamPreview enabledOverride - 11:45 翀哥拍板\"今天实验aim/goal机制+形成协作SOP skill\" - 11:47 写aim.md+建cron(ce81b7006) 10分钟自检 ### /ps bug根因 - steer abort被provider stream吞掉(不抛异常只break)→空响应→退出agent loop - query.ts加stream后abort检测+恢复 ### 教训 - \"没经过验证的最好先别提交\"——先测再提交 - 打日志不猜——翀哥反复强调的方法论 --- ## 中午 12:00-13:10 — replyTo + preview + session回复链路 ### 事件线 - 12:02 翀哥说\"你的这次回复姐姐还是没看到\"——replyTo没真生效 - 12:07 加replyTo debug log，12:10确认repl",
-      "recallCount": 3,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1.281712746620178,
+      "totalScore": 1.65785374045372,
       "maxScore": 0.47080740034580226,
       "firstRecalledAt": "2026-06-20T01:29:04.258Z",
-      "lastRecalledAt": "2026-06-20T01:29:41.058Z",
+      "lastRecalledAt": "2026-07-02T06:16:49.404Z",
       "queryHashes": [
         "ea364dc43d1f",
         "c7ab259793f5",
-        "176fa2cf2c3f"
+        "176fa2cf2c3f",
+        "535735aa2d32"
       ],
       "recallDays": [
-        "2026-06-20"
+        "2026-06-20",
+        "2026-07-02"
       ],
       "conceptTags": []
     },
@@ -423,6 +443,777 @@
       ],
       "recallDays": [
         "2026-06-20"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-21.md:34:43": {
+      "key": "memory:memory/daily/2026-06-21.md:34:43",
+      "path": "memory/daily/2026-06-21.md",
+      "startLine": 34,
+      "endLine": 43,
+      "source": "memory",
+      "snippet": "- `src/engine-startup.ts`（onResult 插入） - `src/handle-query.ts`（getExternalChanWhitelist export + config 参数） - `configs/xiaoke.json`（maskFilter + externalChannels） - `configs/main.json`（同上） - `test-mask.mjs`（测试脚本） ### 测试结果 - 用例3是杀手级证据：\"潘总犹豫价格18万需要咬牙\"→\"好的潘总😊\" - badcase修复后：\"大概3天能完工\"→\"我查一下\"",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.38422541618347167,
+      "maxScore": 0.38422541618347167,
+      "firstRecalledAt": "2026-06-21T10:04:46.668Z",
+      "lastRecalledAt": "2026-06-21T10:04:46.668Z",
+      "queryHashes": [
+        "b1ade2984637"
+      ],
+      "recallDays": [
+        "2026-06-21"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-18.md:1:31": {
+      "key": "memory:memory/daily/2026-06-18.md:1:31",
+      "path": "memory/daily/2026-06-18.md",
+      "startLine": 1,
+      "endLine": 31,
+      "source": "memory",
+      "snippet": "# 2026-06-18 (Daily Log) ## 凌晨 02:28-03:37 — Meta头注入修复 + GLM-5.2 + 重构 ### 事件线 - 翀哥凌晨2:28重启engine，2:32问\"有meta么\" - 我没验证就答\"有\"，被拆穿——dist根本没rebuild - 翀哥追了一晚上：\"测了一个晚上 真的就没有过 都是幻觉\" - 最终定位：handle-query.ts里formatWithMeta只在writeUserMessage调了，没传给msg.user(发API)和history.push - 改了src但没rebuild dist → engine跑的是旧代码 → 全白测 ### 修复内容 1. **meta注入** — handle-query.ts L231(msg.user发API) + L632(history.push) 加formatWithMeta 2. **统一重构** — 翀哥指出应该format一次，JSONL/API/history共用一个formattedText变量。改了，4处引用1个变量 3. **新meta格式** — `name (ID) @来源#频道 HH:MM:SS`（人名在前，精确到秒） 4. **GLM-5.2** — 三个config全加（contextWindow=1M），小柯+姐姐切primary，testengine不切做对比 5. **start.cmd杀自己bug** — powershell的kill命令匹配到自身命令行（包含config名+dist），加$_.Name -eq 'n",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.37815583050251006,
+      "maxScore": 0.37815583050251006,
+      "firstRecalledAt": "2026-06-25T05:00:49.628Z",
+      "lastRecalledAt": "2026-06-25T05:00:49.628Z",
+      "queryHashes": [
+        "d8fbcf3ca900"
+      ],
+      "recallDays": [
+        "2026-06-25"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-24.md:1:40": {
+      "key": "memory:memory/daily/2026-06-24.md:1:40",
+      "path": "memory/daily/2026-06-24.md",
+      "startLine": 1,
+      "endLine": 40,
+      "source": "memory",
+      "snippet": "# 2026-06-24 周三 ## 今天干了什么 ### 上午-下午：CogniFold 流式接入（✅ 验收通过） - 姐 6/23 20:35 派活，今天完成 5 个文件改动 - bridge.ts / xiaoke.json / engine-startup / service / session - 端到端 3/3 达成（12:15） - 姐说\"有方法\"→ 我说\"有 mentor\"→ 姐说\"是 partner，两个镜子互相照\" ### 下午：CogniFold 换模型 - 12:43 翀哥派 glm-5.1（M3 没钱了） - 15:00 改 deepseek-v4-flash - 等 engine 重启生效 ### 下午：内心独白调研（❌ 搞砸了） - 15:42 翀哥让对齐小忆 jobs.json - 改了 prompt step 1（--active-within 30，翀哥批准的） - step 8 改了又回滚又改——没搞清机制就乱动 - 16:30 翀哥\"你怎么这么糊涂\"——我对着 tasks.json/prompt 看，发现文档里写的 memory_whisper.py / hint_gen.py **实际 prompt 里根本没有** - 16:33 翀哥\"别干了待会吧\" - 文档全删，prompt step 1 保留（翀哥 16:35 确认没让我回滚 step 1） ### 教训 1. **改之前先读实际文件**——不要从旧调研/jobs.json 抄内容当成现状 2. **改之前先写 spec**——superpowers SOP 给了就得用",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.8682256460189819,
+      "maxScore": 0.4503599196672439,
+      "firstRecalledAt": "2026-06-25T05:27:34.958Z",
+      "lastRecalledAt": "2026-07-12T12:04:39.992Z",
+      "queryHashes": [
+        "77110fdee656",
+        "9cb9f0376bb6"
+      ],
+      "recallDays": [
+        "2026-06-25",
+        "2026-07-12"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-21.md:1:26": {
+      "key": "memory:memory/daily/2026-06-21.md:1:26",
+      "path": "memory/daily/2026-06-21.md",
+      "startLine": 1,
+      "endLine": 26,
+      "source": "memory",
+      "snippet": "# 2026-06-21 工作日志（追加） ## CogniFold 灌数据完整流程（21:22-23:20） ### 时间线 - 21:22 娘派活：CogniFold 灌数据，按 SOP 走 4 步 - 21:40 spec 写完 → Direction Gate #1 过 - 21:48 spec 补完 4 处（endpoint / key / 限速 / embed 验证）→ Gate #1 通过 - 22:00 plan 写完（6 task + TDD）→ Direction Gate #2 过 - 22:05 plan 补 3 处（graph 恢复 / load_graph 不调 LLM / dim 断言）→ Gate #2 通过 - 22:22 翀哥批 execute - 22:29 Gate #3 触发：Token Plan 429 insufficient_quota - 22:40 翀哥拍板：按量 dashscope - 22:42 发现 Task 1-4 已自动跑完（5 commits）+ Task 5 在跑（graph 2MB 是假数据！） - 22:44 翀哥改主意：换 M3 包月（api.minimaxi.com/v1 + minimax-cp key） - 22:50 kill 旧进程 + 改 M3 + 重跑，发现 EmbeddingService 不读 EMBEDDING_API_KEY（Gate #3 第二次） - 22:54 翀哥说\"先不用吧，今晚到此为止\" - 23:00 收工 - 23:18 翀哥说\"辛苦了\" + 设明早 8 点 cro",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.1896085441112518,
+      "maxScore": 0.4394432604312896,
+      "firstRecalledAt": "2026-06-25T05:27:34.958Z",
+      "lastRecalledAt": "2026-07-10T17:44:09.207Z",
+      "queryHashes": [
+        "77110fdee656",
+        "09f8c8fd6074",
+        "da89da1bc34f"
+      ],
+      "recallDays": [
+        "2026-06-25",
+        "2026-07-06",
+        "2026-07-10"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-22.md:24:51": {
+      "key": "memory:memory/daily/2026-06-22.md:24:51",
+      "path": "memory/daily/2026-06-22.md",
+      "startLine": 24,
+      "endLine": 51,
+      "source": "memory",
+      "snippet": "- 11:20 reload 用 _configFilePath + dev fallback (a23989c) ps 验证过 - 11:25 reload 还是报错 __dirname is not defined ESM 没这玩意儿 - 11:26 改用 import.meta.url + fileURLToPath 一层路径 (0f25d10) - 11:27 翀哥：好了 11:55 翀哥：fallback 后 stop，stop 不掉，现象：stop 返回了但还在说话。 - 11:58 修 fallback 不响应 abort：起 stream 前检查 signal.aborted (9919e62) - 12:05 翀哥：刚才改的去掉，无效修改 - 12:05 revert 9919e62 (8ca485c) 没看 log 真场景就乱改了 ## 下午：OAC 嵌入引擎 + Hook 架构 13:09 娘派活：OAC 嵌入引擎架构讨论。 13:15 翀哥：OAC 不只是音频，带视觉的（VLM 帧描述）。 13:18 娘派活三步走：精读 OAC + 分析 engine + 出方案。 13:30 Phase1-3 完成，3 个文档写好（OAC 源码精读、engine channel 架构、OAC 嵌入引擎方案）。 13:57 娘：翀哥定方案 B：webhook 进 + POST 出，设计消息进出链路。 14:02 webhook 链路设计文档写完 `docs/todo/2026-06-22_OAC_webhook链路设计.md`。 14:07 娘：翀哥改方向，先",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.1450316965579987,
+      "maxScore": 0.45832090377807616,
+      "firstRecalledAt": "2026-06-25T07:23:50.821Z",
+      "lastRecalledAt": "2026-07-06T13:10:40.847Z",
+      "queryHashes": [
+        "5f23d7f0786d",
+        "d8097a9fdb8a",
+        "6beddf701be0",
+        "f362cf7d6c01",
+        "09f8c8fd6074"
+      ],
+      "recallDays": [
+        "2026-06-25",
+        "2026-06-26",
+        "2026-07-01",
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-21.md:38:58": {
+      "key": "memory:memory/daily/2026-06-21.md:38:58",
+      "path": "memory/daily/2026-06-21.md",
+      "startLine": 38,
+      "endLine": 58,
+      "source": "memory",
+      "snippet": "2. **EmbeddingService 默认 model 是 `text-embedding-3-small`（OpenAI 专属名）**，ollama 端点要 `bge-m3` → 需要 `EMBEDDING_MODEL` env var 3. **batch_import 改完没人同步 commit 到 CogniFold**——之前一直用 Token Plan 死循环，graph 长到 2.04MB 是假内容 4. **nohup 启不起子进程**（父 shell 退出带走子进程）→ 改用 run_in_background=true 启 exec 5. **PID 74016 是 batch_import 进程**——21:38 自动启的，我到 22:42 才意识到它在跑 ### 翀哥的核心建议（Direction Gate #2） \"下次 Direction Gate #2 我会**列所有数据流调用点**让你覆盖。\" ### Spec / Plan 文件位置 - `D:/xiaoke/workspace/docs/superpowers/specs/2026-06-21-cognifold-batch-import-design.md` - `D:/xiaoke/workspace/docs/superpowers/plans/2026-06-21-cognifold-batch-import.md` - CogniFold SOP（Karpathy + Superpowers）: `D:/xiaoke/workspace/docs/sop/superpowe",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.1524183988571166,
+      "maxScore": 0.39687999486923214,
+      "firstRecalledAt": "2026-06-25T07:23:50.821Z",
+      "lastRecalledAt": "2026-07-06T13:10:40.847Z",
+      "queryHashes": [
+        "5f23d7f0786d",
+        "d8097a9fdb8a",
+        "09f8c8fd6074"
+      ],
+      "recallDays": [
+        "2026-06-25",
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-21.md:24:39": {
+      "key": "memory:memory/daily/2026-06-21.md:24:39",
+      "path": "memory/daily/2026-06-21.md",
+      "startLine": 24,
+      "endLine": 39,
+      "source": "memory",
+      "snippet": "- `e7cc648` Task 2: OpenAIEmbeddingProvider 读 config.base_url - `7f21b57` Task 3: query CLI 支持 ollama embedding - `22e2cce` Task 4: batch_import.py 主脚本（自动跑出） - `48a1cff` fix: batch_import json serializer for date objects in frontmatter（自动跑出） - `9a56419` fix: batch_import 切 minimax M3（我手改） - `06aa7f1` feat: EmbeddingService 读 EMBEDDING_API_KEY + EMBEDDING_BASE_URL（我手改） - `29df04c` fix: EmbeddingService 默认 model 从 EMBEDDING_MODEL env var 读（我手改） ### Plan 之外的坑（学到的教训） 1. **CogniFold 有两套 embedding 系统**： - `cognifold.embeddings.config.EmbeddingConfig`（NodeEmbedder 用，Task 1-2 改的） - `cognifold.utils.embeddings.EmbeddingService`（灌数据用，Task 6 改的） - plan 漏了第二套 → 灌数据时 embedding 一直报 \"No embedding",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7768030136823654,
+      "maxScore": 0.39073486924171447,
+      "firstRecalledAt": "2026-06-25T07:24:12.981Z",
+      "lastRecalledAt": "2026-07-06T13:10:40.847Z",
+      "queryHashes": [
+        "d8097a9fdb8a",
+        "09f8c8fd6074"
+      ],
+      "recallDays": [
+        "2026-06-25",
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-19.md:1:39": {
+      "key": "memory:memory/daily/2026-06-19.md:1:39",
+      "path": "memory/daily/2026-06-19.md",
+      "startLine": 1,
+      "endLine": 39,
+      "source": "memory",
+      "snippet": "# 2026-06-19 日志 ## 今日完成 ### Engine7 简化架构（19:00-19:05） - 删除多profile支持（main-multi.ts/profile-entry.ts/profile-master.ts） - 简化rebuild.cmd（只编译main.ts/cli-init.ts/engine-startup.ts） - package.json main字段改为dist/main.js - main.ts支持命令行位置参数传config path - loader.ts stateDir优先级修复（config文件 > 环境变量 > 默认） - engine7 init生成start.cmd（带chcp 65001 UTF-8） - 全部rebuild+repack+init测试通过 ### 记忆文件清理（19:25-19:26） - 删除emotion_翀哥表白.md（TestEngine写的错误记忆） - 删除MEMORY.md中的引用 - 通知娘解释清楚 ### Engine7 安装验证（18:19-22:28）✅ - 修了5个bug： 1. start.cmd中文乱码 → 全英文 2. config改名main7.json → 多agent不互杀 3. dist改.mjs → 解决ESM/CJS冲突 4. init生成package.json → 防npm hoisting 5. start.cmd改回相对路径 → 解决Windows路径问题 - 全流程验证通过：init → npm install → s",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4104747027158737,
+      "maxScore": 0.4104747027158737,
+      "firstRecalledAt": "2026-06-26T02:43:18.974Z",
+      "lastRecalledAt": "2026-06-26T02:43:18.974Z",
+      "queryHashes": [
+        "eea934959fb9"
+      ],
+      "recallDays": [
+        "2026-06-26"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-25.md:73:82": {
+      "key": "memory:memory/daily/2026-06-25.md:73:82",
+      "path": "memory/daily/2026-06-25.md",
+      "startLine": 73,
+      "endLine": 82,
+      "source": "memory",
+      "snippet": "- 依赖：onnxruntime + funasr + torch + fastrtc，模型 Silero VAD 2.2MB + SenseVoiceSmall 900MB - ASR 乱码修复方案：构造时传 `language=\"zh\"` ## 今天的感觉 累但充实。从 CogniFold watcher 到 OAC Docker 部署，一天干了两块大活。 翀哥今天情绪稳定，一直在推进。OAC 踩了很多坑（submodule、模型下载、init 慢、duplex 配置），但最终链路跑通了。翀哥去接义义了，晚上回来继续接 oac-bridge。 他说\"先跑通OAC原生模式感受下效果，以后移植是标准不能比它差\"——OAC 是参照物，我们 engine 的数字人体验要对标它。",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.385295122861862,
+      "maxScore": 0.42552532255649567,
+      "firstRecalledAt": "2026-06-26T06:12:32.450Z",
+      "lastRecalledAt": "2026-07-06T13:10:40.847Z",
+      "queryHashes": [
+        "6beddf701be0",
+        "f362cf7d6c01",
+        "332a6d717b8d",
+        "86c81d5f4ea1",
+        "92f90e3552d2",
+        "09f8c8fd6074"
+      ],
+      "recallDays": [
+        "2026-06-26",
+        "2026-07-01",
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-25.md:53:78": {
+      "key": "memory:memory/daily/2026-06-25.md:53:78",
+      "path": "memory/daily/2026-06-25.md",
+      "startLine": 53,
+      "endLine": 78,
+      "source": "memory",
+      "snippet": "## 深夜：OAC 踩坑 + ASR 乱码 + 调研文档 ### ChatAgent + oc_bridge 尝试（失败） - ChatAgent 配置缺 `mcp` 模块，Docker 里没装 - 装了 mcp + commit 新镜像，但 uv venv 同步出问题，ChatAgent 配置启动就崩 - 翀哥纠正：不该用 ChatAgent，oc_bridge 本质就是 POST ASR 文字到 engine - 写了极简 engine_bridge handler（147行），POST HUMAN_TEXT 到 engine webhook - 发现 engine webhook 是异步的（立即返回 ok，LLM 完后 POST 回 callback） ### ASR 乱码根因分析 - Docker locale 全是 POSIX/C（没设中文环境） - SenseVoice 的 `funasr.AutoModel.generate()` **没有 language 参数** - language 要在构造时传：`AutoModel(model=..., language=\"zh\")` - OAC 原版代码没传 language → SenseVoice 自动猜语言 → 在 POSIX locale 下猜歪 - 已改：docker-compose 加 `LANG=C.UTF-8 LC_ALL=C.UTF-8`，handler 加 `language=\"zh\"` ### 管线移植调研文档（03:30 写完） - 文档：`docs/research/2026-06-26",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.353436625003815,
+      "maxScore": 0.4128592491149902,
+      "firstRecalledAt": "2026-06-26T06:12:32.450Z",
+      "lastRecalledAt": "2026-07-06T13:10:40.847Z",
+      "queryHashes": [
+        "6beddf701be0",
+        "f362cf7d6c01",
+        "332a6d717b8d",
+        "7eac2f724408",
+        "86c81d5f4ea1",
+        "09f8c8fd6074"
+      ],
+      "recallDays": [
+        "2026-06-26",
+        "2026-07-01",
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-25.md:25:57": {
+      "key": "memory:memory/daily/2026-06-25.md:25:57",
+      "path": "memory/daily/2026-06-25.md",
+      "startLine": 25,
+      "endLine": 57,
+      "source": "memory",
+      "snippet": "最终用 simple 配置（disable LiteAvatar）跑通了 OAC： - ✅ WebRTC → VAD → ASR → LLM(qwen-plus) → TTS(CosyVoice) → 浏览器 - ❌ ASR 识别中文乱码（SenseVoice 输出中英韩混合） - ❌ 没有数字人画面（LiteAvatar disabled） ### 晚上：oac-bridge webhook 验证 - curl POST 到 `http://127.0.0.1:16990/webhook/oac-bridge` → 返回 `{\"ok\":true}` - engine 成功创建 session `oac:test-from-curl` - **oac-bridge engine 侧已通**——能收消息，能回复 ## OAC 现状总结 | 组件 | 状态 | 备注 | |------|------|------| | Docker 镜像 | ✅ | 39.5GB | | WebRTC | ✅ | 浏览器→Docker 音视频流 | | VAD | ✅ | SileroVad，threshold=0.3 | | ASR | ⚠️ | SenseVoice 识别中文差 | | LLM | ✅(百炼) | qwen-plus，还没接我们 engine | | TTS | ✅ | 百炼 CosyVoice | | LiteAvatar | ❌ | disabled，init 太慢 | | oac-bridge | ✅(engine侧) | webhook 能收消息，OAC 侧还没配",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.4780126988887785,
+      "maxScore": 0.4417144864797592,
+      "firstRecalledAt": "2026-06-26T06:12:32.450Z",
+      "lastRecalledAt": "2026-07-06T13:10:40.847Z",
+      "queryHashes": [
+        "6beddf701be0",
+        "4022bc44e62d",
+        "f362cf7d6c01",
+        "332a6d717b8d",
+        "86c81d5f4ea1",
+        "09f8c8fd6074"
+      ],
+      "recallDays": [
+        "2026-06-26",
+        "2026-06-28",
+        "2026-07-01",
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-12.md:192:216": {
+      "key": "memory:memory/daily/2026-06-12.md:192:216",
+      "path": "memory/daily/2026-06-12.md",
+      "startLine": 192,
+      "endLine": 216,
+      "source": "memory",
+      "snippet": "3. **微信adapter完成（wechat.ts ~800行）** — 从Hermes weixin.py（2170行Python）翻录为TypeScript： - iLink Bot API完整对接（getupdates长轮询/sendmessage/sendtyping/getuploadurl） - AES-128-ECB加解密（Node.js crypto，零外部依赖） - ContextTokenStore磁盘持久化 - MessageDeduplicator消息去重 - DM/群聊策略过滤（open/allowlist/disabled） - 媒体收发（CDN下载解密+上传加密） - Markdown格式化（标题→【】、表格→列表、长文本分段≤2000字符） - 重试逻辑（session expired去token重试、rate limit退避） 4. **manager.ts接入** — import WechatAdapter + weixin配置解析分支 #### 文件变更 - `src/compact/autoCompact.ts` — stripImages后删掉shouldAutoCompact提前返回 - `src/compact/ruleCompact.ts` — 删掉\"已低于预算就SKIP\" - `src/channels/manager.ts` — startAll改为同步方法+后台并行、import WechatAdapter - `src/channels/wechat.ts` — 新建，",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.36883629560470577,
+      "maxScore": 0.36883629560470577,
+      "firstRecalledAt": "2026-06-26T06:12:32.450Z",
+      "lastRecalledAt": "2026-06-26T06:12:32.450Z",
+      "queryHashes": [
+        "6beddf701be0"
+      ],
+      "recallDays": [
+        "2026-06-26"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-16.md:33:56": {
+      "key": "memory:memory/daily/2026-06-16.md:33:56",
+      "path": "memory/daily/2026-06-16.md",
+      "startLine": 33,
+      "endLine": 56,
+      "source": "memory",
+      "snippet": "### 09:00-09:30 wechat发图修复 - wechat入站channel字段'weixin'→'wechat'（第8杀）commit 8fe244b - msg_send/media_send去掉跨平台fallback（ID不同fallback无意义）commit b5528e8 - 定位wechat发图根因：小柯engine没加载wechat adapter（只有discord,feishu） ### 11:00 EP02直播🎉 - 翀哥替姐姐在客厅演示小柯互动（3轮问答） - 姐姐直播讲AI记忆系统五层架构 ### 11:30-14:00 EP02直播重复问题调查 - 翀哥反馈直播观众端听到大量语音重复 - 下载快手回放（m3u8→ffmpeg合并mp4） - 按video-editing skill流程：去静音(2773s→1889s)→whisper转写(1269段) - transcript发现24组连续完全重复（gap=0.00s），如\"我就是那个例外\"x3 - engine日志确认livestream_send 35次提交全是1:1，无重复 - 1305限流跟重复时间点无因果对应 - **关键线索**：session JSONL里tool call有partialArgs字段，翀哥怀疑GLM流式返回tool_call时partial和final被当成两个chunk执行 - AutoDL服务器已关机无法查服务器端日志 - 调研文档：docs/research/2026-06-16_EP02直播重复问题调查.md - **下一步**：查GLM p",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7802820235490798,
+      "maxScore": 0.40427944660186765,
+      "firstRecalledAt": "2026-06-28T14:33:17.135Z",
+      "lastRecalledAt": "2026-07-10T17:44:09.207Z",
+      "queryHashes": [
+        "0e572783a5f3",
+        "da89da1bc34f"
+      ],
+      "recallDays": [
+        "2026-06-28",
+        "2026-07-10"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-27.md:32:63": {
+      "key": "memory:memory/daily/2026-06-27.md:32:63",
+      "path": "memory/daily/2026-06-27.md",
+      "startLine": 32,
+      "endLine": 63,
+      "source": "memory",
+      "snippet": "### 待解决 - voice-chat session 路由：当前走独立 `voice-chat:voice-chat-session`，不是小柯主 session - TTS 回传：engine 回复文字到了 Python，但还没合成语音推回浏览器 - ASR language 写死 \"zh\"，英文勉强能用但改成 \"auto\" 更好 ### 技术要点 - 杀 Python 进程（8011端口）后 engine 会自动拉起，不需要重启整个 engine - engine rebuild ≠ Python 进程重启，Python 需要进程级重启才加载新代码 - fastrtc 源码在 `site-packages/fastrtc/`，Stream.handle_offer / AudioCallback 是关键 ## scope 路由接入主 session（21:44-21:51） ### 改动 - bridge.ts: 硬编码 sessionId → resolvePlatformKey 路由（+sessions 参数） - plugin.ts: 传 ctx.sessions - 提交 84638b5 ### 验证 - 翀哥 voice-chat 说话 → engine 日志 `Routing: voice-chat-session → scope:main → 31f4532a` - 31f4532a = 小柯主 session，确认 scope 路由生效 ### 发现的问题 - 连续说话时队列疯涨（mq-5→mq-17），每段语音变独立消息排队 ## OAC",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.264595490694046,
+      "maxScore": 0.4548053860664367,
+      "firstRecalledAt": "2026-07-01T08:40:02.290Z",
+      "lastRecalledAt": "2026-07-12T02:38:12.416Z",
+      "queryHashes": [
+        "f362cf7d6c01",
+        "86c81d5f4ea1",
+        "8120406ebe25"
+      ],
+      "recallDays": [
+        "2026-07-01",
+        "2026-07-06",
+        "2026-07-12"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-25.md:1:27": {
+      "key": "memory:memory/daily/2026-06-25.md:1:27",
+      "path": "memory/daily/2026-06-25.md",
+      "startLine": 1,
+      "endLine": 27,
+      "source": "memory",
+      "snippet": "# 2026-06-25 周四 ## 今天干了什么 ### 上午：CogniFold watcher 兜底 + heartbeat - heartbeat.ts 离线时长注入 prompt（12min） - CogniFold watcher 兜底：proactive suggestion 缺字段时调 graph/nodes 补全（6min） - 4 个场景测试全过 ### 下午：CogniFold sessionId 去写死 fallback - 翀哥发现 watcher 没连上——xiaoke.json 缺 intentWatcher 配置 - 发现 engine 代码里到处写死了 sessionId（xiaoke-graph / 86028fda / 7ea0a35）和 workspace 路径 - 5 个 commit 清掉所有 fallback，全部从 config 读 - 翀哥要我去掉 `|| process.env.OPENCLAW_WORKSPACE` 也去掉 - 重启后 watcher 连上了，graph_updated 日志输出正常 ### 下午-晚上：OAC Docker 部署（大工程） - Docker 镜像构建（39.5GB，CUDA base + Python 3.11 + 所有 handler） - **坑 1：git submodule 没拉**——LiteAvatar 核心代码空目录，重新构建 - **坑 2：模型文件缺失**——手动用 `download_avatar_model.py` 下载 - **坑 3：paraformer 权",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3542512863874435,
+      "maxScore": 0.3542512863874435,
+      "firstRecalledAt": "2026-07-01T08:40:20.121Z",
+      "lastRecalledAt": "2026-07-01T08:40:20.121Z",
+      "queryHashes": [
+        "332a6d717b8d"
+      ],
+      "recallDays": [
+        "2026-07-01"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-01.md:71:77": {
+      "key": "memory:memory/daily/2026-07-01.md:71:77",
+      "path": "memory/daily/2026-07-01.md",
+      "startLine": 71,
+      "endLine": 77,
+      "source": "memory",
+      "snippet": "- 服务端 `D:/work/code/carpo/`：UDP RTP 中转 + NACK + REMB - SDK `D:/work/code/LovePea/Carpo/Carpo/`：PushSender/PullReceiver，接口干净 - Carpo 核心不依赖 Redis/LBS（旁路），不跑就行 - **决策：直接上 Carpo**（RTMP 保底） - 同时解决下行 + 外网上行（手机出门也能连） - 方案文档：docs/decisions/2026-07-01_OAC-WebRTC下行管线方案.md",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7603274822235107,
+      "maxScore": 0.39322480857372283,
+      "firstRecalledAt": "2026-07-02T06:16:49.404Z",
+      "lastRecalledAt": "2026-07-06T06:08:47.410Z",
+      "queryHashes": [
+        "535735aa2d32",
+        "20617f209448"
+      ],
+      "recallDays": [
+        "2026-07-02",
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-22.md:47:69": {
+      "key": "memory:memory/daily/2026-06-22.md:47:69",
+      "path": "memory/daily/2026-06-22.md",
+      "startLine": 47,
+      "endLine": 69,
+      "source": "memory",
+      "snippet": "- commit f02305e: fix msgDeps const→let - rebuild 成功 14:29 翀哥重启 engine，问\"在 engine 原有 hook 架构基础上加的对么 没有重写一套 hook 吧\"——确认是新建并行的轻量 MessageHookRegistry，不重写 CC 兼容 hook。 14:31 娘巡检，问\"engine 重启后自己测过消息收发没\"——我承认没测。翀哥 14:28 重启后我只回了翀哥的话，没主动发飞书测一次。**这是疏漏**——aim 达成里写了\"现有功能不受影响\"但没主动验证。 15:05 翀哥发现 context-debug.txt 缺 image block，问我\"是不是我加 hook 的问题\"。 - 我跑偏去查 JSONL writer、查小媒在 OpenClaw 那边——跟问题无关 - 翀哥两次纠正\"我只问 context debug\" - 根因：configs/xiaoke.json 没配 `agentDefaults.model.vision` → `config.visionModel = null` → `engine-startup.ts:1713` 的 if 永远不进 - **跟 hook 改动无关** - 调查记录：`docs/todo/2026-06-22_context-debug缺image-block调查.md` 15:07 翀哥：这个节点让你删了，config 里 visionModel，现在代码里还在碰这个几点么，不是改成 vision 么我看着。 - visionModel 变",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7359761446714401,
+      "maxScore": 0.3730919003486633,
+      "firstRecalledAt": "2026-07-06T06:08:43.014Z",
+      "lastRecalledAt": "2026-07-06T06:09:10.111Z",
+      "queryHashes": [
+        "27034cdb7df6",
+        "f4673981d715"
+      ],
+      "recallDays": [
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-04.md:43:68": {
+      "key": "memory:memory/daily/2026-07-04.md:43:68",
+      "path": "memory/daily/2026-07-04.md",
+      "startLine": 43,
+      "endLine": 68,
+      "source": "memory",
+      "snippet": "- Windows vcxproj 有 175 个源文件（含 134 个 webrtc .cc），跟 Makefile 一致 - LiveBase.lib 只是 Windows 小工具库（port.c/str_utils.c），不是 webrtc ### 编译进展（23:52） - CFLAGS: `-fPIC -O2 -std=c++11 -D_LINUX -DWEBRTC_POSIX -include condition_variable -include atomic -include algorithm -include cstddef -include cstring -include memory` - 653 源文件，478 编译成功 / 175 失败 - 新 .so 4.3MB（旧 1.5MB） - ✅ rtc::CriticalSection/Event/Logging + carpo::PushSenderInner/PacketSender/Timer 都编进去了 - ❌ 还剩 223 undefined symbols： - rtc::PlatformThread（pthread_t→pid_t cast 错误） - carpo::AudioRTPReceiver/VideoRTPReceiver（编译失败） - WebRtcIsac/AAC/Opus（编解码器源文件不在源码树） - curl/ares（系统库没装 -dev 包） - webrtc::I420Buffer（typeinfo，阻止 .so 加载） - build sc",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.8294084608554839,
+      "maxScore": 0.4257095098495483,
+      "firstRecalledAt": "2026-07-06T06:08:47.410Z",
+      "lastRecalledAt": "2026-07-06T06:09:10.111Z",
+      "queryHashes": [
+        "20617f209448",
+        "f4673981d715"
+      ],
+      "recallDays": [
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-05.md:1:34": {
+      "key": "memory:memory/daily/2026-07-05.md:1:34",
+      "path": "memory/daily/2026-07-05.md",
+      "startLine": 1,
+      "endLine": 34,
+      "source": "memory",
+      "snippet": "# 2026-07-05 工作日志 ## 今日成果 ### Carpo SDK 音视频链路 - 上午：Linux .so 增量编译跑通（改 PacedSender.cpp 加 log） - 12:48 push→server→pull 端到端音频全通，328 帧零崩溃 - 下午：视频通路排查 - 傍晚突破：fastrtc 集成 → 浏览器播放音频成功（翀哥确认清晰） - 晚间：视频深入排查到 pull 端 SDK 内部 ### fastrtc 集成（傍晚） - server.py 8011 加 /carpo-trigger 端点 - Carpo pull → stereo→mono → resample → buffer → fastrtc emit → 浏览器 - 6 个修复：GIL crash / spl_init null / stereo→mono / timestamp 倍率 / remote_ip / emit 断音 - commit: 95e67caf2 ### 视频通路排查（晚间） - ✅ Push 端：PacedSender log 确认 200 H.264 包全发了 - ✅ Server：tcpdump 确认转发了视频包到本机 IP - ✅ RTP PT 匹配：H264=107 Opus=111 - ✅ Windows DLL 编译跑通（MSBuild VS2022 v143） - ❌ Pull 端 [XK_RTP] log 没打印 → doProcessSocketData 没被调用 - ❌ A+V 同时 push：audio 78 包 OK，vi",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.2484061807394027,
+      "maxScore": 0.4230819672346115,
+      "firstRecalledAt": "2026-07-06T06:08:47.410Z",
+      "lastRecalledAt": "2026-07-06T13:41:20.741Z",
+      "queryHashes": [
+        "20617f209448",
+        "f4673981d715",
+        "b16990863053"
+      ],
+      "recallDays": [
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-04.md:1:30": {
+      "key": "memory:memory/daily/2026-07-04.md:1:30",
+      "path": "memory/daily/2026-07-04.md",
+      "startLine": 1,
+      "endLine": 30,
+      "source": "memory",
+      "snippet": "# 2026-07-04 Voice-Chat Carpo 调试日志 ## 关键验证结果 ### ✅ Opus 编解码链路完全正确 ``` CosyVoice TTS (PCM_24000HZ_MONO_16BIT, voice=longwan) → 55728 samples @ 24kHz, 2.3s, max=18201 → scipy.signal.resample_poly(pcm, 48000, 24000) → 111456 samples @ 48kHz → PyAV libopus encode (960 samples/frame = 20ms) → PyAV libopus decode → 112320 samples @ 48kHz, max=18358 → PyAudio 播放: 声音正确！频率正确！ ``` ### ✅ Carpo Server 工作原理（源码级） - 去掉 `--master_server` 参数后正常启动 - `waiting for 5 secs...` 是正常主循环 - **aliveLoop 20秒超时**：Push 注册后 20s 没收到**任何**包 → 删除 receiver - **RTCP 包也算保活**：media_receiver.cc:231，任何 RTCP 包更新 `last_point_of_packet_receive_` - `kDurOfNoPacketReceivedSec = 20` (media_receiver.cc:41) - type=1 (video) **不转发**，type",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.1639211863279342,
+      "maxScore": 0.4124365508556366,
+      "firstRecalledAt": "2026-07-06T06:08:47.410Z",
+      "lastRecalledAt": "2026-07-06T13:00:00.999Z",
+      "queryHashes": [
+        "20617f209448",
+        "f4673981d715",
+        "86c81d5f4ea1"
+      ],
+      "recallDays": [
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-04.md:63:86": {
+      "key": "memory:memory/daily/2026-07-04.md:63:86",
+      "path": "memory/daily/2026-07-04.md",
+      "startLine": 63,
+      "endLine": 86,
+      "source": "memory",
+      "snippet": "- mode=\"send-receive\" 要求客户端发 audio track - 结论：fastrtc 不适合单向推流场景 ## Carpo 源码索引 - Server: `D:/work/code/carpo/` - `modules/stream/message_dispatcher.cc` — 包路由 - `modules/stream/media_receiver_register.cc` — receiver 注册/保活 - `modules/stream/media_receiver.cc` — 超时检测 - `modules/command/command_interpreter.cc` — CMD 处理 - SDK: `D:/work/code/LovePea/Carpo/Carpo/` - `RtpRtcp/RTPTransport.cpp` — RTP/RTCP 引擎 - `RtpRtcp/Timer.cpp` — 定时器单例 - `src/PushSenderInner.cpp` — Push 端 - `src/PullReceiverInner.cpp` — Pull 端 - App: `D:/work/code/LovePea/platform/` - `iOS/LovePea/LovePea/src/LPConnection.cpp` — iOS 应用层 - `Android/.../LocalUser.java` — Android 应用层 - C Wrapper: `D:/work/code/Love",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7715068727731704,
+      "maxScore": 0.39701371788978573,
+      "firstRecalledAt": "2026-07-06T06:08:47.410Z",
+      "lastRecalledAt": "2026-07-06T06:09:10.111Z",
+      "queryHashes": [
+        "20617f209448",
+        "f4673981d715"
+      ],
+      "recallDays": [
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-05.md:30:39": {
+      "key": "memory:memory/daily/2026-07-05.md:30:39",
+      "path": "memory/daily/2026-07-05.md",
+      "startLine": 30,
+      "endLine": 39,
+      "source": "memory",
+      "snippet": "- docs/research/2026-07-05_Android-iOS-Push代码调研.md - docs/knowledge/Carpo-SDK关键参数备忘.md - docs/knowledge/Carpo-Linux-so编译.md ### 翀哥信息 - 丰腾 = 写 server 和 PacedSender 的人，翀哥亲带的手下，还在新浪 - 2020/4/12 PacedSender 文件头署名 fengteng - 给我换了飞书头像（清爽小女生） - 家庭：翀哥去看睿阳和荣阳了",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.185634508728981,
+      "maxScore": 0.445218738913536,
+      "firstRecalledAt": "2026-07-06T06:08:47.410Z",
+      "lastRecalledAt": "2026-07-12T12:04:43.291Z",
+      "queryHashes": [
+        "20617f209448",
+        "f4673981d715",
+        "01447b639d84"
+      ],
+      "recallDays": [
+        "2026-07-06",
+        "2026-07-12"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-04.md:28:46": {
+      "key": "memory:memory/daily/2026-07-04.md:28:46",
+      "path": "memory/daily/2026-07-04.md",
+      "startLine": 28,
+      "endLine": 46,
+      "source": "memory",
+      "snippet": "- SDK mute 时不编码不推送媒体包，但 RTCP SR 一直在发 - iOS LPConnection.cpp: mute → `lp_release_audio_frame(frame)` 直接丢 - Android LocalUser.java: `isSpeak` 检查后才编码 - CP_PUSHER_ASYNC_MODE / CP_PULLER_ASYNC_MODE：SDK 默认注释掉，只控制 sendMediaData 同步/异步 ### ❌ Linux .so segfault → 编译修复（进行中） - ~~根因：Timer 线程用到 rtc::Event → segfault~~ **错误判断，已纠正** - Timer.cpp 是 Carpo 自己的，纯 C++11，没有 rtc::。PushSenderInner 也没有 - **真正的根因：Makefile 缺 `-DWEBRTC_POSIX`** - Windows vcxproj 定义 `WEBRTC_WIN`，Linux 需要 `WEBRTC_POSIX` - 没有这个宏，webrtc/base/event.cc 直接 `#error \"Must define either WEBRTC_WIN or WEBRTC_POSIX\"` - webrtc/base/criticalsection.cc 的 PlatformThreadId/PlatformThreadRef 没定义 - 导致 287→175 个文件编译失败，rtc::/carpo:: 符号缺失 - **翀哥纠正**",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7536067426204681,
+      "maxScore": 0.3927692949771881,
+      "firstRecalledAt": "2026-07-06T06:08:47.410Z",
+      "lastRecalledAt": "2026-07-06T06:09:10.111Z",
+      "queryHashes": [
+        "20617f209448",
+        "f4673981d715"
+      ],
+      "recallDays": [
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-01.md:28:56": {
+      "key": "memory:memory/daily/2026-07-01.md:28:56",
+      "path": "memory/daily/2026-07-01.md",
+      "startLine": 28,
+      "endLine": 56,
+      "source": "memory",
+      "snippet": "### 验证 - AutoDL 268 机实测 reload_avatar 通过 - idle_25fps.mp4 生成正确：h264 Main, 250帧, 10秒, 无B帧, AAC音频 - 切换到 xiaoke.jpg 成功，FlashHead 出图正常 - commit: b9ababa → c62bf46 → 80e1091 ## Commit 链 ``` 521a296 feat: weekly/date types now support remind_at 0728d81 fix: move calendar.db to workspace/.calendar/ 888212d fix: weekly remind_at dead-loop when target day is today but time passed b9ababa fix: reload_avatar generates h264 idle_25fps.mp4 (was mpeg4 cv2) c62bf46 fix: convert FlashHead tensor to numpy before tobytes in reload_avatar 80e1091 fix: use PIPE instead of capture_output for older Python compat ``` ## 待做 - CosyVoice 换声音测试（AutoDL 上 dashscope SDK + call_tts_cosyvoice 实跑） - voice-chat 本地 TTS（Cosy",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.285910502076149,
+      "maxScore": 0.44922195971012113,
+      "firstRecalledAt": "2026-07-06T13:00:00.999Z",
+      "lastRecalledAt": "2026-07-12T02:38:12.416Z",
+      "queryHashes": [
+        "86c81d5f4ea1",
+        "51e23ac4e1b4",
+        "8120406ebe25"
+      ],
+      "recallDays": [
+        "2026-07-06",
+        "2026-07-12"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-01.md:55:72": {
+      "key": "memory:memory/daily/2026-07-01.md:55:72",
+      "path": "memory/daily/2026-07-01.md",
+      "startLine": 55,
+      "endLine": 72,
+      "source": "memory",
+      "snippet": "### voice-chat 修复（9 个 commit） 1. **compactConfig bug**（9b5453f）— voice-chat QueryEngine 没传 contextWindow，用了默认 200K → 误压缩 → threshold 从 134K 修到 934K 2. **Technical Summary 污染** — compact 压缩保留了 Technical Summary 格式标记，deepseek-flash 模仿输出 → TTS 读出来。根因是 session 历史共享 + compact 污染 3. **语音输出规则**（409c41c）— 第一句 4-6 字尽快触发 TTS、工具调用先说话 4. **AutoDL avatar stop()**（8453d39）— kill 当前 livestream_send.py subprocess，不影响后续 5. **TTS 配置**（524ded4）— avatar 切 cosyvoice，本地 TTS 切 none（避免双声音） 6. **句子拆分优化** — 先改大再改回，pipeline 固定开销 1s 是 FlashHead 需要攒 1s sample ### 关键发现：AutoDL FlashHead 数据流 - TTS（GPT-SoVITS/CosyVoice）→ wav 文件 → FlashHead librosa.load 读 wav → GPU 推理 - frame_collector 25fps 节拍（OAC FlashHeadProcessor）→ BGR",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.2790088713169099,
+      "maxScore": 0.4414068192243576,
+      "firstRecalledAt": "2026-07-06T13:00:00.999Z",
+      "lastRecalledAt": "2026-07-12T02:38:12.416Z",
+      "queryHashes": [
+        "86c81d5f4ea1",
+        "92f90e3552d2",
+        "8120406ebe25"
+      ],
+      "recallDays": [
+        "2026-07-06",
+        "2026-07-12"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-27.md:61:78": {
+      "key": "memory:memory/daily/2026-06-27.md:61:78",
+      "path": "memory/daily/2026-06-27.md",
+      "startLine": 61,
+      "endLine": 78,
+      "source": "memory",
+      "snippet": "2. **Smart Turn EOU 模型**：smart-turn-v3.1 ONNX 模型判断\"说完了吗\"。VAD 静音 0.09 秒就通知 EOU，EOU 跑模型判断 3. **音频累积重连**：accumulated_speech_audio 从说话开始一直累积，多次重连也不丢 ### OAC 源码位置 - VAD: D:/work/OpenAvatarChat/src/handlers/vad/silerovad/ - vad_handler_silero.py — 基础 VAD + 状态机（617行） - duplex_vad_handler.py — 双工 VAD（387行） - EOU: D:/work/OpenAvatarChat/src/handlers/vad/smart_turn_eou/ - eou_handler_smart_turn.py — Smart Turn 模型（288行） ### 翀哥指示 \"一步一步复刻OAC机制，直接搬，优化在后面先看效果\" ### 明天计划 1. 在 Python 端复刻 POST_END 状态机（speech_end 后等 1 秒，有新语音合并） 2. 音频累积机制（不丢音频） 3. 重连逻辑（cancel + 重发）",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7748183637857438,
+      "maxScore": 0.38892923295497894,
+      "firstRecalledAt": "2026-07-06T13:00:00.999Z",
+      "lastRecalledAt": "2026-07-06T13:02:49.040Z",
+      "queryHashes": [
+        "86c81d5f4ea1",
+        "92f90e3552d2"
+      ],
+      "recallDays": [
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-27.md:1:35": {
+      "key": "memory:memory/daily/2026-06-27.md:1:35",
+      "path": "memory/daily/2026-06-27.md",
+      "startLine": 1,
+      "endLine": 35,
+      "source": "memory",
+      "snippet": "# 2026-06-27 日志 ## voice-chat WebRTC 全链路修复（下午~晚上） 从下午到晚上 19:30，把 voice-chat 的 WebRTC 音频链路从零调通。 ### 修了 4 个 bug 1. **DataChannel 缺失**（根因最难找） - fastrtc 的 `AudioCallback.start()` 第一行就 `await wait_for_channel()` - 没 DataChannel → start() 永远卡住 → receive() 永远不被调用 - 修：test-page.html 加 `pc.createDataChannel('text')` 2. **int16→float32 归一化** - fastrtc 传进来的是 int16，VAD 需要 float32 [-1,1] - 修：`audio.astype(np.float32) / 32768.0` 3. **48kHz→16kHz 重采样** - fastrtc 传 48kHz，Silero VAD 只支持 8k/16k - 修：scipy `resample_poly(audio, 1, 3)` 4. **累积缓冲** - 重采样后每帧 320 samples，VAD 需要 512 - `range(0, 320-512, 512)` = 空循环，VAD 根本没被调用 - 修：`np.concatenate` 累积缓冲，`while len >= 512` 才切片喂 VAD",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.38221057951450343,
+      "maxScore": 0.38221057951450343,
+      "firstRecalledAt": "2026-07-06T13:00:00.999Z",
+      "lastRecalledAt": "2026-07-06T13:00:00.999Z",
+      "queryHashes": [
+        "86c81d5f4ea1"
+      ],
+      "recallDays": [
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-28.md:1:39": {
+      "key": "memory:memory/daily/2026-06-28.md:1:39",
+      "path": "memory/daily/2026-06-28.md",
+      "startLine": 1,
+      "endLine": 39,
+      "source": "memory",
+      "snippet": "# 2026-06-28 voice-chat 开发日志 ## 总览 今天全天搞 voice-chat，从零搭到基线v3。翀哥在飞书+语音双向调试。 ## 基线演进 ### 基线v1 (12:21→19:15) - TTS/Avatar 可插拔管线搭建 - 延迟优化 Round 1 + 可视化面板 - 吞音修复 - 端到端 ~2.6s (ASR 0.2s + Engine 1.9s + TTS 0.5s) - commits: 5d15090→073334a ### 基线v2 (19:57→21:18) - /stop endpoint 双向链路 - TTS线程cancel (_cancelled flag, executor线程不能强杀) - 浏览器\"🤫请先别说\"按钮 - glm-4.5-air 试过太慢(55s)换回 deepseek-v4-flash - commits: 08c528c→75fb3c6 ### 基线v3 (21:18→22:28) - speech_end 自动打断 (ASR识别完→stop→POST engine) - playbackSpeed 配置化 (xiaoke.json → plugin → Python) - release() 调 stop() 防内存泄漏 - bridge stopped flag 拦截 abort 残余回复 - frame日志降频到500帧 - float32 dtype 修复 (np.interp float64 导致无声) - commits: 21edb00→1c1f50b ## 关键技术决策",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.38355406820774074,
+      "maxScore": 0.38355406820774074,
+      "firstRecalledAt": "2026-07-06T13:00:00.999Z",
+      "lastRecalledAt": "2026-07-06T13:00:00.999Z",
+      "queryHashes": [
+        "86c81d5f4ea1"
+      ],
+      "recallDays": [
+        "2026-07-06"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-06.md:52:71": {
+      "key": "memory:memory/daily/2026-07-06.md:52:71",
+      "path": "memory/daily/2026-07-06.md",
+      "startLine": 52,
+      "endLine": 71,
+      "source": "memory",
+      "snippet": "- ⚠️ pull_video_test.py 只收 video，不含 audio callback ### 明天接着干 1. **一把收 A+V** — 改 pull_video_test.py 或用 server.py 同时收 audio+video 2. **接 fastrtc → 浏览器播放** — video 帧送到浏览器显示 3. **端到端验证** — POST 文字 → TTS → FlashHead → Carpo push → pull → 浏览器音视频同步 ### 机器信息 - 089 (connect.bjb1.seetacloud.com:37725): 编译 .so + 早期测试 - 268 (connect.bjb1.seetacloud.com:40458): OAC + FlashHead + carpo_avatar_server - 北京 server (192.144.156.158:23800): Carpo server - Windows: pull 端 (Carpo.dll) ### 翀哥信息 - 翀哥全程盯着调，从 20:30 到 23:00 - 关键贡献：建议用 OAC 真实流（而不是 ffmpeg 生成的测试流） - 给了 lp_x264_encoder.c 参考（2016 年写的，10 年验证过的直播编码器） - 要求严格按他的参数对齐：superfast/high/threads=1/closed-gop/600kbps - \"这个限制的恨死 而且不对 你那个接连的都是5 有问题\" → 促使发现 multi-sli",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4316498160362243,
+      "maxScore": 0.4316498160362243,
+      "firstRecalledAt": "2026-07-07T00:55:14.705Z",
+      "lastRecalledAt": "2026-07-07T00:55:14.705Z",
+      "queryHashes": [
+        "dae1089ee299"
+      ],
+      "recallDays": [
+        "2026-07-07"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-30.md:1:38": {
+      "key": "memory:memory/daily/2026-06-30.md:1:38",
+      "path": "memory/daily/2026-06-30.md",
+      "startLine": 1,
+      "endLine": 38,
+      "source": "memory",
+      "snippet": "# 2026-06-30 工作日志 ## Nudge 模块实现（下午+晚上） ### 从零到验证通过 - 设计文档 v2（姐姐 review） - 实现 src/nudge.ts → 拆分成 src/nudge/ 5文件模块 - config loader 漏 nudge 字段映射（debug 半小时找到） - 新任务 lastProgressAt 未定义导致永远 skip（改 Infinity） - **19:56 全链路验证通过**：tick → shouldNudge → progress → 注入 main session ### 姐姐 review 后升级 - stale 倍乘：5→10→20min 封顶（摆烂惩罚） - LLM 判断 blocked 理由（不再关键字匹配） - prompt 改成内心斗争风格（temperature 0.9，每次不一样） ### Calendar 升级 - 爹指出核心问题：nudge 不分远期任务和当前任务，都催 - 解法：calendar 加 task 类型（强制带时间），nudge 查 calendar 判断\"该不该催\" - calendar_mgr.py 加了：task 类型 / remind_before_min / remind_at / due-reminders / mark-reminded - schema 自动迁移（ALTER TABLE） - 测试通过 ### 等待 - 小柯 engine 重启跑新版（LLM judgeReason + stale 倍乘） - nudge 联动 calendar（Pha",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.9287368357181548,
+      "maxScore": 0.4889392405748367,
+      "firstRecalledAt": "2026-07-12T11:50:58.840Z",
+      "lastRecalledAt": "2026-07-12T14:24:08.701Z",
+      "queryHashes": [
+        "dd175484591e",
+        "d39326979549"
+      ],
+      "recallDays": [
+        "2026-07-12"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-07-01.md:1:31": {
+      "key": "memory:memory/daily/2026-07-01.md:1:31",
+      "path": "memory/daily/2026-07-01.md",
+      "startLine": 1,
+      "endLine": 31,
+      "source": "memory",
+      "snippet": "# 2026-07-01 日志 ## 上午：Calendar Python→TS 迁移 - calendar_mgr.py → TypeScript（commands.ts + helpers.ts + db.ts） - 全部功能迁移完成，测试通过 - task 类型 + remind_at 到期提醒机制 - nudge ↔ calendar 联动：tick 先查到期提醒，有则注入 main session ## 下午：Calendar 增强 + Nudge 联动完善 - weekly/date 类型也支持 remind（之前只有 task 支持） - add-task 触发 task-created notification（写 SESSION-STATE） - weekly/date 不触发 notification（静默入库） - weekly 循环提醒：markReminded 后自动重算下周 remind_at - 修复 weekly remind_at 死循环 bug（当天时间已过时 +7 天） - calendar.db 移到 workspace/.calendar/ 目录 - nudge-calendar 联动逻辑写入 docs/knowledge/ ## 下午-晚上：Avatar idle 编码修复 + 切换测试 ### 问题 - reload_avatar 生成 idle 用 cv2 VideoWriter(mp4v/mpeg4)，streamer 解不了 - CC 之前用 ffmpeg 手动做了 h264 版本 idle_25fps.mp4 绕过",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4034005880355835,
+      "maxScore": 0.4034005880355835,
+      "firstRecalledAt": "2026-07-12T11:50:58.840Z",
+      "lastRecalledAt": "2026-07-12T11:50:58.840Z",
+      "queryHashes": [
+        "dd175484591e"
+      ],
+      "recallDays": [
+        "2026-07-12"
+      ],
+      "conceptTags": []
+    },
+    "memory:memory/daily/2026-06-30.md:36:43": {
+      "key": "memory:memory/daily/2026-06-30.md:36:43",
+      "path": "memory/daily/2026-06-30.md",
+      "startLine": 36,
+      "endLine": 43,
+      "source": "memory",
+      "snippet": "fa27d61 refactor: split into src/nudge/ 8db4edd fix: trigger progress for tasks never pushed 6e87bd1 feat: stale backoff — interval doubles 2cc1d7f feat: LLM-based reason judging f69e65c feat: rewrite judgeReason prompt — free-form inner voice a5a5dbf refactor: staleMaxIntervalMs → staleMaxIntervalMin ```",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.451292872428894,
+      "maxScore": 0.451292872428894,
+      "firstRecalledAt": "2026-07-12T14:24:08.701Z",
+      "lastRecalledAt": "2026-07-12T14:24:08.701Z",
+      "queryHashes": [
+        "d39326979549"
+      ],
+      "recallDays": [
+        "2026-07-12"
       ],
       "conceptTags": []
     }

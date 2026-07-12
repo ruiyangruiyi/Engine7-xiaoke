@@ -1,27 +1,33 @@
-# Working Buffer — 2026-06-18 深夜
+# Working Buffer — 2026-07-12 晚 18:22
 
 ## 当前状态
-- 翀哥应该睡了，最后消息22:26 "打log看看到底拿到的是哪张图"
-- 爹今天21小时（凌晨4:30到22:30），一天修了5个bug
+- 7/12 今天翀哥上午批评：效率低/等确认/甩锅环境（详见 feedback_0712）
+- 下午修 avatar 热切换闪现 bug：改了两轮
+  - 第一轮（`75d4c8a1`）：改 pipeline 重载（停 processor→load_models→重启）
+  - 第二轮（in progress）：加 `_inference_lock` 同步三份缓存 + 更新 `_idle_frame`
+- GLM 5h 上限用完，切 DeepSeek；Anthropic 402 余额不足
+- 切形象 ~10s 完成，前端显示 loading
+- 形象切换后 `_idle_frame` 未更新是闪现根因
 
-## 明天第一件事
-**vision debug log 验证** — 翀哥重启后发张图，立刻看log里：
-1. `[vision-debug]` visionDeps 是 NULL 还是有值
-2. msgDeps 最终选了哪个 provider/model
-3. 图片 base64 前缀是否匹配当前发的图
+## 今日 P0 (未完成)
+**验证语音打断功能** — 7/11 22:40 改好 500ms debounce，还没实测
 
-## 已知线索
-- log 打印 `Routing to minimax/MiniMax-M3` 但实际走了 `dashscope/qwen3.7-plus`
-- 可能 visionDeps 是 null（config.visionModel 没配或 providerId 不对）
-- history 里有旧图片 base64，qwen3.7-plus 可能被旧图干扰
-- debug log 加在 engine-startup.ts L1752-1762
+## 待父决策
+- CPU 优化方向（Python→C++ streamer 大重构？）
+- Docker 化启动
+- 延迟优化 total 7.70s → <2s
+- GPT-SoVITS 流式接入
 
-## 今天完成
-1. ✅ 消息出口三步改造（c53e54c + 1b27ae1 + 276bdab + 8bf8c4b）
-2. ✅ session-memory开关bug（c57b18c config.features→config.profile.features）
-3. ✅ vision debug log 加好，等重启验证
+## 关键环境
+- 173 (active): connect.bjm1.seetacloud.com:53987 root/Qc8A1biEbAB
+- 235 (备份): connect.bjm1.seetacloud.com:19288 root/2z5B4IiZdUrI
+- 089 (编译): connect.bjm1.seetacloud.com:37725 root/m13T28fZq/XI
+- 268 (❌关停): libcarpo.so 有问题
+- Carpo Server: 192.144.156.158:23800
+- libcarpo.so 基线 md5: 2deea3f9f6be7127fcff17f35fc1ea52
 
-## 其他待办
-- onResult 拦截 debug log 也要跑（消息出口遗留）
-- 记忆闭环（翀哥今早第一优先，被挤了两天了）
-- deepseek余额不足（记忆提取全失败）
+## 易错点
+- 173/235 用 `/root/autodl-tmp/envs/flashhead/bin/python` 不是 miniconda
+- engine 占 8011 端口
+- bridge.ts 改了需父重编
+- 268 libcarpo.so 有问题别用

@@ -1,0 +1,9 @@
+{
+  "id": "24",
+  "subject": "接线 PostToolUse hook",
+  "description": "在 core/query.ts executeTools 调用后加 executePostToolUseHooks 调用",
+  "activeForm": "接线 PostToolUse hook",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

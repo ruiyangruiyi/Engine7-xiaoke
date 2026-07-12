@@ -1,0 +1,12 @@
+[batch_import] Merged 1380 files into data\merged_topics
+[batch_import] Timeline: 1859 events from 1372 docs
+2026-06-21 22:50:14,243 - cognifold.pipeline - INFO - Loaded 1859 events from data\timeline.json
+2026-06-21 22:50:14,246 - cognifold.simulator - INFO - Starting event processing event_id=w-e80eb3542314-0000 title=主题记忆索引 · chunk 1/52
+2026-06-21 22:50:44,909 - cognifold.utils.embeddings - ERROR - Error generating embeddings: Error code: 404 - {'error': {'message': 'model "text-embedding-3-small" not found, try pulling it first', 'type': 'not_found_error', 'param': None, 'code': None}}
+2026-06-21 22:50:44,949 - cognifold.utils.embeddings - ERROR - Error generating embeddings: Error code: 404 - {'error': {'message': 'model "text-embedding-3-small" not found, try pulling it first', 'type': 'not_found_error', 'param': None, 'code': None}}
+2026-06-21 22:50:44,987 - cognifold.utils.embeddings - ERROR - Error generating embeddings: Error code: 404 - {'error': {'message': 'model "text-embedding-3-small" not found, try pulling it first', 'type': 'not_found_error', 'param': None, 'code': None}}
+2026-06-21 22:50:45,009 - cognifold.utils.embeddings - ERROR - Error generating embeddings: Error code: 404 - {'error': {'message': 'model "text-embedding-3-small" not found, try pulling it first', 'type': 'not_found_error', 'param': None, 'code': None}}
+2026-06-21 22:50:45,048 - cognifold.utils.embeddings - ERROR - Error generating embeddings: Error code: 404 - {'error': {'message': 'model "text-embedding-3-small" not found, try pulling it first', 'type': 'not_found_error', 'param': None, 'code': None}}
+2026-06-21 22:50:45,053 - cognifold.utils.embeddings - ERROR - Error generating embeddings: Error code: 404 - {'error': {'message': 'model "text-embedding-3-small" not found, try pulling it first', 'type': 'not_found_error', 'param': None, 'code': None}}
+2026-06-21 22:50:45,054 - cognifold.simulator - INFO - Completed event processing
+2026-06-21 22:50:47,063 - cognifold.simulator - INFO - Starting event processing event_id=w-e80eb3542314-0001 title=主题记忆索引 · chunk 2/52

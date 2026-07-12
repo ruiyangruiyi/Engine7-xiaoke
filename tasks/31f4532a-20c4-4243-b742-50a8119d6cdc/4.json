@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "subject": "本地 curl 测试 webhook 全链路",
+  "description": "用 curl 模拟 OAC POST 到 webhook，验证能走通 dispatcher → query → LLM → POST 回 OAC",
+  "activeForm": "本地测试 OAC webhook",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

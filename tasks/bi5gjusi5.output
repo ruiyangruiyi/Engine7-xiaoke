@@ -1,0 +1,16 @@
+WARNING:root:trust_remote_code: False
+[server] Initializing voice-chat service (port=8011)
+[asr] Loading SenseVoice (model=models/iic/SenseVoiceSmall, lang=zh)...
+funasr version: 1.3.9.
+[asr] Model loaded
+[server] All models loaded
+Traceback (most recent call last):
+  File "C:\Users\24045\.openclaw\engine\src\voice-chat\python\server.py", line 200, in <module>
+    asyncio.run(main())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "C:\Users\24045\.openclaw\engine\src\voice-chat\python\server.py", line 183, in main
+    stream.mount(app, mount_path="/webrtc")
+TypeError: Stream.mount() got an unexpected keyword argument 'mount_path'

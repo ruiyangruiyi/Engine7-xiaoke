@@ -1,0 +1,20 @@
+[rebuild] Step 1: main.ts
+
+  dist\main.mjs      1.6mb ⚠️
+  dist\main.mjs.map  3.4mb
+
+⚡ Done in 78ms
+[rebuild] Step 1 done, errorlevel=0
+[rebuild] Step 2: cli-init.ts (engine7 init command)
+
+  dist\cli.mjs      15.4kb
+  dist\cli.mjs.map  28.3kb
+
+⚡ Done in 5ms
+[rebuild] Step 2 done, errorlevel=0
+[rebuild] Step 3: engine-startup.ts
+
+  dist\engine-startup.mjs      1.6mb ⚠️
+  dist\engine-startup.mjs.map  3.4mb
+
+⚡ Done in 79ms

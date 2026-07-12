@@ -1,0 +1,9 @@
+{
+  "id": "19",
+  "subject": "_carpo_on_media video 分支 + PyAV H264 decode",
+  "description": "_carpo_on_media 之前 media_type != 0 直接 return。改成：media_type==1 走 PyAV H264 codec decode H264 NAL → VideoFrame.to_ndarray(format='rgb24') → 存最近一帧到 _carpo_video_frame_locked buffer",
+  "activeForm": "实现 SDK video pull 通路",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

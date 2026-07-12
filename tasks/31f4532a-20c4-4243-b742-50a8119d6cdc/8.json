@@ -1,0 +1,9 @@
+{
+  "id": "8",
+  "subject": "processor.py — enqueue action + 改 intent status + 去掉直接 SSE",
+  "description": "改 processor.py 的 _run_proactive()：action 生成后 enqueue 到 session.action_queue + persist + 改 intent status 为 action_scheduled + 不再直接推 SSE",
+  "activeForm": "改 processor.py _run_proactive",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

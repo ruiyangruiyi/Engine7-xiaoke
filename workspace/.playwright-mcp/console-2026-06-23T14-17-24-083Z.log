@@ -1,0 +1,11 @@
+[    1160ms] [ERROR] Access to fetch at 'http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/graph' from origin 'http://127.0.0.1:9101' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://127.0.0.1:9101/realtime.html:0
+[    1161ms] [ERROR] Failed to load resource: net::ERR_FAILED @ http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/graph:0
+[    1174ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:9101/favicon.ico:0
+[    1189ms] [ERROR] Access to resource at 'http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/stream' from origin 'http://127.0.0.1:9101' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://127.0.0.1:9101/realtime.html:0
+[    1189ms] [ERROR] Failed to load resource: net::ERR_FAILED @ http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/stream:0
+[    4202ms] [ERROR] Access to resource at 'http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/stream' from origin 'http://127.0.0.1:9101' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://127.0.0.1:9101/realtime.html:0
+[    4202ms] [ERROR] Failed to load resource: net::ERR_FAILED @ http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/stream:0
+[    7217ms] [ERROR] Access to resource at 'http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/stream' from origin 'http://127.0.0.1:9101' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://127.0.0.1:9101/realtime.html:0
+[    7217ms] [ERROR] Failed to load resource: net::ERR_FAILED @ http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/stream:0
+[   10225ms] [ERROR] Access to resource at 'http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/stream' from origin 'http://127.0.0.1:9101' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://127.0.0.1:9101/realtime.html:0
+[   10225ms] [ERROR] Failed to load resource: net::ERR_FAILED @ http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/stream:0

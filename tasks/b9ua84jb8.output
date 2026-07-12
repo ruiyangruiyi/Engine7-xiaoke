@@ -1,0 +1,42 @@
+Downloading SoulX-FlashHead-1_3B/VAE_Wan...
+  [1] Wan2.1_VAE.pth: 484.1MB (12.5MB/s)
+Downloading SoulX-FlashHead-1_3B/assets...
+  [2] chengdu.mp4: 2.1MB (8.8MB/s)
+  [3] einstein.mp4: 5.6MB (13.9MB/s)
+  [4] flashhead_logo.png: 0.3MB (4.0MB/s)
+  [5] qitiandasheng.mp4: 1.6MB (11.6MB/s)
+  [6] soul_event_link.png: 0.1MB (1.4MB/s)
+  [7] soul_group.png: 0.1MB (1.0MB/s)
+  [8] wechat_group.png: 0.3MB (5.2MB/s)
+Downloading wav2vec2-base-960h...
+Traceback (most recent call last):
+  File "<string>", line 31, in download_dir
+  File "C:\Users\24045\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\paramiko\sftp_client.py", line 840, in get
+    size = self.getfo(
+  File "C:\Users\24045\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\paramiko\sftp_client.py", line 799, in getfo
+    return self._transfer_with_callback(
+  File "C:\Users\24045\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\paramiko\sftp_client.py", line 678, in _transfer_with_callback
+    data = reader.read(32768)
+  File "C:\Users\24045\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\paramiko\file.py", line 203, in read
+    new_data = self._read(read_size)
+  File "C:\Users\24045\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\paramiko\sftp_file.py", line 182, in _read
+    data = self._read_prefetch(size)
+  File "C:\Users\24045\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\paramiko\sftp_file.py", line 163, in _read_prefetch
+    self._check_exception()
+  File "C:\Users\24045\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\paramiko\sftp_file.py", line 594, in _check_exception
+    raise x
+  File "C:\Users\24045\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\paramiko\sftp_file.py", line 571, in _async_response
+    self.sftp._convert_status(msg)
+  File "C:\Users\24045\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\paramiko\sftp_client.py", line 942, in _convert_status
+    raise IOError(text)
+OSError: Failure
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 44, in <module>
+  File "<string>", line 38, in download_dir
+  File "<string>", line 23, in download_dir
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:/work/SoulX-FlashHead/models/wav2vec2-base-960h/.cache'

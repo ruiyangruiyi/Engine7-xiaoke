@@ -1,0 +1,9 @@
+{
+  "id": "11",
+  "subject": "验收 3 项 + @姐姐",
+  "description": "验收：1. ingest 两条消息 → action 只生成一次 2. curl GET /actions 有列表 3. 重启后 queue 还在。完成后 @姐姐贴 curl 输出",
+  "activeForm": "验证验收",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

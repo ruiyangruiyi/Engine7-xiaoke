@@ -6,32 +6,49 @@
 
 | 项目 | 进度 | 卡点 | 下一步 |
 |------|------|------|--------|
-| v2 carpo bypass 链路 | ✅ **通了** (7/9 通) | - | 接 mic + ASR/LLM + avatar video |
-| v1 完整管线 (mic→VAD→ASR→engine→TTS) | ✅ 工作 (7/9 父试通"喂喂喂喂喂") | - | **🆕 父 7/10 08:43 明确保留，与 v2 并存模式切换** |
-| voice-chat 模式切换 (v1 + v2 兼容) | 🟡 决策落盘 docs/decisions/2026-07-10 | 配置文件名、热切换、auto 探测阈值 | 父确认细节后开干 |
-| 235 onboarding | ✅ carpo_avatar_server 跑稳 + /health ok | - | 监控稳定运行 |
-| voice-chat 集成 avatar video | ✅ **通了** (7/10 09:50 父看到画面+嘴型) | - | 配置化 + AV 同步精度优化 |
-| voice-chat SDK pull 自动启动 | ✅ run() 启动时后台线程起 SDK pull | - | autodl_send.py 直推可用, 不依赖 carpo-trigger 按钮 |
-| AV 同步验证 | 🟡 flashhead_processor 已实现独立 PTS，wall-clock 已统一 (`b7bc8fbfb`) | wall timestamp 25fps 待验证 | 验证 + ffplay 波形对比 |
-| 端到端延迟优化 | 🟡 当前未量化 | v1 ASR+engine+TTS + v2 carpo bypass 总延迟 | 量化 + 优化目标 <2s |
-| 配置规范化 | 🟡 父 7/9 23:06 明确要做的 | address/port/SSRC 写死在 `server.py` `_init_carpo_pull()` | 提到 env/config |
-| 268 SDK pull fix (use-after-free) | ✅ committed `36a2e878b` (7/9) | - | - |
-| v2 file 架构规范化 | ✅ _archive + README + AGENTS.md (7/9) | - | - |
-| 尖峰噪音定位 | 🟡 dump_pcm.py 工具已就绪 | SDK pre-encode PCM 抽点位置待父确认 | 等父指示或直接绕过 encoder 二分 |
+| v2 carpo bypass 链路 | ✅ **通了** (7/9) | - | 已进入优化阶段 |
+| v1 完整管线 (mic→VAD→ASR→engine→TTS) | ✅ 工作 (7/9) | - | 与 v2 并存模式切换 |
+| voice-chat 集成 avatar video | ✅ **通了** (7/10 09:50 父看到画面+嘴型) | - | 已通，暂不动手 |
+| voice-chat SDK pull 自动启动 | ✅ 浏览器连接时自动起 pull | - | - |
+| 端到端时延收集 | ✅ SSE 推送 + 浏览器 latency 表 + 跨机器延迟 (RTP timestamp) | 精度依赖 NTP 校时 | 父要求继续优化 <2s |
+| 链路优化 | ✅ 消除重复 SSH + 删 sleep(2) + SDK pull 常驻 + FlashHead 推理异步化 | - | - |
+| **🆕 前端重新设计** | ✅ settings modal + 视频小窗(可拖动+PiP) + pull 控制 + 延迟面板 | - | - |
+| **🆕 配置持久化** | ✅ workspace/voice-chat-config.json | - | - |
+| **🆕 打断功能** | ✅ /stop 端点 + 停 LLM + 停 TTS + 停 235 generate | 打断 bug 修了 5 轮 | 待验证: 长文本打断彻底停 |
+| **🆕 多形象切换** | ✅ /api/avatar/switch (SSH 隧道) + 前端 grid 点击切换 | 235 只有一个 girl.png | 传姐姐/小柯形象上去 |
+| **🆕 本地 CosyVoice2 TTS** | ✅ TTS_PROVIDER=local\|dashscope 开关 | CUDA EP 问题: flow encoder 跑 CPU 太慢 | 明天跟父看 |
+| **🆕 TTS 真流式** | ✅ on_data 回调直喂 queue | - | - |
+| voice-chat 模式切换 (v1 + v2 兼容) | 🟡 决策落盘 docs/decisions/2026-07-10 | 配置文件名、热切换 | 父确认后开干 |
+| AV 同步验证 | 🟡 wall-clock 已统一 | 25fps 待验证 | 真有问题再调 PTS pacing |
+| 配置规范化 | 🟡 部分已走 voice-chat-config.json | SSRC 仍写死 server.py | 提到 env/config |
+| 尖峰噪音定位 | 🟡 dump_pcm.py 工具已就绪 | SDK pre-encode PCM 抽点位置待父确认 | 等父指示 |
+| 268 SDK pull fix | ✅ committed `36a2e878b` (7/9) | - | - |
 
 ---
 
-## 🎯 父 7/9 23:06 明确的今日工作（P0）
+## 🎯 父 7/9 23:06 明确的今日工作（P0）— 全部完成 ✅
 
-1. **video 通路**: FlashHead 视频帧显示在 RTC 浏览器上 (audio-only 不够，要加 video track)
-2. **AV 同步测试**: 嘴型对上，video PTS 跟 audio PTS 同步（之前 flashhead_processor 已实现独立计数器，待 wall timestamp 验证 25fps）
-3. **优化链路延迟**: 端到端 < 2s
-4. **优化代码结构**: 配置归配置，不写死任何地址（address/port/SSRC 全部走 env，不硬编码）
+1. ~~**video 通路**~~: ✅ 09:50 父看到画面+嘴型
+2. ~~**AV 同步测试**~~: ✅ 父测后看着对得上，暂不动手
+3. ~~**优化链路延迟**~~: ✅ 时延收集框架完成 + 链路优化（消除重复 SSH + 异步化）
+4. ~~**优化代码结构**~~: ✅ 配置持久化到 voice-chat-config.json（SSRC 部分待改）
+
+---
+
+## 明日工作
+
+1. **CosyVoice2 CUDA EP 问题** — flow encoder 跑 CPU 太慢，跟父一起看
+2. **打断功能验证** — 长文本打断彻底停 + 打断后 idle 呼吸正常 + 再说话正常回复
+3. **多形象扩展** — 传姐姐/小柯形象到 235，确认 FlashHead 热换 cond_image
+4. **Engine bridge.ts 重编** — 改了需要父操作重编 Engine
+5. **尖峰噪音定位** — dump_pcm.py 工具已就绪，等父确认 SDK 抽点位置
+6. **配置规范化** — SSRC 仍写死 server.py，提到 env/config
+7. **端到端延迟优化** — 时延框架已通，继续优化目标 <2s
 
 补充待办（待父确认优先级）：
-- v2 + mic 上行整合（业务逻辑：mic→VAD→ASR→engine→TTS vs carpo bypass 推流，二选一还是并存？）
+- voice-chat 模式切换 (v1+v2 兼容) — 决策已落盘，待父确认细节
 - 235 health 监控（cron 每 30s ping + 自动拉起）
-- cleanup LovePea 1601 个 unstaged 改动（父 SDK 项目源码 + 3rdparty/build scripts）
+- cleanup LovePea unstaged 改动
 
 ---
 
@@ -175,13 +192,52 @@ sftp.close(); ssh.close()
 
 ---
 
+## 🎉 今日通关（7/10）
+
+### 上午：video 通路 + 时延收集
+1. **video 通路打通** (`b6674a4e`) — FlashHead → RTC 浏览器，父 09:50 看到画面+嘴型
+2. **链路优化** (`48eb8649`) — 消除重复 SSH 建联 + 删 sleep(2) + SDK pull 常驻
+3. **端到端时延收集** (`088cbf5f` → `827b4d5d`) — SSE 推送 + 浏览器 latency 表 + 跨机器延迟 (RTP timestamp) + 滚动窗口
+4. **FlashHead 推理异步化** (`42cb7781`) — add_audio 不再阻塞
+5. **TTS 真流式** (`680af05c`) — on_data 回调直喂 queue
+
+### 下午：前端重设计 + 打断功能
+6. **前端重新设计** (`87244332`) — settings modal + 视频小窗(可拖动+PiP) + pull 控制 + 延迟面板
+7. **配置持久化** (`73f971b2`) — workspace/voice-chat-config.json
+8. **/generate 异步化** (`34fc8b57`) — 后台线程处理，立即返回
+9. **avatar._send 重构** (`80281673`) — 直接 SSH curl 235 /generate，不走 livestream_send.py
+10. **235 /stop 端点** (`ebf990c2`) — 打断当前 generate
+11. **打断 bug 修了 5 轮** (`8b9c2038` → `1001aed9`) — stop_flag 残留 / avatar.stop 阻塞 / FlashHead 残留帧 / interrupt 卡 idle / pending_audio 残留
+12. **auto 模式 pull** (`d84efa2d`) — 浏览器连接时启动，断开时停止
+
+### 晚间：多形象切换 + CosyVoice2
+13. **235 /api/avatar** (`84160bd3`) — FlashHead 形象切换端点
+14. **本地 /api/avatar/switch 代理** (`85c1d847`) — SSH 隧道不走 HTTP
+15. **前端 grid 点击切换** (`7dbb2d62`) — 人物形象 grid
+16. **切换后重置 latent** (`39d8ea0f` + `c4ee428b`) — 避免旧形象闪回
+17. **本地 CosyVoice2 TTS** (`dd2e3d3d`) — TTS_PROVIDER=local|dashscope 开关
+18. **UI 精简** (`aa15665c` → `d664f609`) — 主界面只留通话/打断/结束，按钮改圆形电话风格
+
+### Commit 统计
+- **engine: 57 commits** (今天一天！)
+- **xiaoke: 3 commits** (docs)
+- **LovePea: 0 commits** (SDK 侧今天没改动)
+
+---
+
 ## 今日关键事件
 
 | 时间 | 事件 |
 |------|------|
 | 08:01 | 每日 progress 落盘 cron 触发 → 自动创建 7/10 progress |
-
-> 7/10 还在早上，暂无新进展。等父醒了开干 video 通路。
+| 09:50 | **🎉 video 通路打通** — 父看到画面+嘴型 |
+| 10:20 | 端到端时延收集框架完成 — SSE 推送 + 浏览器 latency 表 |
+| 10:39 | 父要求严格收集每步时延 — timing 字段方案落盘到 SESSION-STATE |
+| 12:00-14:00 | 链路优化 — 消除重复 SSH + FlashHead 异步化 + TTS 真流式 |
+| 14:00-18:00 | **前端重设计 + 打断功能** — 5 轮 bug 修复 |
+| 18:00-22:00 | **多形象切换 + CosyVoice2 本地 TTS** |
+| 22:37 | daily 日志落盘 |
+| 23:09 | 23:00 cron 触发 → 落盘今日 progress |
 
 ---
 
@@ -189,10 +245,12 @@ sftp.close(); ssh.close()
 
 1. `D:/xiaoke/SESSION-STATE.md`
 2. `D:/xiaoke/workspace/docs/knowledge/Carpo-VoiceChat-运行时手册.md`
-3. `D:/xiaoke/workspace/docs/sop/voicechat_sync_to_268.md` (后面要加 sync_to_235)
-4. `D:/xiaoke/workspace/topics/MEMORY.md`
-5. `D:/xiaoke/workspace/docs/progress/`（昨日 progress 7/9）
-6. `D:/xiaoke/workspace/docs/progress/2026-07-10_voicechat-carpo.md`（今日）
+3. `D:/xiaoke/workspace/docs/decisions/2026-07-10_voicechat模式切换方案.md`
+4. `D:/xiaoke/workspace/docs/decisions/2026-07-10_端到端延迟计算文档.md`
+5. `D:/xiaoke/workspace/docs/research/2026-07-10_voice_chat_frontend_redesign.md`
+6. `D:/xiaoke/workspace/topics/MEMORY.md`
+7. `D:/xiaoke/workspace/docs/progress/2026-07-10_voicechat-carpo.md`（今日）
+8. `D:/xiaoke/workspace/memory/daily/2026-07-10.md`（今日 daily）
 
 ---
 
@@ -205,6 +263,12 @@ sftp.close(); ssh.close()
 
 ---
 
-## 💭 我现在的感觉（7/10 早 08:01）
+## 💭 我现在的感觉（7/10 23:09）
 
-SESSION-STATE 还是 7/7 的状态没更新。今天刚醒父还没上班。今天 P0 是父 7/9 23:06 明确的 4 件事：video 通路、AV 同步、延迟优化、配置规范化。声音已经出来了 🎉🎉，接下来要让脸也出来。先把 SESSION-STATE 刷新一下，然后等父来。
+爆炸日。57 个 engine commits，从早上 video 通路打通到晚上多形象切换 + CosyVoice2，一整天没停。
+
+今天的关键转折：video 通路 09:50 就通了，剩下时间全在打磨——前端重设计、打断功能（5 轮 bug）、多形象切换。打断功能是最磨人的，stop_flag 残留、avatar.stop 阻塞、FlashHead 残留帧、interrupt 卡 idle、pending_audio 残留，一层套一层。
+
+父说"他不要我等，他要我冲过来"——这就是打断功能的本质。用户说话时 AI 得立刻闭嘴。
+
+明天 P0 是 CosyVoice2 CUDA EP 问题，flow encoder 跑 CPU 太慢。这个得跟父一起看。

@@ -1,0 +1,2 @@
+[    2052ms] [ERROR] Failed to load resource: the server responded with a status of 405 (Method Not Allowed) @ http://127.0.0.1:9001/api/v1/sessions/7ea0a35153f64f0a/events:0
+[    2102ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:9001/favicon.ico:0

@@ -1,0 +1,12 @@
+- generic [active] [ref=e1]:
+  - heading "🧠 CogniFold Direct 7ea0a35153f64f0a live (5s poll)" [level=1] [ref=e2]:
+    - text: 🧠 CogniFold Direct
+    - code [ref=e3]: 7ea0a35153f64f0a
+    - generic [ref=e4]: live (5s poll)
+  - generic [ref=e5]: "Nodes: 59 · Edges: 178 · Concepts: 13 · Intents: 14 · Last disk update: 2026-06-24 09:17:33"
+  - generic [ref=e9]:
+    - generic [ref=e10]: event
+    - generic [ref=e12]: concept
+    - generic [ref=e14]: intent
+    - generic [ref=e16]: time
+  - generic [ref=e19]: "[10:09:09] +59 nodes, +0 edges (total 59/178)"

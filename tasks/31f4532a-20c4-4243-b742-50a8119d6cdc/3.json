@@ -1,0 +1,9 @@
+{
+  "id": "3",
+  "subject": "OnResult hook POST 回 OAC",
+  "description": "注册 OnResultHook，检测 OAC 来源的消息时把回复 POST 到 OAC :8011/oc-reply",
+  "activeForm": "实现 OnResult hook POST 回 OAC",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

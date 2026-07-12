@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "OAC webhook endpoint 接收文字",
+  "description": "在引擎 HTTP API 上加 /webhook/oac-bridge endpoint，接收 OAC POST 的文字，构造 inbound 丢给 dispatcher",
+  "activeForm": "实现 OAC webhook endpoint",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

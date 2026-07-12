@@ -1,0 +1,9 @@
+{
+  "id": "6",
+  "subject": "重构 engine-startup.ts",
+  "description": "删掉两处 OAC 代码块，改为一行 registerOacBridge() 调用",
+  "activeForm": "替换 engine-startup.ts",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

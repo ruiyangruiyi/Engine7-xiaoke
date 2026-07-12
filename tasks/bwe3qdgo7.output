@@ -1,0 +1,7 @@
+[batch_import] Merged 1380 files into data\merged_topics
+[batch_import] Timeline: 1859 events from 1372 docs
+2026-06-22 08:55:58,837 - cognifold.pipeline - INFO - Loaded 1859 events from data\timeline.json
+2026-06-22 08:55:58,868 - cognifold.simulator - INFO - Starting event processing event_id=w-e80eb3542314-0000 title=主题记忆索引 · chunk 1/52
+2026-06-22 08:56:34,572 - cognifold.graph.store - WARNING - Edge constraint violation: Edge type 'triggers' typically has target type ['intent'], got 'concept'
+2026-06-22 08:56:34,573 - cognifold.simulator - INFO - Completed event processing
+2026-06-22 08:56:36,585 - cognifold.simulator - INFO - Starting event processing event_id=w-e80eb3542314-0001 title=主题记忆索引 · chunk 2/52

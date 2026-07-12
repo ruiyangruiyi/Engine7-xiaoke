@@ -1,0 +1,13 @@
+TTS running 120s...
+[SYNC] V frame=0 pts=23 nal_type=7 size=29
+[SYNC] V frame=0 pts=23 nal_type=8 size=8
+[SYNC] V frame=0 pts=23 nal_type=5 size=8270
+[INFO] send SEI frame capture info:12345:1783419550461:0   diffTime = 0[ERR] Rtp not connected! drop sei frame.[SYNC] V frame=1 pts=63 nal_type=1 size=22
+[SYNC] V frame=2 pts=103 nal_type=1 size=355
+[SYNC] V frame=3 pts=143 nal_type=1 size=4701
+[SYNC] V frame=4 pts=183 nal_type=1 size=6693
+[SYNC] V frame=5 pts=223 nal_type=1 size=841
+[SYNC] V frame=6 pts=267 nal_type=1 size=6042[XK_PACED] ForwardLoop SendPacket: bytes=1364 ret=0
+[SYNC] V frame=7 pts=303 nal_type=1 size=903
+[SYNC] V frame=8 pts=343 nal_type=1 size=3363
+[SYNC] V frame=9 pts=383 nal_type=1 size=1465

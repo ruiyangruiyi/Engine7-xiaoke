@@ -1,0 +1,1197 @@
+[     220ms] [INFO] %c[libdiscore] 
+font-weight: bold;
+color: purple;
+ [experiment_manager] Loaded experiments from cache @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[     252ms] [LOG] %c[ProcessUtilsElectron] 
+font-weight: bold;
+color: purple;
+ setMemoryInformation not available. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[     318ms] [LOG] %c[default] 
+font-weight: bold;
+color: purple;
+ [BUILD INFO] Release Channel: stable, Build Number: 570593, Version Hash: 62eec3455049579e87da360d84dad62af536fce6 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[     320ms] [LOG] AppCrashedFatalReport: getLastCrash not supported. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[     404ms] [INFO] %c[libdiscore] 
+font-weight: bold;
+color: purple;
+ The answer for life the universe and everything is: 42 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[    1488ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://discord.com/api/v9/promotions?locale=zh-CN&platform=0:0
+[    4502ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[    4502ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[    4502ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[    4502ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[    4502ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[    4502ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[   21946ms] [LOG] %c[Routing/Utils] 
+font-weight: bold;
+color: purple;
+ transitionTo - Transitioning to /login?redirect_to=%2Fchannels%2F1504385800366854234 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   21963ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   22547ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [584ms] got hello, auth timeout=295520ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   22575ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [612ms] connected, handshaking with fingerprint: 4RfDXGnoKaMTElPO3Cg-qjTcxyVoP6meqHM8mRA4SdM @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   22827ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [865ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   23082ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1119ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   26095ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   26095ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   26095ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   26095ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   26095ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   26095ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   38258ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16295ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   38258ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   41036ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19073ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   41036ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   41642ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [606ms] got hello, auth timeout=310812ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   41682ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [646ms] connected, handshaking with fingerprint: JNLZBrGojXKNd3DTiEtdpmmfj9nBohpnETFboV1f0YU @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   41936ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [901ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   42194ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1158ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   45210ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   45210ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   45210ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   45210ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   45210ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   45210ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   57348ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16312ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   57348ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   60174ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19139ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   60175ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   62235ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2060ms] got hello, auth timeout=257464ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   62311ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2136ms] connected, handshaking with fingerprint: PqFM4LAUpfYfg1Oe4NJtQBZFyplZhJqIwAdonjlOFAc @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   62643ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2468ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   62963ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2788ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   65974ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   65974ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   65974ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   65974ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   65974ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   65974ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   77751ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [17577ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   77752ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   79976ms] [ERROR] WebSocket is already in CLOSING or CLOSED state. @ https://discord.com/assets/1f83f370a87af95c.js:0
+[   81073ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [20899ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   81074ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   82941ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1867ms] got hello, auth timeout=327865ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   83004ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1931ms] connected, handshaking with fingerprint: b5gN7v0L86katmJkfTcM73w6aoaZ8avunZ-0Yq5IXZE @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   83616ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2542ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   84208ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [3134ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   87216ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   87216ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   87216ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   87216ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   87216ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   87216ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[   97700ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16627ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   97700ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  101019ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19945ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  101020ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  102951ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1932ms] got hello, auth timeout=341966ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  102984ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1965ms] connected, handshaking with fingerprint: tG2PE8pL7ERwgPC1VQbHMO7CZSGrhQqxvbDzboRwhLo @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  103316ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2297ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  104071ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [3052ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  107089ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  107089ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  107089ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  107089ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  107089ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  107089ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  118518ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [17498ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  118518ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  121282ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [20262ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  121283ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  122463ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1180ms] got hello, auth timeout=322324ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  122512ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1230ms] connected, handshaking with fingerprint: 2QvvuVXNTQdU6fhugGQoZA3fYz3bpQxoZh_LQy8P4SY @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  122804ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1522ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  123087ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1804ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  126095ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  126095ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  126095ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  126095ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  126095ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  126095ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  137702ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16419ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  137702ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  138412ms] [ERROR] WebSocket is already in CLOSING or CLOSED state. @ https://discord.com/assets/1f83f370a87af95c.js:0
+[  142040ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [20757ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  142040ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  143942ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1903ms] got hello, auth timeout=269681ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  144001ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1961ms] connected, handshaking with fingerprint: -XSeGr69YWAM_ZdkQY2Z9wq3jySd7Um-vWJDwkv9EJo @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  144581ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2541ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  145200ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [3161ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  148214ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  148214ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  148214ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  148214ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  148214ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  148214ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  159635ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [17596ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  159636ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  163401ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [21362ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  163403ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  166449ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [3047ms] got hello, auth timeout=254312ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  166503ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [3102ms] connected, handshaking with fingerprint: mRrFVJJtFGpO-AFx1IaJ8IQGZZLB_eqgPyyj4fjVGI0 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  166842ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [3441ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  167175ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [3773ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  170186ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  170186ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  170186ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  170186ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  170186ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  170186ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  189490ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [26088ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  189490ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  192082ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [28680ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  192083ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  192891ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [809ms] got hello, auth timeout=286567ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  192954ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [871ms] connected, handshaking with fingerprint: CJN8xWzO7gxrtSrlEwwqICbjPOLFl7DHxBSuUwB-tvE @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  193268ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1186ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  193587ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1505ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  196599ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  196599ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  196599ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  196599ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  196599ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  196599ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  208556ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16474ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  208556ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  211639ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19556ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  211640ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  212759ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1120ms] got hello, auth timeout=353352ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  212779ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1140ms] connected, handshaking with fingerprint: h3Ah4mwfC1YomR2QfvhkTF4zhHiM_IbmQEgnbW_QPLI @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  213110ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1470ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  213427ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1787ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  216445ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  216445ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  216445ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  216445ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  216445ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  216445ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  228109ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16470ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  228109ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  231619ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19979ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  231620ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  232674ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1055ms] got hello, auth timeout=317814ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  232722ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1104ms] connected, handshaking with fingerprint: ROIPCIykLqopRawjU6-hO0SsLU71jqUJA_gJKhUdhto @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  233146ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1528ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  233533ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1915ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  236543ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  236544ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  236544ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  236544ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  236544ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  236544ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  248292ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16674ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  248292ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  252082ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [20463ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  252082ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  252955ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [873ms] got hello, auth timeout=292055ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  252981ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [900ms] connected, handshaking with fingerprint: 99T-khIiqlqH7t2mix_PMvDvx9HhmaNjG6_O5mSbcPk @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  253313ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1231ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  253637ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1556ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  256641ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  256641ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  256641ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  256641ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  256641ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  256641ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  268567ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16485ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  268567ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  271919ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19837ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  271919ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  273894ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1975ms] got hello, auth timeout=347850ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  273984ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2066ms] connected, handshaking with fingerprint: YC4QAisbd4bepoLqOtNFVLP3TCTi858xS2OaKNfniuY @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  274286ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2368ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  274592ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2673ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  277604ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  277604ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  277604ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  277604ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  277604ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  277604ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  296925ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [25006ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  296925ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  300042ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [28123ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  300043ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  301015ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [973ms] got hello, auth timeout=352210ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  301078ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1036ms] connected, handshaking with fingerprint: scTgUcMjEZKEfTe9JljRxTU3xrLhUkigvqrMCrwf9LI @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  301652ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1610ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  301940ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1897ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  304945ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  304945ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  304945ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  304945ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  304945ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  304945ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  324709ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [24666ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  324709ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  327882ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [27839ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  327882ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  328683ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [801ms] got hello, auth timeout=257911ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  328730ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [848ms] connected, handshaking with fingerprint: tv2XCEbNdee00C7kBGVw_shfXLspR6QsLWxtp58VTPc @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  329037ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1155ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  329343ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1462ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  332361ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  332361ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  332361ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  332361ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  332361ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  332361ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  344348ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16467ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  344349ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  348146ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [20265ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  348147ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  348942ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [796ms] got hello, auth timeout=354500ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  348960ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [814ms] connected, handshaking with fingerprint: ia6ZwGtJ2BCF5U5e7k4J6477cPmiz0Vh73AEysNf59k @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  349274ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1128ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  349581ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1434ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  352590ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  352590ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  352590ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  352590ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  352590ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  352590ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  364605ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16458ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  364605ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  367736ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19589ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  367737ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  369266ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1529ms] got hello, auth timeout=324067ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  369312ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1575ms] connected, handshaking with fingerprint: hfkgldTxvBarzfyFdYd6vePv4aTEyR-Q6zcV5eGzLfI @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  369948ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2211ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  370270ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2533ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  373276ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  373276ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  373276ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  373276ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  373276ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  373276ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  392311ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [24575ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  392311ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  396220ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [28483ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  396221ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  397620ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1400ms] got hello, auth timeout=324405ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  397710ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1490ms] connected, handshaking with fingerprint: DTXEbP0W6bKHr31U7-nmRu7Ja9DBSa9FoTgKIwU5eA8 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  398042ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1821ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  398982ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2762ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  401998ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  401998ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  401998ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  401998ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  401998ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  401998ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  412861ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16640ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  412861ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  416864ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [20643ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  416865ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  417682ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [818ms] got hello, auth timeout=280181ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  417704ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [839ms] connected, handshaking with fingerprint: 7Q_C1mjIj5XNZMVlC9_f46-IbZ2wtWQ7tkQsmtJNGpM @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  418024ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1159ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  418337ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1472ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  421353ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  421353ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  421353ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  421353ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  421353ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  421353ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  433353ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16488ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  433353ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  435479ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [18614ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  435480ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  436856ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1376ms] got hello, auth timeout=274484ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  436886ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1407ms] connected, handshaking with fingerprint: VMeIm6lh0BAbT-K7Ys1CNVidiKYuIdun65ozwuIuSso @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  437167ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1688ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  437452ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1972ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  440464ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  440464ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  440464ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  440464ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  440464ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  440464ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  459964ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [24484ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  459964ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  462009ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [26529ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  462009ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  462989ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [980ms] got hello, auth timeout=328165ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  463056ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1048ms] connected, handshaking with fingerprint: OuH3Qtn6Sgdr8_Ws94_wEzDm1XtzBZPyuqFNPWmT7lo @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  463329ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1321ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  463823ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1815ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  466841ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  466841ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  466841ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  466841ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  466841ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  466841ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  478375ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16366ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  478375ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  481017ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19008ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  481018ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  482192ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1174ms] got hello, auth timeout=354261ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  482231ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1214ms] connected, handshaking with fingerprint: zcq62bMJJGO8gwY6zH6ZXW91hpQR1xCmcRBp1kjxq0A @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  482535ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1518ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  483102ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2085ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  486111ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  486111ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  486112ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  486112ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  486112ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  486112ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  505457ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [24439ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  505457ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  508884ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [27867ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  508885ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  509898ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1013ms] got hello, auth timeout=244080ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  509945ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1061ms] connected, handshaking with fingerprint: 6hdfYl4GEXPs93b15OG-bEqjDigHtQ5ShFDajSNIab4 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  510598ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1713ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  511480ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [2595ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  514498ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  514498ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  514498ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  514498ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  514498ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  514498ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  525440ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16555ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  525440ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  527775ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [18890ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  527776ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  528355ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [580ms] got hello, auth timeout=306700ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  528420ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [644ms] connected, handshaking with fingerprint: vUmtQzl0anr2wRsRUL1eD0XbSzmfEqym2KuppIkjydw @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  528675ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [899ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  528936ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1161ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  531940ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  531940ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  531940ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  531940ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  531940ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  531940ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  544074ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16298ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  544074ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  544549ms] [ERROR] WebSocket is already in CLOSING or CLOSED state. @ https://discord.com/assets/1f83f370a87af95c.js:0
+[  546462ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [18686ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  546463ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  547019ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [557ms] got hello, auth timeout=304814ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  547049ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [587ms] connected, handshaking with fingerprint: qvmQfqz0X-eRNyPOzf4QSOKlFoIrhFhaZn-Az0smvFg @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  547301ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [839ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  547551ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1088ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  550556ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  550556ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  550556ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  550556ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  550556ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  550556ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  562745ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16283ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  562746ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  565716ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19253ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  565717ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  566753ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1036ms] got hello, auth timeout=342661ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  566795ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1078ms] connected, handshaking with fingerprint: F-BaJlMsD2X_hvjXytEhabQuGg2Mbp_c3ezEXUfYw3E @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  567091ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1375ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  567703ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1986ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  570710ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  570710ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  570711ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  570711ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  570711ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  570711ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  582462ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16745ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  582462ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  585914ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [20198ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  585916ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  587012ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1097ms] got hello, auth timeout=275763ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  587047ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1133ms] connected, handshaking with fingerprint: PqW-5tCAPoAqGUKqKHYv2GvaL1zsKB33V3QbhvhAwsQ @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  587346ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1431ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  587639ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1725ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  590652ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  590652ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  590652ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  590652ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  590652ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  590652ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  602672ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16758ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  602673ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  605364ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19450ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  605365ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  606167ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [802ms] got hello, auth timeout=261220ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  606219ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [855ms] connected, handshaking with fingerprint: p8fXgAG2kGL9JL26TBkq6E0oNwOCU5YVOP5KsOF6KeE @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  606535ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1170ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  606852ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1487ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  609867ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  609867ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  609867ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  609867ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  609867ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  609867ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  629836ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [24471ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  629836ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  633982ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [28617ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  633983ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  634783ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [801ms] got hello, auth timeout=337248ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  634824ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [841ms] connected, handshaking with fingerprint: ZNndJ5Ms1J3lanOLYxHFjzQoJrvmMD1uRVXQnvYu9nI @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  635133ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1151ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  635446ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1463ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  638452ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  638452ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  638452ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  638452ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  638452ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  638452ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  650458ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16476ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  650459ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  652878ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [18896ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  652879ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  653620ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [741ms] got hello, auth timeout=335065ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  653651ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [773ms] connected, handshaking with fingerprint: uS3SJPFsRnOVKClTt4kC94JK5c2dPFHMuD2EFsSjnJI @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  653940ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1061ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  654239ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1360ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  657244ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  657244ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  657244ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  657244ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  657244ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  657244ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  669278ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [16399ms] disconnected, code: 1006  @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  669278ms] [ERROR] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ Could not complete Remote Auth login, trying to restart with a new Remote Auth session. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  672273ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [19394ms] cleaning up @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  672274ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  673339ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1066ms] got hello, auth timeout=319922ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  673383ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1109ms] connected, handshaking with fingerprint: yDXH-28LaWM7R2mqTOP8K7ZIsoUi_OAeNW6wpOEo3gI @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  673722ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1448ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  674054ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1780ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  677059ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  677059ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  677059ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  677059ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  677059ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  677059ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0

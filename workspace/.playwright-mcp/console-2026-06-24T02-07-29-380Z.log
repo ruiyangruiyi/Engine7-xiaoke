@@ -1,0 +1,2 @@
+[      83ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:9201/favicon.ico:0
+[   87135ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:9201/graph.json?ts=1782266934455:0

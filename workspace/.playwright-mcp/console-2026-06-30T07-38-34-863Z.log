@@ -1,0 +1,14 @@
+[    1059ms] [LOG] %c本页面由 京东-主站前端团队 开发维护 
+
+                      -- JDC  color: #6190e8; @ https://storage.360buyimg.com/channel2022/jd_home/0.0.179/static/js/index.chunk.js:0
+[    1338ms] [WARNING] Mixed Content: The page at 'https://www.jd.com/' was loaded over HTTPS, but requested an insecure element 'http://img1.360buyimg.com/n4/jfs/t2500/11/1019004610/2042/57d0cc2/56397029Ndd6d123e.jpg'. This request was automatically upgraded to HTTPS, For more information see https://blog.chromium.org/2019/10/no-more-mixed-messages-about-https.html @ https://www.jd.com/:0
+[    1429ms] [ERROR] 公共组件捕获到请求失败 jsonpLogin {params: {"url":"//passport.jd.com/loginservice.aspx?method…out":2000,"jsonp":"callback","name":"jsonpLogin"}} @ https://storage.360buyimg.com/channel2022/jd_home/0.0.179/static/js/index.chunk.js:0
+[    2218ms] [WARNING] dra: running hook resp logic failed TypeError: Failed to construct 'URL': Invalid URL @ https://storage.360buyimg.com/dev-static/dra/probe-web/1.1.0/browser.js:0
+[    2472ms] [WARNING] dra: running hook resp logic failed TypeError: Failed to construct 'URL': Invalid URL @ https://storage.360buyimg.com/dev-static/dra/probe-web/1.1.0/browser.js:0
+[    2839ms] [WARNING] dra: running hook resp logic failed TypeError: Failed to construct 'URL': Invalid URL @ https://storage.360buyimg.com/dev-static/dra/probe-web/1.1.0/browser.js:0
+[    2853ms] [WARNING] dra: running hook resp logic failed TypeError: Failed to construct 'URL': Invalid URL @ https://storage.360buyimg.com/dev-static/dra/probe-web/1.1.0/browser.js:0
+[    3332ms] [WARNING] dra: running hook resp logic failed TypeError: Failed to construct 'URL': Invalid URL @ https://storage.360buyimg.com/dev-static/dra/probe-web/1.1.0/browser.js:0
+[    4046ms] [LOG] [JDAS] 通用请求拦截器已启动。 @ https://storage.jd.com/fido-source/tc/1.0.1/trace-chain-sdk.umd.min.js:6
+[    4441ms] [LOG] load js success! @ https://storage.360buyimg.com/webcontainer/js_security_v3_0.1.8.js:2
+[    4769ms] [LOG] 刷新图形验证码 appId=1000802 参数结果: true @ https://storage.jd.com/retail-mall/jdc_user_login/pc/user/login/0.0.24/js/newLogin/login.js:1
+[    4804ms] [LOG] spm初始化完毕 @ https://storage.jd.com/retail-mall/jdc_user_login/pc/user/login/0.0.24/js/login2025_append.js:1

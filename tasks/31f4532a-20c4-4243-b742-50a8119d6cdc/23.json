@@ -1,0 +1,9 @@
+{
+  "id": "23",
+  "subject": "接线 PreToolUse hook",
+  "description": "在 core/query.ts executeTools 调用前加 executePreToolUseHooks 调用",
+  "activeForm": "接线 PreToolUse hook",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

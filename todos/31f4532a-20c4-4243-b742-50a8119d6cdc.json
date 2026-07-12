@@ -1,17 +1,27 @@
 [
   {
-    "content": "改所有 dist 引用为 .mjs（bin/package.json/start.cmd模板/engine-startup）",
+    "content": "改造 SESSION-STATE.md 加入 task_plan 结构（Current Phase + Phase 子任务）",
     "status": "in_progress",
-    "activeForm": "改 dist 引用为 .mjs"
+    "activeForm": "改造 SESSION-STATE 加入 task_plan 结构"
   },
   {
-    "content": "重新 rebuild + repack tgz",
+    "content": "写 inject-plan.sh 适配 SESSION-STATE，注册 hooks config",
     "status": "pending",
-    "activeForm": "重新打包"
+    "activeForm": "写 inject-plan.sh + 注册 hooks"
   },
   {
-    "content": "更新 SESSION-STATE",
+    "content": "改造 nudge 读 task_plan in_progress Phase",
     "status": "pending",
-    "activeForm": "更新状态"
+    "activeForm": "改造 nudge 读 task_plan"
+  },
+  {
+    "content": "SOP 加\"收到任务先拆 task_plan\"步骤",
+    "status": "pending",
+    "activeForm": "SOP 加 task_plan 拆解步骤"
+  },
+  {
+    "content": "验证：用\"手机访问 server.py\"走一遍完整流程",
+    "status": "pending",
+    "activeForm": "验证完整流程"
   }
 ]

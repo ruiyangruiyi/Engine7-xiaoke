@@ -1,0 +1,9 @@
+{
+  "id": "12",
+  "subject": "探索项目上下文",
+  "description": "了解当前 voice-chat Python 层架构、OAC 可插拔 handler 模式、现有 TTS 代码",
+  "activeForm": "探索项目上下文",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

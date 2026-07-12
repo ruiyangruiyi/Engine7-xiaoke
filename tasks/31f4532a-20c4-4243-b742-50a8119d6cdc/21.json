@@ -1,0 +1,9 @@
+{
+  "id": "21",
+  "subject": "modality audio-video + _carpo_on_media SSRC 配 video",
+  "description": "server.py 改 modality=\"audio-video\"，set_ssrc 配 video SSRC（11111 local, 67890 remote - 跟 audio 配一样的 uid）",
+  "activeForm": "改 fastrtc modality + SSRC",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -41,3 +41,10 @@
 | 名字 | ID |
 |------|-----|
 | 翀哥 | o9cq80_xqecnrca1qc1qs2jjzvpa@im.wechat |
+
+## 外部群（通信规则注入白名单）
+
+| 名字 | channel_id |
+|------|-------|
+| 潘总群 | oc_9ab7077ff7a094a5d466506c86a8b5ba |
+| 飞书测试群 | oc_f5d614d176cca078a029c55f99ae2d4b |

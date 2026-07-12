@@ -1,0 +1,13 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - img
+    - img
+    - generic [ref=e11]:
+      - heading "检测到 Discord App" [level=1] [ref=e12]
+      - generic [ref=e13]: 您想在 Discord App 中打开此链接吗？
+      - button "打开 APP" [ref=e15] [cursor=pointer]:
+        - generic [ref=e18]: 打开 APP
+      - button "在浏览器中继续" [ref=e20] [cursor=pointer]:
+        - generic [ref=e21]: 在浏览器中继续
+  - generic:
+    - img

@@ -1,0 +1,13 @@
+{
+  "id": "14",
+  "subject": "Engine abort 联动",
+  "description": "Python /stop 调 engine 的 /stop 命令中断 LLM query。看 engine 已有的 /stop handler，找到正确的调用方式（可能需要走 websocket command 或 HTTP endpoint）",
+  "activeForm": "实现 engine abort 联动",
+  "status": "completed",
+  "blocks": [
+    "15"
+  ],
+  "blockedBy": [
+    "13"
+  ]
+}

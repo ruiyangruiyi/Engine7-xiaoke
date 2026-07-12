@@ -23,6 +23,13 @@ Thumbs.db
 # 大文件
 *.exe
 *.dll
+*.db
+*.mp4
+*.mov
+*.mkv
+*.avi
 
 # 媒体文件（太大）
 workspace/media/
+workspace/livestream/
+workspace/.context-debug.txt

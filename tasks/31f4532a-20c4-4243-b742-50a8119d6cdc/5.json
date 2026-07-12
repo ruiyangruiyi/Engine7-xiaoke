@@ -1,0 +1,9 @@
+{
+  "id": "5",
+  "subject": "创建 src/integrations/oac-bridge.ts",
+  "description": "创建 src/integrations/oac-bridge.ts，导出 registerOacBridge() 函数",
+  "activeForm": "创建 oac-bridge.ts",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

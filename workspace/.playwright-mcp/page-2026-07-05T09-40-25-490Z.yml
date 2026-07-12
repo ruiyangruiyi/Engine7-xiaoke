@@ -1,0 +1,6 @@
+- generic [active] [ref=f3e1]:
+  - heading "🎧 Carpo Audio Relay" [level=2] [ref=f3e2]
+  - paragraph [ref=f3e3]: ✅ WebRTC Ready! Click "Push Audio"
+  - button "▶ Start" [disabled] [ref=f3e4] [cursor=pointer]
+  - button "🔊 Push Audio" [ref=f3e5] [cursor=pointer]
+  - paragraph [ref=f3e6]: "Frames: 0 | Queue: 0"

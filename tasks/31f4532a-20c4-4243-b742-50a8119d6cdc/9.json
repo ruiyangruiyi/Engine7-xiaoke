@@ -1,0 +1,9 @@
+{
+  "id": "9",
+  "subject": "app.py — 60s 定时器扫 ActionQueue 推 SSE",
+  "description": "app.py lifespan startup 加后台 asyncio task 每 60s 扫所有 session 的 action_queue，到期的 action 推 SSE + mark_completed",
+  "activeForm": "改 app.py 加定时器",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

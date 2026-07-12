@@ -1,0 +1,12 @@
+{
+  "id": "15",
+  "subject": "端到端验证",
+  "description": "验证：voice-chat 正在说话时 POST /stop，音频立即停止 + LLM 中断 + 下一轮正常。用 curl 测试 + 看日志确认",
+  "activeForm": "验证 stop 端到端",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": [
+    "13",
+    "14"
+  ]
+}

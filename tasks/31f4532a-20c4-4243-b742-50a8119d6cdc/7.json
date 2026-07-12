@@ -1,0 +1,9 @@
+{
+  "id": "7",
+  "subject": "session.py — 加 action_queue 字段 + 初始化加载",
+  "description": "Session dataclass 加 action_queue: ActionQueue 字段。SessionManager.create_session 和 get_session recovery 时从 persist_dir/sid/action_queue.json 加载。",
+  "activeForm": "改 session.py 加 action_queue",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

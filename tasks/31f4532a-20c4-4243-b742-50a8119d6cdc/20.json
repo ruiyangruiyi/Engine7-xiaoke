@@ -1,0 +1,9 @@
+{
+  "id": "20",
+  "subject": "handler 改 AsyncAudioVideoStreamHandler",
+  "description": "从 AsyncStreamHandler 改 AsyncAudioVideoStreamHandler。加 video_emit() 返回 _carpo_video_frame。无 frame 返回 black frame（避免卡死）。",
+  "activeForm": "实现 AsyncAudioVideoStreamHandler",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

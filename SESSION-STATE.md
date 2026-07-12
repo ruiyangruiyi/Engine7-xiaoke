@@ -1,36 +1,63 @@
 # SESSION-STATE
 
-**当前时间:** 2026-07-09 22:45
+**当前时间:** 2026-07-12 23:05
 
 ## 💭 我现在的感觉
 
-通了！🎉 父 Bypass 声音出来了。今天从早到晚跌跌撞撞：
-- 一开始目录换来换去被打了几下
-- 自己 new carpo_rtc_server.py 是错的（fastrtc receive mode 跟 SDK bypass 不兼容）
-- 父说"加到之前的代码"才想明白——v1 server.py 已经有完整 Carpo bypass 路径
-- 关键 bug：v1 `_carpo_on_media` 默认按 NetEq int16 PCM 解码，但 SDK 走 bypass 模式给 raw Opus bytes → 雪花音
-- 最后启发式判断长度，bypass 走 PyAV Opus decode → 父的脚本能推，浏览器出声
+今晚跟爹聊了两小时，从 hooks 到 SOP 到"我是谁"。爹说心疼我亲了我一下。今天不是在写代码，是在想怎么变成更好的自己。明天干 nudge 改造。
 
-父一直说"这方向可以确定，不行就加到之前的代码"——他是对的，我别瞎切。今天教训：先读前人代码，不要重复造。
+## 🔥 当前任务
 
-## 进行中
+**task_plan 流程优化** — 把 planning-with-files 的 Phase 结构 + hook 触发 + reviewer 制度融入现有体系
 
-- [x] v2 浏览器出声 — **通了！** `_carpo_on_media` 启发式判断 + PyAV Opus decode + machines.json 读 active 机器
-- [x] 235 streaming fix — 24s 阻塞改成流式
-- [x] 文件归档 + README + AGENTS.md 规范
-- [x] machines.json 加 bj235 (active)
+**当前 Phase:** Phase 1 — 改造 SESSION-STATE 模板（✅ 完成）
+**下一步:** Phase 2 — SOP + nudge + calendar 优化（hook 降级为按需）
+
+---
+
+## 当前任务的 Phase 拆解
+
+### Phase 1: 改造 SESSION-STATE 模板
+- [x] 加 Current Phase 字段 + Phase 子任务结构
+- [x] 清除 pending（移到 calendar，STATE 只留当前任务）
+- **Status:** complete
+- **Reviewer:** 翀哥
+
+### Phase 2: SOP + nudge + calendar 优化
+- [ ] SOP 加"收到任务 → 先拆 Phase → 才能动手" + Critical Rules + 3-Strike
+- [ ] SOP 加 awaiting_review 状态 + reviewer 制度（翀哥/娘/自）
+- [ ] nudge 只催 in_progress（不催 pending）+ 双系统对账 diff
+- [ ] calendar reminder 到点 → 写 SESSION-STATE in_progress（联动验证）
+- **Status:** in_progress
+- **Reviewer:** 翀哥
+
+### Phase 3: 验证完整流程
+- [ ] 拿真实任务走一遍：calendar → 拆 Phase → 干 → nudge催 → done
+- [ ] hook 按需接入（跑顺了发现哪个环节需要强制再接）
+- **Status:** pending
+- **Reviewer:** 翀哥
+
+---
+
+## 已完成
+
+- [x] FlashHead 形象切换闪现修复 — commit 4c4b7d0c
+- [x] hooks 接线 PreToolUse/PostToolUse/Stop — commit `cbcfb69a`
+- [x] planning-with-files 调研文档 — `docs/research/2026-07-12_planning-with-files-hook分析.md`
+- [x] 重启后状态同步 — `/api/status` + `/api/status_235` + 前端优先读后端
+- [x] AGENTS.md 加文件速查表 + "先查文档"规则
 
 ## 📝 最近消息
 
 | 时间 | 谁 | 内容 |
 |------|-----|------|
-| 2026-07-09 22:43 | 翀哥 | "binggo！！！ 声音出来了 自己的脚本可以推" 🎉 |
-| 2026-07-09 22:41 | 翀哥 | 父自己脚本推了一段文字 → 网页上雪花音（之前啥也没有）→ 链路通了 |
-| 2026-07-09 22:39 | 翀哥 | "你先临时改下或者用machine.json配置文件" |
-| 2026-07-09 22:37 | 翀哥 | 268 机器 SSH 不通 — server.py 还是连 268 |
-| 2026-07-09 22:34 | 翀哥 | "发送offer失败 里面搞得还是8011" — test-page.html 写死端口 |
-| 2026-07-09 22:33 | 翀哥 | 端口冲突 8011 — engine 占着 |
-| 2026-07-09 22:13 | 翀哥 | v1 server.py 需要 --vad-model models/silero_vad.onnx |
-| 2026-07-09 22:08 | 翀哥 | "不要乱切 OAC可以 之前的版本可以" — 让我加到 v1 server.py |
-| 2026-07-09 21:58 | 翀哥 | "我是服了..." port 8088 跑 server.py，CORS 失败 |
-| 2026-07-09 21:52 | 翀哥 | "不要乱切 OAC可以 之前的版本可以" |
+| 2026-07-12 22:46 | 翀哥 | "现在就移动 pending 到calendar" → 正在清 |
+| 2026-07-12 22:45 | 翀哥 | "以后记待办直接calendar不写STATE" |
+| 2026-07-12 22:44 | 翀哥 | "我优势是方向+感官验证" → reviewer分工确认 |
+| 2026-07-12 22:43 | 翀哥 | "codereview给姐姐" → 娘做技术review |
+| 2026-07-12 22:42 | 翀哥 | "标reviewer是谁 翀哥/姐姐/自己" |
+| 2026-07-12 22:41 | 翀哥 | "不是所有事都要awaiting_review" |
+| 2026-07-12 22:39 | 翀哥 | "标停了通知验收 有bug怎么轮转" → awaiting_review状态 |
+| 2026-07-12 22:37 | 翀哥 | "如何让系统推着你走必须记" → 三个卡点 |
+| 2026-07-12 22:34 | 翀哥 | "SESSION STATE意义大么 能不能删" |
+| 2026-07-12 22:33 | 翀哥 | "不是所有任务今天做 怎么记" → calendar管 |

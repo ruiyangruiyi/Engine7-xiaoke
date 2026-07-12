@@ -1,0 +1,19 @@
+[
+  {
+    "session_id": "7ea0a35153f64f0a",
+    "intent_id": "a-schedule-pending-tasks-tomorrow",
+    "label": "将所有pending任务排入calendar并打通reminder联动",
+    "description": "用户明确明天的计划：把所有现有pending任务排进calendar，并打通calendar→SESSION-STATE的reminder联动，使得pending任务到时间自动转为in_progress。",
+    "status": "pending",
+    "strength": 0.5,
+    "suggested_time": "2026-07-13T09:00:00+08:00",
+    "related_concepts": [
+      {
+        "id": "c-pending-task-calendar-rule",
+        "label": "Pending Task Calendar Rule"
+      }
+    ],
+    "_received_at": "2026-07-12T14:27:52.448Z",
+    "title": "将所有pending任务排入calendar并打通reminder联动"
+  }
+]

@@ -1,0 +1,13 @@
+[     373ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8022/favicon.ico:0
+[   13881ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8022/offer:0
+[   13881ms] TypeError: Failed to execute 'setRemoteDescription' on 'RTCPeerConnection': Failed to read the 'type' property from 'RTCSessionDescriptionInit': The provided value 'null' is not a valid enum value of type RTCSdpType.
+    at start (http://localhost:8022/:43:12)
+[   56671ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8022/health:0
+[   56671ms] TypeError: Failed to fetch
+    at pollHealth (http://localhost:8022/:51:19)
+[   56922ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8022/health:0
+[   56922ms] TypeError: Failed to fetch
+    at pollHealth (http://localhost:8022/:51:19)
+[   59002ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8022/health:0
+[   59002ms] TypeError: Failed to fetch
+    at pollHealth (http://localhost:8022/:51:19)

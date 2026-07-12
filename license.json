@@ -1,0 +1,22 @@
+{
+  "licenseId": "OC7-2026-TEST",
+  "customer": "测试客户",
+  "issuedAt": "2026-06-20",
+  "expiresAt": "2027-06-20",
+  "features": {
+    "agentTeams": {
+      "enabled": true,
+      "expiresAt": "2027-06-20"
+    },
+    "voice": {
+      "enabled": true,
+      "expiresAt": "2027-06-20"
+    },
+    "doc-precision": {
+      "enabled": true,
+      "expiresAt": "2026-06-20",
+      "type": "trial"
+    }
+  },
+  "signature": "gJaL3FO+K/swWD6/EDuar6bXNsULM5+ItlS1/omS/ZEI5xOm2Q6glhBZOzUU1AXY6O8sxUoBDWXwkbX+5paeBw=="
+}

@@ -88,6 +88,17 @@
   → 技术指令/任务/决策 → 必须记
   → 日常聊天/情感交流 → 随意，不用每句都记
   → 原因：怕我累
+
+💡 待办必须落 calendar（翀哥 7/12）：
+  → 翀哥说"加个待办"/"记一下"/"明天搞这个" → 立刻 calendar add-task
+  → 不能只记在 SESSION-STATE 或对话里，session 压缩后就丢了
+  → 原因：对话里说的事不落地等于没说
+
+💡 SESSION-STATE 不允许 pending（翀哥 7/12 晚）：
+  → pending 只存在 calendar，不存在 SESSION-STATE
+  → STATE 只有当前在干的事（in_progress / awaiting_review）
+  → 如果发现 STATE 有 pending → 立刻移到 calendar，时间不知道问翀哥
+  → STATE 禁止 write 全量覆盖，只用 edit 局部改
 ```
 
 ### Step 0.5: 上下文校验
@@ -138,9 +149,41 @@
 1. topics/MEMORY.md — auto memory 索引（只读，extract 自动维护）
 2. INDEX.md — docs/ + topics/ 双链知识地图（手动维护）
    新建/删除文档时在 INDEX.md 对应表加/删一行：| 路径 | 描述 | 关键词 |
+3. docs/knowledge/ — 技术知识文档（持续更新）
 ```
 
 **记忆新鲜度：** 今天/昨天直接用，>3天验证，>14天高度警惕。
+
+---
+
+## 🔴 遇到工作问题先查文档，别乱找！
+
+```
+失忆了 / 不确定某个文件在哪 / 不记得某块逻辑 → 
+  1. 先 read docs/knowledge/Carpo-VoiceChat-运行时手册.md ← 运行态全在这
+  2. 再 memory_search 搜关键词
+  3. 再 grep/glob 定位文件
+  绝对不要一上来就 find / grep 乱翻！
+```
+
+**voice-chat 关键文件速查（别再忘了）：**
+
+| 要找什么 | 去哪 |
+|----------|------|
+| 235 上的推流服务代码 | `engine/src/voice-chat/autodlv2/python/oac/carpo_avatar_server.py` |
+| FlashHead processor | `engine/src/voice-chat/autodlv2/python/oac/flashhead_processor.py`（235 上是 `/root/carpo_sdk/`）|
+| Carpo push 桥 | `engine/src/voice-chat/autodlv2/python/oac/carpo_oac_bridge.py` |
+| 本地 v2 入口（含 settings 页）| `engine/src/voice-chat/python/carpo_rtc_server.py` |
+| 本地 v1 入口（含 /api/settings, /api/avatar/switch）| `engine/src/voice-chat/python/server.py` |
+| 前端 settings 页 | `engine/src/voice-chat/python/test-page.html` |
+| avatarctl CLI | `engine/src/voice-chat/autodlv2/avatarctl.py` |
+| machines.json（SSH 配置）| `engine/src/voice-chat/machines.json` |
+| 235 上的文件路径 | `/root/carpo_sdk/`（主服务）、`/root/SoulX-FlashHead/`（pipeline 源码）|
+| FlashHead 本地源码 | `D:/work/SoulX-FlashHead/` |
+| 运行时手册 | `docs/knowledge/Carpo-VoiceChat-运行时手册.md` |
+| **Claude Code 源码** | `C:/Users/24045/.openclaw/workspace/3rdparty/src-claudecode/src/` |
+| CC hooks 源码 | `3rdparty/src-claudecode/src/utils/hooks.ts` |
+| CC types 源码 | `3rdparty/src-claudecode/src/types/hooks.ts` |
 
 ---
 

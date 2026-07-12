@@ -1,0 +1,54 @@
+[    7047ms] [INFO] %c[libdiscore] 
+font-weight: bold;
+color: purple;
+ [experiment_manager] Loaded experiments from cache @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[    7140ms] [LOG] %c[ProcessUtilsElectron] 
+font-weight: bold;
+color: purple;
+ setMemoryInformation not available. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[    7325ms] [LOG] %c[default] 
+font-weight: bold;
+color: purple;
+ [BUILD INFO] Release Channel: stable, Build Number: 570593, Version Hash: 62eec3455049579e87da360d84dad62af536fce6 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[    7327ms] [LOG] AppCrashedFatalReport: getLastCrash not supported. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[    7552ms] [INFO] %c[libdiscore] 
+font-weight: bold;
+color: purple;
+ The answer for life the universe and everything is: 42 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[   10350ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://discord.com/api/v9/promotions?locale=zh-CN&platform=0:0
+[   30246ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[   30246ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[   30246ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[   30246ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[   30246ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[   30246ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/channels/1504385800366854234:0
+[  190509ms] [LOG] %c[Routing/Utils] 
+font-weight: bold;
+color: purple;
+ transitionTo - Transitioning to /login?redirect_to=%2Fchannels%2F1504385800366854234 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  190536ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=2 @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  191391ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [855ms] got hello, auth timeout=332863ms @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  191426ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [890ms] connected, handshaking with fingerprint: sMiJ0XdcugSD_FLkNhKxjqwLqVJaMCXaiROuU0Vndoo @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  191749ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1214ms] computed nonce proof @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  192060ms] [INFO] %c[useAuthWebsocket] 
+font-weight: bold;
+color: purple;
+ [1525ms] handshake complete awaiting remote auth. @ https://discord.com/assets/sentry.36a95f7c8446f649.js:14
+[  195069ms] [WARNING] The resource https://discord.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  195069ms] [WARNING] The resource https://discord.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  195069ms] [WARNING] The resource https://discord.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  195069ms] [WARNING] The resource https://discord.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  195069ms] [WARNING] The resource https://discord.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0
+[  195069ms] [WARNING] The resource https://discord.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://discord.com/login?redirect_to=%2Fchannels%2F1504385800366854234:0

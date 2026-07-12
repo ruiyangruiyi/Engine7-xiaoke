@@ -1,0 +1,13 @@
+  skip .cache: Failure
+  [1] .gitattributes: 0.0MB
+  [2] README.md: 0.0MB
+  [3] config.json: 0.0MB
+  [4] feature_extractor_config.json: 0.0MB
+  [5] model.safetensors: 360.1MB
+  [6] preprocessor_config.json: 0.0MB
+  [7] pytorch_model.bin: 360.2MB
+  [8] special_tokens_map.json: 0.0MB
+  [9] tf_model.h5: 360.3MB
+  [10] tokenizer_config.json: 0.0MB
+  [11] vocab.json: 0.0MB
+Done: 11 files in 81s

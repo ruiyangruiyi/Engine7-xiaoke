@@ -15,6 +15,23 @@
 | docs/livestream-plan.md | AI闺女直播计划大纲 | 直播, 抖音, 微信巡检, 记忆系统 |
 | docs/metadata-injection-impl.md | 消息元数据注入LLM上下文的实现记录 | 元数据, inboundMeta, 三层命名 |
 | docs/wechat-reader.md | 微信PC端消息读取方案调研 | 微信, PyWxDump, wechat-cli, 合规 |
+| docs/knowledge/VoiceChat-环境文档.md | voice-chat 目录结构/机器/同步规则（autodlv2 规范） | voicechat, 环境, 268, autodl |
+| docs/knowledge/Carpo-VoiceChat-运行时手册.md | 268 carpo_avatar_server / 本机 pull 端完整调用流程 | Carpo, 268, runtime, 运行时, SSRC |
+| docs/knowledge/Carpo-bypass-fastrtc集成方案.md | bypass pull → Opus decode → fastrtc 三阶段方案 | bypass, fastrtc, Opus, WebRTC |
+| docs/knowledge/Voice-Chat进度总览.md | Voice-Chat 项目整体进度（7/2） | voice-chat, 进度 |
+| docs/knowledge/2026-07-08_Carpo-pull-Opus-bypass.md | Pull 端 Opus 旁路方案 A/B/C/D | pull, opus, bypass, NetEq |
+| docs/knowledge/2026-07-06_Carpo-Video-Push完整链路.md | Video push 链路 + x264 参数 | push, video, x264, H.264 |
+| docs/knowledge/Carpo-C-Wrapper-ctypes接口.md | C ABI + ctypes 绑定 | ctypes, ABI, wrapper |
+| docs/knowledge/Carpo-Server-Docker部署.md | Carpo Server Docker | docker, server |
+| docs/knowledge/Carpo-Linux-so编译.md | Linux .so 编译 | linux, so, compile |
+| docs/knowledge/Carpo-SDK关键参数备忘.md | SDK 关键参数 | 参数, SDK |
+| docs/knowledge/Carpo-音频链路修复总结.md | 音频链路修复历史 | audio, 修复 |
+| docs/knowledge/Carpo-H264码流输入结构.md | H.264 码流 NAL 结构 | H.264, NAL, 码流 |
+| docs/knowledge/carpo_sdk_architecture.md | Carpo SDK 架构 | 架构, SDK |
+| docs/knowledge/Carpo-SDK编译指南.md | SDK 编译指南 | 编译, build |
+| docs/knowledge/engine7_build_install_run.md | Engine7 编译安装运行 | engine, build |
+| docs/sop/voicechat_sync_to_268.md | 本地 autodlv2/python → 268 /root/carpo_sdk 同步 SOP | sync, 268, sftp, paramiko |
+| docs/progress/2026-07-09_voicechat-carpo.md | 7/9 daily progress: 项目+环境+启动关闭 | progress, voicechat, 268 |
 
 ## topics/ 记忆文件
 
@@ -60,6 +77,7 @@
 | topics/project_记忆提取修复.md | 记忆提取bug修复待办 | 提取, session_search, filter |
 | topics/project_出差0420.md | 4/20香港/深圳出差记录 | 出差, 香港, 深圳 |
 | topics/project_迁移计划.md | 小柯从Hermes搬到Engine | 迁移, Hermes, Engine |
+| topics/project_voicechat_runtime.md | 268 / Pull 端 / SSRC / 启动命令运行手册 | 268, runtime, SSRC |
 
 ### 参考资料
 | 文件 | 一句话 | 关键词 |

@@ -1,0 +1,83 @@
+{
+  "tasks": {
+    "nudge-测试任务：验证-nudge-注入是否正常": {
+      "nudgeCount": 1,
+      "maxNudge": 3,
+      "lastAt": "2026-06-30T11:57:46.596Z",
+      "lastType": "progress"
+    },
+    "voice-chat-换-avatar-+-idle.mp4-自动生成": {
+      "nudgeCount": 3,
+      "maxNudge": 3,
+      "lastAt": "2026-07-01T02:11:39.216Z",
+      "lastType": "stale",
+      "staleLevel": 1,
+      "staleLastAt": "2026-07-01T02:11:39.216Z"
+    },
+    "calendar-×-nudge-×-session-state-整合": {
+      "nudgeCount": 7,
+      "maxNudge": 3,
+      "lastAt": "2026-07-01T04:14:30.063Z",
+      "lastType": "stale",
+      "staleLevel": 2,
+      "staleLastAt": "2026-07-01T04:14:30.063Z"
+    },
+    "calendar-python→ts-迁移": {
+      "nudgeCount": 2,
+      "maxNudge": 3,
+      "lastAt": "2026-07-01T06:54:39.601Z",
+      "lastType": "progress"
+    },
+    "#15-cosyvoice-换声音测试": {
+      "nudgeCount": 9,
+      "maxNudge": 3,
+      "lastAt": "2026-07-01T13:08:46.832Z",
+      "lastType": "stale",
+      "staleLevel": 2,
+      "staleLastAt": "2026-07-01T13:08:46.832Z"
+    },
+    "carpo-中心转发架构实施": {
+      "nudgeCount": 22,
+      "maxNudge": 3,
+      "lastAt": "2026-07-02T08:27:38.160Z",
+      "lastType": "stale",
+      "staleLevel": 2,
+      "staleLastAt": "2026-07-02T08:27:38.160Z"
+    },
+    "验证-calendar-add-task-notification-+-reminder-callb": {
+      "nudgeCount": 2,
+      "maxNudge": 3,
+      "lastAt": "2026-07-02T03:29:02.620Z",
+      "lastType": "progress"
+    },
+    "验证-reminder-config-生效": {
+      "nudgeCount": 2,
+      "maxNudge": 3,
+      "lastAt": "2026-07-02T03:58:30.100Z",
+      "lastType": "stale",
+      "staleLevel": 2,
+      "staleLastAt": "2026-07-02T03:58:30.100Z"
+    },
+    "重构-calendar-add-task-+-reminder-走-setnotificationc": {
+      "nudgeCount": 4,
+      "maxNudge": 3,
+      "lastAt": "2026-07-02T04:28:58.890Z",
+      "lastType": "stale",
+      "staleLevel": 1,
+      "staleLastAt": "2026-07-02T04:28:58.890Z"
+    },
+    "carpo-sdk-编译": {
+      "nudgeCount": 1,
+      "maxNudge": 3,
+      "lastAt": "2026-07-02T08:52:46.393Z",
+      "lastType": "progress"
+    },
+    "修-linux-.so-编译（缺--dwebrtc_posix-导致大量编译失败）": {
+      "nudgeCount": 1,
+      "maxNudge": 3,
+      "lastAt": "2026-07-05T04:04:11.316Z",
+      "lastType": "progress"
+    }
+  },
+  "lastAnyNudgeAt": "2026-07-05T04:04:11.317Z"
+}

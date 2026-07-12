@@ -1,0 +1,16 @@
+- generic [active] [ref=e1]:
+  - heading "🧠 CogniFold Realtime 7ea0a35153f64f0a disconnected" [level=1] [ref=e2]:
+    - text: 🧠 CogniFold Realtime
+    - code [ref=e3]: 7ea0a35153f64f0a
+    - generic [ref=e4]: disconnected
+  - generic [ref=e5]: "Nodes: 0 · Edges: 0 · Last update: —"
+  - generic [ref=e6]:
+    - button "Reconnect" [ref=e7] [cursor=pointer]
+    - button "Clear Log" [ref=e8] [cursor=pointer]
+    - button "Trigger Test Event" [ref=e9] [cursor=pointer]
+  - generic [ref=e13]:
+    - generic [ref=e14]: event
+    - generic [ref=e16]: concept
+    - generic [ref=e18]: intent
+    - generic [ref=e20]: time
+    - generic [ref=e22]: action

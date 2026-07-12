@@ -1,0 +1,9 @@
+{
+  "id": "10",
+  "subject": "actions.py — 新建 API 路由",
+  "description": "新建 routes/actions.py：GET /sessions/{sid}/actions + GET /sessions/{sid}/actions/pending + PATCH /sessions/{sid}/actions/{aid}/status。注册到 routes/__init__.py",
+  "activeForm": "新建 actions.py 路由",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}
