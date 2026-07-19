@@ -30,6 +30,7 @@
 | docs/knowledge/carpo_sdk_architecture.md | Carpo SDK 架构 | 架构, SDK |
 | docs/knowledge/Carpo-SDK编译指南.md | SDK 编译指南 | 编译, build |
 | docs/knowledge/engine7_build_install_run.md | Engine7 编译安装运行 | engine, build |
+| docs/knowledge/OpenClaw-MemoryCore-架构与修复记录.md | OpenClaw Memory Core 架构、5个问题（filter/reindex OOM/gate层/lazy load/vec合并）、修复方案、操作手册 | memory-core, reindex, sync, filter, OOM, sqlite-vec |
 | docs/sop/voicechat_sync_to_268.md | 本地 autodlv2/python → 268 /root/carpo_sdk 同步 SOP | sync, 268, sftp, paramiko |
 | docs/progress/2026-07-09_voicechat-carpo.md | 7/9 daily progress: 项目+环境+启动关闭 | progress, voicechat, 268 |
 
