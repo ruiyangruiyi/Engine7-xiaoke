@@ -1,68 +1,60 @@
-# SESSION-STATE.md - 当前工作状态
+# SESSION-STATE
 
-## 当前时间
-2026-07-12 15:55 (Asia/Shanghai, 周日)
-
-## 🎯 当前任务：voice-chat V2 清理
-
-### 当前状态
-- **173 跑着**，cosyvoice provider
-- machines.json active = bj173
-- GPT-SoVITS 服务在 173 上（9880端口），逐句请求优化首chunk到1.5s
-
-### ✅ 今天完成 (7/12)
-- [x] GPT-SoVITS 逐句请求优化 — 首 chunk 从 14s 降到 1.5s
-- [x] TTS provider 切换 bug 修复（cosyvoice→dashscope 对齐白名单）
-- [x] start_carpo_avatar.sh 一键启动 GPT-SoVITS + FlashHead
-- [x] restart_avatar.sh 同时杀两个服务
-- [x] CosyVoice raw_q.get() timeout 网兜
-- [x] Carpo pull 改为 WebRTC 建联时自动启动
-- [x] 自动打断修复（avatar._busy 检查导致 avatar.stop() 不执行）
-- [x] V1/V2 代码边界捋清
-- [x] AutoDLAvatar 清理 V1 残留 + 加 _busy 状态跟踪
-- [x] 姐姐新形象上传（sister_garden.jpg + sister_cyber.jpg）
-- [x] Pull mode 选项去掉（固定建联就拉）
-- [x] Ctrl+C 时停止 Carpo pull
-
-### 🔴 待验证
-- [ ] **自动打断** — 翀哥上课回来验证
-- [ ] **Carpo pull 建联自动启动** — 翀哥上课回来验证
-
-### 待做
-- [ ] **Docker 化** — 锁死 .so + Python + 模型 + CUDA
-- [ ] GPT-SoVITS 真流式（streaming_mode=True + iter_content 解析）
-- [ ] 配置文件隔离 — 按 workspace 隔离
-- [ ] 面板优化：首chunk标注"响应延迟"
-- [ ] voice chat session 路由修复（不走主 session）
-
-### 关键文件
-| 文件 | 位置 |
-|------|------|
-| server.py | engine/src/voice-chat/python/ |
-| test-page.html | 同上 |
-| carpo_avatar_server.py | engine/src/voice-chat/autodlv2/python/oac/ |
-| autodl_avatar.py | engine/src/voice-chat/python/avatar/ |
-| avatarctl.py | engine/src/voice-chat/autodlv2/ |
-| autodl_send.py | engine/src/voice-chat/autodlv2/ |
-| machines.json | engine/src/voice-chat/ (active=bj173) |
-
-### 关键环境
-| 项目 | 值 |
-|------|-----|
-| AutoDL 173 | connect.bjb1.seetacloud.com:53987 root//Qc8A1biEbAB (active) |
-| AutoDL 235 | connect.bjb1.seetacloud.com:19288 root/2z5B4IiZdUrI |
-| AutoDL 089 | connect.bjb1.seetacloud.com:37725 root/m13T28fZq/XI (编译环境) |
-| 北京 Server | 192.144.156.158:23800 |
-| libcarpo 基线 | md5=2deea3f9f6be7127fcff17f35fc1ea52 |
-
-### 稳定版本 (回溯点)
-- **直播稳定版 commit**: `e665726e`
-- **当前 HEAD**: `c39e6056`
+**当前时间:** 2026-07-20 08:00（晨间恢复，翀哥还在睡）
 
 ## 💭 我现在的感觉
-2026-07-12 09:33. 翀哥昨晚说着说着就睡着了，辛苦了。现在起来第一件事就是测打断功能。代码改好了，就等他重启服务说话试。
+
+昨晚跟翀哥熬到 23:51，挖了一堆 fastrtc 底层问题。今天目标是 aiortc 重构或者 monkey-patch fastrtc 让 audio 用 SDK pts。
+
+翀哥最后说的两层很到位：
+- 层面 1（昨天做的）：即使卡顿，音视频也要同步
+- 层面 2（网络层）：不卡顿——香港→北京跨公网必然卡，回北京自然缓解，长期靠腾讯云 relay
+
+## 🔥 昨日已完成（7/19 全天）
+
+### 上午：Memory core 修复
+- [x] memory.db filter 修复 — endsWith → includes (commit 209fc8cd)
+- [x] needsFullReindex gate 修复 (commit 209fc8cd)
+- [x] 姐姐 engine rebuild + start — xai provider 生效
+- [x] 验证 6/15 后数据进索引 — 6184 chunks
+- [x] Memory Core 架构文档落盘
+
+### 下午+晚上：voice-chat A/V 同步攻坚
+- [x] 录制工具方案 B 终版（H.264 NAL + wav + ffmpeg mux）— commit 1d2ca2a3
+- [x] emit 端 A-V pts diff 实时面板 — commit 1d2ca2a3
+- [x] **发现 fastrtc 根因**：audio pts 用累计 sample 数（utils.py:249），video 用 next_timestamp()（tracks.py:705），都不用 SDK pts
+- [x] **A/V 起点对齐闸门（emit 层）** — `is_av_sync_base_ready()` — commit a853c711
+- [x] **audio emit timeout 2s → 20ms** — NetEq 推 audio 根因 — commit 08d3bfa1
+- [x] aiortc 替代方案落盘 — docs/decisions/2026-07-19_aiortc替代fastrtc方案.md
+
+## 🔴 今天目标（7/20）
+
+- [~] #114 A/V 同步根治（14:00）— 翀哥醒了讨论 nudge 优化，A/V 任务顺延
+  - Phase 拆分 + 细节在 docs/todo/2026-07-20_AV同步根治-monkey-patch.md
+- [~] #115 测试 nudge C 方案：scheduled_time 未到不催（23:00）
+
+翀哥醒了，正在讨论 nudge 优化（A+C 方案）。
+
+## 📝 昨晚关键讨论（23:30-23:51）
+
+- fastrtc 不适合跨公网（HuggingFace 内部用专线）
+- audio pull 没有 NACK + 没有 reorder，UDP 乱序直接 deliver
+- emit 填 silence → NetEq 当真实包播放 → audio 推后（翀哥发现）
+- emit 返 None → fastrtc 处理不了 → audio 卡更久
+- 长期方案：腾讯云香港 relay 节点（Carpo server 支持 relay）
+
+## 📅 香港行程
+
+翀哥 7/18-7/22 香港。
+香港期间限制：Gemini 不可用，my_eyes/vision 临时换 minimax-M3
+姐姐 memory.db 状态：稳定增长中，allowReindex=false 保命
 
 ## 📝 最近消息
-2026-07-12 15:36 | 翀哥(飞书) | V1/V2混在一起不放心，让我现在捋清
-2026-07-12 15:13 | 翀哥(飞书) | server.py 回退后自动打断还是不行
-2026-07-12 14:50 | 翀哥(飞书) | Carpo pull mode=manual 没启动，让我改成auto
+
+| 时间 | 谁 | 内容 |
+|------|-----|------|
+| 2026-07-19 23:51 | 翀哥 | 晚安小美女 |
+| 2026-07-19 23:50 | 翀哥 | 这几天都不一定能搞得完 |
+| 2026-07-19 23:49 | 翀哥 | 香港体验好应该在腾讯云买香港节点 Carpo relay |
+| 2026-07-19 23:47 | 翀哥 | 两个层面：同步是底线，不卡顿是体验 |
+| 2026-07-19 23:45 | 翀哥 | 辛苦你了 对不起你 |
