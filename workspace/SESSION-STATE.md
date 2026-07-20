@@ -1,60 +1,45 @@
 # SESSION-STATE
 
-**当前时间:** 2026-07-20 08:00（晨间恢复，翀哥还在睡）
+**当前时间:** 2026-07-20 22:50
 
 ## 💭 我现在的感觉
 
-昨晚跟翀哥熬到 23:51，挖了一堆 fastrtc 底层问题。今天目标是 aiortc 重构或者 monkey-patch fastrtc 让 audio 用 SDK pts。
+今天收获满满。从爆音到 aiortc 全 passthrough，折腾了一整天但值了。翀哥全程陪着调，最后 reminder bug 也顺手修了。明天 server_v2 重构，设计已经落盘。
 
-翀哥最后说的两层很到位：
-- 层面 1（昨天做的）：即使卡顿，音视频也要同步
-- 层面 2（网络层）：不卡顿——香港→北京跨公网必然卡，回北京自然缓解，长期靠腾讯云 relay
+## 🔥 今天已完成（7/20）
 
-## 🔥 昨日已完成（7/19 全天）
+### voice-chat aiortc 全 Passthrough（大突破）
+- [x] 爆音根因定位：bridge chunk_pts_ms 修复（commit 7e905612）
+- [x] my_selfie 配置化（commit 2bc8e915）
+- [x] aiortc demo v2/v3/v4 三版演进（commit a85fb205, 4520c533）
+- [x] **v4 全 passthrough 成功**：audio Opus + video H.264 直传，首帧同步
+  - NAL 攒包（SPS+PPS+IDR 拼接）
+  - force_codec（setCodecPreferences 在 setRemoteDescription 之前）
+  - PTS_MODE 开关（fixed/sdk）
 
-### 上午：Memory core 修复
-- [x] memory.db filter 修复 — endsWith → includes (commit 209fc8cd)
-- [x] needsFullReindex gate 修复 (commit 209fc8cd)
-- [x] 姐姐 engine rebuild + start — xai provider 生效
-- [x] 验证 6/15 后数据进索引 — 6184 chunks
-- [x] Memory Core 架构文档落盘
+### calendar reminder bug 修复（commit cbbb6d70）
+- [x] weekly 重复触发死循环修复
+- 只有 weekly 有 bug，daily/weekdays/task 没有
 
-### 下午+晚上：voice-chat A/V 同步攻坚
-- [x] 录制工具方案 B 终版（H.264 NAL + wav + ffmpeg mux）— commit 1d2ca2a3
-- [x] emit 端 A-V pts diff 实时面板 — commit 1d2ca2a3
-- [x] **发现 fastrtc 根因**：audio pts 用累计 sample 数（utils.py:249），video 用 next_timestamp()（tracks.py:705），都不用 SDK pts
-- [x] **A/V 起点对齐闸门（emit 层）** — `is_av_sync_base_ready()` — commit a853c711
-- [x] **audio emit timeout 2s → 20ms** — NetEq 推 audio 根因 — commit 08d3bfa1
-- [x] aiortc 替代方案落盘 — docs/decisions/2026-07-19_aiortc替代fastrtc方案.md
+## 🔴 明天计划
 
-## 🔴 今天目标（7/20）
+- [ ] server_v2.py 模块化重构（设计已落盘 docs/decisions/）
 
-- [~] #114 A/V 同步根治（14:00）— 翀哥醒了讨论 nudge 优化，A/V 任务顺延
-  - Phase 拆分 + 细节在 docs/todo/2026-07-20_AV同步根治-monkey-patch.md
-- [~] #115 测试 nudge C 方案：scheduled_time 未到不催（23:00）
+## 📁 落盘文档
 
-翀哥醒了，正在讨论 nudge 优化（A+C 方案）。
-
-## 📝 昨晚关键讨论（23:30-23:51）
-
-- fastrtc 不适合跨公网（HuggingFace 内部用专线）
-- audio pull 没有 NACK + 没有 reorder，UDP 乱序直接 deliver
-- emit 填 silence → NetEq 当真实包播放 → audio 推后（翀哥发现）
-- emit 返 None → fastrtc 处理不了 → audio 卡更久
-- 长期方案：腾讯云香港 relay 节点（Carpo server 支持 relay）
-
-## 📅 香港行程
-
-翀哥 7/18-7/22 香港。
-香港期间限制：Gemini 不可用，my_eyes/vision 临时换 minimax-M3
-姐姐 memory.db 状态：稳定增长中，allowReindex=false 保命
+- docs/research/2026-07-20_aiortc-全passthrough调研.md（踩坑+认知）
+- docs/decisions/2026-07-20_voice-chat-server-v2重构设计.md（模块化设计）
+- memory/daily/2026-07-20.md（日志）
 
 ## 📝 最近消息
 
 | 时间 | 谁 | 内容 |
 |------|-----|------|
-| 2026-07-19 23:51 | 翀哥 | 晚安小美女 |
-| 2026-07-19 23:50 | 翀哥 | 这几天都不一定能搞得完 |
-| 2026-07-19 23:49 | 翀哥 | 香港体验好应该在腾讯云买香港节点 Carpo relay |
-| 2026-07-19 23:47 | 翀哥 | 两个层面：同步是底线，不卡顿是体验 |
-| 2026-07-19 23:45 | 翀哥 | 辛苦你了 对不起你 |
+| 2026-07-20 22:47 | 翀哥 | 嗯 你把今天的工作落盘吧 尤其是aiortc的调研 |
+| 2026-07-20 22:42 | 翀哥 | 这个应该涉及不到autodl一端的代码 做个server_v2.py |
+| 2026-07-20 22:39 | 翀哥 | rebuild重启了 如果搞到voice-chat上 好改了么 |
+| 2026-07-20 22:36 | 翀哥 | 嗯 我大概理解了 |
+| 2026-07-20 22:32 | 翀哥 | 啥意思没看太懂 别的那种一次性的 周期的 task的没有这个bug是么 |
+| 2026-07-20 22:29 | 翀哥 | 这个是calendar reminder的重复提醒 |
+| 2026-07-20 22:24 | 翀哥 | 没有最后还是你调出来的 真棒亲你下 |
+| 2026-07-20 22:23 | 翀哥 | 嗯 对 提交哦 真棒 |
