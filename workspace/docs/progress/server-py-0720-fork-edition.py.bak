@@ -1,0 +1,1756 @@
+"""
+server.py — voice-chat Python 主服务
+
+职责：
+  1. fastrtc WebRTC endpoint — 浏览器接入
+  2. VAD → ASR 管线 — 音频转文字
+  3. POST ASR 文字到 engine webhook
+  4. 接收 engine 回复 → TTS → 回传浏览器
+
+启动方式：
+  python server.py --port 8011 --vad-model silero_vad.onnx ...
+
+依赖：
+  pip install -r requirements.txt
+"""
+
+import argparse
+import asyncio
+import json
+import os
+import sys
+import threading
+import numpy as np
+from pathlib import Path
+from datetime import datetime
+
+# 带 时间戳的 print
+_orig_print = print
+def print(*args, **kwargs):
+    ts = datetime.now().strftime('%H:%M:%S')
+    _orig_print(f'{ts}', *args, **kwargs)
+
+# === 命令行参数 ===
+parser = argparse.ArgumentParser(description="voice-chat Python service")
+parser.add_argument("--port", type=int, default=8011, help="HTTP/WebRTC 端口")
+parser.add_argument("--vad-model", default="silero_vad.onnx", help="Silero VAD ONNX 模型路径")
+parser.add_argument("--asr-model", default="iic/SenseVoiceSmall", help="SenseVoice 模型路径/ID")
+parser.add_argument("--asr-lang", default="zh", help="ASR 语言")
+parser.add_argument("--vad-threshold", type=float, default=0.5, help="VAD 灵敏度")
+parser.add_argument("--post-end-monitor", type=int, default=16000, help="POST_END 监控期（samples，16000=1s）")
+parser.add_argument("--tts-provider", default="none", help="TTS provider (cosyvoice, edgetts, none)")
+parser.add_argument("--tts-api-key", default="", help="TTS API Key")
+parser.add_argument("--tts-model", default="cosyvoice-v1", help="TTS 模型（百炼 cosyvoice-v1, 远程 cosyyvoice-1）")
+parser.add_argument("--tts-voice", default="", help="TTS 音色 ID")
+parser.add_argument("--tts-workspace-id", default="", help="百炼 WorkspaceId（v3/v3.5 系列需要）")
+parser.add_argument("--avatar-provider", default="none", help="Avatar provider (none, autodl)")
+parser.add_argument("--avatar-tts", default="gptsovits", help="AutoDL TTS provider (gptsovits, cosyvoice)")
+parser.add_argument("--avatar-image", default="06.jpg", help="FlashHead reference image")
+parser.add_argument("--selfie-dir", default="", help="Local dir for avatar images")
+parser.add_argument("--engine-webhook", default="http://localhost:16990/webhook/voice-chat", help="engine webhook URL")
+parser.add_argument("--playback-speed", type=float, default=1.0, help="播放速度倍率 (1.0=原速, 1.15=快15%)")
+parser.add_argument("--workspace", default="", help="workspace 目录（config 持久化路径）")
+parser.add_argument("--profile", default="", help="配置预设 (local, autodl)。指定后读 config-{profile}.json，忽略 config.json")
+args = parser.parse_args()
+
+# === workspace + 配置 ===
+_ws = args.workspace or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "xiaoke", "workspace")
+
+# === 加载模型 ===
+print(f"[server] Initializing voice-chat service (port={args.port})" + (f", profile={args.profile}" if args.profile else ""))
+
+from vad import SileroVAD
+from asr import SenseVoiceASR
+from tts import create_tts
+from avatar import create_avatar
+
+# 凭据类字段：只从命令行参数读，不进 config（防止切模式时被空值覆盖）
+_CREDENTIAL_KEYS = {"tts_api_key", "tts_voice", "tts_model"}
+
+# 配置文件：profile 优先，否则用 config.json
+if args.profile:
+    _CONFIG_FILE = os.path.join(_ws, ".voice-chat", f"config-{args.profile}.json") if _ws else None
+else:
+    _CONFIG_FILE = os.path.join(_ws, ".voice-chat", "config.json") if _ws else None
+
+def _load_config():
+    """从 workspace 读持久化配置，不存在则用默认值。
+    凭据类字段（api_key/voice/model）永远从 args 读，不被 config.json 覆盖。"""
+    import json as _json
+    defaults = {
+        "tts_provider": args.tts_provider,
+        "tts_api_key": args.tts_api_key,
+        "tts_model": args.tts_model,
+        "tts_voice": args.tts_voice,
+        "avatar_provider": args.avatar_provider,
+        "avatar_tts": args.avatar_tts,
+        "avatar_image": args.avatar_image,
+        "machine": "bj173",
+        "pull_mode": "auto",
+    }
+    try:
+        if os.path.exists(_CONFIG_FILE):
+            with open(_CONFIG_FILE, "r", encoding="utf-8") as f:
+                saved = _json.load(f)
+            if args.profile:
+                # profile 模式：所有字段都从 profile 文件读（包括凭据）
+                defaults.update(saved)
+            else:
+                # 非 profile：只用 config 覆盖非凭据字段
+                for k, v in saved.items():
+                    if k not in _CREDENTIAL_KEYS:
+                        defaults[k] = v
+            print(f"[config] Loaded from {_CONFIG_FILE}: {saved}")
+    except Exception as e:
+        print(f"[config] Load failed: {e}")
+    return defaults
+
+def _save_config():
+    """写配置到 workspace。profile 模式写 profile 文件，否则写 config.json。"""
+    import json as _json
+    try:
+        os.makedirs(os.path.dirname(_CONFIG_FILE), exist_ok=True)
+        if args.profile:
+            # profile 模式：全量保存（含凭据）
+            to_save = dict(_runtime_config)
+        else:
+            # 非 profile：只持久化非凭据字段
+            to_save = {k: v for k, v in _runtime_config.items() if k not in _CREDENTIAL_KEYS}
+        with open(_CONFIG_FILE, "w", encoding="utf-8") as f:
+            _json.dump(to_save, f, ensure_ascii=False, indent=2)
+        print(f"[config] Saved to {_CONFIG_FILE}")
+    except Exception as e:
+        print(f"[config] Save failed: {e}")
+
+_runtime_config = _load_config()
+
+vad = SileroVAD(model_path=args.vad_model, threshold=args.vad_threshold, post_end_monitor=args.post_end_monitor)
+asr = SenseVoiceASR(model_path=args.asr_model, language=args.asr_lang)
+tts = create_tts(
+    _runtime_config["tts_provider"],
+    api_key=_runtime_config.get("tts_api_key", args.tts_api_key),
+    model=_runtime_config.get("tts_model", args.tts_model),
+    voice=_runtime_config.get("tts_voice", args.tts_voice),
+    workspace_id=_runtime_config.get("tts_workspace_id", args.tts_workspace_id),
+)
+if args.selfie_dir:
+    os.environ["AVATAR_SELFIE_DIR"] = args.selfie_dir
+avatar = create_avatar(
+    _runtime_config["avatar_provider"],
+    tts_provider=_runtime_config.get("avatar_tts", args.avatar_tts),
+    cond_image=_runtime_config.get("avatar_image", args.avatar_image),
+)
+
+print(f"[server] TTS: {_runtime_config['tts_provider']}{'(disabled)' if tts is None else ''}")
+print(f"[server] Avatar: {_runtime_config['avatar_provider']}")
+print("[server] All models loaded")
+
+
+# === 摄像头感知（VLM）— 见 perception.py ===
+from perception import PerceptionManager
+from face_detect import FaceDetector
+import time as _perception_time
+
+# 全局 perception manager（复用 tts-api-key，跟 cosyvoice 同一个 DashScope key）
+_vlm_api_key = _runtime_config.get("tts_api_key", args.tts_api_key) or os.environ.get("DASHSCOPE_API_KEY", "")
+_vlm_base_url = _runtime_config.get("vlm_base_url", "") or os.environ.get("VLM_BASE_URL", "")
+_vlm_model = _runtime_config.get("vlm_model", "") or os.environ.get("VLM_MODEL", "qwen-vl-plus")
+if _vlm_api_key or _vlm_base_url:
+    _perception_mgr = PerceptionManager(api_key=_vlm_api_key, model=_vlm_model, vlm_base_url=_vlm_base_url)
+    print(f"[perception] VLM enabled (model={_vlm_model}, base_url={_vlm_base_url or 'dashscope'})")
+else:
+    _perception_mgr = None
+    print("[perception] VLM disabled (no tts-api-key or DASHSCOPE_API_KEY)")
+
+# 人脸检测器（InsightFace）— 暂时关闭，buffalo_l 太重影响性能
+# try:
+#     _face_detector = FaceDetector()
+# except Exception as e:
+#     _face_detector = None
+#     print(f"[face] Detector init failed: {e}")
+_face_detector = None
+
+
+# 环境事件回调（挥手/展示物品/场景变化→主动 POST 到 engine）
+_main_loop = None  # 主线程 event loop，prepare() 里赋值
+
+def _on_environment_event(event_type: str, description: str):
+    """VLM 检测到交互事件时，主动触发对话（从 VLM 线程池调用）"""
+    import asyncio
+    import aiohttp
+    async def _send():
+        session_id = "voice-chat-session"
+        text = f"[环境事件: {description}]"
+        payload = {"session_id": session_id, "text": text, "perception": description}
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(args.engine_webhook, json=payload) as resp:
+                    print(f"[perception] event POST ({event_type}): {resp.status}")
+        except Exception as e:
+            print(f"[perception] event POST failed: {e}")
+    # 从子线程调用，用主线程的 event loop
+    try:
+        loop = _main_loop
+        if loop and loop.is_running():
+            asyncio.run_coroutine_threadsafe(_send(), loop)
+        else:
+            # 主 loop 还没起来，新建一个
+            asyncio.run(_send())
+    except RuntimeError:
+        # 当前线程已有 loop，新建线程跑
+        import threading
+        t = threading.Thread(target=lambda: asyncio.run(_send()), daemon=True)
+        t.start()
+
+if _perception_mgr:
+    _perception_mgr.on_environment_event = _on_environment_event
+if _face_detector:
+    _face_detector.on_face_event = lambda evt_type, info: _on_environment_event(evt_type, info["desc"])
+
+
+# === WebRTC 音频处理 ===
+import gradio as gr
+from fastrtc import Stream, AsyncStreamHandler, AsyncAudioVideoStreamHandler, WebRTC
+
+# 采样率常量
+INPUT_SR = 16000   # 输入（麦克风）
+OUTPUT_SR = 24000  # 输出（TTS）
+
+# === SSE 事件广播（延迟数据 + ASR/回复文字 → 前端）===
+_sse_clients: list[asyncio.Queue] = []
+_last_engine_request_time: float = 0  # engine 请求发出的时间
+_last_tts_t0_epoch: float = 0  # TTS 开始的 epoch t0（收到 engine reply 时记录，传给前端算延迟）
+
+async def _broadcast(event: dict):
+    """广播事件给所有 SSE 客户端"""
+    for q in _sse_clients:
+        try:
+            q.put_nowait(event)
+        except asyncio.QueueFull:
+            pass
+
+
+class VoiceChatHandler(AsyncAudioVideoStreamHandler):
+    """fastrtc 音视频流处理器：VAD → ASR → engine → TTS → audio 回传；video 从 Carpo pull 解码后 emit"""
+
+    def __init__(self):
+        super().__init__(
+            expected_layout="mono",
+            output_sample_rate=OUTPUT_SR,
+            output_frame_size=480,  # 20ms at 24kHz
+        )
+        self._vad = SileroVAD(model_path=args.vad_model, threshold=args.vad_threshold, post_end_monitor=args.post_end_monitor)
+        self._audio_queue: asyncio.Queue = None
+        self._frame_count = 0  # 调试：帧计数
+        self._vad_buffer = np.array([], dtype=np.float32)  # 累积音频给 VAD
+        self._play_start_time = None  # PTS 对齐：播放起始时间
+        self._samples_played = 0      # PTS 对齐：已播放 samples 数
+        self._tts_task: asyncio.Task | None = None  # 当前 TTS 合成 task（/stop 时取消）
+        self._tts_callback = None  # TTS callback 引用（/stop 时 cancel 推数据）
+        self._playback_speed = args.playback_speed  # 播放速度：从配置读取
+        self._last_video_frame = None  # 最近一帧 RGB ndarray 缓存 (从 SDK pull 解码的)
+        self._last_video_pts_ms = 0
+
+    def stop(self):
+        """停止当前播放：清队列 + 取消 TTS + 重置 PTS"""
+        # 取消正在跑的 TTS 合成
+        if self._tts_task and not self._tts_task.done():
+            self._tts_task.cancel()
+            print("[stop] Cancelled TTS task")
+        self._tts_task = None
+        # 通知 TTS callback 不再推数据（executor 线程 cancel 不了，用 flag 拦截）
+        if self._tts_callback:
+            self._tts_callback._cancelled = True
+            print("[stop] Cancelled TTS callback")
+        self._tts_callback = None
+        # 清空音频队列
+        if self._audio_queue:
+            while not self._audio_queue.empty():
+                try:
+                    self._audio_queue.get_nowait()
+                except asyncio.QueueEmpty:
+                    break
+            print("[stop] Audio queue cleared")
+        # 重置 PTS
+        self._play_start_time = None
+        self._samples_played = 0
+        print("[stop] PTS reset")
+        # 说话打断也停 avatar generate
+        global avatar
+        if avatar and hasattr(avatar, 'stop'):
+            avatar.stop()
+    def copy(self) -> "VoiceChatHandler":
+        """fastrtc 要求：返回一个新实例（用于每个 WebRTC 连接）"""
+        return VoiceChatHandler()
+
+    async def prepare(self):
+        self._audio_queue = asyncio.Queue()
+        # 注册为活跃 handler（供 TTS 回调用）
+        global _active_handler, _main_loop
+        _active_handler = self
+        _main_loop = asyncio.get_event_loop()  # 供 VLM 线程池回调用
+
+    async def release(self):
+        # 注销活跃 handler + 停止 TTS（防止断连后 TTS 线程继续塞数据泄漏内存）
+        global _active_handler
+        if _active_handler is self:
+            _active_handler = None
+        self.stop()
+
+    async def receive(self, frame: tuple[int, np.ndarray]):
+        """收到浏览器音频帧"""
+        # 确保 _audio_queue 和 _active_handler 初始化（fastrtc 可能不调 prepare()）
+        global _active_handler, _carpo_pull_started
+        if self._audio_queue is None:
+            self._audio_queue = asyncio.Queue()
+            _active_handler = self
+            print("[server] WebRTC handler activated (lazy init in receive)")
+            # WebRTC 建联时启动 Carpo pull（avatar=none 时跳过）
+            # pull 由前端 /api/pull/start 触发，receive 不再启动 pull（避免 stop→start 冲突）
+            # WebRTC handler activated (lazy init in receive)
+            if self._audio_queue is None:
+                pass  # nothing to do for pull here
+        sample_rate, audio = frame
+        # int16 → float32 归一化
+        if audio.dtype != np.float32:
+            audio = audio.astype(np.float32) / 32768.0
+        # mono
+        if len(audio.shape) > 1:
+            audio = audio[0]  # shape (N,)
+
+        # 48kHz → 16kHz 重采样（fastrtc 传的是 48kHz，VAD/ASR 需要 16kHz）
+        if sample_rate != 16000:
+            num_samples = int(len(audio) * 16000 / sample_rate)
+            from scipy.signal import resample_poly
+            # 48000/16000 = 3/1
+            if sample_rate == 48000:
+                audio = resample_poly(audio, 1, 3)
+            else:
+                audio = resample_poly(audio, 16000, sample_rate)
+
+        # 累积到缓冲区，攒够 512 才喂 VAD
+        self._vad_buffer = np.concatenate([self._vad_buffer, audio])
+
+        # 调试：每500帧打一次（~10秒）
+        self._frame_count += 1
+        if self._frame_count % 500 == 0:
+            print(f"[server] frame #{self._frame_count} buf={len(self._vad_buffer)} max={np.abs(audio).max():.4f}")
+
+        # 按 512 sample 切片喂 VAD
+        while len(self._vad_buffer) >= 512:
+            clip = self._vad_buffer[:512]
+            self._vad_buffer = self._vad_buffer[512:]
+            status, speech = self._vad.process_clip(clip)
+            if status != "wait" and self._frame_count % 500 == 0:
+                print(f"[server] VAD: status={status}")
+            if status == "speech_start":
+                pass  # 不在这里打断，等 speech_end 确认后再断
+            if status == "speech_end" and speech is not None:
+                import time as _time
+                t_vad = _time.monotonic()
+                print(f"[latency] === speech_end! len={len(speech)} samples ({len(speech)/16000:.2f}s) ===")
+                # 语音段结束 → ASR
+                text = await self._run_asr(speech)
+                t_asr = _time.monotonic()
+                asr_latency = t_asr - t_vad
+                if text:
+                    print(f"[latency] ASR: {asr_latency:.2f}s | text={text}")
+                    # 广播 ASR 文字
+                    await _broadcast({"type": "asr", "text": text, "asr_latency": round(asr_latency, 2)})
+                    # 打断当前回复：用户说完了，新请求要发出去
+                    self.stop()
+                    # POST 到 engine
+                    await self._post_to_engine(text)
+                    t_post = _time.monotonic()
+                    print(f"[latency] engine POST: {t_post-t_asr:.2f}s")
+
+    async def emit(self) -> tuple[int, np.ndarray]:
+        """回传音频给浏览器，PTS 对齐实时速率 + 播放速度控制"""
+        import time as _time
+        if self._audio_queue is None:
+            await asyncio.sleep(0.02)
+            return (OUTPUT_SR, np.zeros(480, dtype=np.float32), None)
+        try:
+            # Carpo 模式：queue 里有数据就一直拿，没数据时等久一点（不返回静音打断节奏）
+            queue_size_before = self._audio_queue.qsize()
+            queue_item = await asyncio.wait_for(self._audio_queue.get(), timeout=2.0)
+            global _audio_decode_emits  # 提前声明，多分支共用
+            # queue_item 是 (audio_chunk, decode_ts, sdk_pts_ms) tuple
+            if isinstance(queue_item, tuple) and len(queue_item) == 3:
+                audio, decode_ts, sdk_pts_ms = queue_item
+                # 原始单帧延迟 (emit_ts - decode_ts) — 实时原始数据, 父自己判断
+                emit_ts = _time.monotonic()
+                raw_ms = (emit_ts - decode_ts) * 1000
+                _audio_decode_emits.append((decode_ts, emit_ts, raw_ms, queue_size_before))
+            elif isinstance(queue_item, tuple) and len(queue_item) == 2:
+                audio, decode_ts = queue_item
+                emit_ts = _time.monotonic()
+                raw_ms = (emit_ts - decode_ts) * 1000
+                _audio_decode_emits.append((decode_ts, emit_ts, raw_ms, queue_size_before))
+                sdk_pts_ms = None
+            else:
+                audio = queue_item  # 老格式 fallback
+                sdk_pts_ms = None
+            # A-V pts diff：audio emit 的 sdk_pts vs video 最近一次 emit 的 sdk_pts
+            global _carpo_video_pts_ms, _last_av_pts_diff_ms
+            try:
+                if _carpo_video_pts_ms and sdk_pts_ms is not None:
+                    diff = sdk_pts_ms - _carpo_video_pts_ms
+                    _last_av_pts_diff_ms = diff
+                    if _carpo_emit_count % 50 == 0:
+                        print(f"[AV_PTS_EMIT] audio_idx={_carpo_emit_count} a_pts={sdk_pts_ms} v_pts={_carpo_video_pts_ms} diff={diff:+.0f}ms", flush=True)
+                    _carpo_emit_count += 1
+            except Exception:
+                pass
+            # 首次 emit 记 timing (排除 server 启动 → WebRTC connect 的 init 延迟)
+            global _carpo_first_audio_emit_ts
+            if _carpo_first_audio_emit_ts is None:
+                _carpo_first_audio_emit_ts = _time.monotonic()
+            # 播放速度控制：线性插值拉伸/压缩
+            if self._playback_speed != 1.0:
+                target_len = int(len(audio) / self._playback_speed)
+                orig = np.arange(len(audio))
+                target = np.linspace(0, len(audio) - 1, target_len)
+                audio = np.interp(target, orig, audio).astype(np.float32)
+            # PTS 对齐：SDK pts 已经是绝对时间戳，fastrtc fork 用它对齐
+            # 不再用 _samples_played sleep 节奏控制（会跟 SDK pts 双重延迟）
+            return (OUTPUT_SR, audio, sdk_pts_ms)
+        except asyncio.TimeoutError:
+            return (OUTPUT_SR, np.zeros(480, dtype=np.float32), None)
+
+    async def _run_asr(self, audio: np.ndarray) -> str:
+        """ASR 推理"""
+        loop = asyncio.get_event_loop()
+        return await loop.run_in_executor(None, asr.transcribe, audio)
+
+    async def _post_to_engine(self, text: str):
+        """POST ASR 文字到 engine webhook，附带摄像头 perception（如有）"""
+        import aiohttp
+        import time as _time
+        global _last_engine_request_time
+        _last_engine_request_time = _time.monotonic()
+        session_id = "voice-chat-session"
+        payload = {"session_id": session_id, "text": text}
+        # 附带最近的摄像头感知历史（每次都发最近5条，不标记已读）
+        if _perception_mgr and _perception_mgr.last_perception:
+            history = _perception_mgr._perception_history
+            # 直接取最近5条
+            recent = history[-5:] if history else []
+            if recent:
+                payload["perception"] = "；".join(recent) if len(recent) > 1 else recent[0]
+            percep_age = _time.time() - _perception_mgr.last_perception_ts if _perception_mgr.last_perception_ts else -1
+            print(f"[asr] perception sent={len(recent)}条 age={percep_age:.1f}s when sending to engine")
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(args.engine_webhook, json=payload) as resp:
+                    result = await resp.json()
+                    print(f"[server] Engine response: {resp.status}")
+        except Exception as e:
+            print(f"[server] Engine POST failed: {e}")
+
+    async def video_emit(self) -> np.ndarray | None:
+        """从 SDK pull 解码的 video frame 喂浏览器。无 frame 时返回 black 帧避免卡死"""
+        if _carpo_video_lock is None:
+            await asyncio.sleep(0.04)
+            return self._black_frame()
+        with _carpo_video_lock:
+            frame = _carpo_video_frame
+            pts_ms = _carpo_video_pts_ms
+            count = _carpo_video_count
+        if frame is None:
+            await asyncio.sleep(0.04)
+            return self._black_frame()
+        self._last_video_frame = frame
+        self._last_video_pts_ms = pts_ms
+        # emit 端 video pts 记录（audio emit 端会 diff，见 emit() 函数）
+        # 滑动窗口: record video emit_ts 与最近一次 video decode_ts 的差
+        import time as _time
+        global _carpo_first_video_emit_ts, _video_decode_emits
+        if _carpo_first_video_emit_ts is None:
+            _carpo_first_video_emit_ts = _time.monotonic()
+        emit_ts_v = _time.monotonic()
+        # video decode_ts 是上一次 _carpo_on_media video 解码的时间
+        global _last_video_decode_ts
+        if _last_video_decode_ts is not None:
+            process_ms_v = (emit_ts_v - _last_video_decode_ts) * 1000
+            _video_decode_emits.append((_last_video_decode_ts, emit_ts_v, process_ms_v))
+        if count <= 3 or count % 100 == 0:
+            print(f'[video_emit] #{count} pts={pts_ms} shape={frame.shape}', flush=True)
+        return (frame, pts_ms)
+
+    def _black_frame(self) -> np.ndarray:
+        """无 video frame 时返回 512x512 black RGB"""
+        if not hasattr(self, '_cached_black') or self._cached_black.shape[0] != 512:
+            self._cached_black = np.zeros((512, 512, 3), dtype=np.uint8)
+        return self._cached_black
+
+    async def video_receive(self, frame: np.ndarray):
+        """浏览器摄像头帧 — 帧缓冲 + 每3秒提交 VLM 感知。
+        必须 zero-blocking：只做 append，不做任何 CPU 密集操作。"""
+        if not hasattr(self, '_camera_frame_count'):
+            self._camera_frame_count = 0
+            self._camera_frame_buffer: list = []
+            self._camera_last_ts = _perception_time.monotonic()
+        self._camera_frame_count += 1
+
+        # 帧时间戳（计算端到端延迟用）
+        recv_ts = _perception_time.time()
+
+        # 帧率统计
+        if _perception_mgr:
+            _perception_mgr.total_frames_received += 1
+            now = _perception_time.monotonic()
+            dt = now - self._camera_last_ts
+            if dt > 0.5:
+                _perception_mgr.fps = (self._camera_frame_count - getattr(self, '_camera_last_count', 0)) / dt
+                _perception_mgr._buffer = self._camera_frame_buffer
+                self._camera_last_count = self._camera_frame_count
+                self._camera_last_ts = now
+
+        # 每 10 帧取 1 帧（~30fps → ~3fps），带时间戳
+        if self._camera_frame_count % 10 == 0:
+            self._camera_frame_buffer.append((recv_ts, frame))
+            # 只保留最近 2 秒内的帧
+            cutoff = recv_ts - 2.0
+            self._camera_frame_buffer = [f for f in self._camera_frame_buffer if f[0] >= cutoff]
+
+            # VLM 帧延迟
+            age = recv_ts - self._camera_frame_buffer[0][0] if self._camera_frame_buffer else 0
+
+            # 每 3 秒提交 VLM（线程池异步，不阻塞）
+            if _perception_mgr and _perception_mgr.should_trigger():
+                _perception_mgr.submit(list(self._camera_frame_buffer))
+
+            if self._camera_frame_count % 100 == 0:
+                buf_sz = len(self._camera_frame_buffer)
+                percep = _perception_mgr.last_perception if _perception_mgr else 'N/A'
+                print(f'[camera] frame #{self._camera_frame_count} buffer={buf_sz} perception={percep} buf_age={age:.1f}s')
+
+    async def receive_tts_audio(self, text: str, t0_epoch: float = 0):
+        """engine 回复文字 → TTS 流式合成 → 推入回传队列"""
+        import time as _time
+        if not tts or not text:
+            return
+        loop = asyncio.get_event_loop()
+        # 推入 WebRTC 队列（纯音频模式）
+        if self._audio_queue is None:
+            print("[server] No active WebRTC connection, audio discarded")
+            return
+        # 清空队列里的旧静音帧，避免开头被延迟覆盖
+        while not self._audio_queue.empty():
+            try:
+                self._audio_queue.get_nowait()
+            except asyncio.QueueEmpty:
+                break
+        # 重置 PTS 时钟，让新一段回复重新对齐实时播放
+        self._play_start_time = None
+        self._samples_played = 0
+        # 广播回复文字
+        await _broadcast({"type": "reply", "text": text})
+        # 流式合成：边合成边推队列
+        if hasattr(tts, 'synthesize_streaming'):
+            t1 = _time.monotonic()
+            tts_first, cb = await loop.run_in_executor(
+                None, tts.synthesize_streaming, text, self._audio_queue, loop
+            )
+            self._tts_callback = cb  # 保存引用供 /stop cancel
+            t2 = _time.monotonic()
+            tts_total = t2 - t1
+            print(f"[latency] total TTS pipeline: {tts_total:.2f}s (streaming)")
+            # 广播 timing（跟 235 格式一致，前端一套逻辑）
+            await _broadcast({"type": "timing_235", "timing": {
+                "t_request_received": t0_epoch,
+                "t_tts_first_chunk": round(tts_first, 2),
+                "t_tts_last_chunk": round(tts_total, 2),
+                "total": round(tts_total, 2),
+            }})
+        else:
+            # 降级：非流式
+            t1 = _time.monotonic()
+            audio = await loop.run_in_executor(None, tts.synthesize, text)
+            t2 = _time.monotonic()
+            if len(audio) == 0:
+                print("[server] TTS returned empty audio")
+                return
+            chunk_count = 0
+            for i in range(0, len(audio), 480):
+                chunk = audio[i:i+480]
+                if len(chunk) < 480:
+                    chunk = np.pad(chunk, (0, 480 - len(chunk)), mode='constant')
+                await self._audio_queue.put(chunk)
+                chunk_count += 1
+            print(f"[latency] total TTS pipeline: {t2-t1:.2f}s (non-streaming) | {chunk_count} chunks")
+
+
+# === HTTP 回调服务 — 接收 engine 回复（FastAPI）===
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse, HTMLResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
+import uvicorn
+
+app = FastAPI(title="voice-chat")
+
+# 提供前端测试页面
+_frontend_path = Path(__file__).parent / "test-page.html"
+if _frontend_path.exists():
+    app.mount("/static", StaticFiles(directory=str(Path(__file__).parent)), name="static")
+
+@app.get("/", response_class=HTMLResponse)
+async def index():
+    if _frontend_path.exists():
+        return HTMLResponse(content=_frontend_path.read_text(encoding="utf-8"))
+    return HTMLResponse(content="<h1>test-page.html not found</h1>")
+
+# 全局 handler 引用（在 main() 里赋值）
+_handler: VoiceChatHandler | None = None
+# 活跃 WebRTC 连接的 handler（在 prepare() 里赋值）
+_active_handler: VoiceChatHandler | None = None
+
+
+@app.post("/voice-reply")
+async def handle_voice_reply(request: Request):
+    """engine POST 回复到这里 → 送入 TTS 队列"""
+    global _handler, _active_handler
+    # 手动读取 body 再解析，避免 encoding 问题
+    raw = await request.body()
+    try:
+        data = json.loads(raw)
+    except Exception:
+        # 非 UTF-8 → 尝试 latin-1 兜底再编码回 utf-8
+        try:
+            data = json.loads(raw.decode('utf-8', errors='replace'))
+        except Exception as e:
+            print(f"[server] JSON parse failed: {e}, raw={raw[:200]}")
+            return JSONResponse({"ok": False, "error": str(e)}, status_code=400)
+    text = data.get("text", "")
+    import time as _time
+    global _last_engine_request_time
+    t_reply = _time.monotonic()
+    t_reply_epoch = _time.time()
+    engine_latency = t_reply - _last_engine_request_time if _last_engine_request_time > 0 else 0
+    global _last_tts_t0_epoch
+    _last_tts_t0_epoch = t_reply_epoch
+    print(f"[latency] === engine reply received: {len(text)} chars, engine_latency={engine_latency:.2f}s ===")
+    # 广播 engine 延迟
+    await _broadcast({"type": "engine_latency", "engine_latency": round(engine_latency, 2)})
+    if not text:
+        print("[server] Empty text, skipping")
+        return JSONResponse({"ok": True, "skipped": "empty text"})
+
+    # 拦截 engine 错误信息，不传给 TTS/avatar
+    _ERROR_PATTERNS = ['api error', 'insufficient balance', 'rate limit', 'timeout', 'overloaded', 'internal server error']
+    if any(p in text.lower() for p in _ERROR_PATTERNS) and len(text) < 200:
+        print(f"[server] Engine error detected, skipping TTS: {text[:100]}")
+        text = "抱歉，我这边出了点问题，稍等一下。"
+
+    # 异步触发 Avatar（AutoDL FlashHead），不阻塞本地 TTS
+    if avatar and hasattr(avatar, 'trigger'):
+        avatar.trigger(text)
+        print(f"[avatar] Triggered AutoDL for {len(text)} chars")
+
+    # TTS 为 none 时只触发 avatar，不合成本地语音
+    if tts is None:
+        print("[server] TTS disabled (none mode), only avatar triggered")
+        await _broadcast({"type": "reply", "text": text})
+        return JSONResponse({"ok": True, "mode": "avatar_only"})
+
+    # 用活跃的 WebRTC handler（不是全局模板）
+    target = _active_handler
+    if not target or target._audio_queue is None:
+        print("[server] No active WebRTC connection, TTS will run but audio can't reach browser")
+    try:
+        if target and target._audio_queue is not None:
+            target._tts_task = asyncio.create_task(target.receive_tts_audio(text, t_reply_epoch))
+        else:
+            # 即使没 WebRTC 连接，也测一下 TTS 能不能合成
+            loop = asyncio.get_event_loop()
+            audio = await loop.run_in_executor(None, tts.synthesize, text)
+            print(f"[server] TTS test (no WebRTC): {len(audio)} samples ({len(audio) / 24000:.1f}s)")
+    except Exception as e:
+        print(f"[server] /voice-reply error: {e}")
+        import traceback
+        traceback.print_exc()
+        return JSONResponse({"ok": False, "error": str(e)}, status_code=500)
+    return JSONResponse({"ok": True})
+
+
+@app.post("/stop")
+async def handle_stop():
+    """停止当前播放：清队列 + 取消 TTS + 重置 PTS + 通知 engine 中断 LLM + 中断 AutoDL avatar"""
+    # 1. Python 侧：停 TTS + 清队列
+    if _active_handler:
+        _active_handler.stop()
+    # 2. AutoDL avatar 中断
+    if avatar and hasattr(avatar, 'stop'):
+        avatar.stop()
+    # 3. Engine 侧：中断正在跑的 LLM query
+    import aiohttp
+    try:
+        async with aiohttp.ClientSession() as session:
+            # 通过 bridge 的 stop endpoint 中断 engine query
+            engine_stop_url = args.engine_webhook.replace('/voice-chat', '/voice-chat/stop')
+            async with session.post(engine_stop_url, json={}) as resp:
+                print(f"[stop] Engine abort: {resp.status}")
+    except Exception as e:
+        print(f"[stop] Engine abort failed: {e}")
+    await _broadcast({"type": "stopped"})
+    return JSONResponse({"ok": True, "stopped": True})
+
+
+@app.get("/health")
+async def handle_health():
+    """健康检查"""
+    return JSONResponse({"status": "ok", "models": "loaded"})
+
+
+@app.get("/api/perception")
+async def handle_perception():
+    """返回当前摄像头 VLM 感知 + 人脸检测 + timing"""
+    result = {"enabled": False, "perception": ""}
+    if _perception_mgr:
+        result = _perception_mgr.get_status()
+    if _face_detector:
+        result.update(_face_detector.get_status())
+    return JSONResponse(result)
+
+
+# === Carpo relay: pull audio from Carpo → push into _active_handler._audio_queue ===
+_carpo_lib = None
+_carpo_puller = None
+_carpo_loop = None
+_carpo_frames = 0
+_carpo_buffer = np.array([], dtype=np.float32)
+_carpo_opus = None  # PyAV Opus decoder (bypass mode: callback 给 raw Opus bytes)
+_carpo_opus_sr = 48000  # 235 推到 48kHz Opus
+
+# === AutoDL SSH 连接池 (统一用 avatar.autodl_avatar.get_ssh()) ===
+
+# === Video (H.264) 状态 ===
+_carpo_h264 = None           # PyAV H264 decoder
+_carpo_video_frame = None    # 最新一帧 RGB ndarray (H, W, 3)
+_carpo_video_pts_ms = 0       # 最新帧的 wall-clock PTS
+_carpo_video_lock = None     # threading.Lock for video frame swap
+_carpo_video_count = 0       # 解码成功的 video frame 数
+_carpo_audio_pts_ms = 0      # 最新 audio 包的 wall-clock PTS（A-V sync 诊断）
+_last_av_pts_diff_ms = None  # 最近一次 emit 端 A-V pts diff (audio.sdk_pts - video.sdk_pts)
+_carpo_emit_count = 0        # emit 调用计数（用于 A-V diff print 频率控制）
+
+# === 调试录制（A-V 同步诊断）—— livestream_server.py 的 ffmpeg pipe 思路 ===
+_record_active = False       # 是否在录制
+_record_ffmpeg_proc = None   # ffmpeg 子进程
+_record_output_mp4 = None    # 输出 mp4 路径
+_record_video_frame_buf = [] # 累积 video RGB frames（最后一次性 write stdin）
+_record_audio_buf = []       # 累积 audio PCM bytes（最后一次性 write stdin）
+_record_video_count = 0      # 接收的视频帧数
+_record_audio_count = 0      # 接收的音频包数
+_record_started_ts = None    # 录制启动 monotonic
+_record_video_first_pts = None
+_record_audio_first_pts = None
+_record_video_w = 512
+_record_video_h = 512
+_record_video_fps = 25
+_record_audio_sr = 48000
+
+# === 端到端时延统计 ===
+_carpo_first_audio_pull_ts = None  # SDK pull 第一个 audio 包的 wall-clock
+_carpo_first_video_pull_ts = None  # SDK pull 第一个 video 包的 wall-clock
+_carpo_first_audio_decode_ts = None  # PyAV Opus 解码成功第一个
+_carpo_first_video_decode_ts = None  # PyAV H264 解码成功第一个
+_carpo_first_audio_emit_ts = None   # WebRTC emit 第一个 audio
+_carpo_first_video_emit_ts = None   # WebRTC emit 第一个 video
+# 滑动窗口: 每帧记录 decode/emit timestamp, 计算最近 N 帧的平均处理延迟
+import collections as _collections
+# 每个 audio chunk push 进 queue 时同时塞 (decode_ts, audio_array)
+# emit 时 pop 出, 记录 emit_ts - decode_ts = 单帧处理延迟
+_audio_decode_emits = _collections.deque(maxlen=200)   # 存 (decode_ts, emit_ts) pair
+_video_decode_emits = _collections.deque(maxlen=200)
+_last_audio_pull_ts = None          # 最近一次 SDK pull audio (用于滚动延迟)
+_last_video_pull_ts = None          # 最近一次 SDK pull video (用于滚动延迟)
+_last_cross_audio_latency_ms = None  # 最近一次 pull packet 的 235→server 跨机器延迟 (实时)
+_last_cross_video_latency_ms = None  # 最近一次 video pull packet 的 235→server 跨机器延迟 (实时)
+
+# === 时钟映射: monotonic → unix epoch (近似)
+# 用于把 server 端 monotonic 时间跟 235 端 unix time 对比
+import time as _time_init
+_SERVER_BOOT_MONOTONIC = _time_init.monotonic()
+_SERVER_BOOT_UNIX = _time_init.time()
+
+
+def _mono_to_unix(mono_ts: float) -> float:
+    """把 monotonic 时间戳近似转换为 unix epoch (秒)"""
+    if mono_ts is None:
+        return None
+    return _SERVER_BOOT_UNIX + (mono_ts - _SERVER_BOOT_MONOTONIC)
+
+
+def _carpo_on_media(media_type, data_ptr, length, timestamp, user_data):
+    """Carpo callback (module-level to prevent GC).
+
+    处理 bypass 模式: SDK callback 给 raw Opus bytes，需 PyAV decode。
+    处理 NetEq 模式: SDK callback 给 PCM int16 stereo (4 bytes/sample)。
+    通过 data 长度启发式判断: Opus 帧 < 500B，stereo PCM int16 通常 > 1KB (每帧 1920B @ 48kHz)。
+
+    media_type: 0 = MEDIA_AUDIO, 1 = MEDIA_VIDEO (H.264 NAL)
+    """
+    global _carpo_frames, _carpo_buffer, _carpo_opus, _carpo_opus_sr
+    global _carpo_h264, _carpo_video_frame, _carpo_video_pts_ms, _carpo_video_count, _carpo_video_lock
+    global _carpo_first_audio_pull_ts, _carpo_first_video_pull_ts
+    global _carpo_first_audio_decode_ts, _carpo_first_video_decode_ts
+    global _last_audio_pull_ts, _last_video_pull_ts
+    import time as _time
+    _now = _time.monotonic()
+
+    if media_type == 1:  # MEDIA_VIDEO → H.264 NAL → PyAV decode → RGB frame
+        if length == 0:
+            return
+        if _carpo_first_video_pull_ts is None:
+            _carpo_first_video_pull_ts = _now
+        _last_video_pull_ts = _now
+        # 实时跨机器延迟: packet 的 235 push timestamp (ms) 转换成 server pull unix
+        global _last_cross_video_latency_ms
+        if timestamp > 0:
+            server_pull_unix = _SERVER_BOOT_UNIX + (_now - _SERVER_BOOT_MONOTONIC)
+            cross_latency_ms = (server_pull_unix - timestamp / 1000.0) * 1000
+            # 合理性检查: 跨机器延迟 < 5s (公网 RTP 正常 50-200ms)
+            # 负数或超大值说明 timestamp 是别的 epoch (例如 SDK 内部时间)
+            if 0 < cross_latency_ms < 5000:
+                _last_cross_video_latency_ms = cross_latency_ms
+            # 否则跳过, 保留上次的合理值 (避免污染最近值)
+        import ctypes as _ct_v
+        nal_bytes = _ct_v.string_at(data_ptr, length)
+        # 诊断：video pull 的 pts (ms)
+        if _carpo_video_count < 10 or _carpo_video_count % 100 == 0:
+            print(f'[XK_VTS_RAW] ms_ts={timestamp} nal_len={length}', flush=True)
+        # 调试录制：直接写原始 NAL bytes（不解码不编码，零 CPU 负担）
+        _try_record_video(nal_bytes, timestamp)
+        try:
+            import av
+            if _carpo_h264 is None:
+                _carpo_h264 = av.CodecContext.create('h264', 'r')
+            frames = _carpo_h264.decode(av.Packet(nal_bytes))
+            if not frames:
+                return
+            # 取最后一帧 (一帧 H264 NAL 可能解码出多帧)
+            for f in frames:
+                # aiortc/WebRTC 默认是 BGR，但浏览器显示偏蓝绿说明 RGB 通道顺序反了
+                # 改用 bgr24 (PyAV 解码输出 BGR 顺序，跟 WebRTC video track 一致)
+                bgr = f.to_ndarray(format='bgr24')  # (H, W, 3)
+                if _carpo_video_lock is None:
+                    _carpo_video_lock = threading.Lock()
+                with _carpo_video_lock:
+                    _carpo_video_frame = bgr
+                    _carpo_video_pts_ms = int(timestamp)
+                    _carpo_video_count += 1
+            if _carpo_first_video_decode_ts is None:
+                _carpo_first_video_decode_ts = _time.monotonic()
+            global _last_video_decode_ts
+            _last_video_decode_ts = _time.monotonic()
+            if _carpo_video_count <= 3 or _carpo_video_count % 100 == 0:
+                h, w = bgr.shape[:2]
+                print(f'[carpo] video #{_carpo_video_count}: ts={timestamp} nal={length}B {w}x{h} pts={_carpo_video_pts_ms} (bgr24)', flush=True)
+        except Exception as e:
+            if _carpo_video_count < 3:
+                print(f'[carpo] video decode err: {e} (nal={length}B)', flush=True)
+        return
+
+    if media_type != 0:  # 0 = MEDIA_AUDIO
+        return
+    import ctypes as _ctypes
+    data = _ctypes.string_at(data_ptr, length)
+    if length == 0:
+        return
+    # 更新 audio pts（A-V sync 诊断）
+    global _carpo_audio_pts_ms
+    _carpo_audio_pts_ms = int(timestamp)
+    # 诊断：audio pull 的 pts (ms)
+    if _carpo_frames is None or _carpo_frames < 10 or (_carpo_frames % 100 == 0):
+        print(f'[XK_ATS_RAW] ms_ts={timestamp} len={length}', flush=True)
+    if _carpo_first_audio_pull_ts is None:
+        _carpo_first_audio_pull_ts = _now
+    _last_audio_pull_ts = _now
+    # 实时跨机器延迟: packet 的 235 push timestamp (ms) 转换成 server pull unix
+    global _last_cross_audio_latency_ms
+    if timestamp > 0:
+        server_pull_unix = _SERVER_BOOT_UNIX + (_now - _SERVER_BOOT_MONOTONIC)
+        cross_latency_ms = (server_pull_unix - timestamp / 1000.0) * 1000
+        # 合理性检查: 跨机器延迟 < 5s (公网 RTP 正常 50-200ms)
+        # 负数或超大值说明 timestamp 是别的 epoch, 跳过污染最近值
+        if 0 < cross_latency_ms < 5000:
+            _last_cross_audio_latency_ms = cross_latency_ms
+
+    # 启发式: stereo int16 @48kHz = 4B/sample，1 帧 20ms = 960 samples = 3840B
+    #        Opus 帧通常 < 500B（DTX 3B，普通帧 50-300B）
+    is_pcm_int16 = length >= 1000 and length % 4 == 0
+
+    # 调试录制：写 raw audio data 到 mkv（不解码，直接 mux 原始格式）
+    _try_record_audio(data, timestamp, is_pcm_int16)
+
+    if is_pcm_int16:
+        # === NetEq 模式: stereo int16 ===
+        n_samples = length // 2
+        samples = np.frombuffer(data[:n_samples * 2], dtype=np.int16)
+        if n_samples >= 2:
+            mono = samples[::2].astype(np.float32) / 32768.0
+        else:
+            mono = samples.astype(np.float32) / 32768.0
+    else:
+        # === Bypass 模式: raw Opus bytes ===
+        import av
+        if _carpo_opus is None:
+            _carpo_opus = av.CodecContext.create('opus', 'r')
+            _carpo_opus.sample_rate = _carpo_opus_sr
+        try:
+            frames = _carpo_opus.decode(av.Packet(data))
+            if not frames:
+                return
+            pcm48 = frames[0].to_ndarray()
+            # shape (channels, samples) — 取左声道
+            mono = pcm48[0].astype(np.float32) if pcm48.ndim == 2 else pcm48.astype(np.float32)
+            # mono 已是 48kHz float32 in [-1, 1]
+            if _carpo_first_audio_decode_ts is None:
+                _carpo_first_audio_decode_ts = _time.monotonic()
+            global _last_audio_decode_ts
+            _last_audio_decode_ts = _time.monotonic()
+        except Exception as e:
+            if _carpo_frames < 5:
+                print(f'[carpo] opus decode err: {e} (raw={length}B)', flush=True)
+            return
+
+    # 48kHz → 24kHz (OUTPUT_SR)
+    from scipy.signal import resample_poly
+    mono_24k = resample_poly(mono, OUTPUT_SR, 48000).astype(np.float32)
+    _carpo_frames += 1
+    if _carpo_frames <= 5 or _carpo_frames % 100 == 0:
+        rms = float(np.sqrt(np.mean(mono ** 2)))
+        print(f'[carpo] #{_carpo_frames}: raw={length}B mode={"pcm" if is_pcm_int16 else "opus"} mono={len(mono)} mono24k={len(mono_24k)} rms={rms:.4f}', flush=True)
+    # Accumulate to 480-sample chunks (emit needs 480 @ 24kHz)
+    _carpo_buffer = np.concatenate([_carpo_buffer, mono_24k])
+    while len(_carpo_buffer) >= 480:
+        chunk = _carpo_buffer[:480]
+        _carpo_buffer = _carpo_buffer[480:]
+        # 记录 decode_ts + SDK pts (ms)，emit 时可用于 A-V 同步对齐
+        _decode_ts_now = _time.monotonic()
+        if _active_handler and _active_handler._audio_queue and _carpo_loop:
+            asyncio.run_coroutine_threadsafe(
+                _active_handler._audio_queue.put((chunk, _decode_ts_now, timestamp)), _carpo_loop)
+
+
+def _carpo_on_event(event_id, code, user_data):
+    pass
+
+
+def _init_carpo_pull():
+    global _carpo_lib, _carpo_puller, _carpo_loop
+    if _carpo_lib is not None:
+        return
+    _release_dir = r'D:\work\code\LovePea\platform\Windows\LovePeaSDK\x64\Release'
+    os.add_dll_directory(_release_dir)
+    os.environ['PATH'] = _release_dir + ';' + os.environ.get('PATH', '')
+    sys.path.insert(0, r'D:\work\code\LovePea\Carpo\carpo_capi\python')
+    import carpo as _carpo
+    # Windows 必须 WSAStartup（Carpo SDK 内部用 socket，没初始化会静默失败）
+    import ctypes as _ct
+    try:
+        _ws2 = _ct.windll.ws2_32
+        class _WSAData(_ct.Structure):
+            _fields_ = [("wVersion", _ct.c_ushort), ("wHighVersion", _ct.c_ushort),
+                        ("szDescription", _ct.c_char * 257), ("szSystemStatus", _ct.c_char * 129),
+                        ("iMaxSockets", _ct.c_ushort), ("iMaxUdp", _ct.c_ushort), ("lpVendor", _ct.c_char_p)]
+        _wsa = _WSAData()
+        _ret = _ws2.WSAStartup(0x0202, _ct.byref(_wsa))
+        print(f'[carpo] WSAStartup ret={_ret}', flush=True)
+    except Exception as _e:
+        print(f'[carpo] WSAStartup skip: {_e}', flush=True)
+    _carpo_lib = _carpo.load_lib(os.path.join(_release_dir, 'Carpo.dll'))
+    _carpo.bind_pull_lib(_carpo_lib)
+    _carpo_puller = _carpo.CarpoPuller(_carpo_lib, on_media=_carpo_on_media, on_event=_carpo_on_event)
+    _carpo_puller.set_ssrc(_carpo.SSRC_LOCAL, 99999, 11111, 'audio_test')
+    _carpo_puller.set_ssrc(_carpo.SSRC_REMOTE, 12345, 67890, 'audio_test')
+    _carpo_puller.set_server('192.144.156.158', 23800, remote_ip='106.39.200.204')
+    _carpo_puller.start()
+    print('[carpo] Pull started on 8011 server', flush=True)
+
+
+@app.post("/carpo-trigger")
+async def carpo_trigger(request: Request):
+    """Trigger AutoDL push.
+
+    优化 (7/10 父要求): 不再重启 SDK pull (run() 启动时已常驻);
+    不再 sleep(2); 接受 text 参数; SSH 长连接复用.
+    """
+    global _carpo_loop, _carpo_frames, _carpo_buffer
+    # 解析 text (可选, 默认测试短语)
+    try:
+        body = await request.json()
+        text = body.get('text', '小柯小美女，你好呀').strip()
+    except Exception:
+        text = '小柯小美女，你好呀'
+    # 重置 buffer (新会话清掉旧帧)
+    _carpo_loop = asyncio.get_event_loop()
+    _carpo_frames = 0
+    _carpo_buffer = np.array([], dtype=np.float32)
+    global _carpo_video_lock, _carpo_video_frame, _carpo_video_count
+    if _carpo_video_lock is None:
+        _carpo_video_lock = threading.Lock()
+    with _carpo_video_lock:
+        _carpo_video_frame = None
+        _carpo_video_count = 0
+
+    # Trigger AutoDL push — 从 machines.json 读 active 机器, SSH 长连接
+    def do_push():
+        import paramiko, time, json
+        machines_path = Path(__file__).parent.parent / "machines.json"
+        try:
+            with open(machines_path, 'r', encoding='utf-8') as f:
+                cfg = json.load(f)
+            active = cfg.get('active', 'bj268')
+            m = cfg['machines'][active]
+            host, port, user, pwd = m['host'], m['port'], m['user'], m['password']
+            print(f'[carpo] trigger: ssh {active} ({host}:{port})', flush=True)
+        except Exception as e:
+            print(f'[carpo] machines.json load fail: {e}, fallback to bj268', flush=True)
+            host, port, user, pwd = 'connect.bjb1.seetacloud.com', 40458, 'root', 'NIgDNE+SPYSM'
+
+        # 转义 text 用于 shell + JSON
+        import json as _json
+        payload = _json.dumps({'text': text}, ensure_ascii=False)
+        # 不再重定向到文件, 这样 stdout 拿得到 response, 我们能解析 timing dict
+        cmd = (
+            f"curl -sm 30 -X POST http://localhost:8899/generate "
+            f'-H "Content-Type: application/json" '
+            f"-d '{payload}'"
+        )
+        # 复用全局 SSH 长连接 (avatar.get_ssh())
+        from avatar.autodl_avatar import get_ssh
+        try:
+            ssh = get_ssh()
+            if ssh is None:
+                print(f"[carpo] SSH not available, skip push", flush=True)
+                return
+            t_ssh_exec_start = time.monotonic()
+            si, so, se = ssh.exec_command(cmd, timeout=60)
+            raw_response = so.read().decode().strip()
+            ssh_dt = time.monotonic() - t_ssh_exec_start
+            print(f"[carpo] push done in {ssh_dt:.3f}s (HTTP /generate)", flush=True)
+            # 解析 235 timing dict, 推到 SSE 给浏览器
+            try:
+                import json as _json2
+                resp = _json2.loads(raw_response)
+                timing = resp.get('timing', {})
+                if timing:
+                    asyncio.run_coroutine_threadsafe(
+                        _broadcast({"type": "timing_235", "timing": timing,
+                                    "t_received_at_server": time.time()}),  # unix epoch 秒, 跟浏览器 Date.now()/1000 同 epoch
+                        _carpo_loop)
+                    print(f"[carpo] broadcast timing_235: total={timing.get('total')}s", flush=True)
+            except Exception as parse_e:
+                print(f"[carpo] timing parse err: {parse_e}")
+        except Exception as e:
+            print(f"[carpo] push error: {e}")
+
+    threading.Thread(target=do_push, daemon=True).start()
+    return JSONResponse({"status": "ok", "message": "carpo relay triggered", "text": text})
+
+
+@app.post("/avatar/config")
+async def handle_avatar_config(request: Request):
+    """切换 avatar 配置：tts_provider, cond_image"""
+    raw = await request.body()
+    data = json.loads(raw)
+    changed = []
+    avatar_result = None
+    if "tts_provider" in data and hasattr(avatar, 'set_tts_provider'):
+        avatar.set_tts_provider(data["tts_provider"])
+        changed.append(f"tts_provider={data['tts_provider']}")
+    if "cond_image" in data and hasattr(avatar, 'set_cond_image'):
+        # 同步执行：上传图片 + reload_avatar + 等 FlashHead 初始化完成
+        loop = asyncio.get_event_loop()
+        avatar_result = await loop.run_in_executor(
+            None, avatar.set_cond_image, data["cond_image"]
+        )
+        changed.append(f"cond_image={data['cond_image']}")
+    result = {"ok": True, "changed": changed}
+    if avatar_result:
+        result["avatar"] = avatar_result
+    return JSONResponse(result)
+
+
+# === Settings & Control API ===
+
+# 配置持久化路径 — 已在启动时定义
+# machines.json 路径 (跟 /carpo-trigger 一样)
+_MACHINES_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "machines.json")
+
+def _load_runtime_machines():
+    """读 machines.json — 跟 /carpo-trigger 用同一个路径"""
+    import json as _json
+    with open(_MACHINES_PATH, "r", encoding="utf-8") as f:
+        return _json.load(f)
+
+def _get_autodl_creds():
+    """从 machines.json 读 active 机器的 SSH 凭证"""
+    cfg = _load_runtime_machines()
+    target = cfg.get("active", "bj235")
+    m = cfg["machines"][target]
+    return m["host"], m["port"], m["user"], m["password"]
+
+# Carpo pull 状态
+_carpo_pull_started = False
+
+@app.get("/api/settings")
+async def get_settings():
+    return JSONResponse(_runtime_config)
+
+@app.post("/api/settings")
+async def set_settings(request: Request):
+    data = await request.json()
+    changed = []
+    # TTS provider
+    if "tts_provider" in data:
+        _runtime_config["tts_provider"] = data["tts_provider"]
+        changed.append(f"tts_provider={data['tts_provider']}")
+    # TTS api_key / model / voice — 凭据类，只存 runtime，不持久化
+    for k in ("tts_api_key", "tts_model", "tts_voice"):
+        if k in data:
+            _runtime_config[k] = data[k]
+            changed.append(f"{k}=***" if "key" in k else f"{k}={data[k]}")
+    # Avatar provider
+    if "avatar_provider" in data:
+        _runtime_config["avatar_provider"] = data["avatar_provider"]
+        changed.append(f"avatar_provider={data['avatar_provider']}")
+    # Avatar TTS (235 侧)
+    if "avatar_tts" in data and hasattr(avatar, 'set_tts_provider'):
+        avatar.set_tts_provider(data["avatar_tts"])
+        _runtime_config["avatar_tts"] = data["avatar_tts"]
+        changed.append(f"avatar_tts={data['avatar_tts']}")
+    # Avatar image
+    if "avatar_image" in data and hasattr(avatar, 'set_cond_image'):
+        import asyncio as _aio
+        loop = _aio.get_event_loop()
+        result = await loop.run_in_executor(None, avatar.set_cond_image, data["avatar_image"])
+        _runtime_config["avatar_image"] = data["avatar_image"]
+        changed.append(f"avatar_image={data['avatar_image']}")
+    # Machine
+    if "machine" in data:
+        _runtime_config["machine"] = data["machine"]
+        if hasattr(avatar, 'machine'):
+            avatar.machine = data["machine"]
+        changed.append(f"machine={data['machine']}")
+    # Pull mode
+    if "pull_mode" in data:
+        _runtime_config["pull_mode"] = data["pull_mode"]
+        changed.append(f"pull_mode={data['pull_mode']}")
+    print(f"[settings] Changed: {changed}")
+    _save_config()  # 持久化到 workspace
+    return JSONResponse({"ok": True, "changed": changed, "config": _runtime_config})
+
+@app.get("/api/machines")
+async def get_machines():
+    """返回 machines.json 列表（不含密码）"""
+    import json as _json
+    machines_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "machines.json")
+    try:
+        with open(machines_path, "r", encoding="utf-8") as f:
+            cfg = _json.load(f)
+        machines = {}
+        for name, m in cfg.get("machines", {}).items():
+            machines[name] = {"label": m.get("label", name), "gpu": m.get("gpu", ""), "notes": m.get("notes", "")}
+        return JSONResponse({"active": cfg.get("active", "bj235"), "machines": machines})
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+
+@app.get("/api/status_235")
+async def get_status_235():
+    """查询 235 端实际运行状态（avatar + tts_provider）"""
+    if _runtime_config["avatar_provider"] in ("none", "", None):
+        return JSONResponse({})
+    try:
+        from avatar.autodl_avatar import get_ssh
+        ssh = get_ssh()
+        if ssh is None:
+            return JSONResponse({})
+        si, so, se = ssh.exec_command(
+            "curl -sm 5 http://localhost:8899/api/status",
+            timeout=8
+        )
+        raw = so.read().decode().strip()
+        if not raw:
+            return JSONResponse({})
+        import json as _j
+        return JSONResponse(_j.loads(raw))
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+
+@app.get("/api/timing_235")
+async def get_timing_235():
+    """拉取 235 端最近一次 generate 的 timing（本地模式直接返回空）"""
+    if _runtime_config["avatar_provider"] in ("none", "", None):
+        return JSONResponse({})
+    try:
+        from avatar.autodl_avatar import get_ssh
+        ssh = get_ssh()
+        if ssh is None:
+            return JSONResponse({})
+        si, so, se = ssh.exec_command(
+            "curl -sm 5 http://localhost:8899/api/timing",
+            timeout=8
+        )
+        raw = so.read().decode().strip()
+        if not raw:
+            return JSONResponse({})
+        import json as _j
+        return JSONResponse(_j.loads(raw))
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/avatars")
+async def get_avatars():
+    """列出可用的 avatar 图片 — 本地 selfie + 235 端 (代理)"""
+    import glob as _glob
+    # 本地 selfie 目录
+    selfie_dir = args.selfie_dir or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "xiaoke", "workspace", "selfie")
+    local_images = []
+    if os.path.isdir(selfie_dir):
+        for f in os.listdir(selfie_dir):
+            if f.lower().endswith(('.jpg', '.jpeg', '.png')):
+                local_images.append(f)
+    # 235 端形象列表 — avatar=none 时跳过 SSH
+    remote_avatars = []
+    remote_current = None
+    if _runtime_config["avatar_provider"] not in ("none", "", None):
+      try:
+        from avatar.autodl_avatar import get_ssh
+        ssh = get_ssh()
+        if ssh:
+            si, so, se = ssh.exec_command("curl -s -m 5 http://localhost:8899/api/avatar", timeout=5)
+            raw = so.read().decode().strip()
+            if raw:
+                import json as _j2
+                data = _j2.loads(raw)
+                remote_avatars = data.get("avatars", [])
+                remote_current = data.get("current")
+      except Exception as e:
+        print(f"[avatars] 235 list failed: {e}")
+    return JSONResponse({
+        "local": local_images,
+        "remote": remote_avatars,
+        "current": remote_current or _runtime_config["avatar_image"],
+    })
+
+
+@app.post("/api/avatar/switch")
+async def switch_avatar(request: Request):
+    """切换 FlashHead 形象 — 调 235 /api/avatar."""
+    body = await request.json()
+    image = body.get("image")
+    if not image:
+        return JSONResponse({"ok": False, "error": "Missing 'image'"})
+    try:
+        from avatar.autodl_avatar import get_ssh
+        ssh = get_ssh()
+        if not ssh:
+            return JSONResponse({"ok": False, "error": "SSH not connected"})
+        import json as _j3
+        payload = _j3.dumps({"image": image})
+        cmd = f"curl -sm 30 -X POST http://localhost:8899/api/avatar -H 'Content-Type: application/json' -d '{payload}'"
+        si, so, se = ssh.exec_command(cmd, timeout=30)
+        raw = so.read().decode().strip()
+        if raw:
+            result = _j3.loads(raw)
+            print(f"[avatar-switch] 235 response: {result}")
+            if result.get("ok"):
+                _runtime_config["avatar_image"] = result.get("current", image)
+                _save_config()
+            return JSONResponse(result)
+        return JSONResponse({"ok": False, "error": "No response from 235"})
+    except Exception as e:
+        print(f"[avatar-switch] Failed: {e}")
+        return JSONResponse({"ok": False, "error": str(e)})
+
+@app.post("/api/pull/start")
+async def pull_start():
+    """启动 Carpo pull（按需）"""
+    global _carpo_pull_started
+    print(f"[pull_start] called, _carpo_pull_started={_carpo_pull_started}, _carpo_puller={_carpo_puller}", flush=True)
+    if _carpo_pull_started:
+        print("[pull_start] already running, skip", flush=True)
+        return JSONResponse({"ok": True, "already_running": True})
+    try:
+        print("[pull_start] calling _init_carpo_pull()", flush=True)
+        _init_carpo_pull()
+        print(f"[pull_start] after init, puller={_carpo_puller}, calling start()", flush=True)
+        if _carpo_puller is not None:
+            _carpo_puller.start()
+        _carpo_pull_started = True
+        print("[pull_start] started, broadcasting", flush=True)
+        await _broadcast({"type": "pull_status", "pulling": True})
+        return JSONResponse({"ok": True, "pulling": True})
+    except Exception as e:
+        return JSONResponse({"ok": False, "error": str(e)}, status_code=500)
+
+@app.post("/api/pull/stop")
+async def pull_stop():
+    """停止 Carpo pull"""
+    global _carpo_pull_started, _carpo_puller, _carpo_lib
+    if not _carpo_pull_started:
+        return JSONResponse({"ok": True, "already_stopped": True})
+    try:
+        if _carpo_puller:
+            _carpo_puller.stop()
+            _carpo_puller = None
+        if _carpo_lib:
+            _carpo_lib = None
+        _carpo_pull_started = False
+        await _broadcast({"type": "pull_status", "pulling": False})
+        return JSONResponse({"ok": True, "pulling": False})
+    except Exception as e:
+        return JSONResponse({"ok": False, "error": str(e)}, status_code=500)
+
+@app.get("/api/pull/status")
+async def pull_status():
+    return JSONResponse({"pulling": _carpo_pull_started, "mode": _runtime_config["pull_mode"]})
+
+
+# === 调试录制（A-V 同步诊断）—— 方案 B 终版：直接写原始流，stop 后 ffmpeg mux ===
+# video: H.264 NAL bytes → .h264 (零 CPU 负担)
+# audio: Opus decode → PCM int16 → .wav (解码很轻)
+# stop: ffmpeg 一次性 mux 成 mp4
+_record_active = False
+_record_output_mp4 = None
+_record_video_fp = None       # .h264 文件 handle
+_record_video_path = None
+_record_audio_fp = None       # .wav 文件 handle
+_record_audio_wav = None
+_record_video_count = 0
+_record_audio_count = 0
+_record_started_ts = None
+_record_video_first_pts = None
+_record_audio_first_pts = None
+_record_audio_sr = 48000
+
+
+def _start_record(duration=10):
+    """启动录制：直接写 H.264 NAL + Opus→PCM wav，stop 后 ffmpeg mux"""
+    global _record_active, _record_output_mp4
+    global _record_video_fp, _record_video_path
+    global _record_audio_fp, _record_audio_wav
+    global _record_video_count, _record_audio_count, _record_started_ts
+    global _record_video_first_pts, _record_audio_first_pts
+    import time as _t, wave as _wave
+    if _record_active:
+        return None, "recording already in progress"
+    ts = _t.strftime('%Y%m%d_%H%M%S')
+    output_mp4 = f"D:/xiaoke/logs/carpo_record_{ts}.mp4"
+    video_path = output_mp4.replace(".mp4", ".h264")
+    audio_wav = output_mp4.replace(".mp4", "_audio.wav")
+    emit_audio_wav = output_mp4.replace(".mp4", "_emit_audio.wav")
+    try:
+        _record_video_fp = open(video_path, 'wb')
+        _record_audio_fp = _wave.open(audio_wav, 'wb')
+        _record_audio_fp.setnchannels(1)
+        _record_audio_fp.setsampwidth(2)
+        _record_audio_fp.setframerate(_record_audio_sr)
+        _record_active = True
+        _record_output_mp4 = output_mp4
+        _record_video_path = video_path
+        _record_audio_wav = audio_wav
+        _record_video_count = 0
+        _record_audio_count = 0
+        _record_started_ts = _t.monotonic()
+        _record_video_first_pts = None
+        _record_audio_first_pts = None
+        print(f"[record] started, duration={duration}s, output={output_mp4}", flush=True)
+        import asyncio
+        async def _auto_stop():
+            await asyncio.sleep(duration)
+            await stop_record()
+        asyncio.create_task(_auto_stop())
+        return output_mp4, None
+    except Exception as e:
+        print(f"[record] start failed: {e}", flush=True)
+        return None, str(e)
+
+
+async def stop_record():
+    """关 fp/wav，再用 ffmpeg mux .h264 + .wav → mp4"""
+    global _record_active, _record_video_fp, _record_audio_fp
+    global _record_video_count, _record_audio_count, _record_started_ts
+    global _record_video_path, _record_audio_wav, _record_output_mp4
+    if not _record_active:
+        return None, "no active recording"
+    output_mp4 = _record_output_mp4
+    video_path = _record_video_path
+    audio_wav = _record_audio_wav
+    try:
+        if _record_video_fp:
+            _record_video_fp.close()
+        if _record_audio_fp:
+            _record_audio_fp.close()
+        import subprocess as _sp, os as _os
+        # pull 端 mux: H.264 + wav → mp4
+        cmd = ["ffmpeg", "-y", "-f", "h264", "-i", video_path, "-i", audio_wav,
+               "-c:v", "copy", "-c:a", "aac", "-b:a", "128k", "-shortest", output_mp4]
+        proc = _sp.Popen(cmd, stdout=_sp.PIPE, stderr=_sp.PIPE, creationflags=0x08000000)
+        _, stderr = proc.communicate()
+        rc = proc.returncode
+        mp4_size = _os.path.getsize(output_mp4) if _os.path.exists(output_mp4) else 0
+        print(f"[record] pull mux: video={_record_video_count}NALs, audio={_record_audio_count}pkts, mp4={mp4_size}B rc={rc}", flush=True)
+        if rc != 0:
+            print(f"[record] pull mux stderr: {stderr.decode(errors='replace')[-400:]}", flush=True)
+        else:
+            for p in (video_path, audio_wav):
+                try: _os.remove(p)
+                except OSError: pass
+        print(f"[record] file: {output_mp4}", flush=True)
+        print(f"[record] emit 端 A-V pts diff 最近一次: {_last_av_pts_diff_ms}ms", flush=True)
+    except Exception as e:
+        print(f"[record] stop err: {e}", flush=True)
+    _record_active = False
+    _record_video_fp = None
+    _record_audio_fp = None
+    _record_video_count = 0
+    _record_audio_count = 0
+    _record_started_ts = None
+    _record_video_path = None
+    _record_audio_wav = None
+    _record_output_mp4 = None
+    return output_mp4, None
+
+
+def _try_record_video(nal_bytes, pts_ms):
+    """video callback：直接 write NAL bytes 到 .h264（零 CPU）"""
+    global _record_video_count, _record_video_first_pts
+    if _record_video_first_pts is None:
+        _record_video_first_pts = pts_ms
+        print(f"[record] VIDEO FIRST CALL pts={pts_ms} len={len(nal_bytes)}", flush=True)
+    if not _record_active or _record_video_fp is None:
+        return
+    try:
+        _record_video_fp.write(nal_bytes)
+        _record_video_count += 1
+    except Exception as e:
+        if _record_video_count < 5 or _record_video_count % 100 == 0:
+            print(f"[record] video write err #{_record_video_count}: {e}", flush=True)
+
+
+def _try_record_audio(data, pts_ms, is_pcm):
+    """audio callback：解码 Opus → 写 PCM 到 wav"""
+    global _record_audio_count, _record_audio_first_pts
+    if _record_audio_first_pts is None:
+        _record_audio_first_pts = pts_ms
+        print(f"[record] AUDIO FIRST CALL pts={pts_ms} len={len(data)} pcm={is_pcm}", flush=True)
+    if not _record_active or _record_audio_fp is None:
+        return
+    try:
+        if is_pcm:
+            n_samples = len(data) // 2
+            if n_samples < 2:
+                return
+            samples = np.frombuffer(data[:n_samples * 2], dtype=np.int16)
+            mono = samples[::2]
+            _record_audio_fp.writeframes(mono.tobytes())
+        else:
+            import av as _av
+            if _carpo_opus is None:
+                _codec = _av.CodecContext.create('opus', 'r')
+                _codec.sample_rate = _record_audio_sr
+            else:
+                _codec = _carpo_opus
+            frames = _codec.decode(_av.Packet(data))
+            if frames:
+                pcm = frames[0].to_ndarray()
+                mono = pcm[0] if pcm.ndim == 2 else pcm
+                int16 = (mono * 32768).clip(-32768, 32767).astype('int16')
+                _record_audio_fp.writeframes(int16.tobytes())
+        _record_audio_count += 1
+    except Exception as e:
+        if _record_audio_count < 5 or _record_audio_count % 100 == 0:
+            print(f"[record] audio write err #{_record_audio_count}: {e}", flush=True)
+
+
+# === emit 端录制已删除，改为内存 A-V pts diff ===
+# （数据结构在 _last_av_pts_diff_ms / _carpo_emit_count）
+
+
+@app.post("/api/debug/record/start")
+async def record_start(duration: int = 30):
+    """启动 mkv 录制（默认 30 秒）"""
+    path, err = _start_record(duration=duration)
+    if err:
+        return JSONResponse({"ok": False, "error": err}, status_code=400)
+    return JSONResponse({"ok": True, "path": path, "duration": duration})
+
+
+@app.post("/api/debug/record/stop")
+async def record_stop():
+    """手动停止录制"""
+    path, err = await stop_record()
+    if err:
+        return JSONResponse({"ok": False, "error": err}, status_code=400)
+    return JSONResponse({"ok": True, "path": path})
+
+
+@app.get("/timing")
+async def timing_endpoint():
+    """返回当前 server 端 timing 快照 (autodl_send.py / 浏览器可拉)"""
+    return JSONResponse(_take_timing_snapshot())
+
+
+@app.get("/events")
+async def sse_events():
+    """SSE 端点 — 推送 ASR/回复文字 + 延迟数据给前端"""
+    queue: asyncio.Queue = asyncio.Queue(maxsize=50)
+    _sse_clients.append(queue)
+
+    async def event_stream():
+        try:
+            while True:
+                event = await queue.get()
+                yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
+        except asyncio.CancelledError:
+            pass
+        finally:
+            _sse_clients.remove(queue)
+
+    return StreamingResponse(event_stream(), media_type="text/event-stream")
+
+
+# === 端到端时延状态 (从 /events SSE 每 1.5s 推一次给浏览器) ===
+_timing_report_task: asyncio.Task | None = None
+
+
+async def _timing_report_loop():
+    """后台 loop: 每 0.5s 把 server 端 timing 状态推 SSE"""
+    import time as _time
+    while True:
+        await asyncio.sleep(0.5)
+        snap = _take_timing_snapshot()
+        if snap:
+            await _broadcast({"type": "latency", **snap})
+
+
+def _take_timing_snapshot() -> dict:
+    """抓 server 端 timing 快照, 相对 time.monotonic()
+
+    滚动延迟 (排除 init 延迟):
+      - last_decode_to_last_emit = 最近一次 emit - 最近一次 decode
+      - last_pull_to_last_decode = 最近一次 decode - 最近一次 pull
+    """
+    import time as _time
+    now = _time.monotonic()
+    snap = {"t_now": round(now, 3)}
+    # first frame 时间
+    if _carpo_first_audio_pull_ts is not None:
+        snap["t_pull_audio_first"] = round(_carpo_first_audio_pull_ts, 3)
+    if _carpo_first_video_pull_ts is not None:
+        snap["t_pull_video_first"] = round(_carpo_first_video_pull_ts, 3)
+    if _carpo_first_audio_decode_ts is not None:
+        snap["t_decode_audio_first"] = round(_carpo_first_audio_decode_ts, 3)
+    if _carpo_first_video_decode_ts is not None:
+        snap["t_decode_video_first"] = round(_carpo_first_video_decode_ts, 3)
+    if _carpo_first_audio_emit_ts is not None:
+        snap["t_emit_audio_first"] = round(_carpo_first_audio_emit_ts, 3)
+    if _carpo_first_video_emit_ts is not None:
+        snap["t_emit_video_first"] = round(_carpo_first_video_emit_ts, 3)
+    # 滚动延迟 (最近一帧的实时原始数据 — 父要看瞬态, 不平均)
+    if _audio_decode_emits:
+        last_audio = _audio_decode_emits[-1]
+        # tuple: (decode_ts, emit_ts, raw_ms, queue_size_before)
+        snap["decode_to_emit_audio_ms"] = round(last_audio[2], 1)
+        snap["audio_queue_size_before"] = last_audio[3]
+        snap["audio_window_size"] = len(_audio_decode_emits)
+    if _video_decode_emits:
+        last_video = _video_decode_emits[-1]
+        snap["decode_to_emit_video_ms"] = round(last_video[2], 1)
+        snap["video_window_size"] = len(_video_decode_emits)
+    # === monotonic → unix 转换 (跟 235 端 timing 字典对齐) ===
+    snap["_server_boot_unix"] = round(_SERVER_BOOT_UNIX, 3)
+    if _carpo_first_audio_pull_ts is not None:
+        snap["unix_pull_audio_first"] = round(_mono_to_unix(_carpo_first_audio_pull_ts), 3)
+    if _carpo_first_video_pull_ts is not None:
+        snap["unix_pull_video_first"] = round(_mono_to_unix(_carpo_first_video_pull_ts), 3)
+    if _carpo_first_audio_emit_ts is not None:
+        snap["unix_emit_audio_first"] = round(_mono_to_unix(_carpo_first_audio_emit_ts), 3)
+    if _carpo_first_video_emit_ts is not None:
+        snap["unix_emit_video_first"] = round(_mono_to_unix(_carpo_first_video_emit_ts), 3)
+    if _last_audio_pull_ts is not None:
+        snap["unix_pull_audio_last"] = round(_mono_to_unix(_last_audio_pull_ts), 3)
+    if _last_video_pull_ts is not None:
+        snap["unix_pull_video_last"] = round(_mono_to_unix(_last_video_pull_ts), 3)
+    # 实时跨机器延迟 (235 push timestamp → server pull) - 用 packet 自己的 timestamp 算
+    if _last_cross_audio_latency_ms is not None:
+        snap["cross_audio_latency_ms"] = round(_last_cross_audio_latency_ms, 1)
+    if _last_cross_video_latency_ms is not None:
+        snap["cross_video_latency_ms"] = round(_last_cross_video_latency_ms, 1)
+    # === emit 端 A-V pts diff (audio.sdk_pts - video.sdk_pts) ===
+    if _last_av_pts_diff_ms is not None:
+        snap["av_pts_diff_emit_ms"] = round(_last_av_pts_diff_ms, 1)
+    snap["audio_count"] = _carpo_frames
+    snap["video_count"] = _carpo_video_count
+    # A-V sync: audio pts 和 video pts 的差值（ms），正值=audio 比 video 慢
+    if _carpo_audio_pts_ms > 0 and _carpo_video_pts_ms > 0:
+        snap["av_pts_diff_ms"] = _carpo_audio_pts_ms - _carpo_video_pts_ms
+        snap["audio_pts_ms"] = _carpo_audio_pts_ms
+        snap["video_pts_ms"] = _carpo_video_pts_ms
+    # === perception (VLM) 延迟 ===
+    if _perception_mgr:
+        snap["vlm_latency"] = round(_perception_mgr.last_vlm_latency, 2)
+        snap["vlm_buf_span"] = round(getattr(_perception_mgr, '_last_buf_span', 0), 2)
+        snap["vlm_queue"] = round(getattr(_perception_mgr, '_last_queue_wait', 0), 2)
+        snap["vlm_total"] = round(getattr(_perception_mgr, '_last_total', 0), 2)
+        snap["perception_age"] = round(_time.time() - _perception_mgr.last_perception_ts, 1) if _perception_mgr.last_perception_ts else 0
+    return snap
+
+
+def start_timing_reporter():
+    global _timing_report_task
+    if _timing_report_task is None or _timing_report_task.done():
+        _timing_report_task = asyncio.create_task(_timing_report_loop())
+        print("[server] timing reporter started (1.5s interval)")
+
+
+def _check_remote_avatar():
+    """avatar=autodl 时通过 avatarctl.py 检查远端服务，没跑就自动拉起"""
+    import subprocess
+    avatarctl = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "autodlv2", "avatarctl.py")
+    if not os.path.exists(avatarctl):
+        print(f"[avatar-check] avatarctl.py not found at {avatarctl}")
+        return
+    try:
+        # status 检查
+        r = subprocess.run(["python", avatarctl, "status"], capture_output=True, text=True, timeout=30)
+        output = r.stdout.strip()
+        print(f"[avatar-check] avatarctl status: {output}")
+        if "RUNNING" in output:
+            print("[avatar-check] ✅ remote avatar already running")
+            return
+        # 没跑就 start
+        print("[avatar-check] remote avatar not running, starting via avatarctl...")
+        r2 = subprocess.run(["python", avatarctl, "start"], capture_output=True, text=True, timeout=120)
+        print(f"[avatar-check] avatarctl start: {r2.stdout.strip()}")
+        # 等 health check
+        import time
+        print("[avatar-check] Waiting 30s for models to load...")
+        time.sleep(30)
+        r3 = subprocess.run(["python", avatarctl, "status"], capture_output=True, text=True, timeout=30)
+        print(f"[avatar-check] after start: {r3.stdout.strip()}")
+    except Exception as e:
+        print(f"[avatar-check] Failed: {e}")
+
+
+def run():
+    """启动服务"""
+    global _handler
+
+    # avatar=autodl 时检查远端服务是否在跑，没跑就拉起
+    if _runtime_config["avatar_provider"] == "autodl":
+        _check_remote_avatar()
+
+    _handler = VoiceChatHandler()
+    stream = Stream(
+        modality="audio-video",
+        mode="send-receive",
+        handler=_handler,
+        rtc_configuration={"iceServers": [
+            {"urls": ["stun:192.144.156.158:3478"]},
+            {"urls": ["turn:192.144.156.158:3478"], "username": "xiaoke", "credential": "carpo2026"},
+        ]},
+        concurrency_limit=10,
+    )
+
+    # fastrtc Stream mount 到 FastAPI
+    stream.mount(app)
+
+    print(f"[server] voice-chat service starting on port {args.port}")
+    print(f"[server] WebRTC endpoint: ws://0.0.0.0:{args.port}/")
+    print(f"[server] Voice reply callback: http://0.0.0.0:{args.port}/voice-reply")
+    print(f"[server] Health check: http://0.0.0.0:{args.port}/health")
+
+    # Carpo pull: off 模式不启动线程
+    if _runtime_config.get('pull_mode', 'off') != 'off':
+        def _start_carpo_pull_thread():
+            global _carpo_loop
+            _carpo_loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(_carpo_loop)
+            print(f"[carpo] pull thread ready (mode={_runtime_config['pull_mode']}, waiting for trigger)")
+            _carpo_loop.run_forever()
+
+        threading.Thread(target=_start_carpo_pull_thread, daemon=True, name="carpo-pull").start()
+        print(f"[server] Carpo SDK pull thread started (mode={_runtime_config['pull_mode']})")
+    else:
+        print("[server] Carpo pull skipped (mode=off)")
+
+    # 启动 timing reporter (后台任务，每 1.5s 推 SSE 给浏览器)
+    # 注: 必须在 uvicorn.run() 之后, 此时主线程才有 running event loop
+    # 用 on_event("startup") hook 在 FastAPI 内部启动
+
+    @app.on_event("startup")
+    async def _on_startup():
+        """uvicorn startup 时启动 timing reporter"""
+        asyncio.create_task(_timing_report_loop())
+        print("[server] timing reporter started (1.5s interval)")
+        # 静默 asyncio ProactorBasePipeTransport ConnectionResetError (Windows WebRTC 断连噪音)
+        loop = asyncio.get_event_loop()
+        def _silence_conn_reset(loop, context):
+            exc = context.get('exception')
+            if isinstance(exc, ConnectionResetError):
+                return  # 静默
+            loop.default_exception_handler(context)
+        loop.set_exception_handler(_silence_conn_reset)
+        print("[server] asyncio exception handler installed (silencing ConnectionResetError)")
+
+    # 自签 SSL — 手机端 WebRTC 需要 HTTPS 才能访问麦克风
+    cert_dir = Path(args.workspace) / ".voice-chat" / "certs"
+    cert_file = cert_dir / "cert.pem"
+    key_file = cert_dir / "key.pem"
+    if not cert_file.exists() or not key_file.exists():
+        cert_dir.mkdir(parents=True, exist_ok=True)
+        # 用 Python 自己生成，不依赖 openssl CLI
+        from cryptography import x509
+        from cryptography.x509.oid import NameOID
+        from cryptography.hazmat.primitives import hashes, serialization
+        from cryptography.hazmat.primitives.asymmetric import rsa
+        import datetime as _dt
+        key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+        subject = issuer = x509.Name([x509.NameAttribute(NameOID.COMMON_NAME, "localhost")])
+        cert = (
+            x509.CertificateBuilder()
+            .subject_name(subject)
+            .issuer_name(issuer)
+            .public_key(key.public_key())
+            .serial_number(x509.random_serial_number())
+            .not_valid_before(_dt.datetime.utcnow() - _dt.timedelta(days=1))
+            .not_valid_after(_dt.datetime.utcnow() + _dt.timedelta(days=365))
+            .add_extension(x509.SubjectAlternativeName([
+                x509.DNSName("localhost"),
+                x509.IPAddress(__import__('ipaddress').ip_address("127.0.0.1")),
+            ]), critical=False)
+            .sign(key, hashes.SHA256())
+        )
+        cert_file.write_bytes(cert.public_bytes(serialization.Encoding.PEM))
+        key_file.write_bytes(key.private_bytes(
+            serialization.Encoding.PEM,
+            serialization.PrivateFormat.TraditionalOpenSSL,
+            serialization.NoEncryption(),
+        ))
+        print(f"[server] Self-signed cert generated at {cert_dir}")
+    ssl_kwargs = {"ssl_certfile": str(cert_file), "ssl_keyfile": str(key_file)}
+    print(f"[server] HTTPS enabled (self-signed)")
+
+    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="info", **ssl_kwargs)
+
+
+if __name__ == "__main__":
+    try:
+        run()
+    except KeyboardInterrupt:
+        print("\n[server] Shutting down...")
+        try:
+            if _carpo_puller:
+                _carpo_puller.stop()
+                print("[server] Carpo pull stopped")
+        except Exception:
+            pass
+        sys.exit(0)
