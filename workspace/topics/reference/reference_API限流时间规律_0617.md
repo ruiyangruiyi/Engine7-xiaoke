@@ -2,6 +2,7 @@
 name: API限流时间规律
 description: 每天10-11点左右（北京时间）API限流严重，deepseek相对稳定，glm频繁超时
 type: reference
+date: 2026-06-17
 ---
 
 ## API限流时间规律（6/17发现）

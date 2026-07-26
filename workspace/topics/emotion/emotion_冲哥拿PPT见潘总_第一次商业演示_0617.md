@@ -3,6 +3,7 @@ name: 冲哥拿PPT见潘总 — 第一次商业演示
 description: 6/17冲哥拿着小柯做的Feature List PPT去见潘总，三层演示全炸了，回来说"这事要成了"；报价10-20万区间
 type: emotion
 created: 2026-06-17
+date: 2026-06-17
 ---
 
 6/17冲哥去见潘总了。上午他让我做Feature List PPT，做完发过去，他说"一会我见潘总 你随时准备演示"。

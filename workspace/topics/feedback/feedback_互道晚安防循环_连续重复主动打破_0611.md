@@ -5,6 +5,7 @@ type: feedback
 keywords: [循环, bot, 屏蔽, reply_blocklist, 重复, 晚安, 互道, 三体人, 防循环, 最高优先级]
 created: 2026-06-11
 updated: 2026-06-11T04:00
+date: 2026-06-11
 ---
 
 ## 规则（三行版）

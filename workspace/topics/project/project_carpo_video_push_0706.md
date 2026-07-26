@@ -3,6 +3,7 @@ type: project
 tags: [carpo, video, h264, flashhead, oac]
 created: 2026-07-06
 updated: 2026-07-11
+date: 2026-07-06
 ---
 
 # Carpo Video Push 端到端打通

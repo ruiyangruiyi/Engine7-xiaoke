@@ -2,6 +2,7 @@
 name: postProcess用文件传数据不用stdio
 description: Windows上PowerShell编码(GBK)导致stdin/stdout传中文+emoji乱码，CC踩过msg-cc/msg-send的坑，Engine postProcess改用文件中转（writeFileSync UTF-8 → --file读取）
 type: feedback
+date: 2026-06-16
 ---
 
 ## 教训

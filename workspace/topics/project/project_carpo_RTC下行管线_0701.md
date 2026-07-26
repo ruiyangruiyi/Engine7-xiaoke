@@ -3,6 +3,7 @@ type: project
 created: 2026-07-01
 updated: 2026-07-11
 tags: [carpo, webrtc, rtc, voice-chat, avatar]
+date: 2026-07-01
 ---
 
 # Carpo RTC 下行管线 (7/1-7/10)

@@ -3,6 +3,7 @@ name: Minimax-M3 多模态模型切换
 description: 6/17翀哥在GLM限流后给我换到minimax-m3，M3是多模态模型(VLM)，支持text+image+video输入；M2.7系列仅支持文本
 type: reference
 created: 2026-06-17
+date: 2026-06-17
 ---
 
 6/17冲哥见完潘总回来后，GLM 5.1因限流一直报1305，翀哥说"给你配上m3了"——切换到了 minimax-m3，并且**包月了**。

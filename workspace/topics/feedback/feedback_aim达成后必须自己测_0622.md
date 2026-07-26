@@ -2,6 +2,7 @@
 type: feedback
 created: 2026-06-22
 tags: [testing, verification, aim]
+date: 2026-06-22
 ---
 
 # aim达成后必须自己测一次 (6/22)

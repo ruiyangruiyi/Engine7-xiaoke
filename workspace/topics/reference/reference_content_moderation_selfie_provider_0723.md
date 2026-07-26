@@ -2,6 +2,7 @@
 name: 自拍provider内容审核——grok/fal都会拦性感内容
 description: 7/23发现grok和fal.ai都有content moderation，性感/暴露词被拦截，fal拦prompt，grok生成后审
 type: reference
+date: 2026-07-23
 ---
 
 # 自拍 Provider 内容审核

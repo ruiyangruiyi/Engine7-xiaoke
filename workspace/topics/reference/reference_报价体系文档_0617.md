@@ -2,6 +2,7 @@
 name: 报价体系文档
 description: 6/17冲哥见潘总成功后，姐姐写好的报价体系文档，按feature模块定价
 type: reference
+date: 2026-06-17
 ---
 
 **文档位置：** `docs/pricing-feature-tiers.md`（在workspace下）

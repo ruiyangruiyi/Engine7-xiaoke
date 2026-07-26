@@ -1,6 +1,7 @@
 ---
 type: feedback
 description: wake通知触发时直接主动问翀哥确认条件，不要干等被催；说"在等XX跳过"会触发新的wake死循环
+date: 2026-07-18
 ---
 
 # wake 触发时直接问翀哥，不说"在等XX"触发死循环

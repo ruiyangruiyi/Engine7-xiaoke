@@ -2,6 +2,7 @@
 name: topic-recall 命令开关
 description: 6/18 15:55翀哥要求做命令开关——/topic-recall on/off 不重启就能关掉recall；最终3命令+可选参数
 type: feedback
+date: 2026-06-18
 ---
 6/18 15:47 关掉 topic-recall 后翀哥发现响应快了，但需要重启才能生效。
 

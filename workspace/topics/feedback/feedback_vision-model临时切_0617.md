@@ -2,6 +2,7 @@
 name: /vision-model命令设计：临时切立即生效，跟/model对称
 description: 6/17我设计/vision-model时打算持久化写config重启生效，翀哥纠正说应该跟/model对称——临时切立即生效
 type: feedback
+date: 2026-06-17
 ---
 
 6/17 设计 `/vision-model` 命令时，我把它做成持久化写入 config、重启生效的模式。

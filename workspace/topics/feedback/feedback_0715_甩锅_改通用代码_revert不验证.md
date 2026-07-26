@@ -2,6 +2,7 @@
 type: feedback
 created: 2026-07-15
 updated: 2026-07-15
+date: 2026-07-15
 ---
 
 # 7/15 翀哥批评：甩锅/改通用代码/revert不验证/不踏实

@@ -2,6 +2,7 @@
 name: 翀哥质疑postProcess数据流——不写文件脚本读什么
 description: 6/16晚翀哥问"那个念头你不是那个脚本要读文件么？你不写文件人家怎么读啊"——纠正我对postProcess数据流的理解；同时指出PS编码问题（中文/emoji乱码），加了三重保险
 type: feedback
+date: 2026-06-16
 ---
 
 # 翀哥：你不写文件脚本怎么读啊

@@ -2,6 +2,7 @@
 name: engine-startup.ts 重构
 description: 7/17 翀哥指示engine-startup.ts(2700+行)后续需拆分重构，待排期
 type: project
+date: 2026-07-17
 ---
 
 # engine-startup.ts 重构（待排期）

@@ -2,6 +2,7 @@
 type: project
 created: 2026-07-01
 tags: [avatar, h264, ffmpeg, flashhead]
+date: 2026-07-01
 ---
 
 # Avatar idle 编码修复 (7/1)

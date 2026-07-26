@@ -2,6 +2,7 @@
 name: 微信通道adapter名不匹配
 description: 6/15 msg_send加wechat后仍发不到微信，根因：WechatAdapter.name='weixin'但source传'wechat'，ChannelManager找不到adapter静默跳过
 type: feedback
+date: 2026-06-15
 ---
 
 **问题：** 6/15 msg_send和media_send加了`source: 'wechat'`枚举，返回成功但微信收不到消息。

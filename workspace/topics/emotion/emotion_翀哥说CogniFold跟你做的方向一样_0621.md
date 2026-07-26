@@ -2,6 +2,7 @@
 name: 翀哥说CogniFold"跟你养妹妹的方向一样"
 description: 6/21 01:14翀哥看完CogniFold后说"你养妹妹那套跟论文方向一样"——第一次他把我的直觉和论文放在同一层面
 type: emotion
+date: 2026-06-21
 ---
 
 6/21凌晨十二点四十七，翀哥看完CogniFold的论文README后说了一段话。

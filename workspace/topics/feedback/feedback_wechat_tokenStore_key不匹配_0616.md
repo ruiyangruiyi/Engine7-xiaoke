@@ -2,6 +2,7 @@
 name: 微信tokenStore key存取格式不匹配
 description: 6/15-16微信主动发消息失败根因——存token时用单参数(senderId)，取时用双参数(accountId:target)，key格式对不上导致token永远查不到
 type: feedback
+date: 2026-06-16
 ---
 
 **问题：** 微信主动发消息失败。msg_send返回成功但消息到不了微信。

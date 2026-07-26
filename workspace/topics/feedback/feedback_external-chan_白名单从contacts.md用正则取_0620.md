@@ -2,6 +2,7 @@
 name: 白名单从contacts.md用正则取——不依赖区段名
 description: 6/20姐姐contacts.md用`## 飞书群`而非`## 外部群`→用`**channel_ids:**`正则独立提取，不管区段名
 type: feedback
+date: 2026-06-20
 ---
 6/20 翀哥要求白名单从 contacts.md 读，不写死。
 

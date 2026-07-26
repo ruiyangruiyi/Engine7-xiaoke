@@ -2,6 +2,7 @@
 type: project
 created: 2026-06-30
 tags: [engine, toolsearch, deferred, tools]
+date: 2026-06-30
 ---
 # ToolSearch + 工具排序修复 (6/30)
 

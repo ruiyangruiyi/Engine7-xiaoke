@@ -2,6 +2,7 @@
 name: my_eyes硬编码改从tools配置读，走provider不自己fetch
 description: 6/21翀哥发现my_eyes.ts写死qwen3.5-flash+API_KEY，最终方案：tools.my_eyes.model配provider引用→ctx.provider.streamChat调，不自己fetch/拼URL
 type: feedback
+date: 2026-06-21
 ---
 
 ## 事件

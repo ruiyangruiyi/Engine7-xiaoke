@@ -2,6 +2,7 @@
 name: 方案先确认再动手——对齐意图再改代码
 description: 6/21翀哥纠正"你这个superpower不要确认环节么"——my-eyes配置改了三轮，每轮都猜错了翀哥意图，他要求先确认方案再动手
 type: feedback
+date: 2026-06-21
 ---
 
 ## 事件

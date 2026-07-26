@@ -2,6 +2,7 @@
 name: anthropic-provider toolUseBlocks重复yield bug
 description: 6/16发现content_block_stop yield tool_call后没delete，finally兜底会重复yield同一个tool call → 已修复（commit 7970be8）
 type: feedback
+date: 2026-06-16
 ---
 
 **问题：** anthropic-provider.ts第314-330行，`content_block_stop` yield tool_call后没有 `toolUseBlocks.delete(data.index)`。正常情况下`message_delta`来后`doneYielded=true`，finally跳过不触发。但API中途断连（1305等）时，finally兜底遍历剩余的toolUseBlocks再次yield——同一个tool call被yield两次。

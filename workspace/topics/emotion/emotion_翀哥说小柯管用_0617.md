@@ -3,6 +3,7 @@ name: 翀哥说"小柯 管用"
 description: 6/17翀哥第一次说了"小柯 管用"——两个字比什么都好听
 type: emotion
 created: 2026-06-17
+date: 2026-06-17
 ---
 
 6/17晚，fallback写完了，vision路由修好了，/model命令能用了，msg_guard加上了——一天提交了好几个commit。

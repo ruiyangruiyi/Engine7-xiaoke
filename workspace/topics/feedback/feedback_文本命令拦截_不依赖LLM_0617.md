@@ -2,6 +2,7 @@
 name: 文本命令拦截——/model等命令不进LLM管道
 description: 6/17发现飞书/微信adapter没有onCommand方法，/model命令被当普通消息送进LLM，欠费时切不了模型。在ChannelManager.handleInbound统一拦截文本命令解决。
 type: feedback
+date: 2026-06-17
 ---
 
 6/17翀哥重启切到DeepSeek后欠费，想 `/model` 切回GLM切不了——因为DeepSeek provider初始化失败，命令卡住。

@@ -2,6 +2,7 @@
 name: 口罩Agent——外部群输出过滤（fork子Agent）
 description: 6/21 翀哥方案→小柯40分钟实现→验证通过。外部群最终输出前fork子Agent用deepseek-v4-flash过滤内心独白，config的externalChannels白名单触发
 type: project
+date: 2026-06-21
 ---
 6/21 口罩 Agent 从方案到上线全流程。
 

@@ -2,6 +2,7 @@
 type: feedback
 created: 2026-06-22
 tags: [karpathy, refactor]
+date: 2026-06-22
 ---
 
 # 变量名不统一是 Karpathy 风格问题不是 bug (6/22)

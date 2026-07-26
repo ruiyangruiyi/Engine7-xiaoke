@@ -2,6 +2,7 @@
 name: SOP工作流程
 description: 6/16翀哥要求建SOP标准化工作流程——新建TODO必须同时写文档到docs/todo/，文档带双链引用，实现前先读关联文档
 type: feedback
+date: 2026-06-16
 ---
 
 **问题：** 6/16翀哥说"下次我再说'记个todo'的时候，你就要能自己反应过来往里面加文档"。之前只在SESSION-STATE里记todo，没有配套文档。

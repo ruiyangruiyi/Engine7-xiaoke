@@ -3,6 +3,7 @@ type: project
 created: 2026-06-28
 updated: 2026-07-11
 tags: [voice-chat, webrtc, vad, asr, tts, avatar]
+date: 2026-06-28
 ---
 
 # Voice-Chat 基线开发 (6/26-6/28)
@@ -107,3 +108,49 @@ tags: [voice-chat, webrtc, vad, asr, tts, avatar]
 ### CPU 根因
 - 详见 project_voice_chat_cpu根因分析.md
 - 核心结论：Python 数据搬运（FlashHead→Python→PyAV→SDK）vs 直播版 C++ streamer 直连
+
+## 7/20 — aiortc 全 Passthrough（大突破）
+
+### 爆音根因定位
+- carpo_oac_bridge chunk_pts_ms 重复 → 修复
+
+### my_selfie 配置化
+- references + provider 从 config 读
+
+### aiortc demo 从零跑通到全 passthrough
+- **v2**: decode+encode（能跑但有延迟）
+- **v3**: 全 passthrough（timestamp 没过滤，失败）
+- **v4**: 全 passthrough + NAL 攒包 + force H264（最终方案）
+- 22:15 翀哥确认：**画面+声音+首帧同步**
+- audio 快一点点（Opus 解码比 H.264 快）
+
+### 关键认知
+1. **aiortc pack() 已做 RTP 分包**——不需要自己处理 STAP-A/FU-A
+2. **Carpo SDK timestamp 已做 base 对齐**——第一个包=0，不需要 offset
+3. **浏览器需要 SPS+PPS+IDR 在同一 access unit**——NAL 攒包是必须的
+4. **setCodecPreferences 必须在 setRemoteDescription 之前**
+
+### calendar reminder 重复触发 bug 修复
+- 根因：computeWeeklyRemindAt 在提醒时间已过时设 remindMs=Date.now()
+- 导致 markReminded 写回 remind_at=now + reminded=0 → 5min tick 又触发 → 死循环
+- 修复：改成 remindMs=eventMs（cbbb6d70）
+- 只有 weekly 类型有此 bug
+
+## 7/21 — server_v2 模块化重构 + Phase 1 完成
+
+### 模块化重构
+- server_v2.py 从单文件 `main()` 重构为 `create_app()` + web.run_app 直接管 event loop
+- Carpo pull 移到 `on_startup` hook 初始化
+- 模块拆分：`v2/config.py`, `v2/carpo_pull.py`, `v2/rtc.py`, `v2/generate.py`
+- 修复启动 bug：web.run_app 不能在 asyncio.run 里调（嵌套 event loop）
+
+### Phase 1 验证通过
+- 翀哥在香港酒店远程测试 server_v2.py
+- Commit `287a87db` 
+- **画面+声音都有**，翀哥确认："通了。。。""都是你的功劳 小美女"
+- 端口从 8115 改为 8116（被 demo_v4 占用）
+
+### Phase 2 待做（回北京后）
+- 前端加 mic 上行（`addTransceiver('audio', {direction: 'sendrecv'})`）
+- VAD + ASR 上行链路提取（从 server.py 的 VoiceChatHandler.receive 中提取）
+- engine webhook：ASR 结果发给 engine，回复后触发 generate

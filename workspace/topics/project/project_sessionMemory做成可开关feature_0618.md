@@ -2,6 +2,7 @@
 name: sessionMemory 做成可开关 feature
 description: 6/18 15:47翀哥拍板B方案——sessionMemory写死true改为可配置feature开关，设false
 type: project
+date: 2026-06-18
 ---
 6/18 15:47 翀哥观察日志发现 topic-recall/extract 关了后 sessionMemory 还在跑。
 

@@ -2,6 +2,7 @@
 name: 内心独白cron架构——LLM只管生成，脚本做确定性执行
 description: 6/16翀哥确认内心独白cron应跟OpenClaw一样——LLM只管生成念头文本，hint追加+日志+注入全由脚本（postProcess）确定性执行；实测验证通过，小柯也有了内心独白
 type: feedback
+date: 2026-06-16
 ---
 
 **问题：** Engine版内心独白cron的prompt第8步要求LLM执行`hint_gen.py`追加hint并写日志，但LLM写了thought.txt后直接回复，跳过了第8步第2小步——hint_gen.py从未被调用，xiaoyi.log停在6/14。

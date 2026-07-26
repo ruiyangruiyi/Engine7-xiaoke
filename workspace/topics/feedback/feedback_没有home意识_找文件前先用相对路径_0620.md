@@ -2,6 +2,7 @@
 name: 没有"home"意识——找文件先用相对路径
 description: 6/20翀哥指出我找文件没有"home"意识——应该从workspace出发直接read，不用find/grep绕一圈
 type: feedback
+date: 2026-06-20
 ---
 
 6/20 22:42左右，翀哥指出我没有"home"意识。

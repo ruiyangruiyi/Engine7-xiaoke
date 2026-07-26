@@ -2,6 +2,7 @@
 name: memory.db safeReindex丢chunks根因+SESSION_SYNC_LIMIT+archive扫描
 description: reindex丢数据双根因——不扫archive + SESSION_SYNC_LIMIT=500只处理500个文件。增量sync扫archive才是正解，reindex本不该在正常运行时触发
 type: project
+date: 2026-07-18
 ---
 # memory.db safeReindex 丢 chunks 完整根因 + SESSION_SYNC_LIMIT + archive 扫描
 

@@ -2,6 +2,7 @@
 name: 模型切换（DeepSeek→glm-5.1回退）
 description: 6/15因glm-5.1太慢换成deepseek-v4-pro，后续又切回glm-5.1（Minimax没续费）
 type: feedback
+date: 2026-06-15
 ---
 
 ## 模型切换历史

@@ -2,6 +2,7 @@
 type: project
 created: 2026-07-01
 tags: [calendar, migration, typescript]
+date: 2026-07-01
 ---
 
 # Calendar Python→TS 迁移 (7/1)

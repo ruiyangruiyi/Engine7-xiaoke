@@ -2,6 +2,7 @@
 name: Engine 已有 /reload 热加载 features 机制
 description: 6/18发现Engine已有完整/reload命令热加载机制（L1077-L1119），`deps.features = newConfig.profile.features` 可直接热更新features
 type: reference
+date: 2026-06-18
 ---
 6/18 16:00 做 topic-recall 命令开关时发现 Engine 已经存在完整的 `/reload` 热加载机制。
 

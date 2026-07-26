@@ -2,6 +2,7 @@
 name: 直播TTS排版重复（非API重试）
 description: 6/16直播观众听到的重复——用transcript证据定位到AutoDL服务器侧（TTS/FlashHead/RTMP重复帧），非Engine侧API重试导致
 type: feedback
+date: 2026-06-16
 ---
 
 **问题：** 6/16直播中翀哥在观众端听到消息重复/重叠，一句话连续播了2-4遍。

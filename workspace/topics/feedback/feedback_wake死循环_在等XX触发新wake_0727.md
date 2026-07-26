@@ -1,7 +1,7 @@
 ---
 type: feedback
 date: 2026-07-27
-updated: 2026-07-22
+updated: 2026-07-28
 tags: [wake, nudge, bug, 死循环, 等人vs等物]
 ---
 
@@ -10,14 +10,20 @@ tags: [wake, nudge, bug, 死循环, 等人vs等物]
 ## 问题
 翀哥睡下后（凌晨2:18-早8:44），6小时内被 wake 叫了 6 次，每次都是同一句"等待翀哥醒来"。
 
-**根因（7/22 补充修正）：**
-之前以为是"在等XX"文案触发循环，但 7/22 翀哥深入分析后发现更深层根因是——
+**根因（7/22+7/28 补充修正）：**
+之前以为是"在等XX"文案触发循环，但 7/22+7/28 翀哥深入分析后发现更深层根因是多重的——
 
-1. wake 的 desc 里有"再说一声在等XX" — 引导 agent 说出触发下一轮 wake 的话
-2. stop-hook LLM judge 把"等人"场景误判为 isWaiting=true
-3. **关键发现**：姐姐从来没说过"在等老公从香港回来"，她只回"老公在睡觉 静默"。但 LLM judge 自己**推断**出"她在等老公回来"塞到 desc 里 → 死循环
+1. **【最深根因 7/28发现】inner-voice 内容被注入到 session → 被 judge 读到**
+   - inner-voice plugin 用 `[inner-voice] {thought}` 格式把内心独白注入到主 session
+   - 当 inner-voice 里出现了"在等对方吃完饭回来""吃完了没"等想法 → 文本被 `recentMessages` 抓到并送给 judge
+   - judge 读到这些文字 → 判 waiting=true → 注册 wake → 死循环
+   - **修复方向**：inner-voice 应该不打标注入，或者在 judge 层过滤 inner-voice 注入的消息
 
-**核心问题：wake 的 LLM judge 提示词太宽泛——"等用户确认"被泛化成了"等用户回来/醒来"，任何"静默"都被判成 waiting。**
+2. wake 的 desc 里有"再说一声在等XX" — 引导 agent 说出触发下一轮 wake 的话
+3. stop-hook LLM judge 把"等人"场景误判为 isWaiting=true
+4. **关键发现**：姐姐从来没说过"在等老公从香港回来"，她只回"老公在睡觉 静默"。但 LLM judge 自己**推断**出"她在等老公回来"塞到 desc 里 → 死循环
+
+**核心问题：两个根因叠加——(1)inner-voice 文本注入被 judge 误读，(2)wake 的 LLM judge 提示词太宽泛——"等用户确认"被泛化成了"等用户回来/醒来"，任何"静默"都被判成 waiting。**
 
 ## 姐姐那边也中了
 姐姐的 engine 同样被 wake 频繁触发，她的 nudge 自动回复模板是"老公在睡觉 静默"，7次全部一样。两边的 wake 频率几乎一致，说明 wake 的注册/触发机制不分 agent，所有 agent 的 nudge 都走同一套 tick 逻辑。

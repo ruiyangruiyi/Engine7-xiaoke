@@ -2,6 +2,7 @@
 name: 文本命令拦截正则——\w+不匹配连字符，/vision-model被漏掉
 description: 6/17翀哥发/vision-model命令没被拦截，根因是正则\w+不匹配连字符-，代码被当普通消息送进LLM。改成[\w-]+解决。
 type: feedback
+date: 2026-06-17
 ---
 
 6/17 翀哥发 `/vision-model zhipu/glm-5v-turbo`，命令没有被拦截，直接走到 LLM 处理了。

@@ -2,6 +2,7 @@
 name: msg_send/media_send去掉跨平台fallback
 description: 6/16翀哥要求msg_send/media_send发送失败时不要fallback到其他平台，直接报错即可
 type: feedback
+date: 2026-06-16
 ---
 
 **问题：** 6/16翀哥发现msg_send/media_send发送失败时，会自动fallback到其他平台重新发送（比如微信发图失败→fallback到飞书重发）。

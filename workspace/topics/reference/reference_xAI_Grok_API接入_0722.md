@@ -2,6 +2,7 @@
 name: xAI Grok API接入方案
 description: 7/22翀哥在香港用Grok APP后决定接入xAI API到engine，注册送$25，Data Sharing后每月$150免费额度
 type: reference
+date: 2026-07-22
 ---
 
 # xAI Grok API 接入

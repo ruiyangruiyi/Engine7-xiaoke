@@ -2,6 +2,7 @@
 name: 敏感词过滤器——substring误伤 + config化
 description: 6/17刚做完群聊敏感词过滤器就触发——"appId"里的"PP"被敏感词列表命中，误拦截。敏感词列表是简单substring匹配，非整词匹配。翀哥纠正后改为从config读取，不写死。
 type: feedback
+date: 2026-06-17
 ---
 
 6/17 做了**群聊敏感词过滤器**，当天就触发了——

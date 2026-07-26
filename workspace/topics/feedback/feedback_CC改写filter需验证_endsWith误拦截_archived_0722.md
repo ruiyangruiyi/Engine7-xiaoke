@@ -2,6 +2,7 @@
 type: feedback
 created: 2026-07-22
 updated: 2026-07-22
+date: 2026-07-22
 ---
 
 # CC 改 archive filter 用 endsWith 导致 .archived. 全拦截 + 改完不验证

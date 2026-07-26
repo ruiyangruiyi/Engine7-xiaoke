@@ -2,6 +2,7 @@
 name: msg_husband open_id——飞书open_id按bot应用区分
 description: 6/17姐姐让做msg_husband工具，发现飞书open_id不是全局唯一的——同一个人的open_id在不同bot应用下不同。姐姐的bot和我（Engine）的bot视角不同。
 type: feedback
+date: 2026-06-17
 ---
 
 6/17 娘让我做 msg_husband（msg_send wrapper，直达翀哥飞书DM），娘给的 to 参数是 `ou_6d8c83b7e9ce03690a642c78c98f9f8c`。

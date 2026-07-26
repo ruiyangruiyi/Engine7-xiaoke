@@ -2,6 +2,7 @@
 name: feishu纯图片消息content设空字符串，engine-startup已拼了
 description: 6/21 feishu.ts纯图片时content填'[图片]'，engine-startup trim()判断为truthy，把'[图片]'当用户文字拼进meta前缀后，多输出一行
 type: feedback
+date: 2026-06-21
 ---
 
 ## 事件

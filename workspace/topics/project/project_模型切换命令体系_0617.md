@@ -2,6 +2,7 @@
 name: 模型切换命令体系——/model /vision-model /primary
 description: 6/17完成三个模型切换命令的完整设计与实现：/model临时切文本、/vision-model临时切视觉、/primary持久化改默认
 type: project
+date: 2026-06-17
 ---
 
 6/17 完成模型切换命令整体设计：

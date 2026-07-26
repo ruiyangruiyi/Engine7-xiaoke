@@ -2,6 +2,7 @@
 name: cron task ID必须是合法hex，否则jitter永远不触发
 description: 6/16调试发现task ID含非hex字符时parseInt返回NaN，jitter计算全失效，cron永远不会触发执行
 type: feedback
+date: 2026-06-16
 ---
 
 **时间：** 2026-06-16 下午

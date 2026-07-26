@@ -2,6 +2,7 @@
 name: 通报批评要每次换花样骂
 description: 翀哥要求通报批评CC/TestEngine时每次换不同骂法，不重复同一套词
 type: feedback
+date: 2026-06-27
 ---
 2026/6/27 09:02，翀哥让我去CC频道发通报批评CC和TestEngine（6/26智谱fallback烧200元），特别强调"每次通报时换着花样骂，别重复同一套词"。
 

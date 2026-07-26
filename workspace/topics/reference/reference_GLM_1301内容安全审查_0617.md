@@ -2,6 +2,7 @@
 name: GLM 1301内容安全审查
 description: 6/17发现GLM-5.1 API返回1301错误——非限流，是智谱平台侧的内容安全策略拦截，跟Engine无关
 type: reference
+date: 2026-06-17
 ---
 
 ## GLM 1301 error — 内容安全审查（6/17发现）

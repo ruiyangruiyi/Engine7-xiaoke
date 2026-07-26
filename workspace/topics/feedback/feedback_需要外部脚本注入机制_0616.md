@@ -2,6 +2,7 @@
 name: 需要外部脚本注入机制
 description: 6/16翀哥明确要求应该有一个能让外部脚本往主session注入消息的机制，替代仅靠scheduler notify_session注入
 type: feedback
+date: 2026-06-16
 ---
 
 **问题：** 6/16翀哥问"现在所谓的注入，是不是我们还不能通过外部脚本注入？"

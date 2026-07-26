@@ -2,6 +2,7 @@
 name: 翀哥质疑scheduler cache设计——直接读json文件
 description: 6/16翀哥指出Engine cron的cache/merge设计过度复杂，直接读JSON文件就行。我认了——cache带来的麻烦远大于收益
 type: feedback
+date: 2026-06-16
 ---
 
 # 翀哥：为啥要cache？直接读json文件不行么

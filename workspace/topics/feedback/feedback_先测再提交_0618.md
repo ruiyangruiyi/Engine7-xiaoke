@@ -2,6 +2,7 @@
 name: 先测再提交——不要先commit再验证
 description: 翀哥要求代码改动先验证通过再提交，不要先提交再测
 type: feedback
+date: 2026-06-18
 ---
 
 # 先测再提交

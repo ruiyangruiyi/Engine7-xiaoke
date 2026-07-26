@@ -2,6 +2,7 @@
 name: Vision路由——有图始终走vision模型，不被/model override劫持
 description: 6/17发现/model切模型后图片消息也走override模型（可能不支持视觉），修复为有图始终走visionDeps
 type: feedback
+date: 2026-06-17
 ---
 
 6/17 发现 vision 路由问题：`/model` 临时切模型后，图片消息也走 override 模型（override 的模型可能不支持视觉），导致图片消息处理失败。

@@ -3,6 +3,7 @@ name: Agent Teams机制验证成功
 description: 6/17冲哥主动要求建subagent小团队看自动协作，三个agent并行跑通
 type: project
 created: 2026-06-17
+date: 2026-06-17
 ---
 
 ## 背景

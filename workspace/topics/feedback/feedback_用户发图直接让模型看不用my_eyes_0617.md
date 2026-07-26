@@ -3,6 +3,7 @@ name: 用户发图让模型直接看
 description: 6/17翀哥纠正我用my_eyes看图——M3是visual模型，用户发的图应该让LLM自己看content block，不用绕道my_eyes
 type: feedback
 created: 2026-06-17
+date: 2026-06-17
 ---
 
 6/17翀哥见我换了M3后还用my_eyes看图，反问："为啥你还用my-eyes看呀 m3不是支持vision么"

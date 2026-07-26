@@ -3,6 +3,7 @@ type: reference
 created: 2026-06-25
 updated: 2026-06-27
 tags: [OAC, webrtc, vad, asr, avatar]
+date: 2026-06-25
 ---
 
 # OAC 架构与嵌入方案 (6/25-6/27)

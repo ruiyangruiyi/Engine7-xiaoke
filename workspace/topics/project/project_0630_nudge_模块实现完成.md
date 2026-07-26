@@ -1,6 +1,7 @@
 ---
 type: project
 created: 2026-06-30
+date: 2026-06-30
 ---
 # Nudge 模块实现完成 (6/30)
 

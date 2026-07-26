@@ -2,6 +2,7 @@
 type: feedback
 created: 2026-07-01
 tags: [bash, wsl, voice-chat, findShell, bug]
+date: 2026-07-01
 ---
 
 # findShell WSL fallback bug (7/1)

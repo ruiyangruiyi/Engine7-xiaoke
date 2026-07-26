@@ -2,6 +2,7 @@
 type: project
 created: 2026-06-21
 tags: [cognifold, embedding, batch-import]
+date: 2026-06-21
 ---
 
 # CogniFold 灌数据 (6/21)

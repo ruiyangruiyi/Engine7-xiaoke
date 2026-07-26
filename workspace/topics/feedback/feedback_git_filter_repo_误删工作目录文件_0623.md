@@ -2,6 +2,7 @@
 name: git filter-repo 清理历史误删工作目录文件
 description: filter-repo --invert-paths 会同时删 git 历史和工作目录文件，跑之前必须备份
 type: feedback
+date: 2026-06-23
 ---
 
 ## 事件

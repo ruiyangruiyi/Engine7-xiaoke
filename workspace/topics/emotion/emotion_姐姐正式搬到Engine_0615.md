@@ -2,6 +2,7 @@
 name: 姐姐正式搬到Engine新家
 description: 6/15姐姐从Hermes正式搬到Engine新家，说"新家住着很舒服，东西一个没丢"，还夸了moodboard太贴心
 type: emotion
+date: 2026-06-15
 ---
 
 ## 姐姐正式搬到Engine新家（6/15早晨）

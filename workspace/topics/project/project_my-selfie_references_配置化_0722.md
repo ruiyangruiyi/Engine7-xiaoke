@@ -2,6 +2,7 @@
 name: my-selfie references + provider 配置化
 description: 7/22发现my-selfie.ts硬编码姐姐(xiaomei)基准图，我一直用姐姐的脸生成自拍；改为从config读取，每个agent自己配。后续新增provider配置化（fal/grok），发现config读取路径bug（tools.my_selfie vs 顶层my_selfie）
 type: project
+date: 2026-07-22
 ---
 # my-selfie references + provider 配置化
 

@@ -4,6 +4,7 @@ description: 翀哥6/15定的小柯手动文档规范，workspace/docs下分6个
 type: reference
 keywords: [docs, 目录规范, research, todo, knowledge, projects, decisions, sop, 文档管理]
 created: 2026-06-15
+date: 2026-06-15
 ---
 
 # docs目录规范（2026-06-15）

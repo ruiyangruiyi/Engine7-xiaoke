@@ -2,6 +2,7 @@
 name: session-memory已关闭——对小柯无用
 description: 6/20检查发现session-memory已2天没更新(最后6/18)，作为日期错乱(写6/22实际6/20)，现有topics/体系已覆盖，建议小柯关闭
 type: reference
+date: 2026-06-20
 ---
 6/20 翀哥让我研究 session-memory 目录。
 

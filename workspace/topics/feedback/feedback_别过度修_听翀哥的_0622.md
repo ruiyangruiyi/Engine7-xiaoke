@@ -2,6 +2,7 @@
 name: 别过度修，听翀哥的
 description: 2026-06-22 修 429 fallback 死循环时被翀哥批评"过度改了"
 type: feedback
+date: 2026-06-22
 ---
 
 # 别过度修，听翀哥的

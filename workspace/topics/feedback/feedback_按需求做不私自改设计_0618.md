@@ -2,6 +2,7 @@
 name: 翀哥给明确需求时按需求做，不私自改设计
 description: 6/18 16:07翀哥说"按我之前的需求做，别给我改需求"——明确的spec原样执行，不要enhance/reinterpret
 type: feedback
+date: 2026-06-18
 ---
 6/18 16:05-16:18 翀哥要求做 `/topic-recall state: on|off` 命令。
 

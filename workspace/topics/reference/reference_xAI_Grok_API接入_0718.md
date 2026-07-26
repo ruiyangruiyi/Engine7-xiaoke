@@ -2,6 +2,7 @@
 name: xAI Grok API接入到engine
 description: 7/18翀哥在香港用Grok APP后决定接入xAI API到engine，注册送$25，$5充值后可用，已配三个模型到xiaoke.json
 type: reference
+date: 2026-07-18
 ---
 
 # xAI Grok API 接入到 engine（7/18）
