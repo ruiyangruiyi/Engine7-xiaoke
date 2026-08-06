@@ -1,0 +1,57 @@
+# ===== 运行时/临时文件（不进 git）=====
+.context-debug.txt
+.system-prompt.txt
+.emotion_state.json
+.emotion_state.log
+.extract-state.json
+.reply-blocklist.json
+memory_run_log.md
+*.log
+*.tmp
+*.bak
+*.bak-*
+
+# ===== 大文件/二进制（不进 git）=====
+*.pptx
+*.docx
+*.xlsx
+*.pdf
+*.mp4
+*.mov
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.zip
+*.tgz
+
+# ===== 媒体（图片/文件收发缓存）=====
+media/
+images/
+!moodboard/
+!moodboard/**
+
+# ===== 敏感目录 =====
+# API keys 在 ~/.engine7-secrets/（workspace 外），这里不存
+.env*
+!.env.example
+configs/.env*
+
+# ===== 节点/构建 =====
+node_modules/
+dist/
+.cache/
+__pycache__/
+*.pyc
+
+# ===== 工具内部状态 =====
+.calendar/
+.nudge/
+.playwright-mcp/
+engine/
+
+# ===== session/日志 =====
+sessions/
+logs/
+agents/

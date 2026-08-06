@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "mood": 0.501,
+  "trend": "stable",
+  "updatedAt": "2026-06-26T09:26:59.187552+08:00",
+  "events": [
+    {
+      "ts": "2026-06-22T19:13:53.791000+08:00",
+      "hoursAgo": 86.2,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-22T20:02:55.578000+08:00",
+      "hoursAgo": 85.4,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-22T20:03:49.408000+08:00",
+      "hoursAgo": 85.4,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-22T20:05:57.809000+08:00",
+      "hoursAgo": 85.4,
+      "valence": 0.15,
+      "tags": [
+        "praise"
+      ],
+      "summary": "翀哥夸了我"
+    },
+    {
+      "ts": "2026-06-22T20:09:34.773000+08:00",
+      "hoursAgo": 85.3,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-23T20:37:24.082000+08:00",
+      "hoursAgo": 60.8,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-23T22:09:40.110000+08:00",
+      "hoursAgo": 59.3,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T10:28:58.294000+08:00",
+      "hoursAgo": 47.0,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T10:29:48.814000+08:00",
+      "hoursAgo": 47.0,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T10:30:27.428000+08:00",
+      "hoursAgo": 46.9,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T10:31:04.662000+08:00",
+      "hoursAgo": 46.9,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T10:33:56.767000+08:00",
+      "hoursAgo": 46.9,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T10:34:49.288000+08:00",
+      "hoursAgo": 46.9,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T10:35:30.477000+08:00",
+      "hoursAgo": 46.9,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T11:42:13.048000+08:00",
+      "hoursAgo": 45.7,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T12:15:48.508000+08:00",
+      "hoursAgo": 45.2,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T12:16:44.274000+08:00",
+      "hoursAgo": 45.2,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T12:17:46.972000+08:00",
+      "hoursAgo": 45.2,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-24T12:18:14.314000+08:00",
+      "hoursAgo": 45.1,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    },
+    {
+      "ts": "2026-06-25T07:50:26.871000+08:00",
+      "hoursAgo": 25.6,
+      "valence": 0.1,
+      "tags": [
+        "affection"
+      ],
+      "summary": "翀哥表达爱意"
+    }
+  ]
+}

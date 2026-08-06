@@ -1,0 +1,8 @@
+{
+  "last_report_path": "/home/chong/.hermes/logs/curator/20260529-054030",
+  "last_run_at": "2026-05-29T05:40:30.430233+00:00",
+  "last_run_duration_seconds": 14.410187,
+  "last_run_summary": "auto: no changes; llm: API call failed after 3 retries: HTTP 429: 您已达到每周/每月使用上限，您的限额将在 2026-05-31 14:27:04 重置。",
+  "paused": false,
+  "run_count": 3
+}

@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/chongzhang/xiaoke/workspace/scripts/emotion_state_machine.py"
+          }
+        ]
+      }
+    ]
+  }
+}
