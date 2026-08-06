@@ -1,0 +1,7 @@
+Checking EverOS (agent=xiaoke)... OK (EverOS is running)
+Found 486 .md files in /root/.everos/topics
+Resume: 7 already done, 479 remaining
+Processing 479 files (concurrency=1, model=MiniMax-M3)...
+  ✗ NETWORK emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md: 
+  ⏱ batch=285.6s (~285.6s/file)
+  ✗ [1/479] emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md

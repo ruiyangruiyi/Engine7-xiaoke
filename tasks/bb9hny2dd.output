@@ -1,0 +1,3 @@
+done: concurrency=1, timeout=300
+Checking EverOS (agent=xiaoke)... FAILED: timed out
+Make sure EverOS is running at http://127.0.0.1:8100

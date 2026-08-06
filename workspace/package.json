@@ -1,0 +1,9 @@
+{
+  "name": "xiaoke-cdp",
+  "version": "1.0.0",
+  "description": "Browser CDP automation for Xiaoke",
+  "type": "module",
+  "dependencies": {
+    "chrome-remote-interface": "^0.33.0"
+  }
+}

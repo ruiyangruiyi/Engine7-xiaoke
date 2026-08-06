@@ -1,0 +1,30 @@
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 sha256:282c60c0cd524c3474d0420c244e3d5df8cc4a2d2881ca24f552a4fde5d61527
+#3 DONE 0.0s
+
+#4 [1/8] FROM docker.io/library/python:3.12-slim
+#4 sha256:b9628dc696734fcf33926d1ee96c3dfc0590fa5472131aed1d9a4fde7600dede
+#4 DONE 0.0s
+
+#5 [2/8] WORKDIR /app
+#5 sha256:f094eea25426e11ebd0b2309ba8e9c11aa6d5b0bc730fa2196c570ff9e5821eb
+#5 CACHED
+
+#6 [3/8] RUN sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources 2>/dev/null ||     sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list 2>/dev/null || true
+#6 sha256:0f47da869e98e9c930e283055ca8f59daa0961be53be5e9653263f6766198a16
+#6 CACHED
+
+#7 [internal] load build context
+#7 sha256:b43c82cc9ca2ecca4577b7678ecb619547865447b4d77d327af9699b8440a682
+#7 transferring context: 23.23kB 0.0s done
+#7 DONE 0.0s
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers
+#13 exporting layers 4.5s done
+#13 writing image sha256:e02a1b8aa6d4ad436aab98706144d2e33d7a81d234af2d85f40dd6891142b5d2 done
+#13 naming to docker.io/library/everos-local done
+#13 DONE 4.5s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them

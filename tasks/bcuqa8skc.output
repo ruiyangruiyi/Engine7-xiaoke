@@ -1,0 +1,7 @@
+5/487 completed, 3 failed
+===
+  ⏱ batch=28.3s (~28.3s/file)
+  ✓ [7/487] emotion/emotion_不能再让他失望了_0618.md
+  ✗ HTTP 500 emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md: {"request_id":"61e5a7c185a045f7863b803da2c2cdf5","error":{"code":"INTERNAL_ERROR","message":"Internal server error","timestamp":"2026-08-03T15:25:35.746344+00:00","path":"/api/v1/memory/add"}}
+  ⏱ batch=64.8s (~64.8s/file)
+  ✗ [8/487] emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md

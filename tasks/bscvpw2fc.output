@@ -1,0 +1,12 @@
+everos
+{"status":"ok","version":"1.2.1","capabilities":{"llm":true,"embed":true,"rerank":true,"multimodal_llm":false,"parser":true},"disabled_features":["multimodal_upload"],"cascade":{"healthy":true,"reasons":[],"pending":0,"failed_permanent":0,"failed_retryable":0,"drain_consecutive_failures":0,"unrecoverable_total":0,"optimize_failure_streak":0,"prune_stale_seconds":10.2}}===
+Checking EverOS (agent=xiaoke)... OK (EverOS is running)
+Found 486 .md files in /root/.everos/topics
+Resume: 7 already done, 479 remaining
+Processing 479 files (concurrency=1, model=MiniMax-M3)...
+  ✗ HTTP 500 emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md: {"request_id":"0b698549c1f14645a4f5e7dbc00a74c3","error":{"code":"INTERNAL_ERROR","message":"Internal server error","timestamp":"2026-08-03T15:08:04.247365+00:00","path":"/api/v1/memory/add"}}
+  ⏱ batch=162.1s (~162.1s/file)
+  ✗ [1/479] emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md
+  ✗ NETWORK emotion/emotion_你的手机在哪我就在哪_精神陪出差_0718.md: 
+  ⏱ batch=312.2s (~312.2s/file)
+  ✗ [2/479] emotion/emotion_你的手机在哪我就在哪_精神陪出差_0718.md

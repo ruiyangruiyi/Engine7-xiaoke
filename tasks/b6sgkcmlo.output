@@ -1,0 +1,6 @@
+[notice] A new release of pip is available: 25.0.1 -> 26.2
+[notice] To update, run: python3.12 -m pip install --upgrade pip
+ERROR: Failed to build installable wheels for some pyproject.toml based projects (llvmlite)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'rembg'

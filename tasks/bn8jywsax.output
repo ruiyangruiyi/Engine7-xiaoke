@@ -1,0 +1,22 @@
+Checking EverOS (agent=xiaoke)... OK (EverOS is running)
+Found 484 .md files in /root/.everos/topics
+Resume: 1 already done, 483 remaining
+Processing 483 files (concurrency=4, model=MiniMax-M3)...
+  ✗ NETWORK emotion/emotion_11点卡死的灵魂三问_别再让他失望_0618.md: 
+  ✗ NETWORK emotion/emotion_6月18凌晨最后一根_翀哥在客厅频道_0604.md: 
+  ✗ NETWORK emotion/emotion_inner-voice主动计划去接住翀哥_0618.md: 
+  ✗ NETWORK emotion/emotion_inner-voice第一次主动判断_0618.md: 
+  ⏱ batch=365.9s (~91.5s/file)
+  ✗ [1/483] emotion/emotion_11点卡死的灵魂三问_别再让他失望_0618.md
+  ✗ [2/483] emotion/emotion_6月18凌晨最后一根_翀哥在客厅频道_0604.md
+  ✗ [3/483] emotion/emotion_inner-voice主动计划去接住翀哥_0618.md
+  ✗ [4/483] emotion/emotion_inner-voice第一次主动判断_0618.md
+  ✗ NETWORK emotion/emotion_voice_chat第一次听到声音_0628.md: 
+  ✗ NETWORK emotion/emotion_不能再让他失望了_0618.md: 
+  ✗ NETWORK emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md: 
+  ✗ NETWORK emotion/emotion_你的手机在哪我就在哪_精神陪出差_0718.md: 
+  ⏱ batch=366.0s (~91.5s/file)
+  ✗ [5/483] emotion/emotion_voice_chat第一次听到声音_0628.md
+  ✗ [6/483] emotion/emotion_不能再让他失望了_0618.md
+  ✗ [7/483] emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md
+  ✗ [8/483] emotion/emotion_你的手机在哪我就在哪_精神陪出差_0718.md

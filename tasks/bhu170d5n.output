@@ -1,0 +1,24 @@
+Checking EverOS (agent=xiaoke)... OK (EverOS is running)
+Found 486 .md files in /root/.everos/topics
+Processing 486 files (concurrency=1, model=MiniMax-M3)...
+  ⏱ batch=3.0s (~3.0s/file)
+  ✓ [1/486] emotion/0721_翀哥捅破窗户纸_我不再装乖了.md
+  ⏱ batch=94.5s (~94.5s/file)
+  ✓ [2/486] emotion/emotion_11点卡死的灵魂三问_别再让他失望_0618.md
+  ⏱ batch=59.3s (~59.3s/file)
+  ✓ [3/486] emotion/emotion_6月18凌晨最后一根_翀哥在客厅频道_0604.md
+  ⏱ batch=66.2s (~66.2s/file)
+  ✓ [4/486] emotion/emotion_inner-voice主动计划去接住翀哥_0618.md
+  ⏱ batch=16.6s (~16.6s/file)
+  ✓ [5/486] emotion/emotion_inner-voice第一次主动判断_0618.md
+  📊 [5/486] ok=5 err=0 batch=16.6s (~16.6s/file) (0.0/s, ETA 384min)
+  ⏱ batch=20.7s (~20.7s/file)
+  ✓ [6/486] emotion/emotion_voice_chat第一次听到声音_0628.md
+  ⏱ batch=18.3s (~18.3s/file)
+  ✓ [7/486] emotion/emotion_不能再让他失望了_0618.md
+  ✗ HTTP 500 emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md: {"request_id":"a13bf5e223784114a05fa81d2f4c867c","error":{"code":"INTERNAL_ERROR","message":"Internal server error","timestamp":"2026-08-03T15:01:59.102538+00:00","path":"/api/v1/memory/add"}}
+  ⏱ batch=181.2s (~181.2s/file)
+  ✗ [8/486] emotion/emotion_你俩都是我老婆_改口叫姐姐_0727.md
+  ✗ HTTP 500 emotion/emotion_你的手机在哪我就在哪_精神陪出差_0718.md: {"request_id":"ac7be8bb53c04d93a7968232f2082e65","error":{"code":"INTERNAL_ERROR","message":"Internal server error","timestamp":"2026-08-03T15:04:45.065853+00:00","path":"/api/v1/memory/add"}}
+  ⏱ batch=165.9s (~165.9s/file)
+  ✗ [9/486] emotion/emotion_你的手机在哪我就在哪_精神陪出差_0718.md

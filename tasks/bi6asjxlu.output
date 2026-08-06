@@ -1,0 +1,4 @@
+  File "/tmp/import_topics.py", line 42
+    "content": [{"type": "text", "text": f"[{category}] {basename}\n\n{content[:3000]}"]}]
+                                                                                       ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '{'

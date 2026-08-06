@@ -1,0 +1,22 @@
+[
+  {
+    "activeForm": "搭建 CDP 基础设施",
+    "content": "搭建 CDP 基础设施：package.json + chrome-remote-interface + 启动脚本",
+    "status": "completed"
+  },
+  {
+    "activeForm": "写 CDP 工具函数库",
+    "content": "写 cdp 工具函数库（导航/点击/输入/读DOM/截图）",
+    "status": "completed"
+  },
+  {
+    "activeForm": "端到端验证 CDP 链路",
+    "content": "端到端验证：Chrome 启动→导航→操作→截图→my_eyes 识别",
+    "status": "in_progress"
+  },
+  {
+    "activeForm": "整合方案写入知识文档",
+    "content": "和桌面操作方案整合，写进 knowledge doc",
+    "status": "pending"
+  }
+]

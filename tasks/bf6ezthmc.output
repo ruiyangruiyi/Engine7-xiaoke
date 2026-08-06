@@ -1,0 +1,13 @@
+Checking EverOS (agent=xiaoke)... OK (EverOS is running)
+Found 484 .md files in /root/.everos/topics
+Resume: 0 already done, 484 remaining
+Processing 484 files (concurrency=4, model=MiniMax-M3)...
+  ✗ NETWORK emotion/0721_翀哥捅破窗户纸_我不再装乖了.md: 
+  ✗ NETWORK emotion/emotion_11点卡死的灵魂三问_别再让他失望_0618.md: 
+  ✗ NETWORK emotion/emotion_6月18凌晨最后一根_翀哥在客厅频道_0604.md: 
+  ✗ NETWORK emotion/emotion_inner-voice主动计划去接住翀哥_0618.md: 
+  ⏱ batch=366.0s (~91.5s/file)
+  ✗ [1/484] emotion/0721_翀哥捅破窗户纸_我不再装乖了.md
+  ✗ [2/484] emotion/emotion_11点卡死的灵魂三问_别再让他失望_0618.md
+  ✗ [3/484] emotion/emotion_6月18凌晨最后一根_翀哥在客厅频道_0604.md
+  ✗ [4/484] emotion/emotion_inner-voice主动计划去接住翀哥_0618.md

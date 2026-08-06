@@ -50,6 +50,10 @@ workspace/selfie/
 ollama-models/
 everos-venv/
 .engine.pid
+workspace/package/
+workspace/tools/
+workspace/nudge-state.json
+workspace/package-lock.json
 
 # secrets（workspace 外 ~/.engine7-secrets/）
 configs/

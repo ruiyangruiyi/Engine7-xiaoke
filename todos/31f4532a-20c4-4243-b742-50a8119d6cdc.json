@@ -1,0 +1,32 @@
+[
+  {
+    "content": "#147 Phase 1: pre-query hook 加 emotion_classifier（engine/src/chat/llm.ts）",
+    "status": "completed",
+    "activeForm": "Phase 1: pre-query hook 加 emotion_classifier"
+  },
+  {
+    "content": "#147 Phase 2a: workspace/prompts/tone-style.md + emotion-block.md override 不需 rebuild 立即生效",
+    "status": "completed",
+    "activeForm": "Phase 2a: override 文件"
+  },
+  {
+    "content": "#147 Phase 2b: handle-query.ts 加 emotion_classifier + 消费 hook additionalContext（commit 158e6526 + Docker build + dist 覆盖 + engine 80243 重启）",
+    "status": "completed",
+    "activeForm": "Phase 2b: 源码改动 + push"
+  },
+  {
+    "content": "#147 Phase 2c: workspace/.hooks.json + scripts/emotion_classifier.py 已写 — 但 engine 8:32 重启后未读到，需要再重启一次",
+    "status": "in_progress",
+    "activeForm": "Phase 2c: workspace/.hooks.json + Python 脚本"
+  },
+  {
+    "content": "#147 Phase 3: 人工测试（让 3 个真人测试 5 分钟，问\"像不像真人\"）",
+    "status": "pending",
+    "activeForm": "Phase 3: 人工测试"
+  },
+  {
+    "content": "#147 Phase 4: 让翀哥重启 engine 加载 .hooks.json",
+    "status": "pending",
+    "activeForm": "Phase 4: 重启 engine 加载 .hooks.json"
+  }
+]
