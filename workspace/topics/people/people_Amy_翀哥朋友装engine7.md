@@ -33,6 +33,7 @@ date: 2026-08-03
   - 后续在群里陆续教 Amy 五件事：①换头像（open.feishu.cn→开发者后台→Amy 应用→换头像→发布新版本）②改人设（notepad 打开 SOUL.md，名字/性格/说话风格都可改）③联网搜索（config 加 tavily 免费 key）④关调试信息（config 里 `toolDisplay` 改 `false`）⑤日程（直接说"加个日程"/"明天有什么安排"）
   - Amy 已能用上 SOUL.md 自定义名字、tavily 搜索、calendar 加日程
 - **8/4 上午观察**：Amy 在群里发截图——她的 bot"实现了理想的Amy"在帮她**设早起闹钟**、给 A/B/C/D 方案选择。证明 bot 真的能跑了，不只是回"你好"，已经能主动交互+给选项。✅ 实际可用里程碑
+- **8/7 早 06:14 engine 429**：Amy 群发截图，她的 engine 连发 5 个 Anthropic API 429（"已达到 Token Plan 用量上限"）。根因=她用的 MiniMax Token Plan（翀哥账号提供）**周限额已满**，不是她配置问题——已在群里安抚。与 #141/#142 止损任务相关：**外部用户 Amy 也在吃同一个 Token Plan**，止损时要把外部用户消耗算进去。复位 ~8/9 深夜或 Amy 自购 49 元套餐用自己 key
 
 ## 门槛问题（翀哥定方案）
 

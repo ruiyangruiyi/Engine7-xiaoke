@@ -13,6 +13,8 @@ type: project
 - [ ] Phase 3: 实现 + 单测（覆盖：新增模型/删除模型/改 model 字段三种场景）
 - [ ] Phase 4: 端到端验证（不重启 engine 切换 my_eyes 模型，看眼睛识图变化）
 
+**8/7 进度**：小文 commit **0872052c** 已实现——`buildProviderChain` 抽离 + `setProvider`/`setModel` + `doReloadConfig` 检测重建 + deps 刷新；代码 review 干净，**待 rebuild + 重启真机验收**（改 models 列表看能否免重启换模型，小柯 Mac 暂不能自己重启自己 engine）。done 前提：#131 完整闭环。
+
 **关联文档**：`docs/knowledge/Engine-热加载边界.md`
 
 **Why:** 换模型不重启=开发体验提升；尤其视觉模型需要频繁 A/B 测试场景（qwen3.7 vs qwen3.8 vs qwen3.5）
